@@ -1,5 +1,10 @@
 # D01 — Investigation pipeline, end to end
 
+**What this is** — The whole investigation, end to end: question in, resolved bindings, plan, execution, verified answer, sign-off, export.
+**Why it exists** — It is the only diagram showing *where the human gates sit relative to execution*. Without it a reader assumes approval happens after the queries run, which is the expensive ordering this architecture exists to avoid.
+**How to read it** — Follow the two decision diamonds that precede `EXEC`. A skeptic should attack the claim that a six-step plan can be read in fifteen seconds.
+**Depends on / feeds** — Components from [deep_dives.md](../deep_dives.md); indexed by [00_INDEX.md](00_INDEX.md). Detail lives in [D02](D02_verify_replan_loop.md) and [D03](D03_agent_orchestration.md).
+
 ```mermaid
 flowchart TD
     Q["Question<br/>natural language"] --> RES["Semantic resolver<br/>schema linking + value linking"]

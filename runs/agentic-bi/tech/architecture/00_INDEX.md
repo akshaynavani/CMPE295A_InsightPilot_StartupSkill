@@ -3,7 +3,7 @@
 **What this is** — Ten diagrams covering the system end to end, each with a caption naming what a reviewer should notice and what it deliberately omits.
 **Why it exists** — [deep_dives.md](../deep_dives.md) describes seven components in isolation; a reviewer needs to see how they compose, where the trust boundaries sit, and where the failure paths go. The specific failure this prevents: the architecture diagram that is boxes labelled "AI" — every diagram here shows a mechanism or it was cut.
 **How to read it** — D03 and D08 carry the most weight; D06 is what unblocks the sale. A skeptic should attack D02, which shows the replanning loop that DABstep says is ≈15% reliable on hard tasks, and D09, which describes scalability for a product that has no users.
-**Depends on / feeds** — Components from [deep_dives.md](../deep_dives.md); loop and principles from [product/PRD.md](../product/PRD.md); deployment constraint from ASSUMPTIONS A5. Feeds `narrative/` and the deferred visuals phase.
+**Depends on / feeds** — Components from [deep_dives.md](../deep_dives.md); loop and principles from [product/PRD.md](../../product/PRD.md); deployment constraint from ASSUMPTIONS A5. Feeds `narrative/` and the deferred visuals phase.
 
 ---
 

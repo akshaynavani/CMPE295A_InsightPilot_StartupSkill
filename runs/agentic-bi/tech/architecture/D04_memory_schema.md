@@ -1,5 +1,10 @@
 # D04 — Durable record and binding store
 
+**What this is** — The durable record: what persists per organisation across investigations, and with what provenance.
+**Why it exists** — The learning flywheel is asserted in three artifacts and is only real if the data model captures it. This is where compounding becomes columns, including the one column that could falsify the moat candidate.
+**How to read it** — `override_count`, `provenance` and the two `NOT_` fields carry the argument. A skeptic should attack whether these are sufficient to evidence compounding.
+**Depends on / feeds** — Flywheel from [product/PRD.md](../../product/PRD.md) §6; read by [D08](D08_evaluation_harness.md).
+
 ```mermaid
 erDiagram
     ORGANISATION ||--o{ BINDING : "accumulates"

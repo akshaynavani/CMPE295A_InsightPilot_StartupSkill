@@ -1,5 +1,10 @@
 # D02 — The verify-and-replan closed loop
 
+**What this is** — The per-hop verification loop: six structural checks, the amber and red branches, replanning, and the partial-result exit.
+**Why it exists** — The differentiator rests on catching failures between hops rather than after them. This is where that claim becomes a mechanism a reviewer can check, and where the residual risk it cannot cover is drawn explicitly rather than omitted.
+**How to read it** — The `NOTCHK` node and the `GRAIN` branch carry the honesty. A skeptic should attack the residual named at the foot of the page.
+**Depends on / feeds** — Hop verifier from [deep_dives.md](../deep_dives.md) §4; sits inside `VER` in [D01](D01_investigation_pipeline.md).
+
 ```mermaid
 flowchart TD
     STEP["Execute step N"] --> OUT["Step output<br/>rows + declared grain"]

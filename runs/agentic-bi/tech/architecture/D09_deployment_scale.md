@@ -1,5 +1,10 @@
 # D09 — Deployment topology and where scale actually binds
 
+**What this is** — The deployment topology, and the three places concurrency actually binds.
+**Why it exists** — It exists mainly to say that the scaling story is ordinary and must not be sold as a differentiator, and to show that the real ceiling is human review capacity, which no amount of horizontal scaling touches.
+**How to read it** — Bottleneck 3 is the only one that matters. A skeptic should attack what single-tenancy costs the moat.
+**Depends on / feeds** — Single-tenancy from [ASSUMPTIONS.md](../../ASSUMPTIONS.md) A5; the review ceiling is A12.
+
 ```mermaid
 flowchart TD
     subgraph DEP["ONE DEPLOYMENT = ONE ORGANISATION"]

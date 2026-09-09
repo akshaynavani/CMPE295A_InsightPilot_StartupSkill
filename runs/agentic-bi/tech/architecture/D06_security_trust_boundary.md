@@ -1,5 +1,10 @@
 # D06 — Security and the trust boundary
 
+**What this is** — The trust boundary: everything inside the customer environment, and the single egress that leaves it.
+**Why it exists** — The platform lead can end a deal without attending a meeting, and he is convinced by artifacts rather than conversation. This diagram is that artifact, and it is what makes the neutrality claim a property rather than an assertion.
+**How to read it** — Count the arrows crossing the boundary. A skeptic should attack the egress mode, which is a disclosed tradeoff rather than a solved problem.
+**Depends on / feeds** — Deployment decision from [ASSUMPTIONS.md](../../ASSUMPTIONS.md) A5; satisfies the veto in [validation/decision_making_unit.md](../../validation/decision_making_unit.md) §2.3.
+
 ```mermaid
 flowchart TD
     subgraph CUST["CUSTOMER ENVIRONMENT — everything below runs here"]

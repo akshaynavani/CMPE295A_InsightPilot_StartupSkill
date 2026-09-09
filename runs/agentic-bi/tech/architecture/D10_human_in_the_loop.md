@@ -1,5 +1,10 @@
 # D10 — Human-in-the-loop and escalation
 
+**What this is** — Every point a human intervenes, by role: three mandatory gates and two optional ones.
+**Why it exists** — A system whose human gates are all optional has none, because optional review is skipped under load. This diagram fixes which gates cannot be skipped, and shows that every intervention writes something durable rather than merely unblocking flow.
+**How to read it** — The `H4` branch on requester role is the entire low-edge design. A skeptic should attack whether the review queue scales.
+**Depends on / feeds** — Sign-off from [product/features_flagship.md](../../product/features_flagship.md) #19; the queue risk is [ASSUMPTIONS.md](../../ASSUMPTIONS.md) A12.
+
 ```mermaid
 flowchart TD
     Q["Question asked"] --> H1{"H1 · CLARIFICATION<br/>term ambiguous?"}

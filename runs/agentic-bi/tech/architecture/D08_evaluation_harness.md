@@ -1,5 +1,10 @@
 # D08 — Evaluation, observability and safety monitoring
 
+**What this is** — The measurement system: the fixed question set, the seeded-error set, the four harness outputs, and the production telemetry derived from lineage.
+**Why it exists** — This is feature #1, built before any agent, and the diagram exists to make that ordering legible. It also draws the negative outcomes as legitimate terminal states, because a measurement system that can only confirm its own hypothesis is not one.
+**How to read it** — The two decision diamonds are falsifiers, not milestones. A skeptic should attack what the harness cannot measure.
+**Depends on / feeds** — Metrics from [product/PRD.md](../../product/PRD.md) §7; drives [validation/experiment_board.md](../../validation/experiment_board.md) E6 and E7.
+
 ```mermaid
 flowchart TD
     subgraph HARNESS["Evaluation harness — FEATURE #1, built before the agents"]

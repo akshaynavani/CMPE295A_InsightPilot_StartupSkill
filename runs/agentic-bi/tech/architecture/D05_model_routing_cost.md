@@ -1,5 +1,10 @@
 # D05 — Model routing and cost control
 
+**What this is** — Which work goes to a frontier model, which to a small one, and which to no model at all, plus the four cost guards.
+**Why it exists** — An agentic product is priced by what it spends inference on. This diagram shows that the differentiating mechanism costs zero model tokens, which is the most favourable fact in the cost model and easy to disbelieve without seeing it.
+**How to read it** — The green block is the point. A skeptic should attack the retry-count assumption, which is unmeasured and dominates cost.
+**Depends on / feeds** — Cost shape from [not_vaporware.md](../not_vaporware.md) §3; feeds [financials/unit_economics.md](../../financials/unit_economics.md).
+
 ```mermaid
 flowchart TD
     subgraph NOMODEL["Zero model calls — pure SQL / compute"]

@@ -1,5 +1,10 @@
 # D07 — Connectors and semantic-layer integration
 
+**What this is** — Two separate interfaces: sources that hold data, and semantic layers that hold meaning.
+**Why it exists** — Collapsing these into one connector abstraction is the natural engineering instinct, and it would forfeit the answer to the buyer’s hardest objection. The diagram exists to fix the precedence rule before it is implemented away.
+**How to read it** — The doubled arrow is a hard override, not a hint. A skeptic should attack the dependency on artifacts the customer maintains for another vendor.
+**Depends on / feeds** — Principle P6 from [product/PRD.md](../../product/PRD.md) §3; tested by [validation/experiment_board.md](../../validation/experiment_board.md) E9.
+
 ```mermaid
 flowchart TD
     ORCH["Orchestrator"] --> SI["Source interface<br/>one contract: describe · sample · execute · profile"]

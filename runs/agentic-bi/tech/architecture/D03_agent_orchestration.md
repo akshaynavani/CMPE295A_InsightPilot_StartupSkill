@@ -1,5 +1,10 @@
 # D03 — Multi-agent orchestration
 
+**What this is** — The star topology: one Orchestrator, four specialist agents, and the handoff contracts between them.
+**Why it exists** — Multi-agent is the phrase in this pack most likely to be taken on trust. This diagram makes the structural claim checkable, and declines the broader claim that four agents beat one tool-calling loop, which no evidence here supports.
+**How to read it** — Notice what is absent: there are no agent-to-agent edges. A skeptic should attack the four-agent decomposition itself.
+**Depends on / feeds** — Agents from [product/PRD.md](../../product/PRD.md) §5; expands `AGENTS` in [D01](D01_investigation_pipeline.md).
+
 ```mermaid
 flowchart TD
     ORCH["ORCHESTRATOR<br/>owns the plan DAG<br/>owns all routing"]
