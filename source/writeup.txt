@@ -1,0 +1,158 @@
+                   Agentic BI
+
+       An AI-Powered Conversational Business Intelligence Platform
+
+A multi-agent system for natural-language data analysis, automated visualization, and
+machine-learning-assisted business intelligence.
+
+Project Proposal
+
+Prepared for academic project discussion
+
+Agentic BI - Project Proposal  Page 1
+1. Project Overview
+
+This project proposes an AI-powered Business Intelligence platform that allows users to
+interact with organizational data through natural-language conversations. Instead of requiring
+users to manually write queries, clean data, build dashboards, and select machine-learning
+techniques, the platform uses specialized AI agents to automate these activities.
+
+A user could ask: "Why did our sales decrease last quarter, which regions were affected, and
+can you predict next month's sales?" The system would understand the request, retrieve and
+prepare the required data, perform the analysis, generate visualizations, and optionally build a
+machine-learning model to produce a forecast.
+
+The platform will function as a conversational analytics assistant rather than simply displaying
+pre-built dashboards. Its central capability is to plan and execute an end-to-end analytical
+workflow based on the user's intent.
+
+2. Problem Statement
+
+Traditional BI tools often require users to manually connect data sources, understand data
+models, write queries, prepare datasets, create visualizations, and interpret the results. These
+steps can be difficult for non-technical users and can make analytics slow and dependent on
+specialized teams.
+
+The proposed platform addresses this problem by allowing users to describe their analytical
+requirements in natural language. AI agents then coordinate data retrieval, preparation,
+analysis, visualization, and machine-learning tasks.
+
+3. Main Objective
+
+The objective is to develop a multi-agent BI platform that can:
+
+  - Understand business questions expressed in natural language.
+  - Retrieve and prepare relevant data for analysis.
+  - Perform descriptive, diagnostic, and predictive analysis.
+  - Automatically generate meaningful visualizations.
+  - Build and evaluate machine-learning models when required.
+  - Explain analytical results in an understandable and traceable manner.
+
+Agentic BI - Project Proposal  Page 2
+4. Multi-Agent Architecture
+
+The platform will be organized as a group of specialized agents. Each agent will be responsible
+for a specific stage of the analytics workflow, while the Orchestrator Agent coordinates the
+complete process.
+
+0. Orchestrator Agent
+
+Central coordinator of the platform.
+  - Understands the user's intent and maintains conversational context.
+  - Breaks complex questions into smaller analytical tasks.
+  - Decides which agents should be invoked and in what sequence.
+  - Combines agent outputs into a final response for the user.
+
+1. Data Fetch/Integration Agent
+
+Retrieves and prepares the data required for analysis.
+  - Identifies the required data sources and entities.
+  - Inspects schemas, metadata, files, tables, or API objects.
+  - Generates queries or API requests and retrieves the data.
+  - Handles authentication, pagination, retries, and connector errors.
+  - Cleans, normalizes, and merges related datasets.
+
+2. Data Analytics Agent
+
+Performs analytical operations on prepared data.
+  - Calculates KPIs, aggregations, and descriptive statistics.
+  - Performs trend, comparison, correlation, and segmentation analysis.
+  - Detects anomalies and outliers.
+  - Investigates possible causes behind observed business changes.
+
+3. Visualization Agent
+
+Converts analytical results into understandable visual outputs.
+  - Selects suitable chart types based on the analytical question.
+  - Generates charts, KPI cards, dashboards, and reports.
+  - Highlights important trends, comparisons, and anomalies.
+  - Supports follow-up questions and interactive exploration.
+
+Agentic BI - Project Proposal  Page 3
+4. ML Agent
+
+Handles machine-learning-related tasks when prediction or modeling is required.
+  - Identifies target and feature columns.
+  - Handles missing values, categorical features, scaling, and data leakage.
+  - Splits data and selects suitable algorithms.
+  - Trains and evaluates regression, classification, clustering, forecasting, or anomaly models.
+  - Generates predictions and explains important model results.
+
+5. Example End-to-End Workflow
+
+A user asks: "Which customers are at risk of leaving based on declining purchases and
+increasing support issues?"
+
+Step Agent activity
+
+1  The Orchestrator Agent interprets the request and creates an execution plan.
+
+2  The Data Fetch/Integration Agent retrieves purchase and support data.
+
+3  Related customer records are matched, cleaned, and merged.
+
+4  The Data Analytics Agent identifies declining purchases and increasing support issues.
+
+5  The ML Agent optionally builds a churn-risk model.
+
+6  The Visualization Agent generates customer-risk charts and summaries.
+
+7  The Orchestrator Agent presents the final explanation in the chat interface.
+
+The platform may respond: "Five customers show high churn risk. Their purchase
+frequency decreased by more than 20%, while unresolved support issues increased
+during the same period. Customer A has the highest risk because its revenue declined by
+35% and its unresolved issues increased by 60%."
+
+6. System Characteristics
+
+  - Conversational: users interact through natural-language questions and follow-ups.
+  - Multi-agent: specialized agents collaborate on different analytics tasks.
+  - Data-source independent: the workflow can work with different kinds of data sources.
+  - Predictive: the ML Agent can support forecasting and predictive modeling.
+  - Explainable: results include understandable reasoning and supporting evidence.
+  - Traceable: the system can record the data, transformations, queries, and methods used.
+  - Extensible: additional data sources, analytical methods, and agents can be added later.
+
+Agentic BI - Project Proposal                                                              Page 4
+7. Expected Outcome
+
+The expected outcome is a functional conversational BI prototype that transforms
+natural-language questions into complete analytics workflows. The platform will demonstrate
+how AI agents can assist with data retrieval, data preparation, business analysis, visualization,
+machine learning, and insight generation.
+
+8. Conclusion
+
+The proposed project is an agentic Business Intelligence platform that combines
+conversational interaction with automated data analytics and machine learning. Instead of
+requiring users to manually navigate multiple BI tools, write queries, prepare datasets, select
+visualizations, and build models, the system allows them to describe their analytical
+requirement in natural language. The specialized agents then collaborate to execute the
+workflow and communicate the results in an understandable manner.
+
+The project demonstrates a practical application of multi-agent AI in business analytics
+and aims to make advanced BI capabilities more accessible to non-technical users.
+
+Agentic BI - Project Proposal  Page 5
+
