@@ -4,22 +4,26 @@ Not a pack artifact; deliberately outside `runs/agentic-bi/` so it stays out of 
 
 ## Where the run stopped
 
-**Phases 0, 1, 2 and 3 complete and committed. Phase 4 (`startup-tech`) not started — no files in `tech/`.**
+**Phases 0–4 complete and committed. Phase 5 (`startup-narrative`) not started — no files in `narrative/`.**
 
-Phase 1 wrote the five research files, closed A6 and A9, closed A8 partially, raised A11. Phase 2 wrote the eleven strategy files and closed A5 and A11 by founder decision at the gate. Phase 3 wrote the eight product files and raised A12. `ASSUMPTIONS.md` and `README.md` refreshed at every checkpoint.
+Phase 1 wrote the five research files, closed A6 and A9, closed A8 partially, raised A11. Phase 2 wrote the eleven strategy files and closed A5 and A11 by founder decision at the gate. Phase 3 wrote the eight product files and raised A12. Phase 4 wrote nineteen tech files. `ASSUMPTIONS.md` and `README.md` refreshed at every checkpoint.
 
-Search budget: **35 web searches + 6 direct page fetches** across phases 1–3, against a 200 limit. Phase 3 needed no new searches — it is downstream synthesis. See *Operational lesson* below.
+Search budget: **35 web searches + 6 direct page fetches** across all phases, against a 200 limit. Phases 3 and 4 needed no new searches — both are downstream synthesis. See *Operational lesson* below.
 
 **Cadence agreed with the founder: one phase at a time, commit, report, continue.**
 
 ## Start here in the new session
 
 1. Read `runs/agentic-bi/BRIEF.md` and `runs/agentic-bi/ASSUMPTIONS.md` — source of truth and decision ledger. **The resolutions in A5, A6, A8, A9 and A11 are binding on every later phase and are easy to lose in transit.**
-2. Read `runs/agentic-bi/product/PRD.md` §3 (the ten principles) and §5 (features by loop phase), plus `research/capability_table.md` — these are what phase 4 consumes. The whitepaper must not contradict the principles or the measured capability gaps.
-3. Read the skill: `C:\Users\019115720\.claude\skills\startup-tech\SKILL.md`, plus `C:\Users\019115720\.claude\references\quality-bar.md`.
-4. Run phase 4 → `runs/agentic-bi/tech/` (18 rows: whitepaper, deep dives, 11 architecture diagrams, technique waves). Commit, report. Then phases 5 → 7, then 9 (audit).
+2. Read `runs/agentic-bi/strategy/positioning.md` §5 and §5.1 (the statement and the do-not-say list), `tech/whitepaper.md` §5 (the honest total), and `product/journeys/beachhead.md` — these are what phase 5 consumes.
+3. Read the skill: `C:\Users\019115720\.claude\skills\startup-narrative\SKILL.md`, plus `C:\Users\019115720\.claude\references\quality-bar.md`.
+4. Run phase 5 → `runs/agentic-bi/narrative/` (6 rows: one-pager, VC memo, pitch deck, future press, founder story, mission). Commit, report. Then phases 6 → 7, then 9 (audit).
 
-**Note for phase 4.** The tech layer is the one most likely to violate A2 by manufacturing a 10x claim from the architecture, and most likely to violate P9 by promising MLE-bench behaviour from the ML agent. `product/PRD.md` §3 is the constraint set; cite `research/survey.md` §5.2 in the whitepaper's teardown unsoftened, per that file's own recommendation.
+**Note for phase 5 — this is the highest-risk phase in the pack for claim inflation.** The narrative layer exists to persuade, and four numbers in `tech/` are seductive and forbidden or constrained:
+- **The 13.8× queueing multiplier** (`tech/whitepaper.md` §3.1) is computed and explicitly **withdrawn**. It must not appear in any narrative artifact.
+- **The honest headline is ≈2.9× (band 1.8×–4.2×)** on multi-source questions, and **≈1.0× or below** on single-source familiar questions. Both halves travel together.
+- **No head-to-head accuracy claim** against Genie, Cortex or Copilot is supportable — none publishes a benchmark (A6 constraint 4).
+- **The ML agent's 36.4% MLE-bench figure runs on a 12-hour budget** — quoting it for a conversational product violates P9.
 
 ## Hard constraints — do not violate
 
@@ -52,6 +56,14 @@ Search budget: **35 web searches + 6 direct page fetches** across phases 1–3, 
 14. **Never present a confidence score as accuracy** (P3). The system reports what it checked and what it is unsure about — different claims. A green verification tick must read as "these structural checks passed," never "the answer is right."
 15. **Ten non-goals in `product/PRD.md` §2.2 are real renunciations**, including no unsupervised self-service for non-technical users, no semantic layer of our own, no data-quality improvement, and no claim to beat incumbents on single-source single-hop accuracy. Later phases must not quietly re-acquire any of them.
 16. **Build order is fixed by `product/features_prioritized.md`:** evaluation harness first (#1), then Postgres/CSV, Orchestrator, plan surface, fetch, analytics, lineage, verification, export. The pre-decided cut list is visualization → REST → ML agent → override re-flow. **Must-not-cut: #1, #2, #9, #10, #13, #15, #11.**
+
+## Additional binding rules produced by phase 4
+
+17. **The mechanism arithmetic totals ≈2.9× (band 1.8×–4.2×)** on multi-source questions against an unmodelled source, and **≈1.0× or below on single-source familiar questions.** Both halves must travel together in every artifact. The conservative corner is 1.8×.
+18. **The 13.8× queueing multiplier is forbidden.** Computed in `tech/whitepaper.md` §3.1 and withdrawn in §3.2 because induced demand will consume it. Stated there specifically so no later phase can rediscover it as a headline.
+19. **Reflection, self-critique, LLM-as-judge and multi-agent debate are declined by principle** (`tech/techniques/wave3.md` §1). All keep verification inside the model that produced the output; P7 requires verification to run structurally different code. A later phase proposing them is reversing a decision, not adding a feature.
+20. **Two HIGH-severity technique gaps must be closed before the Analytics agent ships diagnostic questions:** multiple-comparisons correction (contribution analysis will otherwise name noise as a driver, and no structural check catches it) and calibration measurement (doubt surfacing is otherwise unfalsifiable). Both in `tech/techniques/technique_feature_matrix.md` §4.
+21. **`expected_attempts` is the dominant unknown in the cost model.** A cost model assuming one clean pass per investigation will be wrong by a large multiple, since DABstep implies retries are the common case. `financials/` must model cost per attempt × expected attempts and say the second term is unmeasured.
 
 ## Open decisions — none
 

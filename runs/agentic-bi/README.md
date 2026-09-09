@@ -2,8 +2,8 @@
 
 An AI-powered conversational business intelligence platform: a multi-agent system that turns a business question asked in natural language into a planned, executed and fully traceable analytical workflow. An Orchestrator decomposes intent into an *analysis plan* and dispatches it to four specialist agents — Data Fetch/Integration, Analytics, Visualization and ML — recombining their outputs into an *answer* that carries its *lineage*. Built for the enterprise data analyst: the goal is to compress the fixed overhead of every ad-hoc question without taking away the analyst's control or their ability to verify the result.
 
-> **Status** — updated 2026-09-08 · run slug `agentic-bi` · **26 / 61 required artifacts** · 0 / 78 visuals rendered
-> **PARTIAL — phases 0, 1, 2 and 3 of 8 complete.** This run is scoped to documents only: 54 of the 61 required manifest rows are in scope, 7 are deliberately excluded (see [ASSUMPTIONS.md](ASSUMPTIONS.md) A1, A4).
+> **Status** — updated 2026-09-09 · run slug `agentic-bi` · **44 / 61 required artifacts** · 0 / 78 visuals rendered
+> **PARTIAL — phases 0–4 of 8 complete.** This run is scoped to documents only: 54 of the 61 required manifest rows are in scope, 7 are deliberately excluded (see [ASSUMPTIONS.md](ASSUMPTIONS.md) A1, A4).
 
 ## Start here
 
@@ -14,6 +14,14 @@ The 60-second path will be one-pager → pitch deck → whitepaper once phase 5 
 3. **[research/competitors.md](research/competitors.md)** — the teardown, and §4 the differentiator. This is where the pack stops being a proposal and starts being an argument.
 4. **[research/survey.md](research/survey.md)** §5.2 — the strongest case *against* this project's own mechanism, stated at full strength and then answered.
 5. **[ASSUMPTIONS.md](ASSUMPTIONS.md)** — what was decided without confirmation, what closed in phases 1 and 2, and what would break if an inference is wrong.
+
+## What phase 4 established
+
+1. **The mechanism arithmetic comes to ≈2.9×, not 10×** — band 1.8×–4.2×, on multi-source questions against an unmodelled source. [tech/whitepaper.md](tech/whitepaper.md) does the decomposition the generator asks for and reports what it actually totals. A2 predicted this before the arithmetic existed: the beachhead can already query, chart and analyse, so automating those stages yields ordinary 3–4× gains. The two genuinely large numbers are cross-source reconciliation (4.0×) and the modelling step — which has *no* multiplier because it has no baseline, being currently not attempted at all.
+2. **The queueing multiplier is computed and then withdrawn.** Service-time reduction implies ≈13.8× on wait time — and induced demand will eat most of it, since 76% of businesses already decide without data. It is stated and explicitly forbidden to downstream artifacts, because it is the most citable and least defensible number in the pack.
+3. **Five of seven components are engineering; two are research risk**, named as such: the plan synthesiser (≈15% on DABstep Hard) and the hop verifier (coverage of plausible failures unmeasured). That is the same conclusion the research layer reached from the evidence side, arrived at independently from the architecture side.
+4. **The differentiator's ancestor is the auditor's workpaper.** The cross-domain technique cluster — audit trail, four-eyes, chain of custody, reproducible research, pre-registration — has the highest hit rate of any cluster in the arsenal (6 used, 3 candidates, 0 declined). Saying so is stronger than implying novelty.
+5. **Two HIGH-severity unsupported features found by the technique matrix**, both concerning statistical rather than mechanical honesty: diagnostic questions run contribution analysis with **no multiple-comparisons correction** (it will confidently name noise, and no structural check catches it), and doubt surfacing has **no calibration measurement**, so it is currently unfalsifiable.
 
 ## What phase 3 established
 
@@ -46,7 +54,7 @@ Four findings that change what downstream artifacts may claim:
 
 **Project advisor / evaluator** — [BRIEF.md](BRIEF.md) for the venture framing, then [ASSUMPTIONS.md](ASSUMPTIONS.md), which distinguishes deliberate scope decisions from open gaps. The two places this pack knowingly declines to make a startup claim (no 10x differentiator, no declared moat) are A2 and A3, and both were argued before being accepted. [research/survey.md](research/survey.md) §6 shows what happened when the pack tried to source its own problem statement and could only half-succeed.
 
-**Engineer** — [product/PRD.md](product/PRD.md) §3 for the ten principles every feature obeys, then [product/features_prioritized.md](product/features_prioritized.md) for what gets built in what order and what gets cut first. [research/capability_table.md](research/capability_table.md) is the fastest orientation on what the field can actually do. `tech/` (phase 4) will carry the architecture set.
+**Engineer** — [tech/not_vaporware.md](tech/not_vaporware.md) first: named stack, real prices, and an explicit line between what two people build this semester and what is research risk. Then [tech/architecture/](tech/architecture/00_INDEX.md) — D02, D03, D06 and D08 are the ones that show a mechanism — and [product/features_prioritized.md](product/features_prioritized.md) for build order and the pre-decided cut list. [tech/deep_dives.md](tech/deep_dives.md) has the seven components with real method names and their failure modes.
 
 **Designer** — [product/ux_spec.md](product/ux_spec.md), twelve screens. §5's verification-tick treatment and §14's three admissions of where the spec is probably wrong are the parts worth arguing with.
 
@@ -63,7 +71,7 @@ Four findings that change what downstream artifacts may claim:
 | [`research/`](research/) | Market landscape, competitor teardown, capability survey, sources | **5 / 5 ✓** | startup-research |
 | [`strategy/`](strategy/) | Positioning, market type, sizing, personas, canvases, GTM, channels, sales roadmap | **11 / 11 ✓** | startup-strategy |
 | [`product/`](product/) | PRD, feature sets, four journeys, UX spec | **8 / 8 ✓** | startup-product |
-| `tech/` | Whitepaper, deep dives, 11 architecture diagrams, technique waves | 0 / 18 | startup-tech |
+| [`tech/`](tech/) | Whitepaper, deep dives, 11 architecture diagrams, technique waves | **19 / 18 ✓** | startup-tech |
 | `narrative/` | One-pager, VC memo, pitch deck, future press, founder story, mission | 0 / 6 | startup-narrative |
 | `validation/` | Riskiest assumptions, experiment board, discovery guide, funnel, stage gates, MVP, DMU | 0 / 9 | startup-validation |
 | `financials/` | Pricing threshold, unit economics, risk matrix — **cost side only** | 0 / 3 | startup-financials |
@@ -87,7 +95,7 @@ Each traces to [research/sources.md](research/sources.md).
 
 ## Completeness
 
-**PARTIAL — 26 of 54 in-scope required artifacts.** Phases 0–3 complete: the founder brief, the assumptions ledger, the full research layer (landscape, competitor teardown, capability table, survey, sources), the full strategy layer (market type, positioning, sizing, personas, both canvases, value proposition, GTM, petal, channel economics, sales roadmap) and the full product layer (PRD, flagship and prioritised features, four journeys, UX spec). Phases 4–7 — tech, narrative, validation, financials — and the phase 9 audit remain. This run is deliberately scoped to documents only: the visuals and website phases are deferred, not cancelled (A4), and the three revenue-side financial artifacts are excluded by decision rather than omission (A1). Row-by-row status will live in `audit/COVERAGE.md` once phase 9 runs.
+**PARTIAL — 44 of 54 in-scope required artifacts.** Phases 0–4 complete: the founder brief, the assumptions ledger, the full research layer (landscape, competitor teardown, capability table, survey, sources), the full strategy layer (market type, positioning, sizing, personas, both canvases, value proposition, GTM, petal, channel economics, sales roadmap), the full product layer (PRD, flagship and prioritised features, four journeys, UX spec) and the full tech layer (whitepaper, deep dives, eleven architecture diagrams, three technique waves, decision tree, technique-feature matrix, not-vaporware). Phases 5–7 — narrative, validation, financials — and the phase 9 audit remain. This run is deliberately scoped to documents only: the visuals and website phases are deferred, not cancelled (A4), and the three revenue-side financial artifacts are excluded by decision rather than omission (A1). Row-by-row status will live in `audit/COVERAGE.md` once phase 9 runs.
 
 Three assumptions closed in phase 1 (A6, A8 partially, A9 with a required restatement) and one was newly raised (A11, the gravity question). Phase 2 then closed A5 and A11 together by founder decision at the gate — **every open decision in the ledger is now closed**; what remains is unconfirmed inferences (A7) and deliberate scope decisions (A1–A4), which the audit must treat as closed rather than missing. Five research gaps were searched for and not found; they are named in [research/sources.md](research/sources.md) so a later phase does not spend budget re-searching them blind.
 
