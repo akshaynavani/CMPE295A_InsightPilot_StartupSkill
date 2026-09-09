@@ -1,4 +1,4 @@
-# Agentic BI — one page
+# InsightPilot — one page
 
 **What this is** — The single page: what it is, the problem with its sharpest sourced number, the mechanism, why now, the evidence, the market, the team edge, and the ask.
 **Why it exists** — This is the artifact handed to an advisor, a design partner or a reviewer who will give the project ninety seconds. It exists because a pack of forty-four documents has no front door for a stranger, and because the temptation at this layer is to reach for the biggest number in `tech/` rather than the most defensible one. Every figure below traces to [research/sources.md](../research/sources.md).
@@ -7,7 +7,9 @@
 
 ---
 
-## Agentic BI
+## InsightPilot
+
+**An Agentic Platform for Conversational Business Intelligence**
 
 **Conversational BI for enterprise data analysts that turns a business question into a planned, executed and fully traceable analytical workflow.**
 

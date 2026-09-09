@@ -1,4 +1,4 @@
-# Pitch deck — Agentic BI
+# Pitch deck — InsightPilot
 
 **14 slides. Every title is a claim, not a category.**
 

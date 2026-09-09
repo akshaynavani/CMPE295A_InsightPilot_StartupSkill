@@ -1,4 +1,4 @@
-# Agentic BI — Assumptions & Open Decisions
+# InsightPilot — Assumptions & Open Decisions
 
 **What this is** — Every choice in this pack that was made without founder confirmation, plus every decision deliberately deferred, each with its basis and its blast radius.
 **Why it exists** — Six weeks from now nobody will remember whether "no moat declared" was an oversight or a judgment call. Without this file the audit reads deliberate scope decisions as defects and regenerates work that was cut on purpose, and the project advisor cannot distinguish a gap from a choice. That distinction is the whole point of the file.
@@ -87,6 +87,12 @@ These were raised, discussed, and decided. The audit must not reopen them.
 — note: the restatement is *stronger* than the original — it converts the pack's central risk into the justification for its signature feature.
 — kills-pack-if-wrong: **no** (weakens the narrative; the mechanism stands regardless)
 
-**A10: Run slug is `agentic-bi`; the working name is "Agentic BI".**
-— basis: taken from the proposal title. No naming exercise was run.
+**A10: The product is named InsightPilot; run slug `insightpilot`.** — **CLOSED 2026-09-09 by founder decision.**
+— original basis: the working name "Agentic BI" was taken verbatim from the proposal title, with no naming exercise run. That was recorded as a placeholder, not a choice.
+— **decision:** *InsightPilot — An Agentic Platform for Conversational Business Intelligence.* The descriptive phrase is the positioning line, not part of the name; the name alone is "InsightPilot".
+— **what was checked:** a web search on 2026-09-09 found no existing product called InsightPilot. **This is not a trademark clearance** — no USPTO or registry search was performed, and one should be before any public use.
+— **two collision risks, recorded rather than resolved:**
+  1. **`insightsoftware`** is a real and substantial BI/analytics vendor. Adjacent namespace, same category. Not a conflict, but a search-result competitor.
+  2. **The "-Pilot" suffix echoes Copilot**, and Microsoft Power BI Copilot is a named competitor this pack explicitly positions against — `strategy/positioning.md` §5.1 forbids comparative claims against it, and `product/PRD.md` non-goal 9 concedes its home turf. A name that rhymes with the incumbent you are differentiating from invites the association you are trying to break. **The founder was told and chose the name anyway; logged once, not to be re-litigated per phase.**
+— note: `source/agentic-bi-project-writeup.pdf` deliberately retains its original filename. It is the proposal as submitted and is a historical record.
 — kills-pack-if-wrong: **no**

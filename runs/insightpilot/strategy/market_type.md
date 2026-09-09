@@ -1,6 +1,6 @@
 # Market type
 
-**What this is** — A Steve Blank market-type declaration for Agentic BI: one choice among Existing, Re-segmented, New and Clone, defended from the phase 1 evidence, with the strategic consequences that follow from it.
+**What this is** — A Steve Blank market-type declaration for InsightPilot: one choice among Existing, Re-segmented, New and Clone, defended from the phase 1 evidence, with the strategic consequences that follow from it.
 **Why it exists** — Market type determines sales cycle, positioning approach, capital need and dominant risk, and getting it wrong is the most expensive early error a venture makes. The concrete failure it prevents here: treating this as an **existing market** would send the pack chasing feature parity with Databricks Genie and Power BI Copilot — a comparison this product loses on distribution before it starts — while treating it as a **new market** would license the pack to skip competitors entirely and invent adoption numbers. Both are wrong, and they are wrong in opposite directions.
 **How to read it** — §2 is the decision; §3 is what it costs you. A skeptic should attack §2.3, which argues against the re-segmentation choice using the strongest counter-case, and §3's *dominant risk* row, which says the thing most likely to kill this is not competition.
 **Depends on / feeds** — Inherits [research/competitors.md](../research/competitors.md) and [research/landscape.md](../research/landscape.md); constrained by ASSUMPTIONS [A5](../ASSUMPTIONS.md) and [A11](../ASSUMPTIONS.md), both closed at this gate. Feeds [positioning.md](positioning.md), [market_sizing.md](market_sizing.md), [gtm.md](gtm.md) and the validation layer's stage gates.
@@ -18,13 +18,13 @@ Blank's types are not labels but different *businesses*, each with its own domin
 | **New** | Creating demand that did not exist | Nobody wakes up wanting this; adoption, not competition, kills you | Longest — you fund education |
 | **Clone** | A proven model transplanted to a new geography or vertical | Execution and local dynamics | Short |
 
-The reason this is genuinely ambiguous for Agentic BI: **the category is old and the capability is not.** Conversational access to enterprise data has been attempted since at least 2014, with a documented graveyard — Watson Analytics discontinued 2019, Narrative Science absorbed 2021, Sisu absorbed 2023, Power BI Q&A fully retired December 2026 `[S59][S58][S56][S57][S40]`. Budget exists, buyers exist, and the words "ask your data a question" need no explanation. That is an existing market by every conventional test.
+The reason this is genuinely ambiguous for InsightPilot: **the category is old and the capability is not.** Conversational access to enterprise data has been attempted since at least 2014, with a documented graveyard — Watson Analytics discontinued 2019, Narrative Science absorbed 2021, Sisu absorbed 2023, Power BI Q&A fully retired December 2026 `[S59][S58][S56][S57][S40]`. Budget exists, buyers exist, and the words "ask your data a question" need no explanation. That is an existing market by every conventional test.
 
 But the thing being sold is not what that market buys. Every incumbent sells **a constrained answering surface over a pre-modelled source**; this sells **an investigation that spans sources and carries its own verification**. The buyer has budget for the former and no line item for the latter.
 
 ## 2. The declaration
 
-> **Re-segmented market — by different attribute, not by low end.** Agentic BI re-segments conversational BI along the attribute of **verifiability across sources**, taking the enterprise data analyst as its beachhead rather than the business user the category has spent a decade failing to serve.
+> **Re-segmented market — by different attribute, not by low end.** InsightPilot re-segments conversational BI along the attribute of **verifiability across sources**, taking the enterprise data analyst as its beachhead rather than the business user the category has spent a decade failing to serve.
 
 ### 2.1 The evidence for re-segmentation
 
@@ -53,7 +53,7 @@ Stated at full strength, because a market-type choice defended only by its suppo
 
 What re-segmentation commits this venture to. Each row is a decision the rest of the pack must honour.
 
-| Dimension | Consequence for Agentic BI |
+| Dimension | Consequence for InsightPilot |
 |---|---|
 | **Sales cycle** | Medium. The buyer does not need the *category* explained — they have Copilot or Genie already. They need the **distinction** explained: why an answer that spans sources and carries a hop-level trace is a different purchase from a chat box over one warehouse. Expect the first conversation to be spent on "how is this not Genie," and budget for it in every narrative artifact. |
 | **Positioning approach** | Against the *attribute*, never against the product. "The only conversational analytics layer that spans your sources and hands back a trace you can check hop by hop" — not "better than Genie." Comparative accuracy claims are forbidden (A6 constraint 4); there is no measurement to support one. |

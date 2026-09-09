@@ -108,7 +108,7 @@ The gravity question, answered structurally because there is no empirical answer
 
 ## 5. The positioning statement
 
-> **For the enterprise data analyst, Agentic BI is the only conversational analytics layer that answers a question spanning their real sources and hands back an investigation they can verify hop by hop — because the Orchestrator plans and replans across a pluggable connector layer, and every handoff emits its own inspectable, re-runnable lineage.**
+> **For the enterprise data analyst, InsightPilot is the only conversational analytics layer that answers a question spanning their real sources and hands back an investigation they can verify hop by hop — because the Orchestrator plans and replans across a pluggable connector layer, and every handoff emits its own inspectable, re-runnable lineage.**
 
 Read against the required form: *beachhead* = the enterprise data analyst; *category* = conversational analytics layer; *key benefit* = an answer spanning real sources that can be verified hop by hop; *mechanism* = plan-and-replan over a pluggable connector layer with lineage emitted per handoff.
 

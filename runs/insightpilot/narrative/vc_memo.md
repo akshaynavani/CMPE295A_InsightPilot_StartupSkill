@@ -1,4 +1,4 @@
-# Technical investor memo — Agentic BI
+# Technical investor memo — InsightPilot
 
 **Dated 2026-09-09**
 

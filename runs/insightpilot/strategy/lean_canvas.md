@@ -1,6 +1,6 @@
 # Lean canvas
 
-**What this is** — Maurya's nine-block lean canvas for Agentic BI, one table, each cell at most three bullets, with the riskiest cell marked ⚠.
+**What this is** — Maurya's nine-block lean canvas for InsightPilot, one table, each cell at most three bullets, with the riskiest cell marked ⚠.
 **Why it exists** — The pack now spans a brief, five research files and four strategy documents. This is the one page that has to hold together on its own, and its job is to make an inconsistency visible: if the problem, the solution and the unfair advantage cannot be stated in three bullets each without contradicting each other, something upstream is wrong. It is also the compression test — a venture that needs a page to explain its problem does not have one.
 **How to read it** — The ⚠ cell is the venture. A skeptic should attack *Unfair advantage*, which is deliberately close to empty, and *Revenue streams*, which is hypothetical by decision rather than by oversight.
 **Depends on / feeds** — Compresses [BRIEF.md](../BRIEF.md), [positioning.md](positioning.md), [market_sizing.md](market_sizing.md) and [personas.md](personas.md); cross-links to [business_model_canvas.md](business_model_canvas.md), which keeps the three blocks Maurya drops. Feeds `narrative/one_pager.md` and `validation/riskiest_assumptions.md`.

@@ -1,6 +1,6 @@
 # Petal diagram
 
-**What this is** — Steve Blank's petal: Agentic BI at the centre, with the five adjacent markets it draws customers *from*, the incumbents in each, and what those customers currently spend.
+**What this is** — Steve Blank's petal: InsightPilot at the centre, with the five adjacent markets it draws customers *from*, the incumbents in each, and what those customers currently spend.
 **Why it exists** — A 2×2 asks where rivals sit. The petal asks a harder and more useful question: **which existing budget and which existing habit does this displace?** Because the buyer already owns a bundled copilot ([positioning.md](positioning.md) §6.2), this venture has no greenfield budget to win — every dollar comes out of a line item that exists. Without this file the GTM plans acquisition from a market that does not exist, and the sales roadmap has no answer to "what does this replace?"
 **How to read it** — Petal 1 is where the customers actually come from, and it is the least obvious. A skeptic should attack §4, which argues that the largest petal by spend is the *wrong* one to draw from.
 **Depends on / feeds** — Inherits the teardown from [research/competitors.md](../research/competitors.md) and the buyer from [personas.md](personas.md); prices from [market_sizing.md](market_sizing.md) §2.3. Feeds [gtm.md](gtm.md), [channel_plan.md](channel_plan.md) and [sales_roadmap.md](sales_roadmap.md).

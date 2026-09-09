@@ -1,8 +1,10 @@
-# Agentic BI
+# InsightPilot
+
+**An Agentic Platform for Conversational Business Intelligence**
 
 Conversational BI for enterprise data analysts: a multi-agent system that turns a business question into a planned, executed and fully traceable analytical workflow. An Orchestrator decomposes intent into an *analysis plan*, shows it before anything runs, and dispatches it to four specialist agents — Data Fetch/Integration, Analytics, Visualization and ML — across the analyst's real sources: the warehouse, the operational database, and the file nobody has ever modelled. Every handoff emits its own *lineage*, so the answer arrives with a trace the analyst can check hop by hop. Built for the analyst who can already write the query, on the bet that **the binding constraint is not how fast an answer arrives but what it costs to verify one you did not derive.**
 
-> **Status** — 2026-09-09 · run slug `agentic-bi` · **54 / 54 in-scope required artifacts · 0 / 78 visuals rendered**
+> **Status** — 2026-09-09 · run slug `insightpilot` · **54 / 54 in-scope required artifacts · 0 / 78 visuals rendered**
 > **COMPLETE for the document scope.** 7 manifest rows are excluded or deferred by founder decision (see [audit/COVERAGE.md](audit/COVERAGE.md) §5). Visuals and website phases are deferred, not cancelled.
 > **The count above is documents, not evidence:** twelve assumptions remain untested and no customer has been interviewed.
 

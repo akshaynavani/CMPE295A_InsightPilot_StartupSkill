@@ -1,4 +1,4 @@
-# Coverage report — audit of run `agentic-bi`
+# Coverage report — audit of run `insightpilot`
 
 **Audited 2026-09-09.** Deterministic check of what exists on disk against `references/artifact-manifest.md`, plus a quality-bar pass.
 

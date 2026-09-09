@@ -1,4 +1,4 @@
-# Product requirements document — Agentic BI
+# Product requirements document — InsightPilot
 
 **Version 0.1 · 2026-09-08 · status: draft for CMPE 295A**
 

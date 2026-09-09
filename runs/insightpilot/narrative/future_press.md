@@ -11,11 +11,11 @@
 
 ## The signed answer becomes the default unit of analytical work
 
-**SAN JOSE, 14 March 2033** — Agentic BI today announced that the **signed investigation** — an analytical answer shipped with a hop-level trace and a named human reviewer — has passed 50% adoption among Fortune 500 data organisations, according to the third annual *State of Verified Analytics* survey.
+**SAN JOSE, 14 March 2033** — InsightPilot today announced that the **signed investigation** — an analytical answer shipped with a hop-level trace and a named human reviewer — has passed 50% adoption among Fortune 500 data organisations, according to the third annual *State of Verified Analytics* survey.
 
 Seven years ago, an enterprise analyst's ad-hoc question took one to four weeks to answer, and 76% of businesses admitted making decisions without consulting data because access was too hard. The industry's response was to put chat interfaces on data warehouses. Those interfaces answered quickly and were bounded to questions someone had modelled in advance, which meant the ad-hoc question — the one nobody anticipated — remained unanswered or unverifiable.
 
-Agentic BI took a different position: that the constraint was never speed, but **the cost of checking an answer you did not derive yourself.**
+InsightPilot took a different position: that the constraint was never speed, but **the cost of checking an answer you did not derive yourself.**
 
 "We stopped trying to convince people our answers were right," said [Founder], who began the project as a two-person master's capstone at San José State University in 2026. "We built a system that assumes it will sometimes be wrong and makes that cheap to discover. It turns out that is what analysts were actually asking for. They never wanted to be told to trust a black box. They wanted to check it in forty seconds instead of ninety minutes."
 
@@ -37,7 +37,7 @@ A second measure has proven more consequential: **verification cost ratio**, the
 
 ### The shape of the company
 
-Agentic BI remains an open-core project. The orchestration layer, connectors, verification checks and lineage format are Apache-licensed and self-hosted; the company sells support, managed deployment for regulated customers, and a hosted binding-review service. It reports roughly **$74M ARR across 1,900 customer organisations**, having never raised beyond a Series B.
+InsightPilot remains an open-core project. The orchestration layer, connectors, verification checks and lineage format are Apache-licensed and self-hosted; the company sells support, managed deployment for regulated customers, and a hosted binding-review service. It reports roughly **$74M ARR across 1,900 customer organisations**, having never raised beyond a Series B.
 
 "We were told repeatedly that our market was too small," said [Founder]. "Our own analysis in 2026 put the serviceable market at $123M, and we published that number rather than reaching for a slice of a $40 billion category. We were right that it was small. We were wrong about which part would grow — it turned out the lineage format mattered more than the product."
 

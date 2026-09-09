@@ -19,7 +19,7 @@ True today, and the whole of it. Not "democratise data" — the analyst is not b
 
 This is a claim about a **norm**, not about market share. The strongest available version of success is that the practice outlives the product — that "what is your verification cost ratio" becomes a question people ask their vendors, including vendors that are not us.
 
-It is deliberately not "every company runs Agentic BI." With an open-source core, the code is not the asset ([ASSUMPTIONS.md](../ASSUMPTIONS.md) A3), and a vision of exclusive ownership would contradict the licensing decision already made.
+It is deliberately not "every company runs InsightPilot." With an open-source core, the code is not the asset ([ASSUMPTIONS.md](../ASSUMPTIONS.md) A3), and a vision of exclusive ownership would contradict the licensing decision already made.
 
 ## 3. Values — five trade-offs
 
