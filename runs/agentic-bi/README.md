@@ -2,8 +2,8 @@
 
 An AI-powered conversational business intelligence platform: a multi-agent system that turns a business question asked in natural language into a planned, executed and fully traceable analytical workflow. An Orchestrator decomposes intent into an *analysis plan* and dispatches it to four specialist agents — Data Fetch/Integration, Analytics, Visualization and ML — recombining their outputs into an *answer* that carries its *lineage*. Built for the enterprise data analyst: the goal is to compress the fixed overhead of every ad-hoc question without taking away the analyst's control or their ability to verify the result.
 
-> **Status** — updated 2026-09-09 · run slug `agentic-bi` · **59 / 61 required artifacts** · 0 / 78 visuals rendered
-> **PARTIAL — phases 0–6 of 8 complete.** This run is scoped to documents only: 54 of the 61 required manifest rows are in scope, 7 are deliberately excluded (see [ASSUMPTIONS.md](ASSUMPTIONS.md) A1, A4).
+> **Status** — updated 2026-09-09 · run slug `agentic-bi` · **62 / 61 required rows covered** · 0 / 78 visuals rendered
+> **All document phases complete (0–7). Phase 9 audit is the last gate.** This run is scoped to documents only: 54 of the 61 required manifest rows are in scope, 7 are deliberately excluded (see [ASSUMPTIONS.md](ASSUMPTIONS.md) A1, A4).
 
 ## Start here — the 60-second path
 
@@ -17,6 +17,18 @@ An AI-powered conversational business intelligence platform: a multi-agent syste
 5. **[narrative/vc_memo.md](narrative/vc_memo.md)** §2 — the category-by-category demolition, and §6 the three risks that would sink it.
 6. **[research/survey.md](research/survey.md)** §5.2 — the strongest case *against* this project's own mechanism, stated at full strength and then answered.
 7. **[ASSUMPTIONS.md](ASSUMPTIONS.md)** — what was decided without confirmation, what closed in which phase, and what would break if an inference is wrong.
+
+## What phase 7 established
+
+Cost side only, by founder decision (A1). **`revenue_build.md`, `use_of_funds.md` and `comps_exits.md` are excluded and closed, not missing** — with no revenue, no CAC and no funnel, a path-to-$100M-ARR table would be fabrication.
+
+1. **Pricing is a threshold, not a forecast — and it clears by 1.3×–2.1×, not by an order of magnitude.** At $900/analyst/year plus inference, a customer must save **18–30 hours a year** to break even; the modelled saving is **38 hours**. Narrow, real, and consistent with A2's prediction that automating what a competent analyst already does well yields ordinary gains.
+2. **The unit economics invert.** Under self-hosting the **customer pays the inference on their own key**, so the dominant cost line sits on their P&L, not ours. Our gross margin reads 87–93% **for structural reasons, not efficiency** — a hosted version would carry $524/analyst-year as COGS at three attempts, making it ~42%. The file says so rather than banking the flattering number.
+3. **`expected_attempts` is the dominant unknown** — it moves cost **4.5×** across the modelled range and nobody in the category publishes it. It is a free byproduct of the 295A harness.
+4. **The cost curve is a customer tailwind and not a margin story.** Falling inference prices accrue entirely to the customer under self-hosting; our margin does not move, and cheaper inference also makes it cheaper for incumbents to widen their bounded scope.
+5. **No risk mitigates to Low.** Five of eight residuals are Medium or High, and the two fatal ones barely move — R1's mitigation is a *measurement*, not a fix. **For the capstone, R1 and R2 are deliverables rather than risks; the dominant capstone risk is R8, running out of time to scope creep.**
+
+**LTV:CAC is deliberately not quoted.** At ≈$0 CAC the ratio is arithmetically infinite and analytically meaningless.
 
 ## What phase 6 established
 
@@ -97,7 +109,7 @@ Four findings that change what downstream artifacts may claim:
 | [`tech/`](tech/) | Whitepaper, deep dives, 11 architecture diagrams, technique waves | **19 / 18 ✓** | startup-tech |
 | [`narrative/`](narrative/) | One-pager, VC memo, pitch deck, future press, founder story, mission | **6 / 6 ✓** | startup-narrative |
 | [`validation/`](validation/) | Riskiest assumptions, experiment board, discovery guide, funnel, stage gates, MVP, DMU | **9 / 9 ✓** | startup-validation |
-| `financials/` | Pricing threshold, unit economics, risk matrix — **cost side only** | 0 / 3 | startup-financials |
+| [`financials/`](financials/) | Pricing threshold, unit economics, risk matrix — **cost side only** | **3 / 3 ✓** | startup-financials |
 | `audit/` | Coverage report | 0 / 1 | startup-audit |
 
 *Counts are targets from `references/artifact-manifest.md`; the present column is derived from the glob at each checkpoint.*
@@ -118,9 +130,9 @@ Each traces to [research/sources.md](research/sources.md).
 
 ## Completeness
 
-**PARTIAL — 59 of 54 in-scope rows covered (some directories exceed their manifest count).** Phases 0–6 complete: the founder brief, the assumptions ledger, the full research layer, the full strategy layer, the full product layer, the full tech layer, the full narrative layer, and the full validation layer (riskiest assumptions, experiment board, discovery guide, get/keep/grow, stage gates, metrics by stage, pivot log, MVP definitions, decision-making unit). **Phase 7 — financials, cost side only — and the phase 9 audit remain.**
+**All document phases complete — 62 rows covering the 54 in scope** (some directories exceed their manifest count; `tech/` has 19 against 18, and the architecture set is 11 files). Phases 0–7: founder brief, assumptions ledger, research, strategy, product, tech, narrative, validation and financials. **Only the phase 9 audit remains**, which will produce `audit/COVERAGE.md` and confirm row by row that the seven excluded rows are closed by decision (A1, A4) rather than missing.
 
-**The status line counts documents, not evidence.** Twelve assumptions remain untested and no customer has been interviewed ([validation/stage_gate.md](validation/stage_gate.md) §1). This run is deliberately scoped to documents only: the visuals and website phases are deferred, not cancelled (A4), and the three revenue-side financial artifacts are excluded by decision rather than omission (A1). Row-by-row status will live in `audit/COVERAGE.md` once phase 9 runs.
+**The status line counts documents, not evidence.** Twelve assumptions remain untested and no customer has been interviewed ([validation/stage_gate.md](validation/stage_gate.md) §1). The honest one-line summary of this pack is: **sixty-two artifacts, twelve untested assumptions, zero customers interviewed.** This run is deliberately scoped to documents only: the visuals and website phases are deferred, not cancelled (A4), and the three revenue-side financial artifacts are excluded by decision rather than omission (A1). Row-by-row status will live in `audit/COVERAGE.md` once phase 9 runs.
 
 Three assumptions closed in phase 1 (A6, A8 partially, A9 with a required restatement) and one was newly raised (A11, the gravity question). Phase 2 then closed A5 and A11 together by founder decision at the gate — **every open decision in the ledger is now closed**; what remains is unconfirmed inferences (A7) and deliberate scope decisions (A1–A4), which the audit must treat as closed rather than missing. Five research gaps were searched for and not found; they are named in [research/sources.md](research/sources.md) so a later phase does not spend budget re-searching them blind.
 

@@ -4,7 +4,19 @@ Not a pack artifact; deliberately outside `runs/agentic-bi/` so it stays out of 
 
 ## Where the run stopped
 
-**Phases 0–6 complete and committed. Phase 7 (`startup-financials`) not started — no files in `financials/`.**
+**Phases 0–7 complete and committed. ALL DOCUMENT PHASES DONE. Only phase 9 (`startup-audit`) remains — no files in `audit/`.**
+
+### Next session: run the audit
+
+1. Read the skill: `C:\Users\019115720\.claude\skills\startup-audit\SKILL.md`, plus `C:\Users\019115720\.claude\references\artifact-manifest.md` and `quality-bar.md`.
+2. Run phase 9 → `runs/agentic-bi/audit/COVERAGE.md`.
+3. **The audit MUST treat these seven rows as CLOSED BY DECISION, not missing:**
+   - **A44** `financials/revenue_build.md`, **A46** `financials/use_of_funds.md`, **A48** `financials/comps_exits.md` — excluded per ASSUMPTIONS **A1** (no revenue, no CAC, no funnel; any projection would be fabricated). All three retained financials files declare this in their scope note.
+   - **A49, A50, A51, A52b** (required) and **A52, A56, A57** (optional) — visuals and website, deferred per ASSUMPTIONS **A4**. `node` is not installed on this machine and both skills shell out to it.
+4. Also treat as findings rather than defects: the five *Named gaps* in `research/sources.md` (things searched for and not found), and the five `[SPECIFIC:]` placeholders in `narrative/founder_story.md` (deliberate — only the founder can fill them; a fabricated anecdote would fail on the first follow-up).
+5. After the audit, the run is complete. Delete this RESUME.md.
+
+### Historical record of the run
 
 Phase 1 wrote the five research files, closed A6 and A9, closed A8 partially, raised A11. Phase 2 wrote the eleven strategy files and closed A5 and A11 by founder decision at the gate. Phase 3 wrote the eight product files and raised A12. Phase 4 wrote nineteen tech files. Phase 5 wrote the six narrative files and passed a forbidden-claim audit. Phase 6 wrote the nine validation files and raised A13. `ASSUMPTIONS.md` and `README.md` refreshed at every checkpoint.
 
@@ -12,19 +24,9 @@ Search budget: **35 web searches + 6 direct page fetches** across all phases, ag
 
 **Cadence agreed with the founder: one phase at a time, commit, report, continue.**
 
-## Start here in the new session
+## The pack in one line
 
-1. Read `runs/agentic-bi/BRIEF.md` and `runs/agentic-bi/ASSUMPTIONS.md` — source of truth and decision ledger. **The resolutions in A5, A6, A8, A9 and A11 are binding on every later phase and are easy to lose in transit.**
-2. Read `runs/agentic-bi/strategy/market_sizing.md` §2.3 (the $75/analyst/month threshold and its anchors), `tech/architecture/D05_model_routing_cost.md` and `tech/not_vaporware.md` §3 (the cost shape and its dominant unknown). These are what phase 7 consumes.
-3. Read the skill: `C:\Users\019115720\.claude\skills\startup-financials\SKILL.md`, plus `C:\Users\019115720\.claude\references\quality-bar.md`.
-4. Run phase 7 → `runs/agentic-bi/financials/` — **cost side only, 3 rows: A43 pricing threshold, A45 unit economics, A47 risk matrix.** Commit, report. Then phase 9 (`startup-audit` → `audit/COVERAGE.md`), which is the final gate.
-
-**Note for phase 7 — the exclusions are the point.** ASSUMPTIONS A1 excludes **A44 `revenue_build.md`, A46 `use_of_funds.md`, A48 `comps_exits.md`** by founder decision, because with no revenue, no CAC and no funnel any projection would be fabricated. **The audit must treat these three as closed, not missing.** Phase 7's job is the three retained rows, all computable from the architecture:
-- **Pricing as a falsifiable threshold**, not a forecast: *what would have to be true for $900/analyst/year to clear cost-to-serve?*
-- **Unit economics per investigation**, where the dominant term — `expected_attempts` — is **unmeasured and must be stated as unmeasured** (RESUME rule 21). A model assuming one clean pass will be wrong by a large multiple.
-- **Risk matrix**, which should consume `validation/riskiest_assumptions.md` rather than re-deriving it.
-
-Anchors that already exist: Cortex Analyst at **≈$0.134/message** with warehouse compute billed separately `[S38][S39]`; ThoughtSpot Pro **$50/user/month with Spotter capped at 25 queries** `[S44]`; Hex **$36–75/editor/month** `[S52]`. **Verification consumes zero model tokens** — it is SQL — which is the single most important fact for the cost model.
+**Sixty-two artifacts, twelve untested assumptions, zero customers interviewed.** Say this first in any review — the status line counts documents, not evidence, and `validation/stage_gate.md` places the venture at Customer Discovery, *not exited*.
 
 ## Hard constraints — do not violate
 
@@ -82,6 +84,14 @@ Anchors that already exist: Cortex Analyst at **≈$0.134/message** with warehou
 30. **Report E6 (accuracy) and E7 (silent-error rate) together, always.** Accuracy alone is the flattering half; publishing it without the silent-error figure is exactly the selective reporting this pack criticises incumbents for.
 31. **Hop-inspection rate has a healthy band of 20–60%, and both extremes are failures.** Near 0% = the trace is decoration; near 100% = re-derivation with a nicer interface. Do not treat it as a metric to maximise.
 32. **`pivot_log.md` §4 names the pivot to refuse:** moving to the business-user market after a disappointing analyst result. That is P1 reopened, it was already priced by ThoughtSpot's 73.67% markdown, and it makes the verification problem unsolvable rather than easier.
+
+## Additional binding rules produced by phase 7
+
+33. **Pricing is a threshold, never a forecast.** $900/analyst/year requires **18–30 hours saved per year** to break even (varying with `expected_attempts`); the modelled saving is **38 hours**. Margin is **1.3×–2.1×** — narrow and real. It fails if multi-source share drops below 15%, if attempts exceed 5, or if E1 fails.
+34. **Never quote the 87–93% gross margin without §4.2's explanation.** It is high because the customer absorbs inference under self-hosting, not because of operating efficiency. A hosted version would be ~42% at three attempts.
+35. **Never quote an LTV:CAC ratio.** At ≈$0 CAC it is arithmetically infinite and analytically meaningless. The metric that matters is **expansion — deployments reaching a second analyst.**
+36. **The cost curve is a customer tailwind, not a margin story.** Falling inference prices accrue entirely to the customer; our margin does not contain inference. Do not reproduce the standard "margins expand as inference cheapens" line — it describes a hosted business this one deliberately is not.
+37. **No risk mitigates to Low**, and the risk matrix must stay that way. R1's mitigation is a measurement, not a fix. **For the capstone, R1 and R2 are deliverables rather than risks; R8 (time / scope creep) is the dominant capstone risk.**
 
 ## Open decisions — none
 
