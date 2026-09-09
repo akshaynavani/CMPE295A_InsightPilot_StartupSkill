@@ -4,20 +4,22 @@ Not a pack artifact; deliberately outside `runs/agentic-bi/` so it stays out of 
 
 ## Where the run stopped
 
-**Phases 0, 1 and 2 complete and committed. Phase 3 (`startup-product`) not started — no files in `product/`.**
+**Phases 0, 1, 2 and 3 complete and committed. Phase 4 (`startup-tech`) not started — no files in `tech/`.**
 
-Phase 1 wrote all five research files, closed A6 and A9, closed A8 partially, and raised A11. Phase 2 wrote all eleven strategy files and closed A5 and A11 together by founder decision at the gate. **Every open decision in the ledger is now closed.** `ASSUMPTIONS.md` and `README.md` were refreshed at both checkpoints.
+Phase 1 wrote the five research files, closed A6 and A9, closed A8 partially, raised A11. Phase 2 wrote the eleven strategy files and closed A5 and A11 by founder decision at the gate. Phase 3 wrote the eight product files and raised A12. `ASSUMPTIONS.md` and `README.md` refreshed at every checkpoint.
 
-Search budget: **35 web searches + 6 direct page fetches** across phases 1–2, against a 200 limit. Running searches directly rather than via subagents worked; see *Operational lesson* below.
+Search budget: **35 web searches + 6 direct page fetches** across phases 1–3, against a 200 limit. Phase 3 needed no new searches — it is downstream synthesis. See *Operational lesson* below.
 
 **Cadence agreed with the founder: one phase at a time, commit, report, continue.**
 
 ## Start here in the new session
 
 1. Read `runs/agentic-bi/BRIEF.md` and `runs/agentic-bi/ASSUMPTIONS.md` — source of truth and decision ledger. **The resolutions in A5, A6, A8, A9 and A11 are binding on every later phase and are easy to lose in transit.**
-2. Read `runs/agentic-bi/strategy/positioning.md` §5 and §5.1, `personas.md`, and `value_prop_canvas.md` §5 — these are what phase 3 consumes.
-3. Read the skill: `C:\Users\019115720\.claude\skills\startup-product\SKILL.md`, plus `C:\Users\019115720\.claude\references\quality-bar.md`.
-4. Run phase 3 → `runs/agentic-bi/product/` (8 files). Commit, report. Then phases 4 → 7, then 9 (audit).
+2. Read `runs/agentic-bi/product/PRD.md` §3 (the ten principles) and §5 (features by loop phase), plus `research/capability_table.md` — these are what phase 4 consumes. The whitepaper must not contradict the principles or the measured capability gaps.
+3. Read the skill: `C:\Users\019115720\.claude\skills\startup-tech\SKILL.md`, plus `C:\Users\019115720\.claude\references\quality-bar.md`.
+4. Run phase 4 → `runs/agentic-bi/tech/` (18 rows: whitepaper, deep dives, 11 architecture diagrams, technique waves). Commit, report. Then phases 5 → 7, then 9 (audit).
+
+**Note for phase 4.** The tech layer is the one most likely to violate A2 by manufacturing a 10x claim from the architecture, and most likely to violate P9 by promising MLE-bench behaviour from the ML agent. `product/PRD.md` §3 is the constraint set; cite `research/survey.md` §5.2 in the whitepaper's teardown unsoftened, per that file's own recommendation.
 
 ## Hard constraints — do not violate
 
@@ -42,9 +44,24 @@ Search budget: **35 web searches + 6 direct page fetches** across phases 1–2, 
 9. **Lead every demo and narrative artifact with the lineage/verification mapping (rank 1), never with automated fetch→analyze→visualize (rank 4).** Rank 4 is table stakes and invites the head-to-head comparison A6 forbids.
 10. **Two product requirements were discovered by strategy and must land in the PRD:** (a) an investigation must be **exportable as a self-contained, readable artifact** — it is the edge in the GTM compounding loop and expensive to retrofit; (b) **reading an existing dbt/Cube semantic layer must be demoable** — it is the only answer to the buyer objection that ends deals.
 
-## Open items — none
+## Additional binding rules produced by phase 3
 
-Every open decision in `ASSUMPTIONS.md` is now closed. What remains is A7 (unconfirmed inference on the user spectrum, `kills-pack-if-wrong: yes`) and the deliberate scope decisions A1–A4, which the audit must treat as closed rather than missing.
+11. **The core loop is ASK → PLAN → EXECUTE → ANSWER → VERIFY → FOLLOW UP.** *Verify* is a named beat with its own surface, latency budget and metric. Do not collapse it back into "answer + lineage."
+12. **Ten principles in `product/PRD.md` §3 govern every feature.** A feature mapping to none is cut. The two most load-bearing: **P5** (verification cost is the adoption gate, not accuracy) and **P6** (pre-encoded correctness narrows the answerable question set — so consume a semantic layer when present, never require one).
+13. **P9 is the principle the tech and narrative layers are most likely to break.** The ML agent is time-boxed in *minutes* and must publish what it did not have time to try. MLE-bench's 36.4% medal rate runs on a **12-hour budget**; promising that behaviour in a conversational loop is a false claim.
+14. **Never present a confidence score as accuracy** (P3). The system reports what it checked and what it is unsure about — different claims. A green verification tick must read as "these structural checks passed," never "the answer is right."
+15. **Ten non-goals in `product/PRD.md` §2.2 are real renunciations**, including no unsupervised self-service for non-technical users, no semantic layer of our own, no data-quality improvement, and no claim to beat incumbents on single-source single-hop accuracy. Later phases must not quietly re-acquire any of them.
+16. **Build order is fixed by `product/features_prioritized.md`:** evaluation harness first (#1), then Postgres/CSV, Orchestrator, plan surface, fetch, analytics, lineage, verification, export. The pre-decided cut list is visualization → REST → ML agent → override re-flow. **Must-not-cut: #1, #2, #9, #10, #13, #15, #11.**
+
+## Open decisions — none
+
+Every open decision in `ASSUMPTIONS.md` is closed. What remains is A7 (unconfirmed inference on the user spectrum, `kills-pack-if-wrong: yes`), the deliberate scope decisions A1–A4 which the audit must treat as closed rather than missing, and **A12 (raised by phase 3), which is a tracked risk rather than a decision** and closes in phase 6.
+
+## A12 — the risk phase 3 surfaced
+
+**The beachhead captures the least value on any given day.** Across one shared Tuesday: Dr. Chen 2h → 19min, Tom 1.5 days → 8min, Marcus a three-day wait → 90 seconds, Angela gains an investigation she could not previously run — while **Priya absorbs the review burden the other four shed.** Since the entire GTM routes through analyst advocacy, a champion who has been given work while everyone else got leverage does not advocate.
+
+Phase 6 must carry **analyst review-time-per-week as a first-class metric** alongside time-to-verified-answer, and treat review-queue depth as a leading indicator.
 
 ## The three untested claims the pack rests on
 

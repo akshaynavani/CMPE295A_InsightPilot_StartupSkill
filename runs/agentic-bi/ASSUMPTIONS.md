@@ -51,6 +51,14 @@ These were raised, discussed, and decided. The audit must not reopen them.
 — closes in: phase 2 (`strategy/positioning.md`) — **now closed by the decision above; the residual is carried to `validation/`**
 — kills-pack-if-wrong: **no for the capstone, yes for the venture framing.** The 295A/295B build is unaffected; the narrative layer's "why this is a company" claim is not.
 
+**A12: The beachhead captures the least value on any given day.** — **RAISED 2026-09-08 by phase 3; not visible in phases 0–2.**
+— basis: [product/journeys/day_in_life.md](product/journeys/day_in_life.md) §3 tallies the gain across all five actors and the distribution is uneven in the wrong direction. Dr. Chen goes from 2 hours to 19 minutes; Tom from 1.5 days to 8 minutes; Marcus from a three-day wait or a guess to an attributed answer in 90 seconds; Angela gets an investigation she could not previously run. **Priya — the user the product is built for and sold through — absorbs the review burden the other four shed.** Her net gain on a single day is the smallest of the five.
+— why it matters: the GTM, the sales roadmap and the entire channel plan route through analyst advocacy. A champion who has been given work while everyone around them got leverage does not advocate. This is a plausible mechanism for adoption stalling at exactly the person it cannot stall at, and it was invisible until the personas were run against a single shared day.
+— two things make it survivable, both contingent and neither proven: (1) reviewing must be structurally cheaper than deriving — the same untested O2 claim the pack already rests on; (2) the flywheel must actually reduce future review load, observable only as override-rate trend per source (feature #42) over months.
+— consequence for the validation layer: **analyst review-time-per-week must be a first-class metric alongside time-to-verified-answer.** Review-queue depth is a leading indicator, not a UX detail — see [product/ux_spec.md](product/ux_spec.md) §10, which specifies an overload state for exactly this reason.
+— closes in: phase 6 (`validation/`), which must carry it as a tracked risk
+— kills-pack-if-wrong: **no** — but if true it kills adoption, which is worse than killing the pack.
+
 ## Unconfirmed inferences (made by the generator, not the founder)
 
 **A7: The user spectrum was derived, not supplied.** Low edge = business manager who consumes answers; beachhead = enterprise analyst; high edge = staff data scientist who audits lineage and overrides ML choices.
