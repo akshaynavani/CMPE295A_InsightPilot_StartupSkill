@@ -109,6 +109,16 @@ All sources accessed **2026-09-08**. Publication dates are given where the sourc
 | **[S67]** | MotherDuck, "Your Data Model Is the Semantic Layer" — <https://motherduck.com/blog/bird-bench-and-data-models/> | 2026 | Low–Medium | The counter-argument that benchmark schemas understate the data-modelling work a real deployment requires |
 | **[S68]** | "Measuring Data Science Automation: A Survey of Evaluation Tools for AI Assistants and Agents" — <https://arxiv.org/pdf/2506.08800> | 2025-06 | High | Survey of the data-science-agent evaluation landscape; the map of which capabilities have benchmarks and which do not |
 
+## Labour-market baseline (added at the phase 2 gate for bottom-up sizing)
+
+| # | Source | Date | Conf. | Supports |
+|---|---|---|---|---|
+| **[S69]** | US Bureau of Labor Statistics, *Occupational Outlook Handbook* — Data Scientists — <https://www.bls.gov/ooh/math/data-scientists.htm> | May 2025 data | High | Data scientists held approximately **275,600 US jobs in 2025**; employment projected to grow 35% from 2025 to 2035 |
+| **[S70]** | US Bureau of Labor Statistics, *Occupational Outlook Handbook* — Operations Research Analysts — <https://www.bls.gov/ooh/math/operations-research-analysts.htm> | May 2025 data | High | Operations research analysts held approximately **113,100 US jobs in 2025**; projected to grow 12% from 2025 to 2035 |
+| **[S71]** | US Bureau of Labor Statistics, Occupational Employment and Wage Statistics, May 2025 — <https://www.bls.gov/news.release/ocwage.t01.htm> | May 2025 | High | The national occupation and wage table. **Note the methodological gap it exposes: BLS has no "data analyst" SOC code.** The role this pack's beachhead describes is distributed across data scientists, operations research analysts, management analysts and computer occupations, so no authoritative headcount for "enterprise data analyst" exists |
+
+**Caution on `[S69]`–`[S71]`.** These are US-only and occupation-coded, not role-coded. They give a defensible *floor* for bottom-up sizing and cannot give a precise beachhead count. Any global figure derived from them is an extrapolation and must carry an `(assumption: …)` tag — see [../strategy/market_sizing.md](../strategy/market_sizing.md) §2.
+
 ## Reliability notes
 
 Three cautions govern how this register may be used downstream.

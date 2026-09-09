@@ -4,18 +4,20 @@ Not a pack artifact; deliberately outside `runs/agentic-bi/` so it stays out of 
 
 ## Where the run stopped
 
-**Phases 0 and 1 complete and committed. Phase 2 (`startup-strategy`) not started — no files in `strategy/`.**
+**Phases 0, 1 and 2 complete and committed. Phase 3 (`startup-product`) not started — no files in `product/`.**
 
-Phase 1 wrote all five files to `runs/agentic-bi/research/`, closed A6 and A9, closed A8 partially, and raised A11. `ASSUMPTIONS.md` and `README.md` were both refreshed at the checkpoint.
+Phase 1 wrote all five research files, closed A6 and A9, closed A8 partially, and raised A11. Phase 2 wrote all eleven strategy files and closed A5 and A11 together by founder decision at the gate. **Every open decision in the ledger is now closed.** `ASSUMPTIONS.md` and `README.md` were refreshed at both checkpoints.
 
-Search budget used in the phase 1 session: **33 web searches + 6 direct page fetches** — well inside the 200 limit. Running searches directly rather than via subagents worked; see *Operational lesson* below.
+Search budget: **35 web searches + 6 direct page fetches** across phases 1–2, against a 200 limit. Running searches directly rather than via subagents worked; see *Operational lesson* below.
+
+**Cadence agreed with the founder: one phase at a time, commit, report, continue.**
 
 ## Start here in the new session
 
-1. Read `runs/agentic-bi/BRIEF.md` and `runs/agentic-bi/ASSUMPTIONS.md` — source of truth and open-decision ledger. **The three resolutions recorded in A6, A8 and A9 are binding on phase 2 and are easy to lose.**
-2. Read `runs/agentic-bi/research/competitors.md` §4 and `survey.md` §6 — these two sections are what phase 2 consumes.
-3. Read the skill: `C:\Users\019115720\.claude\skills\startup-strategy\SKILL.md`, plus `C:\Users\019115720\.claude\references\quality-bar.md`.
-4. Run phase 2 → `runs/agentic-bi/strategy/` (11 files). Commit. Then phases 3 → 7, then 9 (audit).
+1. Read `runs/agentic-bi/BRIEF.md` and `runs/agentic-bi/ASSUMPTIONS.md` — source of truth and decision ledger. **The resolutions in A5, A6, A8, A9 and A11 are binding on every later phase and are easy to lose in transit.**
+2. Read `runs/agentic-bi/strategy/positioning.md` §5 and §5.1, `personas.md`, and `value_prop_canvas.md` §5 — these are what phase 3 consumes.
+3. Read the skill: `C:\Users\019115720\.claude\skills\startup-product\SKILL.md`, plus `C:\Users\019115720\.claude\references\quality-bar.md`.
+4. Run phase 3 → `runs/agentic-bi/product/` (8 files). Commit, report. Then phases 4 → 7, then 9 (audit).
 
 ## Hard constraints — do not violate
 
@@ -32,10 +34,25 @@ Search budget used in the phase 1 session: **33 web searches + 6 direct page fet
 4. **Lead positioning with verifiability, support with latency** (A8 reframe). The trust evidence is High-confidence and current; the latency evidence is Medium and second-hand.
 5. **Name Wren AI in every downstream comparison.** It is the nearest neighbour, open source, two years ahead, 13K+ stars. A pack that never names it reads as unaware.
 
-## Open items phase 2 must close
+## Additional binding rules produced by phase 2
 
-- **A5** — self-hosting undecided. Closes in `strategy/positioning.md`.
-- **A11** (new, raised by phase 1) — the gravity question: why does this not end as a Databricks or Snowflake feature? Sisu raised ≈$128.7M attacking the highest-value part of this loop and became a Snowflake division; Narrative Science was folded into Tableau; neither failed technically. The only structural answer the research supports is cross-source neutrality. **A5 and A11 must resolve together** — a managed-only product has no neutrality argument.
+6. **Deployment is open-core, self-hostable** (A5, founder decision). "Self-hostable" means the *orchestration layer* runs in the customer's environment against **their own frontier-model API key** — never that the system runs on a small local model. Tool-initialisation failure is the leading agent bottleneck and is catastrophic in small models (89% in qwen2.5:3b). Any artifact implying a small-local-model deployment is wrong.
+7. **Sizing numbers are fixed: TAM $1.1B / SAM $123M / three-year hypothetical SOM $1.2M / capstone SOM $0.** No artifact may use other figures, and none may present $1.2M as a projection. Re-expanding to the BI market would contradict the market-type declaration.
+8. **Only zero-CAC channels are viable at a $900 ACV.** Outbound, field sales, resellers, cloud marketplace and paid acquisition are ruled out by arithmetic in `strategy/channel_plan.md` §3. If a later phase proposes one, that file is the reason to say no.
+9. **Lead every demo and narrative artifact with the lineage/verification mapping (rank 1), never with automated fetch→analyze→visualize (rank 4).** Rank 4 is table stakes and invites the head-to-head comparison A6 forbids.
+10. **Two product requirements were discovered by strategy and must land in the PRD:** (a) an investigation must be **exportable as a self-contained, readable artifact** — it is the edge in the GTM compounding loop and expensive to retrofit; (b) **reading an existing dbt/Cube semantic layer must be demoable** — it is the only answer to the buyer objection that ends deals.
+
+## Open items — none
+
+Every open decision in `ASSUMPTIONS.md` is now closed. What remains is A7 (unconfirmed inference on the user spectrum, `kills-pack-if-wrong: yes`) and the deliberate scope decisions A1–A4, which the audit must treat as closed rather than missing.
+
+## The three untested claims the pack rests on
+
+None require code; all three are conversation-cheap and none is settled. Ranked in `strategy/business_model_canvas.md` rows 2, 1 and 5:
+
+1. **An analyst can accept a correct answer they did not derive faster than they could derive it.** The differentiator. The beachhead's own stated objection denies it. One afternoon, five analysts, a timed task.
+2. **A material share of real ad-hoc questions span more than one source.** If not, the neutrality argument is true and worthless and the SAM halves. Ask 10 analysts to classify their last 20 requests.
+3. **A budget owner can name a line item this comes from.** If not, the market-type declaration is wrong. One question in five buyer conversations.
 
 ## Operational lesson — read before dispatching agents
 

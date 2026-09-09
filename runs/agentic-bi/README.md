@@ -2,17 +2,28 @@
 
 An AI-powered conversational business intelligence platform: a multi-agent system that turns a business question asked in natural language into a planned, executed and fully traceable analytical workflow. An Orchestrator decomposes intent into an *analysis plan* and dispatches it to four specialist agents — Data Fetch/Integration, Analytics, Visualization and ML — recombining their outputs into an *answer* that carries its *lineage*. Built for the enterprise data analyst: the goal is to compress the fixed overhead of every ad-hoc question without taking away the analyst's control or their ability to verify the result.
 
-> **Status** — updated 2026-09-08 · run slug `agentic-bi` · **7 / 61 required artifacts** · 0 / 78 visuals rendered
-> **PARTIAL — phases 0 and 1 of 8 complete.** This run is scoped to documents only: 54 of the 61 required manifest rows are in scope, 7 are deliberately excluded (see [ASSUMPTIONS.md](ASSUMPTIONS.md) A1, A4).
+> **Status** — updated 2026-09-08 · run slug `agentic-bi` · **18 / 61 required artifacts** · 0 / 78 visuals rendered
+> **PARTIAL — phases 0, 1 and 2 of 8 complete.** This run is scoped to documents only: 54 of the 61 required manifest rows are in scope, 7 are deliberately excluded (see [ASSUMPTIONS.md](ASSUMPTIONS.md) A1, A4).
 
 ## Start here
 
 The 60-second path will be one-pager → pitch deck → whitepaper once phase 5 lands. Until then:
 
 1. **[BRIEF.md](BRIEF.md)** — who this is for, what it does, and which claims are deliberately not made. Every other artifact is written against this file.
-2. **[research/competitors.md](research/competitors.md)** — the teardown, and §4 the differentiator. This is where the pack stops being a proposal and starts being an argument.
-3. **[research/survey.md](research/survey.md)** §5.2 — the strongest case *against* this project's own mechanism, stated at full strength and then answered.
-4. **[ASSUMPTIONS.md](ASSUMPTIONS.md)** — what was decided without confirmation, what closed in phase 1, and what would break if an inference is wrong.
+2. **[strategy/positioning.md](strategy/positioning.md)** §5 — the one-sentence positioning statement, and §5.1 the list of things it deliberately does not say.
+3. **[research/competitors.md](research/competitors.md)** — the teardown, and §4 the differentiator. This is where the pack stops being a proposal and starts being an argument.
+4. **[research/survey.md](research/survey.md)** §5.2 — the strongest case *against* this project's own mechanism, stated at full strength and then answered.
+5. **[ASSUMPTIONS.md](ASSUMPTIONS.md)** — what was decided without confirmation, what closed in phases 1 and 2, and what would break if an inference is wrong.
+
+## What phase 2 established
+
+Five decisions every later artifact inherits:
+
+1. **Re-segmented market, by different attribute — verifiability across sources.** Not a new market (the graveyard proves demand was repeatedly found) and not an existing one (on "answer my question about my warehouse," bundled incumbents win on distribution before this product starts). The dominant risk is **segment reality**, not competition.
+2. **Positioning axes: hops executed autonomously × where correctness is established.** The open quadrant is *many hops × correctness carried with the answer*, and it is empty because it is hard — multi-step data reasoning measures ≈15% on hard real tasks. The inversion that makes it a strategy: because multi-hop is unreliable, the trace is what makes the hops usable at all.
+3. **Deployment resolved: open-core, self-hostable** (closes A5), which is simultaneously the answer to the gravity question (closes A11) — neutrality asserted by a hosted service is a claim; neutrality backed by code the customer runs is a property.
+4. **The market is small, and the pack says so.** TAM $1.1B, SAM $123M, pessimistic-corner SAM $38M, capstone SOM $0. Built bottom-up from BLS headcount × observed price, with three of four factors tagged as assumptions. A "1% of a $40B BI market" figure would have falsified the whole market-type declaration.
+5. **One channel, and it earns no revenue.** At a $900 ACV the arithmetic disqualifies outbound, field sales, resellers and paid acquisition outright. Only open-source self-serve plus internal referral survive — so adoption precedes revenue structurally, which is right for a capstone and a stated constraint for the venture framing.
 
 ## What phase 1 established
 
@@ -40,7 +51,7 @@ Four findings that change what downstream artifacts may claim:
 | `BRIEF.md` | Founder brief — source of truth | 1 | grill-me |
 | `ASSUMPTIONS.md` | Assumptions and open decisions | 1 | grill-me |
 | [`research/`](research/) | Market landscape, competitor teardown, capability survey, sources | **5 / 5 ✓** | startup-research |
-| `strategy/` | Positioning, market type, sizing, personas, canvases, GTM, channels, sales roadmap | 0 / 11 | startup-strategy |
+| [`strategy/`](strategy/) | Positioning, market type, sizing, personas, canvases, GTM, channels, sales roadmap | **11 / 11 ✓** | startup-strategy |
 | `product/` | PRD, feature sets, four journeys, UX spec | 0 / 8 | startup-product |
 | `tech/` | Whitepaper, deep dives, 11 architecture diagrams, technique waves | 0 / 18 | startup-tech |
 | `narrative/` | One-pager, VC memo, pitch deck, future press, founder story, mission | 0 / 6 | startup-narrative |
@@ -66,6 +77,8 @@ Each traces to [research/sources.md](research/sources.md).
 
 ## Completeness
 
-**PARTIAL — 7 of 54 in-scope required artifacts.** Phases 0 and 1 complete: the founder brief, the assumptions ledger, and the full research layer (landscape, competitor teardown, capability table, survey, sources). Phases 2–7 — strategy, product, tech, narrative, validation, financials — and the phase 9 audit remain. This run is deliberately scoped to documents only: the visuals and website phases are deferred, not cancelled (A4), and the three revenue-side financial artifacts are excluded by decision rather than omission (A1). Row-by-row status will live in `audit/COVERAGE.md` once phase 9 runs.
+**PARTIAL — 18 of 54 in-scope required artifacts.** Phases 0, 1 and 2 complete: the founder brief, the assumptions ledger, the full research layer (landscape, competitor teardown, capability table, survey, sources) and the full strategy layer (market type, positioning, sizing, personas, both canvases, value proposition, GTM, petal, channel economics, sales roadmap). Phases 3–7 — product, tech, narrative, validation, financials — and the phase 9 audit remain. This run is deliberately scoped to documents only: the visuals and website phases are deferred, not cancelled (A4), and the three revenue-side financial artifacts are excluded by decision rather than omission (A1). Row-by-row status will live in `audit/COVERAGE.md` once phase 9 runs.
 
-Three assumptions closed in phase 1 (A6, A8 partially, A9 with a required restatement) and one was newly raised (A11, the gravity question). Five research gaps were searched for and not found; they are named in [research/sources.md](research/sources.md) so a later phase does not spend budget re-searching them blind.
+Three assumptions closed in phase 1 (A6, A8 partially, A9 with a required restatement) and one was newly raised (A11, the gravity question). Phase 2 then closed A5 and A11 together by founder decision at the gate — **every open decision in the ledger is now closed**; what remains is unconfirmed inferences (A7) and deliberate scope decisions (A1–A4), which the audit must treat as closed rather than missing. Five research gaps were searched for and not found; they are named in [research/sources.md](research/sources.md) so a later phase does not spend budget re-searching them blind.
+
+**The three untested claims the whole pack now rests on**, all of them conversation-cheap to settle and none of them settled: (1) an analyst can accept a correct answer they did not derive faster than they could derive it — the differentiator, and the beachhead's own stated objection denies it; (2) a material share of real ad-hoc questions actually span more than one source — if not, the neutrality argument is true and worthless and the SAM halves; (3) a budget owner can name a line item this comes from — if not, the market-type declaration is wrong. They are ranked in [strategy/business_model_canvas.md](strategy/business_model_canvas.md) rows 2, 1 and 5.

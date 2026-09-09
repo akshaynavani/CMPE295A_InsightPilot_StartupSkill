@@ -30,9 +30,10 @@ These were raised, discussed, and decided. The audit must not reopen them.
 
 ## Open decisions (deferred by choice, to be closed downstream)
 
-**A5: Self-hosting is undecided.** Open source is settled; whether the product is self-hosted, managed, or both is not.
-— basis: founder explicitly unsure. Affects positioning, GTM and the cost model.
-— closes in: phase 2 (`strategy/positioning.md`)
+**A5: Self-hosting is undecided.** Open source is settled; whether the product is self-hosted, managed, or both is not. — **CLOSED 2026-09-08 by founder decision, at the phase 1 → 2 gate.**
+— basis: founder was explicitly unsure at phase 0. Phase 1 forced the decision by coupling it to A11: a managed-only product cannot make the cross-source neutrality argument, which is the only structural answer to the gravity question the research supports.
+— **decision: open-core, self-hostable first.** The product runs inside the customer's own boundary and spans Postgres, files and APIs precisely because it belongs to no warehouse.
+— **constraint that travels with it:** "self-hostable" means the *orchestration layer* runs in the customer's environment against their own model API key — **not** that the system runs on a small local model. Tool-initialisation failure is the leading agent reliability bottleneck and is catastrophic in small models (89% error rate in qwen2.5:3b, absent in large models), so a small-local-model deployment is not currently viable for this architecture. Any artifact implying otherwise is wrong. See [research/capability_table.md](research/capability_table.md) row 7.
 — kills-pack-if-wrong: **no**
 
 **A6: The competitive differentiator is deferred to the phase 1 teardown.** — **CLOSED 2026-09-08, phase 1.**
@@ -45,7 +46,9 @@ These were raised, discussed, and decided. The audit must not reopen them.
 **A11: The gravity question is unanswered.** Why does this end as a product rather than as a feature of Databricks or Snowflake? — **RAISED 2026-09-08 by phase 1; not present in phase 0.**
 — basis: the phase 1 graveyard shows that every well-funded standalone attempt at analytical intelligence was absorbed by whoever owned the data, and none failed technically. Sisu Data raised ≈$128.7M attacking the diagnostic question — the highest-value part of the loop — and became a Snowflake division in October 2023, with the standalone product in wind-down. Narrative Science was folded into Tableau in December 2021. Meanwhile ThoughtSpot, the purest market test of natural-language analytics, was marked down 73.67% in a June 2024 secondary against its November 2021 Series F.
 — the only structural answer this research supports is **cross-source neutrality**: being the layer that spans Postgres, files and APIs precisely because it belongs to no warehouse. That is implied by the brief's connector-layer design but is nowhere claimed. Note that it also forces A5 — a managed-only product has no neutrality argument, so self-hosting and the gravity answer must resolve together.
-— closes in: phase 2 (`strategy/positioning.md`), jointly with A5
+— **founder decision 2026-09-08, at the phase 1 → 2 gate: answer A11 with cross-source neutrality, and back it with the open-core self-hostable deployment model chosen in A5.** The two resolve together, as phase 1 required. The claim phase 2 must make and defend: this is not absorbable as a warehouse feature because its value is *spanning* warehouses, files and APIs — which is a thing no warehouse vendor can ship without arguing against its own gravity.
+— **the honest residual**, which `strategy/positioning.md` must state rather than bury: neutrality is a *structural* answer, not an empirical one. It has not been tested that a real customer's questions actually span sources — if the first serious customer's data all lives in one warehouse anyway, the neutrality argument is true and worthless. That is a discovery question, and it belongs in the validation layer.
+— closes in: phase 2 (`strategy/positioning.md`) — **now closed by the decision above; the residual is carried to `validation/`**
 — kills-pack-if-wrong: **no for the capstone, yes for the venture framing.** The 295A/295B build is unaffected; the narrative layer's "why this is a company" claim is not.
 
 ## Unconfirmed inferences (made by the generator, not the founder)
