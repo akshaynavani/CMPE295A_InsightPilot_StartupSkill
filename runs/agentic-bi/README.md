@@ -2,8 +2,8 @@
 
 An AI-powered conversational business intelligence platform: a multi-agent system that turns a business question asked in natural language into a planned, executed and fully traceable analytical workflow. An Orchestrator decomposes intent into an *analysis plan* and dispatches it to four specialist agents — Data Fetch/Integration, Analytics, Visualization and ML — recombining their outputs into an *answer* that carries its *lineage*. Built for the enterprise data analyst: the goal is to compress the fixed overhead of every ad-hoc question without taking away the analyst's control or their ability to verify the result.
 
-> **Status** — updated 2026-09-09 · run slug `agentic-bi` · **50 / 61 required artifacts** · 0 / 78 visuals rendered
-> **PARTIAL — phases 0–5 of 8 complete.** This run is scoped to documents only: 54 of the 61 required manifest rows are in scope, 7 are deliberately excluded (see [ASSUMPTIONS.md](ASSUMPTIONS.md) A1, A4).
+> **Status** — updated 2026-09-09 · run slug `agentic-bi` · **59 / 61 required artifacts** · 0 / 78 visuals rendered
+> **PARTIAL — phases 0–6 of 8 complete.** This run is scoped to documents only: 54 of the 61 required manifest rows are in scope, 7 are deliberately excluded (see [ASSUMPTIONS.md](ASSUMPTIONS.md) A1, A4).
 
 ## Start here — the 60-second path
 
@@ -17,6 +17,16 @@ An AI-powered conversational business intelligence platform: a multi-agent syste
 5. **[narrative/vc_memo.md](narrative/vc_memo.md)** §2 — the category-by-category demolition, and §6 the three risks that would sink it.
 6. **[research/survey.md](research/survey.md)** §5.2 — the strongest case *against* this project's own mechanism, stated at full strength and then answered.
 7. **[ASSUMPTIONS.md](ASSUMPTIONS.md)** — what was decided without confirmation, what closed in which phase, and what would break if an inference is wrong.
+
+## What phase 6 established
+
+1. **The honest stage placement is Customer Discovery, not exited.** Fifty-nine artifacts, **twelve untested assumptions, zero customers interviewed.** A complete pack is not traction, and [validation/stage_gate.md](validation/stage_gate.md) says so in those words so that no review can read completeness as progress.
+2. **Four assumptions can end this and three need no code.** Verification cost ratio, multi-source reality, budget-line existence and the user spectrum are answerable in **~25 founder-hours across 4 weeks**. The implication is uncomfortable and stated plainly: **the correct first month of a build project contains almost no building.**
+3. **Two MVPs, and the low-fidelity one is a document.** A hand-built exported investigation plus a stopwatch tests the pack's central premise for about six founder-hours — and it can invalidate the entire semester of engineering, which the reverse cannot.
+4. **Pass/fail thresholds are fixed in writing before any data exists**, including the branch where the answer is no: if verification costs as much as re-derivation, the decision is **stop and publish the negative result**, which the field currently lacks in either direction.
+5. **A13 raised — the analytics manager is missing from the persona set.** Mapping the buying unit by *who can say no* rather than *who benefits* surfaced the one role that can kill a deployment silently: he controls the champion's week, every adoption cost lands in his quarter, and **his failure mode is silence rather than objection.**
+
+**One metric worth knowing about:** hop-inspection rate is the retention predictor, and **both extremes are failures** — near 0% means the trace is decoration, near 100% means re-derivation with a nicer interface. The healthy band is 20–60%.
 
 ## What phase 5 established
 
@@ -86,7 +96,7 @@ Four findings that change what downstream artifacts may claim:
 | [`product/`](product/) | PRD, feature sets, four journeys, UX spec | **8 / 8 ✓** | startup-product |
 | [`tech/`](tech/) | Whitepaper, deep dives, 11 architecture diagrams, technique waves | **19 / 18 ✓** | startup-tech |
 | [`narrative/`](narrative/) | One-pager, VC memo, pitch deck, future press, founder story, mission | **6 / 6 ✓** | startup-narrative |
-| `validation/` | Riskiest assumptions, experiment board, discovery guide, funnel, stage gates, MVP, DMU | 0 / 9 | startup-validation |
+| [`validation/`](validation/) | Riskiest assumptions, experiment board, discovery guide, funnel, stage gates, MVP, DMU | **9 / 9 ✓** | startup-validation |
 | `financials/` | Pricing threshold, unit economics, risk matrix — **cost side only** | 0 / 3 | startup-financials |
 | `audit/` | Coverage report | 0 / 1 | startup-audit |
 
@@ -108,7 +118,9 @@ Each traces to [research/sources.md](research/sources.md).
 
 ## Completeness
 
-**PARTIAL — 50 of 54 in-scope required artifacts.** Phases 0–5 complete: the founder brief, the assumptions ledger, the full research layer (landscape, competitor teardown, capability table, survey, sources), the full strategy layer (market type, positioning, sizing, personas, both canvases, value proposition, GTM, petal, channel economics, sales roadmap), the full product layer (PRD, flagship and prioritised features, four journeys, UX spec), the full tech layer (whitepaper, deep dives, eleven architecture diagrams, three technique waves, decision tree, technique-feature matrix, not-vaporware) and the full narrative layer (one-pager, VC memo, pitch deck, future press, founder story, mission). Phases 6–7 — validation and financials — and the phase 9 audit remain. This run is deliberately scoped to documents only: the visuals and website phases are deferred, not cancelled (A4), and the three revenue-side financial artifacts are excluded by decision rather than omission (A1). Row-by-row status will live in `audit/COVERAGE.md` once phase 9 runs.
+**PARTIAL — 59 of 54 in-scope rows covered (some directories exceed their manifest count).** Phases 0–6 complete: the founder brief, the assumptions ledger, the full research layer, the full strategy layer, the full product layer, the full tech layer, the full narrative layer, and the full validation layer (riskiest assumptions, experiment board, discovery guide, get/keep/grow, stage gates, metrics by stage, pivot log, MVP definitions, decision-making unit). **Phase 7 — financials, cost side only — and the phase 9 audit remain.**
+
+**The status line counts documents, not evidence.** Twelve assumptions remain untested and no customer has been interviewed ([validation/stage_gate.md](validation/stage_gate.md) §1). This run is deliberately scoped to documents only: the visuals and website phases are deferred, not cancelled (A4), and the three revenue-side financial artifacts are excluded by decision rather than omission (A1). Row-by-row status will live in `audit/COVERAGE.md` once phase 9 runs.
 
 Three assumptions closed in phase 1 (A6, A8 partially, A9 with a required restatement) and one was newly raised (A11, the gravity question). Phase 2 then closed A5 and A11 together by founder decision at the gate — **every open decision in the ledger is now closed**; what remains is unconfirmed inferences (A7) and deliberate scope decisions (A1–A4), which the audit must treat as closed rather than missing. Five research gaps were searched for and not found; they are named in [research/sources.md](research/sources.md) so a later phase does not spend budget re-searching them blind.
 

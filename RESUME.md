@@ -4,24 +4,27 @@ Not a pack artifact; deliberately outside `runs/agentic-bi/` so it stays out of 
 
 ## Where the run stopped
 
-**Phases 0–5 complete and committed. Phase 6 (`startup-validation`) not started — no files in `validation/`.**
+**Phases 0–6 complete and committed. Phase 7 (`startup-financials`) not started — no files in `financials/`.**
 
-Phase 1 wrote the five research files, closed A6 and A9, closed A8 partially, raised A11. Phase 2 wrote the eleven strategy files and closed A5 and A11 by founder decision at the gate. Phase 3 wrote the eight product files and raised A12. Phase 4 wrote nineteen tech files. Phase 5 wrote the six narrative files and passed a forbidden-claim audit. `ASSUMPTIONS.md` and `README.md` refreshed at every checkpoint.
+Phase 1 wrote the five research files, closed A6 and A9, closed A8 partially, raised A11. Phase 2 wrote the eleven strategy files and closed A5 and A11 by founder decision at the gate. Phase 3 wrote the eight product files and raised A12. Phase 4 wrote nineteen tech files. Phase 5 wrote the six narrative files and passed a forbidden-claim audit. Phase 6 wrote the nine validation files and raised A13. `ASSUMPTIONS.md` and `README.md` refreshed at every checkpoint.
 
-Search budget: **35 web searches + 6 direct page fetches** across all phases, against a 200 limit. Phases 3–5 needed no new searches — all are downstream synthesis. See *Operational lesson* below.
+Search budget: **35 web searches + 6 direct page fetches** across all phases, against a 200 limit. Phases 3–6 needed no new searches — all are downstream synthesis. See *Operational lesson* below.
 
 **Cadence agreed with the founder: one phase at a time, commit, report, continue.**
 
 ## Start here in the new session
 
 1. Read `runs/agentic-bi/BRIEF.md` and `runs/agentic-bi/ASSUMPTIONS.md` — source of truth and decision ledger. **The resolutions in A5, A6, A8, A9 and A11 are binding on every later phase and are easy to lose in transit.**
-2. Read `runs/agentic-bi/strategy/business_model_canvas.md` (nine falsifiable hypotheses with their cheapest killing tests — **rows 2, 1 and 5 are the pre-ranked first three experiments**), `narrative/vc_memo.md` §6 (the three honest risks), and `ASSUMPTIONS.md` A12. These are what phase 6 consumes.
-3. Read the skill: `C:\Users\019115720\.claude\skills\startup-validation\SKILL.md`, plus `C:\Users\019115720\.claude\references\quality-bar.md`.
-4. Run phase 6 → `runs/agentic-bi/validation/` (9 rows: riskiest assumptions, experiment board, discovery guide, funnel, stage gates, MVP, DMU). Commit, report. Then phase 7 (`financials/`, 3 rows), then 9 (audit).
+2. Read `runs/agentic-bi/strategy/market_sizing.md` §2.3 (the $75/analyst/month threshold and its anchors), `tech/architecture/D05_model_routing_cost.md` and `tech/not_vaporware.md` §3 (the cost shape and its dominant unknown). These are what phase 7 consumes.
+3. Read the skill: `C:\Users\019115720\.claude\skills\startup-financials\SKILL.md`, plus `C:\Users\019115720\.claude\references\quality-bar.md`.
+4. Run phase 7 → `runs/agentic-bi/financials/` — **cost side only, 3 rows: A43 pricing threshold, A45 unit economics, A47 risk matrix.** Commit, report. Then phase 9 (`startup-audit` → `audit/COVERAGE.md`), which is the final gate.
 
-**Note for phase 6.** Much of the input already exists and must be *consumed rather than re-derived* — `business_model_canvas.md` already ranks nine hypotheses by killing test, and `vc_memo.md` §6 already states the top three risks. Phase 6's job is to sequence them into a board and a stage-gate map, add the discovery guide and the funnel, and **carry A12 (analyst review-time-per-week) as a first-class tracked metric** — that is the one input phases 0–5 raised and did not close.
+**Note for phase 7 — the exclusions are the point.** ASSUMPTIONS A1 excludes **A44 `revenue_build.md`, A46 `use_of_funds.md`, A48 `comps_exits.md`** by founder decision, because with no revenue, no CAC and no funnel any projection would be fabricated. **The audit must treat these three as closed, not missing.** Phase 7's job is the three retained rows, all computable from the architecture:
+- **Pricing as a falsifiable threshold**, not a forecast: *what would have to be true for $900/analyst/year to clear cost-to-serve?*
+- **Unit economics per investigation**, where the dominant term — `expected_attempts` — is **unmeasured and must be stated as unmeasured** (RESUME rule 21). A model assuming one clean pass will be wrong by a large multiple.
+- **Risk matrix**, which should consume `validation/riskiest_assumptions.md` rather than re-deriving it.
 
-**The three untested claims are the spine of phase 6**, in this order: (1) verification cheaper than re-derivation; (2) do real questions span sources; (3) can a buyer name a budget line. None needs code.
+Anchors that already exist: Cortex Analyst at **≈$0.134/message** with warehouse compute billed separately `[S38][S39]`; ThoughtSpot Pro **$50/user/month with Spotter capped at 25 queries** `[S44]`; Hex **$36–75/editor/month** `[S52]`. **Verification consumes zero model tokens** — it is SQL — which is the single most important fact for the cost model.
 
 ## Hard constraints — do not violate
 
@@ -69,6 +72,16 @@ Search budget: **35 web searches + 6 direct page fetches** across all phases, ag
 23. **`narrative/founder_story.md` carries five `[SPECIFIC:]` / `[N]` placeholders that only the founder can fill.** They are deliberate, not omissions — the team has no lived analytics experience, so a fabricated origin anecdote would fail on the first follow-up. **Do not fill them by inference in a later phase.** If one cannot be answered truthfully, the instruction in-file is to cut the sentence rather than soften it.
 24. **`narrative/pitch_deck.md` names intended visuals that do not exist** (visuals phase deferred, A4). Its `visual:` lines are the future rows of `visuals/visual_manifest.md`; four of them point at Mermaid diagrams already written in `tech/architecture/` that need only rendering.
 25. **The vision is a norm, not a market share.** `future_press.md` lands on $74M ARR across 1,900 organisations at 2033 — consistent with the $123M SAM — with the company losing exclusive control of the differentiator to an open format. A later phase must not upgrade this to a hypergrowth story.
+
+## Additional binding rules produced by phase 6
+
+26. **The honest stage placement is Customer Discovery, not exited** — twelve untested assumptions, zero customers interviewed. **Never let the pack's completeness be read as progress.** The sentence to say first in any review is: *"fifty-nine artifacts, twelve untested assumptions, zero customers interviewed."*
+27. **Pass/fail thresholds in `validation/experiment_board.md` are declared and must not be revised after seeing data.** The critical ones: verification cost ratio **≤ 0.5 pass / > 0.8 stop**; seeded-defect rejection **≥ 70% and ≥ 2× control**; multi-source share **≥ 25%**; budget line named by **≥ 3 of 5** buyers; multi-hop accuracy **≥ 50%**.
+28. **E1 and E2 must both pass, and E2 is the more dangerous.** Passing E1 alone means checking is cheap; passing E2 alone means checking works but costs too much. **The dangerous combination is E1 pass with E2 fail** — cheap verification that does not verify, which ships confident wrong answers wearing an audit trail.
+29. **The low-fidelity MVP is a document, not software** — one hand-built exported investigation plus a stopwatch, ~6 founder-hours. It can invalidate the entire high-fidelity build and the reverse is not true, so **it runs first**.
+30. **Report E6 (accuracy) and E7 (silent-error rate) together, always.** Accuracy alone is the flattering half; publishing it without the silent-error figure is exactly the selective reporting this pack criticises incumbents for.
+31. **Hop-inspection rate has a healthy band of 20–60%, and both extremes are failures.** Near 0% = the trace is decoration; near 100% = re-derivation with a nicer interface. Do not treat it as a metric to maximise.
+32. **`pivot_log.md` §4 names the pivot to refuse:** moving to the business-user market after a disappointing analyst result. That is P1 reopened, it was already priced by ThoughtSpot's 73.67% markdown, and it makes the verification problem unsolvable rather than easier.
 
 ## Open decisions — none
 

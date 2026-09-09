@@ -59,6 +59,14 @@ These were raised, discussed, and decided. The audit must not reopen them.
 — closes in: phase 6 (`validation/`), which must carry it as a tracked risk
 — kills-pack-if-wrong: **no** — but if true it kills adoption, which is worse than killing the pack.
 
+**A13: The analytics manager — the one role that can kill a deployment silently — is missing from the persona set.** — **RAISED 2026-09-09 by phase 6.**
+— basis: [validation/decision_making_unit.md](validation/decision_making_unit.md) §2.5 mapped the buying unit by *who can say no* rather than *who benefits*, and surfaced a role phases 2–5 assumed away. The analytics manager controls how his team of five to fifteen spends its week — including the champion's week — and **his failure mode is silence, not objection**: he allocates no time, deprioritises the pilot, and it dies of neglect in a way indistinguishable from disinterest.
+— why it matters: the entire GTM routes through analyst advocacy, and the analyst's time is not the analyst's to give. He is also **A12 seen from a second chair** — every adoption cost lands in his quarter and every benefit lands later, so he is correctly optimising for something the product makes worse before it makes better.
+— what is missing: no persona card in `strategy/personas.md`, no journey, no objection-handling artifact, and no evidence of any kind about him in the pack.
+— correction, cheap and specific: add a fourth screening category to `validation/discovery_guide.md` §2, plus one screening question for analysts — *"who decides what you spend your week on, and how would they react to you piloting a new tool?"* — and one manager-level interview. Roughly one hour.
+— closes in: discovery (phase 6 execution), feeding a persona-card addition to `strategy/personas.md`
+— kills-pack-if-wrong: **no** — but it is a live mechanism for a pilot dying without anyone recording why.
+
 ## Unconfirmed inferences (made by the generator, not the founder)
 
 **A7: The user spectrum was derived, not supplied.** Low edge = business manager who consumes answers; beachhead = enterprise analyst; high edge = staff data scientist who audits lineage and overrides ML choices.
