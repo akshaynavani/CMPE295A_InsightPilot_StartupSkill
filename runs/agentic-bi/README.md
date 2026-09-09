@@ -2,18 +2,31 @@
 
 An AI-powered conversational business intelligence platform: a multi-agent system that turns a business question asked in natural language into a planned, executed and fully traceable analytical workflow. An Orchestrator decomposes intent into an *analysis plan* and dispatches it to four specialist agents — Data Fetch/Integration, Analytics, Visualization and ML — recombining their outputs into an *answer* that carries its *lineage*. Built for the enterprise data analyst: the goal is to compress the fixed overhead of every ad-hoc question without taking away the analyst's control or their ability to verify the result.
 
-> **Status** — updated 2026-09-09 · run slug `agentic-bi` · **44 / 61 required artifacts** · 0 / 78 visuals rendered
-> **PARTIAL — phases 0–4 of 8 complete.** This run is scoped to documents only: 54 of the 61 required manifest rows are in scope, 7 are deliberately excluded (see [ASSUMPTIONS.md](ASSUMPTIONS.md) A1, A4).
+> **Status** — updated 2026-09-09 · run slug `agentic-bi` · **50 / 61 required artifacts** · 0 / 78 visuals rendered
+> **PARTIAL — phases 0–5 of 8 complete.** This run is scoped to documents only: 54 of the 61 required manifest rows are in scope, 7 are deliberately excluded (see [ASSUMPTIONS.md](ASSUMPTIONS.md) A1, A4).
 
-## Start here
+## Start here — the 60-second path
 
-The 60-second path will be one-pager → pitch deck → whitepaper once phase 5 lands. Until then:
+1. **[narrative/one_pager.md](narrative/one_pager.md)** — the whole venture on one page, every figure sourced.
+2. **[narrative/pitch_deck.md](narrative/pitch_deck.md)** — 14 slides; read the titles alone first, they carry the argument.
+3. **[tech/whitepaper.md](tech/whitepaper.md)** §5 — the mechanism arithmetic and what it honestly totals.
 
-1. **[BRIEF.md](BRIEF.md)** — who this is for, what it does, and which claims are deliberately not made. Every other artifact is written against this file.
-2. **[strategy/positioning.md](strategy/positioning.md)** §5 — the one-sentence positioning statement, and §5.1 the list of things it deliberately does not say.
-3. **[research/competitors.md](research/competitors.md)** — the teardown, and §4 the differentiator. This is where the pack stops being a proposal and starts being an argument.
-4. **[research/survey.md](research/survey.md)** §5.2 — the strongest case *against* this project's own mechanism, stated at full strength and then answered.
-5. **[ASSUMPTIONS.md](ASSUMPTIONS.md)** — what was decided without confirmation, what closed in phases 1 and 2, and what would break if an inference is wrong.
+**Then, for depth:**
+
+4. **[BRIEF.md](BRIEF.md)** — who this is for and which claims are deliberately not made. Every other artifact is written against this file.
+5. **[narrative/vc_memo.md](narrative/vc_memo.md)** §2 — the category-by-category demolition, and §6 the three risks that would sink it.
+6. **[research/survey.md](research/survey.md)** §5.2 — the strongest case *against* this project's own mechanism, stated at full strength and then answered.
+7. **[ASSUMPTIONS.md](ASSUMPTIONS.md)** — what was decided without confirmation, what closed in which phase, and what would break if an inference is wrong.
+
+## What phase 5 established
+
+The persuasion layer arranges evidence; it invents nothing. Three things it settled:
+
+1. **The deck's arc puts the teardown first and concedes on three slides.** Slides 1–4 demolish the status quo before the product appears; slides 9, 10 and 13 are where a normal deck inflates and this one declines — publishing ≈2.9× rather than a headline, $123M rather than a slice of $40B, and "our evidence is thin and the one number that matters is untested."
+2. **The vision is a norm, not a market share.** [narrative/future_press.md](narrative/future_press.md) works backwards to 2033 and lands on **$74M ARR across 1,900 organisations** — consistent with the $123M SAM rather than contradicting it — with the company *losing* exclusive control of its differentiator to a standard, which is the honest end state of an open-core position.
+3. **The founder story confronts the missing domain experience instead of finessing it.** The team has no lived experience inside an analytics function, so the standard origin narrative is unavailable. The file is built on the real edge — agent engineering, and having debugged the plausible-wrong-output failure mode directly — and carries **five bracketed placeholders only the founder can fill**, because a fabricated anecdote fails on the first follow-up question.
+
+**Forbidden-claim audit passed.** The 13.8× queueing multiplier appears twice and both are withdrawals; "10×" appears once and it is a denial; no head-to-head accuracy claim against any incumbent; the MLE-bench 36.4% figure does not appear at all.
 
 ## What phase 4 established
 
@@ -58,7 +71,7 @@ Four findings that change what downstream artifacts may claim:
 
 **Designer** — [product/ux_spec.md](product/ux_spec.md), twelve screens. §5's verification-tick treatment and §14's three admissions of where the spec is probably wrong are the parts worth arguing with.
 
-**Investor lens** — [research/competitors.md](research/competitors.md) for the teardown and the positioning read, then [research/landscape.md](research/landscape.md) §6, the graveyard. Note that ThoughtSpot — the purest market test of this thesis — was marked down 73.67% in June 2024, and that this pack states so itself rather than waiting to be asked.
+**Investor lens** — [narrative/vc_memo.md](narrative/vc_memo.md) end to end; §2 is the demolition and §6 the risks. Then [research/landscape.md](research/landscape.md) §6, the graveyard. Note that ThoughtSpot — the purest market test of this thesis — was marked down 73.67% in June 2024, and that this pack states so itself rather than waiting to be asked.
 
 **Skeptic** — [research/survey.md](research/survey.md) §5.2 lists the eight strongest arguments against this project, including the benchmark evidence that its core capability measures ≈15% on hard real-world tasks. §5.3 answers them architecturally.
 
@@ -72,7 +85,7 @@ Four findings that change what downstream artifacts may claim:
 | [`strategy/`](strategy/) | Positioning, market type, sizing, personas, canvases, GTM, channels, sales roadmap | **11 / 11 ✓** | startup-strategy |
 | [`product/`](product/) | PRD, feature sets, four journeys, UX spec | **8 / 8 ✓** | startup-product |
 | [`tech/`](tech/) | Whitepaper, deep dives, 11 architecture diagrams, technique waves | **19 / 18 ✓** | startup-tech |
-| `narrative/` | One-pager, VC memo, pitch deck, future press, founder story, mission | 0 / 6 | startup-narrative |
+| [`narrative/`](narrative/) | One-pager, VC memo, pitch deck, future press, founder story, mission | **6 / 6 ✓** | startup-narrative |
 | `validation/` | Riskiest assumptions, experiment board, discovery guide, funnel, stage gates, MVP, DMU | 0 / 9 | startup-validation |
 | `financials/` | Pricing threshold, unit economics, risk matrix — **cost side only** | 0 / 3 | startup-financials |
 | `audit/` | Coverage report | 0 / 1 | startup-audit |
@@ -95,7 +108,7 @@ Each traces to [research/sources.md](research/sources.md).
 
 ## Completeness
 
-**PARTIAL — 44 of 54 in-scope required artifacts.** Phases 0–4 complete: the founder brief, the assumptions ledger, the full research layer (landscape, competitor teardown, capability table, survey, sources), the full strategy layer (market type, positioning, sizing, personas, both canvases, value proposition, GTM, petal, channel economics, sales roadmap), the full product layer (PRD, flagship and prioritised features, four journeys, UX spec) and the full tech layer (whitepaper, deep dives, eleven architecture diagrams, three technique waves, decision tree, technique-feature matrix, not-vaporware). Phases 5–7 — narrative, validation, financials — and the phase 9 audit remain. This run is deliberately scoped to documents only: the visuals and website phases are deferred, not cancelled (A4), and the three revenue-side financial artifacts are excluded by decision rather than omission (A1). Row-by-row status will live in `audit/COVERAGE.md` once phase 9 runs.
+**PARTIAL — 50 of 54 in-scope required artifacts.** Phases 0–5 complete: the founder brief, the assumptions ledger, the full research layer (landscape, competitor teardown, capability table, survey, sources), the full strategy layer (market type, positioning, sizing, personas, both canvases, value proposition, GTM, petal, channel economics, sales roadmap), the full product layer (PRD, flagship and prioritised features, four journeys, UX spec), the full tech layer (whitepaper, deep dives, eleven architecture diagrams, three technique waves, decision tree, technique-feature matrix, not-vaporware) and the full narrative layer (one-pager, VC memo, pitch deck, future press, founder story, mission). Phases 6–7 — validation and financials — and the phase 9 audit remain. This run is deliberately scoped to documents only: the visuals and website phases are deferred, not cancelled (A4), and the three revenue-side financial artifacts are excluded by decision rather than omission (A1). Row-by-row status will live in `audit/COVERAGE.md` once phase 9 runs.
 
 Three assumptions closed in phase 1 (A6, A8 partially, A9 with a required restatement) and one was newly raised (A11, the gravity question). Phase 2 then closed A5 and A11 together by founder decision at the gate — **every open decision in the ledger is now closed**; what remains is unconfirmed inferences (A7) and deliberate scope decisions (A1–A4), which the audit must treat as closed rather than missing. Five research gaps were searched for and not found; they are named in [research/sources.md](research/sources.md) so a later phase does not spend budget re-searching them blind.
 

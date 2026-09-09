@@ -4,26 +4,24 @@ Not a pack artifact; deliberately outside `runs/agentic-bi/` so it stays out of 
 
 ## Where the run stopped
 
-**Phases 0–4 complete and committed. Phase 5 (`startup-narrative`) not started — no files in `narrative/`.**
+**Phases 0–5 complete and committed. Phase 6 (`startup-validation`) not started — no files in `validation/`.**
 
-Phase 1 wrote the five research files, closed A6 and A9, closed A8 partially, raised A11. Phase 2 wrote the eleven strategy files and closed A5 and A11 by founder decision at the gate. Phase 3 wrote the eight product files and raised A12. Phase 4 wrote nineteen tech files. `ASSUMPTIONS.md` and `README.md` refreshed at every checkpoint.
+Phase 1 wrote the five research files, closed A6 and A9, closed A8 partially, raised A11. Phase 2 wrote the eleven strategy files and closed A5 and A11 by founder decision at the gate. Phase 3 wrote the eight product files and raised A12. Phase 4 wrote nineteen tech files. Phase 5 wrote the six narrative files and passed a forbidden-claim audit. `ASSUMPTIONS.md` and `README.md` refreshed at every checkpoint.
 
-Search budget: **35 web searches + 6 direct page fetches** across all phases, against a 200 limit. Phases 3 and 4 needed no new searches — both are downstream synthesis. See *Operational lesson* below.
+Search budget: **35 web searches + 6 direct page fetches** across all phases, against a 200 limit. Phases 3–5 needed no new searches — all are downstream synthesis. See *Operational lesson* below.
 
 **Cadence agreed with the founder: one phase at a time, commit, report, continue.**
 
 ## Start here in the new session
 
 1. Read `runs/agentic-bi/BRIEF.md` and `runs/agentic-bi/ASSUMPTIONS.md` — source of truth and decision ledger. **The resolutions in A5, A6, A8, A9 and A11 are binding on every later phase and are easy to lose in transit.**
-2. Read `runs/agentic-bi/strategy/positioning.md` §5 and §5.1 (the statement and the do-not-say list), `tech/whitepaper.md` §5 (the honest total), and `product/journeys/beachhead.md` — these are what phase 5 consumes.
-3. Read the skill: `C:\Users\019115720\.claude\skills\startup-narrative\SKILL.md`, plus `C:\Users\019115720\.claude\references\quality-bar.md`.
-4. Run phase 5 → `runs/agentic-bi/narrative/` (6 rows: one-pager, VC memo, pitch deck, future press, founder story, mission). Commit, report. Then phases 6 → 7, then 9 (audit).
+2. Read `runs/agentic-bi/strategy/business_model_canvas.md` (nine falsifiable hypotheses with their cheapest killing tests — **rows 2, 1 and 5 are the pre-ranked first three experiments**), `narrative/vc_memo.md` §6 (the three honest risks), and `ASSUMPTIONS.md` A12. These are what phase 6 consumes.
+3. Read the skill: `C:\Users\019115720\.claude\skills\startup-validation\SKILL.md`, plus `C:\Users\019115720\.claude\references\quality-bar.md`.
+4. Run phase 6 → `runs/agentic-bi/validation/` (9 rows: riskiest assumptions, experiment board, discovery guide, funnel, stage gates, MVP, DMU). Commit, report. Then phase 7 (`financials/`, 3 rows), then 9 (audit).
 
-**Note for phase 5 — this is the highest-risk phase in the pack for claim inflation.** The narrative layer exists to persuade, and four numbers in `tech/` are seductive and forbidden or constrained:
-- **The 13.8× queueing multiplier** (`tech/whitepaper.md` §3.1) is computed and explicitly **withdrawn**. It must not appear in any narrative artifact.
-- **The honest headline is ≈2.9× (band 1.8×–4.2×)** on multi-source questions, and **≈1.0× or below** on single-source familiar questions. Both halves travel together.
-- **No head-to-head accuracy claim** against Genie, Cortex or Copilot is supportable — none publishes a benchmark (A6 constraint 4).
-- **The ML agent's 36.4% MLE-bench figure runs on a 12-hour budget** — quoting it for a conversational product violates P9.
+**Note for phase 6.** Much of the input already exists and must be *consumed rather than re-derived* — `business_model_canvas.md` already ranks nine hypotheses by killing test, and `vc_memo.md` §6 already states the top three risks. Phase 6's job is to sequence them into a board and a stage-gate map, add the discovery guide and the funnel, and **carry A12 (analyst review-time-per-week) as a first-class tracked metric** — that is the one input phases 0–5 raised and did not close.
+
+**The three untested claims are the spine of phase 6**, in this order: (1) verification cheaper than re-derivation; (2) do real questions span sources; (3) can a buyer name a budget line. None needs code.
 
 ## Hard constraints — do not violate
 
@@ -64,6 +62,13 @@ Search budget: **35 web searches + 6 direct page fetches** across all phases, ag
 19. **Reflection, self-critique, LLM-as-judge and multi-agent debate are declined by principle** (`tech/techniques/wave3.md` §1). All keep verification inside the model that produced the output; P7 requires verification to run structurally different code. A later phase proposing them is reversing a decision, not adding a feature.
 20. **Two HIGH-severity technique gaps must be closed before the Analytics agent ships diagnostic questions:** multiple-comparisons correction (contribution analysis will otherwise name noise as a driver, and no structural check catches it) and calibration measurement (doubt surfacing is otherwise unfalsifiable). Both in `tech/techniques/technique_feature_matrix.md` §4.
 21. **`expected_attempts` is the dominant unknown in the cost model.** A cost model assuming one clean pass per investigation will be wrong by a large multiple, since DABstep implies retries are the common case. `financials/` must model cost per attempt × expected attempts and say the second term is unmeasured.
+
+## Additional binding rules produced by phase 5
+
+22. **The narrative layer passed a forbidden-claim audit and later phases must not reintroduce what it excluded.** The 13.8× queueing multiplier appears only as a withdrawal; "10×" only as a denial; no head-to-head accuracy claim against any incumbent; the MLE-bench 36.4% figure appears nowhere. Re-run the audit (`grep` for `13\.8`, `10x|10×`, `more accurate than`, `36\.4`) if any narrative file is edited.
+23. **`narrative/founder_story.md` carries five `[SPECIFIC:]` / `[N]` placeholders that only the founder can fill.** They are deliberate, not omissions — the team has no lived analytics experience, so a fabricated origin anecdote would fail on the first follow-up. **Do not fill them by inference in a later phase.** If one cannot be answered truthfully, the instruction in-file is to cut the sentence rather than soften it.
+24. **`narrative/pitch_deck.md` names intended visuals that do not exist** (visuals phase deferred, A4). Its `visual:` lines are the future rows of `visuals/visual_manifest.md`; four of them point at Mermaid diagrams already written in `tech/architecture/` that need only rendering.
+25. **The vision is a norm, not a market share.** `future_press.md` lands on $74M ARR across 1,900 organisations at 2033 — consistent with the $123M SAM — with the company losing exclusive control of the differentiator to an open format. A later phase must not upgrade this to a hypergrowth story.
 
 ## Open decisions — none
 
