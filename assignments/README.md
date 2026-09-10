@@ -6,7 +6,7 @@ project pack's coverage audit does not count them as pack artifacts.
 | # | Assignment | File | Status |
 |---|---|---|---|
 | 1 | Project Abstract | [`.docx`](CMPE295A_InsightPilot_Project_Abstract.docx) · [`.pdf`](CMPE295A_InsightPilot_Project_Abstract.pdf) | **Final** — 2 pages confirmed |
-| 2 | Project Formation Presentation | [`.pptx`](CMPE295A_InsightPilot_Project_Formation.pptx) | **Draft** — name placeholders to fill |
+| 2 | Project Formation Presentation | [`.pptx`](CMPE295A_InsightPilot_Project_Formation.pptx) | **Final** — names filled; roles deliberately verbal |
 
 ## Assignment 1 — Project Abstract
 
@@ -128,10 +128,38 @@ the evaluation harness — is legitimate: the abstract has no such sections. The
 evaluation harness is the largest addition and is deliberate, since it is the
 strongest evidence for the Project Choice criterion.
 
+### Deliberate choice: roles are not on the slide
+
+Slide 1 lists the four team members by name with **no roles and no designated
+lead**. This is a decision, not an oversight: the team will discuss the role
+split with the advisor live during the presentation, since the split is not
+yet settled and stating it as fixed would misrepresent where the team is.
+
+**The cost is known and accepted.** The Team Formation rubric reads:
+
+| Row | Requirement | Status |
+|---|---|---|
+| 3 pts | Team members identified; **each with a specific role** | not met |
+| 2 pts | Team members identified. **Leader chosen** | partially — named, no leader |
+| 1 pt | Difficulty following instructions to create a team of 4 | not applicable |
+
+Expected outcome is **1–2 of 3** on this criterion, against 3 of 3 if roles
+were printed. That is up to a quarter of the assignment's twelve points, and
+it is the only criterion the slide content fully controls — the other three
+depend on the project itself and on the advisor relationship.
+
+**Mitigation if this stands:** raise the role split *early and unprompted*
+during the presentation rather than waiting to be asked. An advisor who has
+to ask has already formed an impression.
+
+A proposed split by architecture layer, mapping onto the components in
+`runs/insightpilot/tech/deep_dives.md`, is available if it is wanted later:
+Orchestration & Planning · Data Integration & Connectors · Verification &
+Lineage · Analytics, ML & Evaluation.
+
 ### Before submitting
 
-- [ ] **Replace the four `[Name]` placeholders** on slide 1 and confirm the
-      role assignments
+- [ ] Decide finally whether roles stay off slide 1 (see above)
 - [ ] Open in PowerPoint and check slide 4 fits; it carries 9 bullets and
       relies on autofit
 - [ ] All team members must attend the presentation
