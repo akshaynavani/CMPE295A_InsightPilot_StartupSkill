@@ -42,8 +42,8 @@ Two pages, per the assignment specification:
 Attribution is woven into the prose without citation markers, matching the
 example abstract's handling of its own 85.57 percent figure.
 
-**Readability:** 271 words of body text. Longest sentence 23 words.
-Paragraphs run 70 / 103 / 98 words across 5 / 7 / 7 sentences.
+**Readability:** 276 words of body text. Longest sentence 23 words.
+Paragraphs run 70 / 106 / 100 words across 5 / 7 / 7 sentences.
 
 **Document metadata was rewritten.** The template shipped with `Dan Harkey`
 as author, a 2015 creation date, and an embedded reviewer comment. All were
