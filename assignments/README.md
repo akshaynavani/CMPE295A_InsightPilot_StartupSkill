@@ -88,7 +88,7 @@ forbids adding pages.
 
 | Slide | Content |
 |---|---|
-| 1 | Title, advisor, four members **each with a specific role**, methodology |
+| 1 | Title, advisor, four team members, methodology (**no roles — see below**) |
 | 2 | Project description — 5 bullets |
 | 3 | Project deliverables — 5 bullets, none on the excluded list |
 | 4 | Dependencies and concerns |
@@ -98,9 +98,9 @@ forbids adding pages.
 All four criteria are graded by the **advisor**, not the instructor.
 
 - **Team Formation (3 pts)** — the 3-point row requires "each with a specific
-  role", but the template ships only a name list. Roles are attached to each
-  name, split by architecture layer so they map onto real components in
-  `runs/insightpilot/tech/deep_dives.md`.
+  role", and the template ships only a name list. **Roles were drafted and
+  then deliberately removed** — see *Deliberate choice* below for the
+  reasoning and the accepted cost. This is the weakest criterion in the deck.
 - **Project Choice (3 pts)** — the 3-point row reads "no known examples in
   industry or academia". **That claim would be false**: `research/landscape.md`
   documents Genie, Cortex Analyst, Copilot, ThoughtSpot, Wren AI and Hex. The
