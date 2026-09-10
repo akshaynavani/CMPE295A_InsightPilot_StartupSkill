@@ -6,6 +6,7 @@ project pack's coverage audit does not count them as pack artifacts.
 | # | Assignment | File | Status |
 |---|---|---|---|
 | 1 | Project Abstract | [`.docx`](CMPE295A_InsightPilot_Project_Abstract.docx) · [`.pdf`](CMPE295A_InsightPilot_Project_Abstract.pdf) | **Final** — 2 pages confirmed |
+| 2 | Project Formation Presentation | [`.pptx`](CMPE295A_InsightPilot_Project_Formation.pptx) | **Draft** — name placeholders to fill |
 
 ## Assignment 1 — Project Abstract
 
@@ -75,3 +76,62 @@ Effectiveness. Left as-is by choice; lowercasing the `I` closes it.
 | Paragraph Content | 3 / 3 |
 | Writing Effectiveness | 3 / 3 expected · 2 / 3 strictest, on the capitalisation alone |
 | **Total** | **6 / 6 expected** |
+
+---
+
+## Assignment 2 — Project Formation Presentation
+
+**Built from the instructor's template** (`Abstract-presentation-template.pptx`)
+by editing its slide XML in place. Masters, layouts, notes slides and fonts
+are untouched, and **the slide count is unchanged at 4** — the assignment
+forbids adding pages.
+
+| Slide | Content |
+|---|---|
+| 1 | Title, advisor, four members **each with a specific role**, methodology |
+| 2 | Project description — 5 bullets |
+| 3 | Project deliverables — 5 bullets, none on the excluded list |
+| 4 | Dependencies and concerns |
+
+### Rubric targeting
+
+All four criteria are graded by the **advisor**, not the instructor.
+
+- **Team Formation (3 pts)** — the 3-point row requires "each with a specific
+  role", but the template ships only a name list. Roles are attached to each
+  name, split by architecture layer so they map onto real components in
+  `runs/insightpilot/tech/deep_dives.md`.
+- **Project Choice (3 pts)** — the 3-point row reads "no known examples in
+  industry or academia". **That claim would be false**: `research/landscape.md`
+  documents Genie, Cortex Analyst, Copilot, ThoughtSpot, Wren AI and Hex. The
+  deck instead claims the empty quadrant — no shipped system does multi-step
+  planning across heterogeneous sources with step-level verifiable lineage —
+  which is true and defensible under questioning.
+- **Scope (3 pts)** — deliverables are five buildable systems, and slide 4
+  names the specific benchmark evidence that makes the scope hard.
+- **Negotiation (3 pts)** — graded on the advisor's experience of the team,
+  not on slide content. The only slide lever is the methodology declaration.
+
+### Consistency with the abstract
+
+The deck was audited line by line against the submitted abstract. Seven
+terminology drifts were corrected ("hop" to "step", "pre-modeled" to
+"pre-defined", "approves" to "reviews", and a third data-source taxonomy
+unified to the abstract's relational databases / spreadsheets / web services).
+
+**Two invented claims were removed:** "a wrong answer surfaces in seconds"
+(the abstract makes no speed claim) and "95% per step is ~74% over six steps"
+(the per-step rate was assumed, never measured).
+
+Content that appears only in the deck — deliverables, dependencies, concerns,
+the evaluation harness — is legitimate: the abstract has no such sections. The
+evaluation harness is the largest addition and is deliberate, since it is the
+strongest evidence for the Project Choice criterion.
+
+### Before submitting
+
+- [ ] **Replace the four `[Name]` placeholders** on slide 1 and confirm the
+      role assignments
+- [ ] Open in PowerPoint and check slide 4 fits; it carries 9 bullets and
+      relies on autofit
+- [ ] All team members must attend the presentation
