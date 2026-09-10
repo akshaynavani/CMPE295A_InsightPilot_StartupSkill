@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V03 · Priya's Thursday</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:38px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:30px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:13px;color:var(--muted);margin-top:9px;max-width:1010px;line-height:1.5}
+  .track{margin-top:22px}
+  .lane{display:flex;align-items:stretch;gap:0;margin-bottom:9px}
+  .lanelbl{width:96px;flex:none;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);padding-top:13px}
+  .segs{flex:1;display:flex;gap:3px}
+  .seg{border-radius:3px;padding:8px 9px;font-size:10.5px;line-height:1.3;color:#fff;font-weight:600;display:flex;align-items:center}
+  .seg small{display:block;font-weight:400;opacity:.85;font-size:9.5px;margin-top:1px}
+  .byhand .seg{background:#8B94A3}
+  .withpilot .seg{background:var(--accent)}
+  .withpilot .seg.v{background:var(--verify)}
+  .withpilot .seg.gap{background:#DCE3EC;color:var(--muted)}
+  .mins{width:74px;flex:none;text-align:right;font-size:15px;font-weight:700;color:var(--ink);padding-top:11px;font-variant-numeric:tabular-nums}
+  .beat{margin-top:20px;background:#FDF6EA;border:1px solid #E8D3AE;border-radius:7px;padding:14px 16px;display:flex;gap:20px;align-items:flex-start}
+  .beat .flag{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--doubt);white-space:nowrap;padding-top:2px}
+  .beat p{font-size:12.5px;line-height:1.55}
+  .beat b{color:var(--ink);font-weight:650}
+  .zones{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:20px;flex:1}
+  .zone{border-top:2px solid var(--ink);padding-top:11px}
+  .zone.v{border-top-color:var(--verify)}
+  .zone.d{border-top-color:var(--doubt)}
+  .zone .lbl{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:14px;font-weight:650;color:var(--ink);margin-top:6px;line-height:1.3}
+  .zone p{font-size:11.5px;line-height:1.55;margin-top:7px}
+  .stat{font-size:21px;font-weight:700;color:var(--ink);margin-top:9px}
+  .stat span{font-size:11px;font-weight:400;color:var(--muted)}
+  .src{margin-top:16px;padding-top:11px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <div class="eyebrow">InsightPilot · Beachhead journey</div>
+  <h1>The 8% join failure that takes twenty minutes to find, surfaced in forty seconds</h1>
+  <p class="sub">
+    Thursday 4:10pm. The ops director asks why cost per shipment jumped in the Southwest. The answer needs
+    the warehouse joined to a carrier CSV nobody has ever modelled. This is the question Power BI Copilot
+    declines, because cost per shipment by carrier by region is not an existing measure.
+  </p>
+
+  <div class="track">
+    <div class="lane byhand">
+      <div class="lanelbl">By hand</div>
+      <div class="segs">
+        <div class="seg" style="flex:10">Locate<small>sources, schema</small></div>
+        <div class="seg" style="flex:25">Write and debug the query<small>joins, filters, grain</small></div>
+        <div class="seg" style="flex:20">Reconcile region codes<small>CSV has 4, warehouse has 6</small></div>
+        <div class="seg" style="flex:20">Chart and interpret<small></small></div>
+        <div class="seg" style="flex:15">Self-check<small>she wrote it, so it is cheap</small></div>
+      </div>
+      <div class="mins">90 min</div>
+    </div>
+    <div class="lane withpilot">
+      <div class="lanelbl">InsightPilot</div>
+      <div class="segs">
+        <div class="seg" style="flex:4">Ask<small></small></div>
+        <div class="seg" style="flex:6">Bind<small>clarify "cost"</small></div>
+        <div class="seg" style="flex:5">Read plan<small>15 sec</small></div>
+        <div class="seg" style="flex:7">Execute<small>6 steps</small></div>
+        <div class="seg v" style="flex:9">Verify and override<small>the amber step</small></div>
+        <div class="seg gap" style="flex:59">Time returned to planned work</div>
+      </div>
+      <div class="mins">31 min</div>
+    </div>
+  </div>
+
+  <div class="beat">
+    <div class="flag">Step 3<br>returns amber</div>
+    <p>
+      <b>“Join preserved 13,061 of 14,201 rows. 8% of shipments had no matching invoice. The CSV uses four
+      region codes, the warehouse uses six.”</b> Priya has seen this exact failure before. It is what made her
+      distrust the last tool she was given. Here the system surfaced it, rather than her discovering it after
+      the number reached a slide.
+    </p>
+  </div>
+
+  <div class="zones">
+    <div class="zone v">
+      <div class="lbl">The honest accounting</div>
+      <h3>Nine of the thirty-one minutes were verification</h3>
+      <p>
+        Reading the plan, inspecting step 3, re-running step 5. That is the cost the differentiator has to
+        justify, and it only looks small because the alternative was ninety minutes.
+      </p>
+      <div class="stat">9 min<span> &nbsp;spent checking</span></div>
+    </div>
+    <div class="zone">
+      <div class="lbl">What persists afterward</div>
+      <h3>The correction outlives the question</h3>
+      <p>
+        Her region mapping and her corrected cost definition are written to the organisation's binding store.
+        The next analyst asking a related question inherits both, so the marginal question against this source
+        gets cheaper to verify.
+      </p>
+      <div class="stat">Org-wide<span> &nbsp;not per-user</span></div>
+    </div>
+    <div class="zone d">
+      <div class="lbl">Where this journey is fiction</div>
+      <h3>A countable failure is the easy case</h3>
+      <p>
+        An 8% row mismatch is exactly what a cheap structural check finds. The dangerous failures produce a
+        clean-looking join at the wrong grain, with no count anomaly at all. This journey does not show one
+        being caught.
+      </p>
+      <div class="stat">Untested<span> &nbsp;coverage of plausible errors</span></div>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>product/journeys/beachhead.md</code> · magnitudes are the analyst's own estimate, tagged as assumption</span>
+    <span>V03</span>
+  </div>
+
+</div>
+</body>
+</html>

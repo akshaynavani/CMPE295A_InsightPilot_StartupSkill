@@ -50,7 +50,7 @@ Every infographic in this set obeys these, so the pack reads as one system rathe
 |---|---|---|---|---|---|
 | V01 | The core loop: ask, plan, execute, answer, verify, follow up | users | product/PRD.md | html | html |
 | V02 | One system, three edges: who the interface adapts to | users | strategy/personas.md, product/PRD.md | html | html |
-| V03 | Priya's Thursday: 90 minutes by hand versus 31 with a plan | users | product/journeys/beachhead.md | html | planned |
+| V03 | Priya's Thursday: 90 minutes by hand versus 31 with a plan | users | product/journeys/beachhead.md | html | html |
 | V04 | The stakeholder who cannot verify: gated until an analyst signs | users | product/journeys/edge_low.md | html | planned |
 | V05 | The reviewer's two hours become nineteen minutes | users | product/journeys/edge_high.md | html | planned |
 | V06 | One ordinary Tuesday across five roles | users | product/journeys/day_in_life.md | html | planned |
@@ -85,7 +85,7 @@ Every infographic in this set obeys these, so the pack reads as one system rathe
 
 | ID | Title | Audience | Source | Form | Status |
 |---|---|---|---|---|---|
-| V28 | The two axes that divide this market, and the empty quadrant | investors | strategy/positioning.md | html | planned |
+| V28 | The two axes that divide this market, and the empty quadrant | investors | strategy/positioning.md | html | html |
 | V29 | Mechanism arithmetic: six frictions, four attacked, ≈2.9× | investors | tech/whitepaper.md | html | html |
 | V30 | TAM / SAM / SOM built bottom-up, with the pessimistic corner | investors | strategy/market_sizing.md | html | planned |
 | V31 | The graveyard: four attempts, none died of bad technology | investors | research/landscape.md | html | planned |

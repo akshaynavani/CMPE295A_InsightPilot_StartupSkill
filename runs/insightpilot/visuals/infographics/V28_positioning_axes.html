@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V28 · The two axes and the empty quadrant</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:38px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:30px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:13px;color:var(--muted);margin-top:9px;max-width:1000px;line-height:1.5}
+  .main{display:flex;gap:30px;margin-top:22px;flex:1}
+  .plot{flex:1.35;position:relative}
+  .ylab{position:absolute;left:-4px;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:left center;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+  .grid{margin-left:26px;border-left:2px solid var(--ink);border-bottom:2px solid var(--ink);height:352px;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr 1fr}
+  .cell{border-right:1px dashed var(--rule);border-top:1px dashed var(--rule);padding:9px;position:relative}
+  .cell.open{background:#EDF3FA;border:2px solid var(--accent);border-radius:4px}
+  .rowlab{position:absolute;left:-26px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-size:8.5px;color:var(--muted);letter-spacing:.05em}
+  .chip{display:inline-block;background:#fff;border:1px solid var(--rule);border-radius:11px;padding:3px 8px;font-size:10px;font-weight:600;color:var(--ink);margin:0 3px 4px 0}
+  .chip.grey{color:var(--muted)}
+  .open .label{font-size:13px;font-weight:700;color:var(--accent);line-height:1.3}
+  .open .why{font-size:10.5px;color:var(--body);margin-top:5px;line-height:1.4}
+  .xaxis{margin-left:26px;display:grid;grid-template-columns:1fr 1fr 1fr;margin-top:7px}
+  .xaxis div{font-size:10px;font-weight:600;color:var(--muted);text-align:center}
+  .xlab{margin-left:26px;text-align:center;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:9px}
+  .side{flex:1;display:flex;flex-direction:column;gap:16px}
+  .zone{border-top:2px solid var(--ink);padding-top:10px}
+  .zone.d{border-top-color:var(--doubt)}
+  .zone.v{border-top-color:var(--verify)}
+  .zone .lbl{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:14px;font-weight:650;color:var(--ink);margin-top:5px;line-height:1.3}
+  .zone p{font-size:11.5px;line-height:1.55;margin-top:6px}
+  .src{margin-top:14px;padding-top:11px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <div class="eyebrow">InsightPilot · Positioning</div>
+  <h1>The quadrant is empty because the problem is hard, not because nobody looked</h1>
+  <p class="sub">
+    Price against quality sorts this market into groups that behave identically. These two axes come from the
+    failure column of the teardown, which is the only place the products genuinely diverge.
+  </p>
+
+  <div class="main">
+    <div class="plot">
+      <div class="ylab">Where correctness is established</div>
+      <div class="grid">
+        <div class="cell"><div class="rowlab">carried with answer</div></div>
+        <div class="cell"><span class="chip grey">Genie · Inspect</span><div style="font-size:9.5px;color:var(--muted);line-height:1.35;margin-top:2px">verifies inside one query, not across a plan</div></div>
+        <div class="cell open">
+          <div class="label">InsightPilot</div>
+          <div class="why">Plan across sources, verified per step, trace emitted per handoff.</div>
+        </div>
+
+        <div class="cell"><div class="rowlab">post-hoc by human</div><span class="chip">Analyst writes SQL</span></div>
+        <div class="cell"></div>
+        <div class="cell"><span class="chip">Hex Notebook Agent</span><div style="font-size:9.5px;color:var(--muted);line-height:1.35;margin-top:2px">the notebook is the lineage, but the human drives every step</div></div>
+
+        <div class="cell"><div class="rowlab">pre-encoded</div><span class="chip">Do nothing</span></div>
+        <div class="cell">
+          <span class="chip">Cortex Analyst</span><span class="chip">Genie</span><span class="chip">Copilot</span>
+          <span class="chip">Pulse</span><span class="chip">Spotter</span><span class="chip">Wren AI</span>
+        </div>
+        <div class="cell"></div>
+      </div>
+      <div class="xaxis"><div>0 hops</div><div>1 hop</div><div>many hops</div></div>
+      <div class="xlab">Steps executed autonomously</div>
+    </div>
+
+    <div class="side">
+      <div class="zone">
+        <div class="lbl">Why the crowded cell is crowded</div>
+        <h3>Pre-encoding buys correctness by narrowing scope</h3>
+        <p>
+          Thirty tables per Genie Agent. A hand-authored 32K-token Cortex model. Copilot cannot compute a
+          metric that is not already a measure. These are not bugs, they are the reliability mechanism, and
+          the better it works the fewer questions get attempted.
+        </p>
+      </div>
+      <div class="zone d">
+        <div class="lbl">Why the open cell is open</div>
+        <h3>Multi-step reasoning measures about 15%</h3>
+        <p>
+          On DABstep's hard split, drawn from a real financial analytics workload, leading agents score
+          roughly 15% against 76% on the easy split. The space is empty for a reason, and a positioning that
+          claims an empty quadrant without saying why is claiming everyone else is careless.
+        </p>
+      </div>
+      <div class="zone v">
+        <div class="lbl">The inversion</div>
+        <h3>The axes are not independent</h3>
+        <p>
+          If multi-step execution were reliable, correctness could stay pre-encoded and nobody would need a
+          trace. Because it is not, the trace is what makes the steps usable at all. Occupying the far right
+          requires occupying the top.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>strategy/positioning.md</code> §2 · <code>research/competitors.md</code> §3.1</span>
+    <span>Evidence: <code>[S4]</code> DABstep · <code>[S32]</code> Genie table cap · <code>[S36]</code> Cortex model size · V28</span>
+  </div>
+
+</div>
+</body>
+</html>
