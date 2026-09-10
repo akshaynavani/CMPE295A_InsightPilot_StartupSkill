@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V02 · One system, three edges</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:40px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:30px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:13px;color:var(--muted);margin-top:9px;max-width:1000px;line-height:1.5}
+  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:24px}
+  .card{border:1px solid var(--rule);border-radius:7px;padding:16px 15px;display:flex;flex-direction:column;background:var(--wash)}
+  .card.core{background:#EDF3FA;border-color:#C4D8EE}
+  .tag{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .card.core .tag{color:var(--accent)}
+  .who{font-size:17px;font-weight:700;color:var(--ink);margin-top:6px}
+  .role{font-size:11.5px;color:var(--muted);margin-top:2px}
+  .card p{font-size:12px;line-height:1.5;margin-top:11px}
+  .needs{margin-top:11px;padding-top:10px;border-top:1px solid var(--rule);font-size:11.5px;line-height:1.5}
+  .card.core .needs{border-top-color:#C4D8EE}
+  .needs b{color:var(--ink);font-weight:650}
+  .obj{margin-top:auto;padding-top:11px;font-size:11px;line-height:1.45;color:var(--fail);font-style:italic}
+  .lower{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:24px;flex:1}
+  .zone{border-top:2px solid var(--ink);padding-top:11px}
+  .zone.d{border-top-color:var(--doubt)}
+  .zone .lbl{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:14.5px;font-weight:650;color:var(--ink);margin-top:6px}
+  .zone p{font-size:12px;line-height:1.55;margin-top:8px}
+  .pair{display:flex;gap:24px;margin-top:12px}
+  .pair div{flex:1}
+  .pair .num{font-size:22px;font-weight:700;color:var(--ink)}
+  .pair .cap{font-size:11px;color:var(--muted);line-height:1.4;margin-top:3px}
+  .src{margin-top:18px;padding-top:11px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <div class="eyebrow">InsightPilot · User spectrum</div>
+  <h1>One adaptive system, three edges, and no separate tiers</h1>
+  <p class="sub">
+    The interface adapts to what a person can verify. Three things change across the edges: whether the plan
+    renders expanded, whether ambiguity is phrased in business terms or column names, and whether export is
+    gated on sign-off. There is no business edition to maintain.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="tag">Low edge</div>
+      <div class="who">Marcus</div>
+      <div class="role">Regional sales director</div>
+      <p>Consumes answers. Cannot judge correctness and knows it. Opens a dashboard twice a month and does not trust it.</p>
+      <div class="needs"><b>Needs:</b> a plain answer, and to know whether it is solid enough to put on a slide.</div>
+      <div class="obj">“How do I know it's right? I can't read a query.”</div>
+    </div>
+    <div class="card core">
+      <div class="tag">Beachhead</div>
+      <div class="who">Priya</div>
+      <div class="role">Senior data analyst</div>
+      <p>Writes SQL fluently. Absorbs a queue of ad hoc questions while trying to protect planned work.</p>
+      <div class="needs"><b>Needs:</b> to compress per-question overhead without giving up control or verifiability.</div>
+      <div class="obj">“I read SQL faster than I read explanations.”</div>
+    </div>
+    <div class="card">
+      <div class="tag">High edge</div>
+      <div class="who">Dr. Chen</div>
+      <div class="role">Staff data scientist</div>
+      <p>Reviews other people's analyses. Distrusts automated modelling after a year spent cleaning up leakage.</p>
+      <div class="needs"><b>Needs:</b> to spot-check the one step he doubts instead of re-deriving the whole chain.</div>
+      <div class="obj">“Automated modelling is how you ship leakage.”</div>
+    </div>
+  </div>
+
+  <div class="lower">
+    <div class="zone">
+      <div class="lbl">Why each edge earns its place</div>
+      <h3>The edges make two features load-bearing</h3>
+      <p>
+        Without the low edge, natural language is decorative for a beachhead that already writes SQL.
+        Without the high edge, traceability is cosmetic. Each edge is the reason one signature feature
+        has to work, rather than a segment to sell to.
+      </p>
+      <div class="pair">
+        <div><div class="num">Conversation</div><div class="cap">justified by the low edge, who cannot write a query</div></div>
+        <div><div class="num">Traceability</div><div class="cap">justified by the high edge, who audits and overrides</div></div>
+      </div>
+    </div>
+    <div class="zone d">
+      <div class="lbl">The risk this spectrum carries</div>
+      <h3>It was derived, not observed</h3>
+      <p>
+        No analyst was interviewed. The three edges are an inference, and the PRD, the UX spec, all four
+        journeys and the persona set are written against them together. If the spectrum is wrong, five
+        artifacts are wrong at once.
+      </p>
+      <div class="pair">
+        <div><div class="num">A7</div><div class="cap">logged as kills-pack-if-wrong</div></div>
+        <div><div class="num">7 of 10</div><div class="cap">analysts must confirm both edges to clear the gate</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>strategy/personas.md</code> · <code>product/PRD.md</code> §4 · <code>ASSUMPTIONS.md</code> A7</span>
+    <span>V02</span>
+  </div>
+
+</div>
+</body>
+</html>
