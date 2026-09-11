@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V46 · Channel economics</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:32px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .anchor{display:flex;gap:12px;margin-top:14px;align-items:stretch}
+  .an{border:1px solid var(--rule);border-radius:6px;padding:7px 12px;background:var(--wash)}
+  .an .k{font-size:8.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+  .an b{display:block;font-size:17px;font-weight:700;color:var(--ink);margin-top:1px;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+  .an span{display:block;font-size:9px;color:var(--muted);margin-top:1px}
+  .an.hl{background:#EDF3FA;border-color:#C4D8EE}
+  .an.hl b{color:var(--accent)}
+  .anmsg{flex:1;display:flex;align-items:center;font-size:11px;line-height:1.45;padding-left:4px}
+  .anmsg b{color:var(--ink)}
+  .cols{display:flex;gap:24px;margin-top:15px;flex:1;min-height:0}
+  .left{flex:1;display:flex;flex-direction:column;min-width:0}
+  .right{width:396px;flex:none;display:flex;flex-direction:column}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:2px solid var(--ink)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .hdr{display:flex;gap:8px;font-size:8.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding:7px 0 4px}
+  .hdr .a1{flex:1}.hdr .a2{width:96px;flex:none}.hdr .a3{width:118px;flex:none}.hdr .a4{width:74px;flex:none;text-align:right}
+  .cr{display:flex;gap:8px;padding:5.5px 0;border-bottom:1px dashed var(--rule);align-items:flex-start;font-size:10px;line-height:1.35}
+  .cr .nm{flex:1}
+  .cr .nm b{color:var(--ink);font-weight:650;font-size:10.5px}
+  .cr .nm span{display:block;color:var(--muted);font-size:9px;margin-top:1px}
+  .cr .tt{width:96px;flex:none;color:var(--body)}
+  .cr .cc{width:118px;flex:none;color:var(--body);font-variant-numeric:tabular-nums}
+  .cr .vd{width:74px;flex:none;text-align:right;font-size:8.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;line-height:1.3}
+  .cr .vd.y{color:var(--verify)}
+  .cr .vd.n{color:var(--fail)}
+  .cr .vd.m{color:var(--doubt)}
+  .cr.ok{background:#F4FAF6}
+  .wf{margin-top:10px;border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+  .wf .wh{padding:6px 10px;background:var(--wash);font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--rule)}
+  .wf .wr{display:flex;justify-content:space-between;padding:4.5px 10px;font-size:10.5px;border-bottom:1px dashed var(--rule)}
+  .wf .wr:last-child{border-bottom:none}
+  .wf .wr b{font-variant-numeric:tabular-nums;color:var(--ink)}
+  .wf .wr.neg b{color:var(--fail)}
+  .wf .wr.tot{background:#F7EEEC}
+  .wf .wr.tot b{font-weight:700}
+  .wf .wn{padding:7px 10px;font-size:10px;line-height:1.42;border-top:1px solid var(--rule);background:#FDF7F6}
+  .wf .wn b{color:var(--ink)}
+  .bar{margin-top:10px;padding:9px 11px;border-radius:6px;font-size:10.5px;line-height:1.45;background:var(--wash)}
+  .bar.good{background:#EAF3EC}
+  .bar b{color:var(--ink)}
+  .foot{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:22px;margin-top:14px}
+  .zone{border-top:2px solid var(--ink);padding-top:8px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.v{border-top-color:var(--verify)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Channel economics</div>
+  <h1>The price disqualifies most channels before any strategy is applied</h1>
+  <p class="sub">
+    Naming a channel is not planning one. These verdicts come from a margin stack rather than a preference, and
+    the arithmetic rules out the reseller, the field motion and the cold sequence in advance, so a later phase
+    cannot propose them as incremental additions.
+  </p>
+
+  <div class="anchor">
+    <div class="an"><div class="k">List price</div><b>$900</b><span>per analyst per year</span></div>
+    <div class="an"><div class="k">Realistic account</div><b>5 to 15</b><span>analysts on a central team</span></div>
+    <div class="an hl"><div class="k">Working annual contract value</div><b>$9,000</b><span>ten analysts</span></div>
+    <div class="anmsg"><b>A nine-thousand-dollar contract cannot carry a field sales motion, a reseller margin, or a marketplace fee stacked on a partner discount.</b> Every verdict below follows from that one number.</div>
+  </div>
+
+  <div class="cols">
+    <div class="left">
+      <div class="ch a">Channel map and viability</div>
+      <div class="hdr"><div class="a1">Channel</div><div class="a2">First revenue</div><div class="a3">Cost to acquire</div><div class="a4">Viable</div></div>
+      <div class="cr ok"><div class="nm"><b>Open-source self-serve</b><span>the analyst installs it without a purchase order</span></div><div class="tt">never directly</div><div class="cc">≈$0 marginal</div><div class="vd y">the only one</div></div>
+      <div class="cr ok"><div class="nm"><b>Analyst-led internal referral</b><span>the compounding channel</span></div><div class="tt">3 to 9 months</div><div class="cc">≈$0 marginal</div><div class="vd y">yes</div></div>
+      <div class="cr ok"><div class="nm"><b>Community participation</b><span>credibility, and do not attribute revenue to it</span></div><div class="tt">unattributable</div><div class="cc">founder hours</div><div class="vd y">yes</div></div>
+      <div class="cr ok"><div class="nm"><b>Technical content and the published benchmark</b><span>highest-leverage channel with no revenue attached</span></div><div class="tt">indirect</div><div class="cc">front-loaded, amortises</div><div class="vd y">yes</div></div>
+      <div class="cr"><div class="nm"><b>Inside sales and outbound</b><span>payback about seven months on a gross basis, at best</span></div><div class="tt">3 to 6 months</div><div class="cc">$3,000 to $8,000</div><div class="vd n">no</div></div>
+      <div class="cr"><div class="nm"><b>Field sales</b><span>needs a seventeen-seat account just to repay acquisition</span></div><div class="tt">6 to 12 months</div><div class="cc">$15,000+ loaded</div><div class="vd n">no</div></div>
+      <div class="cr"><div class="nm"><b>Reseller or systems integrator</b><span>fails on redundancy, not on margin</span></div><div class="tt">9 to 18 months</div><div class="cc">20 to 35% margin</div><div class="vd n">no</div></div>
+      <div class="cr"><div class="nm"><b>Cloud marketplace</b><span>the fee is survivable, the engineering effort is not, pre-revenue</span></div><div class="tt">6 to 12 months</div><div class="cc">3 to 5% listing fee</div><div class="vd m">not yet</div></div>
+      <div class="cr"><div class="nm"><b>Paid acquisition</b><span>the beachhead does not find infrastructure tools through ads</span></div><div class="tt">n/a</div><div class="cc">high, poor intent</div><div class="vd n">no</div></div>
+      <div class="bar good">
+        <b>Why self-serve works: the usual problem inverts.</b> Marginal cost to acquire the next user is about zero
+        and the fixed cost is engineering hours on documentation and the quickstart, amortised across every install
+        forever. The constraint stops being cost per acquisition and becomes <b>conversion quality</b>, governed by
+        one number: median time from clone to first successful investigation, with the threshold at thirty minutes.
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="ch f">Two margin stacks, computed</div>
+      <div class="wf">
+        <div class="wh">Outbound, at a ten-analyst account</div>
+        <div class="wr"><span>List annual contract value</span><b>$9,000</b></div>
+        <div class="wr neg"><span>Acquisition cost, mid estimate</span><b>−$5,500</b></div>
+        <div class="wr tot"><span>Gross contribution, year one</span><b>$3,500</b></div>
+        <div class="wr"><span>Less cost to serve</span><b>not yet known</b></div>
+        <div class="wn"><b>And that assumes a ten-analyst account closing on the first attempt.</b> At five analysts, acquisition cost exceeds first-year revenue outright. Outbound needs either a much larger account or a much higher price, and neither is available: the price is anchored to what comparable analyst tools charge, and account size is bounded by how many analysts sit on a central team.</div>
+      </div>
+      <div class="wf">
+        <div class="wh">Reseller, with a marketplace fee stacked</div>
+        <div class="wr"><span>List</span><b>$9,000</b></div>
+        <div class="wr neg"><span>Partner discount at 28%</span><b>−$2,520</b></div>
+        <div class="wr"><span>Net to vendor</span><b>$6,480</b></div>
+        <div class="wr neg"><span>Marketplace fee at 4%</span><b>−$360</b></div>
+        <div class="wr tot"><span>Net after both</span><b>$6,120 · 68% of list</b></div>
+        <div class="wn"><b>A 32% haircut is survivable in isolation.</b> What is not survivable is what the partner is paid for. A reseller earns its margin by carrying a complex sale into an account it already owns, and this product's whole premise is that the analyst installs it without a sale. <b>Paying 28% for a sales motion the product is designed not to need is paying for the wrong thing.</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone f">
+      <div class="lbl">The tension worth naming</div>
+      <h3>The only channel whose economics work produces no revenue</h3>
+      <p>
+        That is not a flaw in the analysis, it is the shape of open-core distribution: adoption precedes revenue
+        because the source petal has no budget line. For the capstone it resolves cleanly, since monetisation is
+        out of scope. For any investor framing it has to be said rather than glossed.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">What would reverse the verdict</div>
+      <h3>One question, ten seconds, asked early</h3>
+      <p>
+        How many analysts sit on the central team. A fifty-analyst team gives a forty-five-thousand-dollar
+        contract, which makes inside sales viable and this page wrong.
+      </p>
+    </div>
+    <div class="zone v">
+      <div class="lbl">Conflicts recorded so they are not created later</div>
+      <h3>Cohorts must be instrumented separately</h3>
+      <p>
+        The first ten users get hands-on help that later ones will not, which gives a false read on the quickstart
+        metric unless the two cohorts are measured apart. There is no reseller conflict because there is no
+        reseller, which is written down so that adding one later is recognised as a real change.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>strategy/channel_plan.md</code> §1 through §5</span>
+    <span>Evidence: <code>[S44][S52][S50]</code> · V46</span>
+  </div>
+</div>
+</body>
+</html>

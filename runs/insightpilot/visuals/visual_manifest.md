@@ -105,11 +105,11 @@ Every infographic in this set obeys these, so the pack reads as one system rathe
 
 | ID | Title | Audience | Source | Form | Status |
 |---|---|---|---|---|---|
-| V43 | What leaves your environment, and what never does | buyers | tech/architecture/D06_security_trust_boundary.md | html | planned |
-| V44 | The decision-making unit: who can say no | buyers | validation/decision_making_unit.md | html | planned |
-| V45 | Get / keep / grow, and the loop's one fragile edge | buyers | validation/get_keep_grow.md | html | planned |
-| V46 | Channel economics: why only zero-CAC channels survive | buyers | strategy/channel_plan.md | html | planned |
-| V47 | Two MVPs, and why the first one is a document | buyers | validation/mvp_definition.md | html | planned |
+| V43 | What leaves your environment, and what never does | buyers | tech/architecture/D06_security_trust_boundary.md | html | html |
+| V44 | The decision-making unit: who can say no | buyers | validation/decision_making_unit.md | html | html |
+| V45 | Get / keep / grow, and the loop's one fragile edge | buyers | validation/get_keep_grow.md | html | html |
+| V46 | Channel economics: why only zero-CAC channels survive | buyers | strategy/channel_plan.md | html | html |
+| V47 | Two MVPs, and why the first one is a document | buyers | validation/mvp_definition.md | html | html |
 
 ## 7. Dossier coverage — artifacts not yet cited by any row above
 

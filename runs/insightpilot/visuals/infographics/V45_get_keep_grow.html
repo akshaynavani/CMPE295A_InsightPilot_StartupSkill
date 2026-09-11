@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V45 · Get, keep, grow</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:32px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .cols{display:flex;gap:22px;margin-top:16px;flex:1;min-height:0}
+  .stages{flex:1;display:flex;gap:13px;min-width:0}
+  .st{flex:1;display:flex;flex-direction:column;min-width:0}
+  .st .hd{border-top:3px solid var(--accent);padding-top:7px}
+  .st.keep .hd{border-top-color:var(--verify)}
+  .st.grow .hd{border-top-color:var(--doubt)}
+  .st .hd .n{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+  .st.keep .hd .n{color:var(--verify)}
+  .st.grow .hd .n{color:var(--doubt)}
+  .st .hd p{font-size:9.5px;line-height:1.4;color:var(--muted);margin-top:3px}
+  .m{padding:5px 0;border-bottom:1px dashed var(--rule)}
+  .m .top{display:flex;justify-content:space-between;align-items:baseline;gap:7px}
+  .m .top b{font-size:10.5px;font-weight:650;color:var(--ink);line-height:1.25}
+  .m .top i{font-style:normal;font-size:10px;font-weight:700;color:var(--accent);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .m .lv{font-size:9px;line-height:1.38;color:var(--body);margin-top:2px}
+  .m .cur{font-size:8.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+  .m.act{background:#EDF3FA;border:1px solid #C4D8EE;border-radius:5px;padding:6px 8px;margin:5px 0}
+  .m.act .top b{color:var(--accent)}
+  .m.hot{background:#EAF3EC;border:1px solid #BFDCC9;border-radius:5px;padding:6px 8px;margin:5px 0}
+  .m.hot .top b,.m.hot .top i{color:var(--verify)}
+  .m.edge{background:#FDF3E6;border:1px solid #E8D3AE;border-radius:5px;padding:6px 8px;margin:5px 0}
+  .m.edge .top b,.m.edge .top i{color:var(--doubt)}
+  .gauge{margin-top:7px}
+  .gauge .tk{height:17px;display:flex;border-radius:3px;overflow:hidden;font-size:8px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .gauge .tk div{display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;line-height:1.1}
+  .gauge .bad{background:#C9776C}
+  .gauge .good{background:var(--verify)}
+  .gauge .lbl{display:flex;justify-content:space-between;font-size:8.5px;color:var(--muted);margin-top:2px;font-variant-numeric:tabular-nums}
+  .right{width:382px;flex:none;display:flex;flex-direction:column}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:2px solid var(--ink)}
+  .ch.d{border-bottom-color:var(--doubt)}
+  .loop{margin-top:10px}
+  .lp{display:flex;gap:10px;align-items:flex-start;padding-bottom:8px;position:relative}
+  .lp:last-child{padding-bottom:0}
+  .lp .dot{width:20px;flex:none;display:flex;flex-direction:column;align-items:center}
+  .lp .dot i{width:9px;height:9px;border-radius:50%;background:var(--accent);display:block;margin-top:3px;flex:none}
+  .lp .dot .ln{flex:1;width:2px;background:var(--rule);margin-top:2px;min-height:12px}
+  .lp:last-child .dot .ln{display:none}
+  .lp.fragile .dot i{background:var(--doubt);width:12px;height:12px;margin-top:2px}
+  .lp.fragile .dot .ln{background:var(--doubt);border-left:2px dashed var(--doubt);background:none;width:0}
+  .lp .t{flex:1;font-size:10.5px;line-height:1.4}
+  .lp .t b{color:var(--ink)}
+  .lp .t span{display:block;font-size:9.5px;color:var(--muted);margin-top:1px;line-height:1.35}
+  .lp.fragile .t b{color:var(--doubt)}
+  .bar{margin-top:10px;padding:9px 11px;border-radius:6px;font-size:10.5px;line-height:1.45;background:var(--wash)}
+  .bar.warn{background:#FDF3E6}
+  .bar.good{background:#EAF3EC}
+  .bar b{color:var(--ink)}
+  .foot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:14px}
+  .zone{border-top:2px solid var(--ink);padding-top:8px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.v{border-top-color:var(--verify)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Funnel</div>
+  <h1>The mechanism that differentiates the product is the same one that distributes it</h1>
+  <p class="sub">
+    Only zero-cost channels survive at this price, so growth has to come from a loop inside the product rather
+    than from spend. Every current figure below is zero because nothing is deployed. The targets are declared in
+    advance so they can be missed honestly.
+  </p>
+
+  <div class="cols">
+    <div class="stages">
+      <div class="st">
+        <div class="hd"><div class="n">Get</div><p>An analyst arrives through an open repository. Nobody is prospected</p></div>
+        <div class="m"><div class="top"><b>Repo visitors from analyst communities</b><i>500 / 90 d</i></div><div class="lv">The published accuracy number, because no commercial product publishes one. It is the only genuinely novel artifact the project can distribute</div><div class="cur">current · 0</div></div>
+        <div class="m"><div class="top"><b>Clones</b><i>100</i></div><div class="lv">The readme answers "how is this not the bundled one" above the fold, because every visitor arrives with that question</div><div class="cur">current · 0</div></div>
+        <div class="m"><div class="top"><b>Connector configured</b><i>60</i></div><div class="lv">Container quickstart, Postgres and CSV only. Fewer choices, fewer failures</div><div class="cur">current · 0</div></div>
+        <div class="m act"><div class="top"><b>Activation: first successful investigation on their own data</b><i>40</i></div><div class="lv"><b>Not the install.</b> It is the first time the system answers their question against their data and they believe the answer. Everything before is setup cost and everything after is the product</div><div class="cur">current · 0 · gate is under 30 minutes</div></div>
+      </div>
+
+      <div class="st keep">
+        <div class="hd"><div class="n">Keep</div><p>A verification habit that gets cheaper each week, or a novelty</p></div>
+        <div class="m"><div class="top"><b>Investigations per analyst per week</b><i>≥ 3 by wk 4</i></div><div class="lv">Context inheritance makes a follow-up three hops instead of six</div><div class="cur">current · not measured</div></div>
+        <div class="m hot"><div class="top"><b>Hop-inspection rate</b><i>20 to 60%</i></div><div class="lv">The retention predictor, and the least obvious metric in the funnel. Share of investigations where at least one hop is opened</div>
+          <div class="gauge">
+            <div class="tk"><div class="bad" style="width:20%">blind trust</div><div class="good" style="width:40%">healthy</div><div class="bad" style="width:40%">re-deriving everything</div></div>
+            <div class="lbl"><span>0%</span><span>20%</span><span>60%</span><span>100%</span></div>
+          </div>
+          <div class="cur">no competitor can measure this, because none has a verify beat</div>
+        </div>
+        <div class="m"><div class="top"><b>Override rate per source, trend</b><i>falling / 8 wk</i></div><div class="lv">The second-order signal. If it does not fall as bindings accumulate, the flywheel is fictional and every week costs what the last one did</div><div class="cur">the only evidence that would ever support the moat candidate</div></div>
+        <div class="m"><div class="top"><b>Analyst review time per week</b><i>&lt; 4 h, flat</i></div><div class="lv">The sign-off gate's design. This is the tripwire for the champion being handed work while everyone else gets leverage</div><div class="cur">current · not measured</div></div>
+        <div class="m"><div class="top"><b>Still running investigations at week 8</b><i>≥ 50%</i></div><div class="lv">Of those activated. Depends on everything above it</div><div class="cur">current · 0</div></div>
+      </div>
+
+      <div class="st grow">
+        <div class="hd"><div class="n">Grow</div><p>One exported investigation recruits the next analyst</p></div>
+        <div class="m edge"><div class="top"><b>Investigations exported or shared</b><i>≥ 1 / wk</i></div><div class="lv">Per active analyst. The exportable self-contained artifact is the lever, and it is the only edge in the loop</div><div class="cur">current · 0</div></div>
+        <div class="m"><div class="top"><b>Second analyst installs after receiving an export</b><i>≥ 20% by wk 12</i></div><div class="lv">Depends entirely on the export being readable and checkable by someone who does not have the tool</div><div class="cur">current · 0</div></div>
+        <div class="m"><div class="top"><b>Analysts per deployment</b><i>3+ by wk 12</i></div><div class="lv">Bindings already resolved make the second analyst faster than the first was</div><div class="cur">current · 0</div></div>
+        <div class="m"><div class="top"><b>Deployments where a budget owner is asked to fund it</b><i>≥ 10% by wk 24</i></div><div class="lv">Accumulated exports plus the audit log are the evidence pack, and it assembles itself</div><div class="cur">current · 0 · the funnel honestly ends here</div></div>
+        <div class="bar warn" style="margin-top:auto">
+          <b>The low edge touches the funnel without being sold to.</b> A stakeholder's entire experience of the
+          product is review turnaround, targeted under four hours. Their questions rise as turnaround falls, which
+          is the champion's risk running the wrong way.
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="ch d">The compounding loop, and the edge that does not exist yet</div>
+      <div class="loop">
+        <div class="lp"><div class="dot"><i></i><div class="ln"></div></div><div class="t"><b>Analyst installs</b></div></div>
+        <div class="lp"><div class="dot"><i></i><div class="ln"></div></div><div class="t"><b>Runs an investigation on their own sources</b><span>The activation moment</span></div></div>
+        <div class="lp"><div class="dot"><i></i><div class="ln"></div></div><div class="t"><b>Investigation and lineage export as one readable file</b></div></div>
+        <div class="lp fragile"><div class="dot"><i></i><div class="ln"></div></div><div class="t"><b>The fragile edge</b><span>A colleague receives a verifiable answer and asks where it came from. This requires the artifact to be readable outside a running instance. If lineage is only viewable inside the app, the loop has no edge here at all</span></div></div>
+        <div class="lp"><div class="dot"><i></i><div class="ln"></div></div><div class="t"><b>Second analyst installs, and the loop closes</b></div></div>
+        <div class="lp"><div class="dot"><i></i></div><div class="t"><b>Enough internal use that a budget owner is asked to fund it</b></div></div>
+      </div>
+      <div class="bar good">
+        <b>Why this is unusually strong in principle.</b> A dashboard is shareable and not checkable. A chat answer
+        is neither. An investigation with its lineage is both, which makes forwarding it a professional act rather
+        than a risk, so improving the differentiator improves distribution at the same time.
+      </div>
+      <div class="bar warn">
+        <b>Which makes the export a growth requirement disguised as a product feature.</b> It is the highest-leverage
+        build decision in the funnel, cheap now and expensive to retrofit onto a stateful interface.
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone f">
+      <div class="lbl">The concession this funnel has to make</div>
+      <h3>The best growth vector is the one that could break retention</h3>
+      <p>
+        Stakeholder growth increases analyst review load. The tension is unresolved, and it gets measured before
+        it gets designed around.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">What the funnel does not have</div>
+      <h3>No paid acquisition, no conversion rate, no virality</h3>
+      <p>
+        Paid acquisition is ruled out by arithmetic rather than preference. Monetisation is out of scope, so the
+        funnel stops at a buyer being asked. The loop runs inside one organisation, because the artifact contains
+        that customer's data.
+      </p>
+    </div>
+    <div class="zone v">
+      <div class="lbl">The channel is occupied, which is also the proof</div>
+      <h3>An open-source peer reached this scale on the same motion</h3>
+      <p>
+        Thirteen thousand stars and ten thousand cloud users show the channel carries a product of this shape. It
+        is a reminder that somebody got there two years earlier.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>validation/get_keep_grow.md</code> §1 through §6</span>
+    <span>Evidence: <code>[S50][S22]</code> · V45</span>
+  </div>
+</div>
+</body>
+</html>

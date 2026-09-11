@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V43 · Trust boundary</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:32px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .cols{display:flex;gap:24px;margin-top:16px;flex:1;min-height:0}
+  .left{flex:1;display:flex;flex-direction:column;min-width:0}
+  .right{width:394px;flex:none;display:flex;flex-direction:column}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:2px solid var(--ink)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .ch.v{border-bottom-color:var(--verify)}
+  .ch.d{border-bottom-color:var(--doubt)}
+  .modes{display:flex;gap:13px;margin-top:11px}
+  .m{flex:1;border:1px solid var(--rule);border-radius:7px;overflow:hidden}
+  .m .hd{padding:8px 11px;border-bottom:1px solid var(--rule)}
+  .m .hd .k{font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .m .hd h2{font-size:13.5px;font-weight:700;color:var(--ink);margin-top:2px}
+  .m.tight .hd{background:#EAF3EC}
+  .m.tight .hd h2{color:var(--verify)}
+  .m.rich .hd{background:#FDF3E6}
+  .m.rich .hd h2{color:var(--doubt)}
+  .m .bd{padding:8px 11px}
+  .m .bd .li{font-size:10.5px;line-height:1.38;padding:3px 0 3px 13px;position:relative}
+  .m .bd .li:before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+  .m .bd .tr{font-size:9.5px;line-height:1.4;margin-top:7px;padding-top:6px;border-top:1px dashed var(--rule);color:var(--body)}
+  .m .bd .tr b{color:var(--ink)}
+  .never{margin-top:13px;border:2px solid var(--fail);border-radius:7px;padding:9px 12px;background:#FDF7F6}
+  .never .k{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fail)}
+  .never .items{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+  .never .items span{font-size:10px;font-weight:600;color:var(--ink);background:#fff;border:1px solid #E3C9C4;border-radius:3px;padding:3px 7px}
+  .never p{font-size:10px;line-height:1.45;margin-top:7px}
+  .never p b{color:var(--ink)}
+  .abs{display:flex;gap:11px;margin-top:13px}
+  .ab{flex:1;border-top:2px solid var(--fail);padding-top:7px}
+  .ab b{display:block;font-size:11.5px;font-weight:700;color:var(--ink);line-height:1.22}
+  .ab span{display:block;font-size:9.5px;line-height:1.4;color:var(--body);margin-top:3px}
+  .n{display:flex;gap:9px;padding:6px 0;border-bottom:1px dashed var(--rule)}
+  .n .i{width:16px;flex:none;font-size:13px;font-weight:700;color:var(--accent);line-height:1.15}
+  .n .t{flex:1;font-size:10.5px;line-height:1.42}
+  .n .t b{color:var(--ink);display:block;margin-bottom:1px}
+  .bar{margin-top:10px;padding:9px 11px;border-radius:6px;font-size:10.5px;line-height:1.45;background:var(--wash)}
+  .bar b{color:var(--ink)}
+  .foot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:14px}
+  .zone{border-top:2px solid var(--doubt);padding-top:8px}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Trust boundary</div>
+  <h1>One arrow leaves, you choose what rides on it, and there is no write path to disable</h1>
+  <p class="sub">
+    The platform owner can end a purchase without attending a meeting, and he is convinced by artifacts rather
+    than conversation. So the egress is written out field by field, the tradeoff is handed over rather than
+    decided, and the things that are absent are distinguished from the things that are merely switched off.
+  </p>
+
+  <div class="cols">
+    <div class="left">
+      <div class="ch a">The single egress, in two configurable modes</div>
+      <div class="modes">
+        <div class="m tight">
+          <div class="hd"><div class="k">Mode one · minimum</div><h2>Schema only</h2></div>
+          <div class="bd">
+            <div class="li">Column names</div>
+            <div class="li">Column types</div>
+            <div class="li">Column comments</div>
+            <div class="li">The analyst's question text</div>
+            <div class="li"><b>No values of any kind</b></div>
+            <div class="tr"><b>Cost of choosing this.</b> Value-based schema linking gets weaker, so the resolver has less to disambiguate a term against and will ask the analyst more often.</div>
+          </div>
+        </div>
+        <div class="m rich">
+          <div class="hd"><div class="k">Mode two · richer</div><h2>Schema plus sampled values</h2></div>
+          <div class="bd">
+            <div class="li">Everything in mode one</div>
+            <div class="li">Sampled distinct values per column</div>
+            <div class="li">Columns flagged as personal data are excluded</div>
+            <div class="li">Still no full result sets</div>
+            <div class="li">Still no credentials</div>
+            <div class="tr"><b>What it buys.</b> Materially better term resolution, because the model can see that a region column holds four codes rather than six. <b>The tradeoff is stated and handed to the customer, not decided for them.</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="never">
+        <div class="k">Never crosses the boundary, under either mode</div>
+        <div class="items">
+          <span>Database credentials</span><span>Query result sets</span><span>The lineage record</span>
+          <span>The binding store</span><span>The audit log</span><span>File contents</span>
+          <span>Columns flagged as personal data</span><span>Anything from another organisation</span>
+        </div>
+        <p>
+          <b>The model provider is reached on the customer's own API key,</b> so whatever is sent sits under terms
+          the customer already signed rather than a vendor's.
+        </p>
+      </div>
+
+      <div class="abs">
+        <div class="ab">
+          <b>No write path exists</b>
+          <span>Absent, not disabled. A disabled feature is one configuration away from enabled and a missing one is not. With a read-only role, the blast radius of a total compromise is what the analyst could already read.</span>
+        </div>
+        <div class="ab">
+          <b>No cross-organisation path exists</b>
+          <span>Single tenant by construction rather than by policy. There is nothing to secure because there is no shared control plane. Add a managed offering later and this property is lost and has to be re-earned.</span>
+        </div>
+        <div class="ab">
+          <b>No authorisation is re-implemented</b>
+          <span>The system connects under a role the customer provisions, and row and column permissions come from the source. Re-implementing authorisation inside an analytics tool is how one becomes a breach.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="ch">What a reviewer should notice</div>
+      <div class="n"><div class="i">1</div><div class="t"><b>Count the arrows</b>Orchestration, all four agents, bindings, lineage, the audit log and every source connection run inside the customer environment. There is exactly one crossing.</div></div>
+      <div class="n"><div class="i">2</div><div class="t"><b>The egress answers the second question, not the first</b>Everyone asks whether data leaves. The harder question is what exactly leaves, and the mode switch is the answer written as a configuration rather than a promise.</div></div>
+      <div class="n"><div class="i">3</div><div class="t"><b>The audit log is a file, deliberately</b>Append-only on disk and readable without the application running. A quarterly access review took eight minutes against a day and a half for a comparable tool, and that gain depends entirely on being able to search a file.</div></div>
+      <div class="n"><div class="i">4</div><div class="t"><b>A readable log is the cheapest governance enforcement available</b>Half of projected agent-deployment failures by 2030 are attributed to insufficient runtime enforcement of governance. A greppable record is the least expensive form of it.</div></div>
+      <div class="n"><div class="i">5</div><div class="t"><b>The veto is asymmetric, so the artifact has to arrive first</b>Saying no costs the platform owner nothing and ends the process. This page exists so the objection is answered before it is raised.</div></div>
+      <div class="bar">
+        <b>Why neutrality is a property here rather than a claim.</b> Nothing in the boundary depends on trusting
+        the vendor's intentions. It depends on where the code runs and which key it uses, both of which the
+        customer controls and can verify.
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone">
+      <div class="lbl">What this does not claim, one</div>
+      <h3>Not a compliance certification</h3>
+      <p>
+        No third-party attestations of any kind. The architecture is compatible with a customer's existing
+        controls and carries none of its own, and any narrative artifact implying otherwise is wrong.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">What this does not claim, two</div>
+      <h3>It does not secure the model provider</h3>
+      <p>
+        Whatever the chosen mode sends is subject to that provider's terms. The contribution is making the egress
+        minimal, explicit and configurable, not making it zero.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">What this does not claim, three</div>
+      <h3>It does not stop a malicious analyst</h3>
+      <p>
+        Someone with read access to the sources can already read them. The system records what they asked, which
+        is more accountability than existed before and is not a control.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>tech/architecture/D06_security_trust_boundary.md</code> · egress modes and the six reviewer notes</span>
+    <span>Evidence: <code>[S29]</code> · V43</span>
+  </div>
+</div>
+</body>
+</html>

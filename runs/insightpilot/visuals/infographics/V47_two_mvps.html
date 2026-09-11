@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V47 · Two MVPs</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:32px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .cols{display:flex;gap:20px;margin-top:16px;flex:1;min-height:0}
+  .mvp{flex:1;border:1px solid var(--rule);border-radius:7px;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+  .mvp.lo{border:2px solid var(--verify)}
+  .mvp .hd{padding:9px 12px;border-bottom:1px solid var(--rule)}
+  .mvp.lo .hd{background:#EAF3EC}
+  .mvp.hi .hd{background:var(--wash)}
+  .mvp .hd .k{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .mvp .hd h2{font-size:15px;font-weight:700;color:var(--ink);margin-top:2px;line-height:1.2}
+  .mvp.lo .hd h2{color:var(--verify)}
+  .mvp .hd .cost{font-size:10px;font-weight:700;color:var(--ink);margin-top:4px}
+  .mvp .bd{padding:9px 12px;flex:1;display:flex;flex-direction:column}
+  .blk{padding-bottom:7px;margin-bottom:7px;border-bottom:1px dashed var(--rule)}
+  .blk:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+  .blk .t{font-size:8.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+  .blk p{font-size:10.5px;line-height:1.45;margin-top:3px}
+  .blk p b{color:var(--ink)}
+  .blk .q{font-size:11.5px;line-height:1.4;margin-top:4px;color:var(--ink);font-weight:650;padding-left:9px;border-left:2px solid var(--accent)}
+  .two{display:flex;gap:13px;margin-top:4px}
+  .two > div{flex:1;min-width:0}
+  .li{font-size:9.5px;line-height:1.4;padding:2.5px 0 2.5px 12px;position:relative}
+  .li:before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+  .li.out:before{background:var(--muted)}
+  .li b{color:var(--ink)}
+  .fal{font-size:9.5px;line-height:1.42;padding:4px 7px;border-radius:4px;background:#F7EEEC;margin-top:4px}
+  .fal b{color:var(--fail)}
+  .gate{width:58px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+  .gate .ar{font-size:22px;color:var(--ink);line-height:1}
+  .gate .lb{font-size:8.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;line-height:1.3}
+  .gate .stop{font-size:8.5px;font-weight:700;color:var(--fail);text-align:center;line-height:1.3;border:1px solid #E3C9C4;background:#FDF7F6;border-radius:4px;padding:4px 3px}
+  .right{width:330px;flex:none;display:flex;flex-direction:column}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:2px solid var(--ink)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .ev{display:flex;gap:8px;padding:5px 0;border-bottom:1px dashed var(--rule)}
+  .ev .n{width:15px;flex:none;font-size:12px;font-weight:700;color:var(--accent);line-height:1.15}
+  .ev .t{flex:1;font-size:10px;line-height:1.4}
+  .ev .t b{color:var(--ink);display:block;font-size:10.5px;margin-bottom:1px}
+  .ev.key .n{color:var(--fail)}
+  .nt{font-size:10px;line-height:1.4;padding:3.5px 0;border-bottom:1px dashed var(--rule);color:var(--body)}
+  .nt:last-child{border-bottom:none}
+  .nt b{color:var(--ink)}
+  .bar{margin-top:9px;padding:8px 10px;border-radius:6px;font-size:10px;line-height:1.45;background:var(--wash)}
+  .bar.warn{background:#FDF3E6}
+  .bar b{color:var(--ink)}
+  .foot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:14px}
+  .zone{border-top:2px solid var(--ink);padding-top:8px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.v{border-top-color:var(--verify)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Minimum viable products</div>
+  <h1>The first one is a document, and it can invalidate the second one entirely</h1>
+  <p class="sub">
+    Collapsing these two into a single MVP is the most expensive error available here. One tests whether the
+    problem is real and costs about six founder-hours. The other tests whether the solution reaches usable
+    accuracy and costs a semester. Keeping them distinct is what stops the semester starting before the afternoon.
+  </p>
+
+  <div class="cols">
+    <div class="mvp lo">
+      <div class="hd">
+        <div class="k">First · weeks one to four</div>
+        <h2>Low fidelity: the paper investigation</h2>
+        <div class="cost">No software. Buildable in a day. About six founder-hours</div>
+      </div>
+      <div class="bd">
+        <div class="blk">
+          <div class="t">What it is</div>
+          <p>One realistic multi-source question worked through <b>by hand</b> and formatted exactly as the system's export would be: the question, the plan as six numbered steps, each hop with its actual SQL and row counts in and out, the verification results including one amber coverage warning, the established facts, the doubt block, and a sign-off line.</p>
+          <p style="margin-top:4px">Produced in variants: one correct, and three carrying planted defects. A wrong join grain, a wrong region mapping, a wrong time window.</p>
+        </div>
+        <div class="blk">
+          <div class="t">The question it answers</div>
+          <div class="q">Can an analyst reach a confident accept or reject on an answer they did not derive, faster than they could derive it, and do they catch it when it is wrong?</div>
+        </div>
+        <div class="blk">
+          <div class="t">What it deliberately omits</div>
+          <p><b>Everything.</b> No orchestrator, no agents, no connectors, no interface, no model calls. The artifact is a document and the entire test is what a person does with it.</p>
+          <p style="margin-top:4px">That omission is the design. <b>If verification is cheaper than re-derivation, it is cheaper because of the artifact's structure and not the software that produced it.</b> Building the software first tests the same claim twelve weeks later at a hundred times the cost.</p>
+        </div>
+        <div class="blk" style="margin-top:auto">
+          <div class="t">What falsifies it</div>
+          <div class="fal"><b>Median cost ratio above 0.8.</b> The differentiator is void. Stop and publish the negative result.</div>
+          <div class="fal"><b>Defect rejection under 50%, or no lift over an answer-plus-SQL control.</b> Worse than the first. The trace is comfortable rather than effective and would ship confident errors wearing an audit trail.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gate">
+      <div class="lb">passes</div>
+      <div class="ar">&#8594;</div>
+      <div class="stop">fail here<br>and the<br>second<br>never<br>starts</div>
+    </div>
+
+    <div class="mvp hi">
+      <div class="hd">
+        <div class="k">Second · weeks five to sixteen</div>
+        <h2>High fidelity: the narrow path</h2>
+        <div class="cost">One question type, two source types, end to end, measured</div>
+      </div>
+      <div class="bd">
+        <div class="blk">
+          <div class="t">What is in</div>
+          <div class="two">
+            <div>
+              <div class="li"><b>Evaluation harness</b> and a fixed question set of thirty to fifty</div>
+              <div class="li"><b>Seeded-error set,</b> the only instrument for silent-error rate</div>
+              <div class="li">Postgres connector, read only</div>
+              <div class="li"><b>CSV and Excel through DuckDB,</b> the unmodelled source no incumbent attempts</div>
+              <div class="li">Plan generation, shown and approved before execution</div>
+            </div>
+            <div>
+              <div class="li">Fetch and analytics agents, enough for a real question</div>
+              <div class="li">Ambiguity interception and the binding store</div>
+              <div class="li">Per-hop verification, the six structural checks</div>
+              <div class="li">Hop lineage, single-hop re-run, <b>exportable investigation</b></div>
+              <div class="li">Doubt surfacing and the audit log</div>
+            </div>
+          </div>
+        </div>
+        <div class="blk">
+          <div class="t">What is deliberately out, and why</div>
+          <div class="two">
+            <div>
+              <div class="li out"><b>Visualization agent.</b> A table is an acceptable answer. Charts are the most demo-visible and least evidence-bearing thing available</div>
+              <div class="li out"><b>REST connector.</b> Two source types already demonstrate heterogeneity; a third proves nothing new</div>
+              <div class="li out"><b>ML agent.</b> Largest single build in the backlog, and already established as not the differentiator</div>
+            </div>
+            <div>
+              <div class="li out"><b>Override re-flow.</b> Degrades to invalidate and replan, which is the honest fallback anyway</div>
+              <div class="li out"><b>Semantic-layer consumption.</b> Next semester. Important for the buyer, not for the core premise</div>
+              <div class="li out"><b>Any polish.</b> The output is a measurement, not a demo</div>
+            </div>
+          </div>
+        </div>
+        <div class="blk">
+          <div class="t">The question it answers</div>
+          <div class="q">Does multi-hop planning across heterogeneous sources reach usable accuracy on a narrow path, and do cheap structural checks catch the failures that matter?</div>
+        </div>
+        <div class="blk" style="margin-top:auto">
+          <div class="t">What falsifies it</div>
+          <div class="fal"><b>Execution accuracy under 30%.</b> The mitigations do not overcome the field's baseline. Narrow to two-hop questions and publish the low number anyway.</div>
+          <div class="fal"><b>Near zero catch rate on the semantically plausible defect class.</b> Say that the verifier catches mechanical and not semantic failures, and make the shown plan the primary defence.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="ch">Earlyvangelist: five things already done</div>
+      <div class="ev"><div class="n">1</div><div class="t"><b>Wrote SQL against production last week</b>To answer someone else's ad-hoc question. This establishes the queue.</div></div>
+      <div class="ev"><div class="n">2</div><div class="t"><b>Hit a wall with an existing copilot</b>Tried one, abandoned it, and can name the specific reason. They are not comparing against nothing.</div></div>
+      <div class="ev"><div class="n">3</div><div class="t"><b>Worked around a missing source</b>Reconciled a file or an export against a warehouse by hand, and can say how long it took.</div></div>
+      <div class="ev key"><div class="n">4</div><div class="t"><b>Been burned by an unverified number</b>Most likely to be fudged. "I worry about accuracy" is not it. The question is about the last time they sent an answer that turned out wrong, and with no story the pain is theoretical.</div></div>
+      <div class="ev key"><div class="n">5</div><div class="t"><b>Installed an open-source data tool themselves</b>Disqualifies the most people and is not negotiable. At this contract value, a user who needs procurement cannot be reached by any channel this venture can afford.</div></div>
+      <div class="bar warn">
+        <b>Past behaviour, not stated interest.</b> Someone meeting fewer than all five is a friendly conversation
+        rather than a design partner, and the failures are data in their own right. If nobody meets the third,
+        the multi-source thesis is already in trouble.
+      </div>
+      <div class="ch f" style="margin-top:12px">What neither MVP tests</div>
+      <div class="nt"><b>Whether anyone pays.</b> Out of scope. The budget question is a conversation, not an MVP</div>
+      <div class="nt"><b>Whether the flywheel compounds.</b> Needs ninety days of real use, which no MVP reaches</div>
+      <div class="nt"><b>Whether the review gate scales.</b> Needs several stakeholders submitting to one analyst over weeks, and the high-fidelity version has one user</div>
+      <div class="nt"><b>Whether the security posture survives a real review.</b> Built for it, untested against it</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone f">
+      <div class="lbl">Why the order is not negotiable</div>
+      <h3>The cheap test can invalidate the expensive one, and not the reverse</h3>
+      <p>
+        If verification costs as much as re-derivation, a more accurate planner does not help, because the analyst
+        still cannot use an answer they did not derive.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">Why this and not a landing page</div>
+      <h3>A sign-up measures the pitch, which is not the risk</h3>
+      <p>
+        The risk is behavioural and specific: does reading a trace cost less than doing the work. Only a timed task
+        with a real analyst and a real artifact answers that, and a document is sufficient for it.
+      </p>
+    </div>
+    <div class="zone v">
+      <div class="lbl">What viable means here</div>
+      <h3>A number that is true, publishable and re-runnable</h3>
+      <p>
+        Not usable by a customer. Since no commercial product in this category publishes an accuracy figure, a
+        working measured narrow system is a stronger artifact than a broad unmeasured demo.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>validation/mvp_definition.md</code> §1 through §5</span>
+    <span>Evidence: <code>[S2]</code> · V47</span>
+  </div>
+</div>
+</body>
+</html>
