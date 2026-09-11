@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V59 · Five values as trade-offs</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:30px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .mv{display:flex;gap:14px;margin-top:12px}
+  .m{flex:1;padding:10px 13px;border-radius:6px}
+  .m.mis{background:#EDF3FA;border-left:3px solid var(--accent)}
+  .m.vis{background:#EAF3EC;border-left:3px solid var(--verify)}
+  .m .k{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .m p{font-size:13px;font-weight:650;color:var(--ink);line-height:1.38;margin-top:4px}
+  .m span{display:block;font-size:10px;color:var(--body);margin-top:5px;line-height:1.45}
+  .vals{display:flex;gap:11px;margin-top:13px;flex:1;min-height:0}
+  .v{flex:1;border:1px solid var(--rule);border-radius:7px;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+  .v .h{padding:7px 10px;background:var(--wash);border-bottom:1px solid var(--rule)}
+  .v .h .n{font-size:8.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+  .v .h b{display:block;font-size:11.5px;font-weight:700;color:var(--ink);margin-top:2px;line-height:1.22}
+  .v .bd{padding:7px 10px;flex:1;display:flex;flex-direction:column}
+  .blk{padding-bottom:6px;margin-bottom:6px;border-bottom:1px dashed var(--rule)}
+  .blk:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+  .blk .t{font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .blk p{font-size:9.5px;line-height:1.42;margin-top:2px}
+  .blk p b{color:var(--ink)}
+  .blk.cost{background:#FDF7F6;border-radius:4px;padding:5px 7px;margin-bottom:6px;border-bottom:none}
+  .blk.cost .t{color:var(--fail)}
+  .blk.why{margin-top:auto;border-bottom:none;padding-bottom:0}
+  .blk.why .t{color:var(--verify)}
+  .foot{display:flex;gap:24px;margin-top:13px}
+  .zone{flex:1;border-top:2px solid var(--ink);padding-top:8px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .zone p b{color:var(--ink)}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Mission, vision and values</div>
+  <h1>A value phrased as a virtue costs nothing. Each of these names what is given up</h1>
+
+  <div class="mv">
+    <div class="m mis">
+      <div class="k">Mission · true today</div>
+      <p>We make an analytical answer something you can check in seconds instead of something you have to trust.</p>
+      <span>Not democratising data: the analyst is not being democratised, they are being given back the hour verification costs. Not AI for analytics: the AI is a means and the market is full of it. <b>The mission names the thing that is actually different, which is the cost of checking.</b></span>
+    </div>
+    <div class="m vis">
+      <div class="k">Vision · ten years out</div>
+      <p>An analytical answer that arrives without its trace looks the way an unaudited financial statement looks now: not wrong, but not usable for anything that matters.</p>
+      <span>A claim about a norm rather than market share. <b>The strongest version of success is that the practice outlives the product,</b> and that buyers start asking every vendor for a verification cost ratio, including vendors that are not us.</span>
+    </div>
+  </div>
+
+  <div class="vals">
+    <div class="v">
+      <div class="h"><div class="n">Value one</div><b>Publish the number that makes us look worse</b></div>
+      <div class="bd">
+        <div class="blk cost"><div class="t">The trade-off</div><p>We lose the impressive headline to keep the credible one</p></div>
+        <div class="blk"><div class="t">Already decided</div><p>The mechanism arithmetic came to <b>roughly 2.9 times, not ten,</b> and was published with its band and its conservative corner. A 13.8-times queueing effect was computed and <b>withdrawn,</b> because induced demand consumes it. On a single-source familiar question the gain is about 1.0 or below and <b>the analyst should keep writing SQL</b></p></div>
+        <div class="blk cost"><div class="t">What it costs</div><p>Every pitch is less exciting than the one a competitor can give</p></div>
+        <div class="blk why"><div class="t">Why we accept it</div><p>The graveyard in this category was filled by overpromising. One documented failure was overpromise against delivery, and another shipped inside the most widely deployed BI tool on earth and still retired. <b>In a market disappointed four times, the scarce asset is a claim that survives being checked</b></p></div>
+      </div>
+    </div>
+
+    <div class="v">
+      <div class="h"><div class="n">Value two</div><b>Refuse the question rather than guess at it</b></div>
+      <div class="bd">
+        <div class="blk cost"><div class="t">The trade-off</div><p>We are slower and more annoying than a system that just answers</p></div>
+        <div class="blk"><div class="t">Already decided</div><p>When a term resolves to more than one column or grain, the system <b>halts and asks</b> instead of taking the best guess. On a first encounter with a source this makes us measurably slower, about 0.85 times, before it ever pays back</p></div>
+        <div class="blk cost"><div class="t">What it costs</div><p>A worse demo, and a first session that feels like an interrogation</p></div>
+        <div class="blk why"><div class="t">Why we accept it</div><p>Schema-level errors are <b>81.2% of analysed text-to-SQL failures,</b> and failure looks like a plausible but incorrect answer. <b>A silent guess samples directly from the dominant failure distribution,</b> and the user has no way to detect it</p></div>
+      </div>
+    </div>
+
+    <div class="v">
+      <div class="h"><div class="n">Value three</div><b>Verify with different code, never with the model that produced the answer</b></div>
+      <div class="bd">
+        <div class="blk cost"><div class="t">The trade-off</div><p>We decline the most fashionable techniques in our own field</p></div>
+        <div class="blk"><div class="t">Already decided</div><p>Reflection, self-critique, model-as-judge and multi-agent debate are declined on one principle: they keep verification inside the thing being verified. <b>Our checks are plain SQL:</b> row counts, grain assertions, coverage, boundary totals</p></div>
+        <div class="blk cost"><div class="t">What it costs</div><p>We look less sophisticated to an audience expecting to hear those words</p></div>
+        <div class="blk why"><div class="t">Why we accept it</div><p>A model asked to check its own output shares the failure that produced it, and the strongest incumbent reached the same conclusion in production. <b>The side benefit is economic: verification consumes zero model tokens,</b> so the differentiating mechanism is the cheapest thing in the system</p></div>
+      </div>
+    </div>
+
+    <div class="v">
+      <div class="h"><div class="n">Value four</div><b>The person who cannot verify does not get to ship unverified</b></div>
+      <div class="bd">
+        <div class="blk cost"><div class="t">The trade-off</div><p>We renounce the largest revenue segment in our category</p></div>
+        <div class="blk"><div class="t">Already decided</div><p>A business stakeholder can ask anything and gets an answer in ninety seconds. <b>They cannot export it without an analyst's sign-off.</b> We are not building self-service for people who cannot judge correctness</p></div>
+        <div class="blk cost"><div class="t">What it costs</div><p>The whole non-technical market, where the category's revenue and attention are</p></div>
+        <div class="blk why"><div class="t">Why we accept it</div><p>The purest test of the opposite bet cleared a 73.67% markdown against its last primary round. The simpler version: an answer someone cannot check, put in front of their boss, is a person set up to be wrong in public. <b>Gating it is not paternalism, because the alternative is that they guess, which 76% already do</b></p></div>
+      </div>
+    </div>
+
+    <div class="v">
+      <div class="h"><div class="n">Value five</div><b>Consume what the customer already built; do not replace it</b></div>
+      <div class="bd">
+        <div class="blk cost"><div class="t">The trade-off</div><p>We depend on artifacts we do not control</p></div>
+        <div class="blk"><div class="t">Already decided</div><p>Where a semantic layer exists, its definitions <b>take precedence outright</b> over anything we infer. We will not become the place metric definitions live</p></div>
+        <div class="blk cost"><div class="t">What it costs</div><p>Deeper dependence on tooling maintained for another product, and a smaller surface to sell</p></div>
+        <div class="blk why"><div class="t">Why we accept it</div><p>59% of large enterprises already fund semantic layers. Telling a buyer that spend is unnecessary loses the deal and is false: a layer says what a metric means, not what happened or why. <b>Requiring one would inherit exactly the bounded-scope failure we are built against</b></p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone">
+      <div class="lbl">Why we exist</div>
+      <h3>The industry answered the wrong question</h3>
+      <p>
+        Asked to make enterprise data accessible, every serious vendor built something that answers <b>faster</b>. The
+        measured evidence says speed was not the binding constraint: trust in data went from 66% to 83% in a year,
+        71% fear wrong output reaching stakeholders, and the money is moving toward constraining AI output. Meanwhile
+        about 25% of employees use the BI tools their employer bought, flat across seven years. <b>A faster answer
+        nobody will stake their name on is a thing you have to go and check, which is the work you were avoiding.</b>
+      </p>
+    </div>
+    <div class="zone f">
+      <div class="lbl">What would make us abandon this</div>
+      <h3>A mission that cannot be falsified is a slogan</h3>
+      <p>
+        If verification costs as much as re-derivation, the mission is unachievable and we should say so publicly
+        rather than continue. The beachhead's objection is correct as stated and untested, and one afternoon with
+        five analysts settles it. <b>Publishing that negative result would be more consistent with the first value
+        than quietly pivoting to a faster chat box,</b> and it would still be a good capstone, because the field has
+        no public measurement either way.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>narrative/mission_vision.md</code> §1 through §5</span>
+    <span>Evidence: <code>[S2][S15][S16][S17][S22][S32][S40][S46][S60]</code> · V59</span>
+  </div>
+</div>
+</body>
+</html>

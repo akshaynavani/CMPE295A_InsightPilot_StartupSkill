@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V57 · Roads closed, triggers armed</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:30px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .cols{display:flex;gap:22px;margin-top:14px;flex:1;min-height:0}
+  .c{display:flex;flex-direction:column;min-width:0}
+  .c1{flex:1.04}
+  .c2{flex:1}
+  .c3{width:322px;flex:none}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:5px;border-bottom:2px solid var(--ink)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .rd{display:flex;gap:8px;padding:4.5px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.38}
+  .rd .id{width:22px;flex:none;font-weight:700;color:var(--muted);font-size:10px}
+  .rd .t{flex:1;min-width:0}
+  .rd .t b{color:var(--ink)}
+  .rd .t span{display:block;color:var(--muted);margin-top:1px}
+  .rd .re{width:108px;flex:none;font-size:8.5px;color:var(--body);line-height:1.35}
+  .rd .re i{font-style:normal;display:block;font-size:8px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:1px}
+  .rd.never .re i{color:var(--fail)}
+  .tg{display:flex;gap:8px;padding:4.5px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.38}
+  .tg .id{width:24px;flex:none;font-weight:700;color:var(--accent);font-size:10px}
+  .tg .t{flex:1;min-width:0}
+  .tg .t b{color:var(--ink)}
+  .tg .t span{display:block;color:var(--body);margin-top:1px}
+  .tg .wk{width:62px;flex:none;text-align:right;font-size:8.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);line-height:1.3}
+  .tg.stop{background:#FDF7F6}
+  .tg.stop .id{color:var(--fail)}
+  .tg.stop .wk{color:var(--fail)}
+  .tg.amb{background:#FDFAF4}
+  .tg.amb .id{color:var(--doubt)}
+  .undec{margin-top:9px;padding:8px 10px;background:var(--wash);border-radius:6px}
+  .undec .k{font-size:8.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--doubt)}
+  .undec div.l{font-size:9.5px;line-height:1.4;padding:2.5px 0 2.5px 11px;position:relative;color:var(--body)}
+  .undec div.l:before{content:"";position:absolute;left:0;top:7px;width:4px;height:4px;border-radius:50%;background:var(--doubt)}
+  .undec div.l b{color:var(--ink)}
+  .temp{margin-top:10px;border:2px solid var(--fail);border-radius:7px;padding:9px 11px;background:#FDF7F6}
+  .temp .k{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fail)}
+  .temp h3{font-size:13px;font-weight:700;color:var(--ink);margin-top:3px;line-height:1.25}
+  .temp p{font-size:10px;line-height:1.45;margin-top:5px}
+  .temp p b{color:var(--ink)}
+  .temp .r{display:flex;gap:7px;font-size:9.5px;line-height:1.4;padding:3.5px 0;border-top:1px dashed #E3C9C4;margin-top:5px}
+  .temp .r .n{width:13px;flex:none;font-weight:700;color:var(--fail)}
+  .temp .r b{color:var(--ink)}
+  .bar{margin-top:9px;padding:8px 10px;border-radius:6px;font-size:10px;line-height:1.45;background:var(--wash)}
+  .bar.bad{background:#F7EEEC}
+  .bar b{color:var(--ink)}
+  .src{margin-top:11px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Pivot log</div>
+  <h1>A trigger written after a disappointing result is a rationalisation, so all ten are fixed now</h1>
+  <p class="sub">
+    Ten roads closed with what would reopen each one, and ten triggers armed before any result exists. Without the
+    journal a later reader treats deliberate closures as gaps and re-argues settled decisions.
+  </p>
+
+  <div class="cols">
+    <div class="c c1">
+      <div class="ch">Roads already closed, each genuinely considered</div>
+      <div class="rd"><div class="id">P1</div><div class="t"><b>Sell to business users</b><span>The purest test of that bet cleared a 73.67% markdown, and a person who cannot verify is being set up to be wrong in public</span></div><div class="re"><i>reopens if</i>Stakeholders accept a mandatory analyst gate and analysts can absorb the load. An expansion, not a repositioning</div></div>
+      <div class="rd never"><div class="id">P2</div><div class="t"><b>Claim a single ten-times differentiator</b><span>Later arithmetic confirmed it independently at roughly 2.9 times, band 1.8 to 4.2</span></div><div class="re"><i>reopens if</i>Nothing short of a measured order-of-magnitude result. <b>The withdrawn queueing figure does not count</b></div></div>
+      <div class="rd"><div class="id">P3</div><div class="t"><b>Declare a moat</b><span>An open-source core means the code is not the asset, and the strongest candidate is unevidenced</span></div><div class="re"><i>reopens if</i>Override rate falls per source over ninety days with no model change. <b>An observation, not an argument</b></div></div>
+      <div class="rd"><div class="id">P4</div><div class="t"><b>Build our own semantic layer</b><span>Telling a buyer that spend is unnecessary loses the deal and is false. A semantic layer says what a metric means, not what happened</span></div><div class="re"><i>reopens if</i>Under five points of accuracy lift from consuming one, which makes the dependency not worth it either way</div></div>
+      <div class="rd"><div class="id">P5</div><div class="t"><b>Managed multi-tenant service</b><span>Neutrality asserted by a service that sees all your data is a claim. Neutrality in code you run is a property</span></div><div class="re"><i>reopens if</i>A regulated segment demands managed deployment and a contractual way to preserve neutrality exists</div></div>
+      <div class="rd"><div class="id">P6</div><div class="t"><b>Lead with the ML agent</b><span>It is built, not led with. Widest capability gap and least trusted by the person who must approve it</span></div><div class="re"><i>reopens if</i>A useful modelling result inside a minutes-long budget is reviewed and accepted by a staff scientist</div></div>
+      <div class="rd"><div class="id">P7</div><div class="t"><b>Self-critique or model-as-judge for verification</b><span>All keep verification inside the model that produced the output. The strongest incumbent reached the same conclusion in production</span></div><div class="re"><i>reopens if</i>Self-critique catches the plausible defect class structural checks miss, and even then as a supplement</div></div>
+      <div class="rd never"><div class="id">P8</div><div class="t"><b>Size the market top down from the BI category</b><span>A share-of-a-huge-market figure would contradict the re-segmentation and imply a play the product cannot win</span></div><div class="re"><i>reopens if</i><b>Nothing.</b> A methodology decision, not a strategy one</div></div>
+      <div class="rd"><div class="id">P9</div><div class="t"><b>Outbound, resellers, marketplace, paid acquisition</b><span>Closed by arithmetic. A partner's share is payment for a sales motion the product is designed not to need</span></div><div class="re"><i>reopens if</i>Central teams are materially larger than fifteen analysts, which makes inside sales viable</div></div>
+      <div class="rd"><div class="id">P10</div><div class="t"><b>Quantify the problem from the circulating headline figure</b><span>Traced to unsourced vendor marketing and refused. Logged so a later reader who meets it elsewhere knows it was found</span></div><div class="re"><i>reopens if</i>A disclosed study with a stated methodology appears</div></div>
+    </div>
+
+    <div class="c c2">
+      <div class="ch a">Standing triggers, declared before results exist</div>
+      <div class="tg stop"><div class="id">T1</div><div class="t"><b>Verification cost ratio above 0.8</b><span><b>Stop and publish the negative result.</b> A faster wrong-answer generator is not worth building, and the field has no public measurement either way</span></div><div class="wk">week 4</div></div>
+      <div class="tg amb"><div class="id">T2</div><div class="t"><b>Ratio between 0.5 and 0.8</b><span>Persevere and re-scope. The differentiator becomes cross-source reach rather than verification cost</span></div><div class="wk">week 4</div></div>
+      <div class="tg stop"><div class="id">T3</div><div class="t"><b>Defect rejection under 50%, or no lift over control</b><span><b>Halt product work and redesign the verify surface.</b> Worse than T1, because the trace would be comfortable rather than effective</span></div><div class="wk">week 5</div></div>
+      <div class="tg"><div class="id">T4</div><div class="t"><b>Under 15% of requests span sources</b><span>Re-scope, do not stop. Neutrality becomes true and worthless, the market halves, and the product narrows to where it loses on distribution</span></div><div class="wk">week 3</div></div>
+      <div class="tg stop"><div class="id">T5</div><div class="t"><b>At most one of five buyers names a budget line</b><span><b>Accept that this is a feature, not a company.</b> Correct for the capstone, decisive for the venture. Record it and keep building the academic deliverable</span></div><div class="wk">week 4</div></div>
+      <div class="tg"><div class="id">T6</div><div class="t"><b>Multi-hop accuracy under 30%</b><span>Narrow to two-hop questions and publish the low number. Publishing is still the contribution</span></div><div class="wk">end sem 1</div></div>
+      <div class="tg"><div class="id">T7</div><div class="t"><b>Near-zero catch rate on plausible defects</b><span>Replace the judgement-based figure with the measured one and state that the verifier catches mechanical, not semantic, failures</span></div><div class="wk">end sem 1</div></div>
+      <div class="tg"><div class="id">T8</div><div class="t"><b>Review time above eight hours a week, or rising</b><span>The champion is being handed work. Redesign the sign-off gate with trust levels per question shape, and do not scale until it is flat</span></div><div class="wk">wk 12 deployed</div></div>
+      <div class="tg"><div class="id">T9</div><div class="t"><b>Median clone to first investigation above sixty minutes</b><span>Self-serve fails and the real motion is design-partner led. <b>This was the only channel with viable economics</b></span></div><div class="wk">wk 8 sem 2</div></div>
+      <div class="tg"><div class="id">T10</div><div class="t"><b>Fewer than seven of ten analysts confirm both spectrum edges</b><span>The inferred spectrum is wrong, and five artifacts written against it must be revised before anything is built on them</span></div><div class="wk">week 3</div></div>
+      <div class="bar">
+        <b>Five of the ten fire by week five, all of them cheap and all before engineering.</b> A trigger without a
+        date is a hope, which is why the dates go in the project plan rather than staying here.
+      </div>
+    </div>
+
+    <div class="c c3">
+      <div class="ch f">The pivot this team will be most tempted by</div>
+      <div class="temp">
+        <div class="k">and should refuse</div>
+        <h3>Moving to the business-user market after a disappointing analyst response</h3>
+        <p>
+          If the cost ratio comes back amber and the source-spanning share comes back weak, the instinct will be
+          that the analyst is too sophisticated a customer, and the real market is the person who cannot write the
+          query. <b>That reasoning is superficially strong and it is a closed road, reopened.</b>
+        </p>
+        <div class="r"><div class="n">1</div><div><b>It is the bet that was already priced.</b> Run with real capital and real distribution, and marked down 73.67%</div></div>
+        <div class="r"><div class="n">2</div><div><b>It makes verification unsolvable rather than easier.</b> Removing the analyst does not remove the need to verify. It removes the only person capable of it</div></div>
+        <div class="r"><div class="n">3</div><div><b>The evidence for the pivot would be missing.</b> Nothing in the research suggests non-technical self-service works, and the graveyard suggests the opposite four times over</div></div>
+        <p style="margin-top:6px"><b>If the analyst market fails, the honest conclusion is that the thesis is wrong, not that a different customer will rescue it.</b></p>
+      </div>
+      <div class="undec">
+        <div class="k">Not decided, so absence is not mistaken for closure</div>
+        <div class="l">Which features sit inside the open core and which behind a paid edge</div>
+        <div class="l"><b>What the ML agent usefully does in five minutes.</b> The twelve-hour behaviour is forbidden and the short version is unspecified anywhere</div>
+        <div class="l">Whether an unreviewed answer at the low edge is blocked, watermarked or auto-routed</div>
+        <div class="l">Whether a cached plan expires on time as well as on schema change</div>
+      </div>
+      <div class="bar bad">
+        <b>The log format for everything from here:</b> date, decision, the evidence that prompted it, what it closes,
+        and what would reopen it. <b>A decision recorded without that last field is not a decision, it is a mood,</b>
+        and six weeks later nobody can tell them apart.
+      </div>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>validation/pivot_log.md</code> §1 through §5</span>
+    <span>Evidence: <code>[S2][S9][S17][S20][S32][S40][S46][S56][S58][S59]</code> · V57</span>
+  </div>
+</div>
+</body>
+</html>

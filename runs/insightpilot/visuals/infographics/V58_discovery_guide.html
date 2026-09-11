@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V58 · Questions about the past</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:30px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .rule{margin-top:11px;padding:9px 14px;background:#EDF3FA;border-left:3px solid var(--accent);border-radius:0 5px 5px 0;font-size:12.5px;line-height:1.45;color:var(--ink)}
+  .rule b{font-weight:700}
+  .rule span{display:block;font-size:10.5px;color:var(--body);margin-top:4px}
+  .cols{display:flex;gap:22px;margin-top:14px;flex:1;min-height:0}
+  .c{display:flex;flex-direction:column;min-width:0}
+  .c1{width:300px;flex:none}
+  .c2{flex:1}
+  .c3{width:330px;flex:none}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:5px;border-bottom:2px solid var(--ink)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .ch.v{border-bottom-color:var(--verify)}
+  .grp{font-size:8.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-top:8px}
+  .grp.dq{color:var(--fail)}
+  .sc{display:flex;gap:7px;padding:3.5px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.38}
+  .sc .t{flex:1;color:var(--body)}
+  .sc .t b{color:var(--ink)}
+  .sc .cnt{flex:none;font-size:8.5px;font-weight:700;color:var(--muted);white-space:nowrap}
+  .q{display:flex;gap:7px;padding:3.5px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.4}
+  .q .n{width:16px;flex:none;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+  .q .t{flex:1;color:var(--ink)}
+  .q .t em{font-style:normal;display:block;color:var(--muted);font-size:8.5px;margin-top:1px}
+  .q.key{background:#EDF3FA}
+  .q.key .n{color:var(--accent)}
+  .q.best{background:#EAF3EC}
+  .q.best .n{color:var(--verify)}
+  .proto{margin-top:9px;border:2px solid var(--accent);border-radius:7px;overflow:hidden}
+  .proto .h{padding:7px 10px;background:#EDF3FA;border-bottom:1px solid #C4D8EE}
+  .proto .h b{font-size:12px;font-weight:700;color:var(--accent);display:block}
+  .proto .h span{font-size:9.5px;color:var(--body);display:block;margin-top:1px}
+  .proto .bd{padding:7px 10px}
+  .cond{display:flex;gap:8px;padding:4px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.38}
+  .cond .k{width:62px;flex:none;font-size:8.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);padding-top:1px}
+  .cond .t{flex:1}
+  .cond .t b{color:var(--ink)}
+  .ap{display:flex;gap:8px;padding:4.5px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.4}
+  .ap .x{width:13px;flex:none;color:var(--fail);font-weight:700}
+  .ap .t{flex:1}
+  .ap .t b{color:var(--ink)}
+  .agg{margin-top:9px}
+  .ag{display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.35}
+  .ag .t{flex:1;color:var(--ink)}
+  .ag .th{flex:none;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;font-size:9.5px}
+  .bar{margin-top:9px;padding:8px 10px;border-radius:6px;font-size:10px;line-height:1.45;background:var(--wash)}
+  .bar.bad{background:#F7EEEC}
+  .bar.good{background:#EAF3EC}
+  .bar b{color:var(--ink)}
+  .src{margin-top:11px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Discovery guide</div>
+  <h1>Three venture-ending questions are answerable by talking to about fifteen people</h1>
+  <div class="rule">
+    <b>The one rule: ask about the past, never about the future.</b>
+    <span>Would you use a tool that does X produces a polite yes which predicts nothing. Walk me through the last time you did X produces a story with times, tools and workarounds in it. The corollary is that the product is never described in a problem interview, because the moment they know what you are building they start being helpful, and helpfulness is noise.</span>
+  </div>
+
+  <div class="cols">
+    <div class="c c1">
+      <div class="ch a">Screening, by persona</div>
+      <div class="grp">Beachhead analyst · must have all five</div>
+      <div class="sc"><div class="t">Writes SQL weekly against a production source</div><div class="cnt">target 10</div></div>
+      <div class="sc"><div class="t">Receives ad-hoc requests from someone outside the data team</div></div>
+      <div class="sc"><div class="t">Works where a BI tool is already deployed</div></div>
+      <div class="sc"><div class="t"><b>Has access to more than one system of record</b></div></div>
+      <div class="sc"><div class="t">Not on the platform or infrastructure team. This person answers questions rather than maintaining pipelines</div></div>
+      <div class="grp dq">Disqualify</div>
+      <div class="sc"><div class="t">A solo analyst at a company under about fifty people, because there is no queue. Or a pure report builder who does not write ad-hoc SQL</div></div>
+      <div class="grp">Budget owner</div>
+      <div class="sc"><div class="t">Owns or materially influences an analytics budget line, has approved a tool purchase in eighteen months, and has at least three analysts reporting in</div><div class="cnt">target 5</div></div>
+      <div class="grp">Staff data scientist · tests the high edge</div>
+      <div class="sc"><div class="t">Reviewed someone else's analysis in the last month and can describe it, and owns a model others depend on</div><div class="cnt">target 3</div></div>
+      <div class="grp">Business stakeholder · tests the low edge</div>
+      <div class="sc"><div class="t">Requested data from an analyst in the last thirty days and does not write SQL</div><div class="cnt">target 3</div></div>
+      <div class="bar good">
+        <b>These conversations are where the domain knowledge the pack lacks actually comes from.</b> The team has no
+        lived experience inside an analytics function, so they are not a formality.
+      </div>
+    </div>
+
+    <div class="c c2">
+      <div class="ch">The analyst interview, and every question is about something that already happened</div>
+      <div class="grp">Establish the queue</div>
+      <div class="q"><div class="n">1</div><div class="t">Walk me through last Thursday. What did people ask you for?</div></div>
+      <div class="q"><div class="n">2</div><div class="t">How many ad-hoc requests came to you last week, and where do they arrive?</div></div>
+      <div class="q"><div class="n">3</div><div class="t">Which did you actually finish, and which are still open?</div></div>
+      <div class="grp">The last real question, which is the core of it</div>
+      <div class="q"><div class="n">5</div><div class="t">Walk me through what you did, step by step, from reading the request to sending the answer</div></div>
+      <div class="q"><div class="n">6</div><div class="t">How long did that take start to finish, and how much was waiting rather than working?</div></div>
+      <div class="q"><div class="n">7</div><div class="t">Which step took longest, and where did you get stuck or have to redo something?</div></div>
+      <div class="grp">Sources, and this is the measurement</div>
+      <div class="q key"><div class="n">9</div><div class="t">Open your last twenty requests. How many needed data from more than one system?<em>Ask them to actually look. This single question is the whole of the source-spanning experiment</em></div></div>
+      <div class="q"><div class="n">10</div><div class="t">When did you last work with a source nobody had modelled, and what did it cost you?</div></div>
+      <div class="grp">Verification</div>
+      <div class="q"><div class="n">12</div><div class="t">Tell me about the last time you sent an answer that turned out to be wrong. What happened, and how did you find out?</div></div>
+      <div class="q best"><div class="n">13</div><div class="t">When someone hands you an analysis they did, how do you decide whether to trust it? Walk me through the last time<em>The closest a problem interview gets to the central measurement, and the most valuable single question in the guide</em></div></div>
+      <div class="grp">Spectrum, tested for free</div>
+      <div class="q"><div class="n">16</div><div class="t">Who sends you these questions? Do they ever try to answer them themselves?</div></div>
+      <div class="q"><div class="n">17</div><div class="t">Does anyone review your work before it goes out? Who, and when did that last happen?</div></div>
+      <div class="grp">The budget owner, separately</div>
+      <div class="q key"><div class="n">5</div><div class="t">If your team adopted a tool like this, what line would it come from and what would it displace?<em>Record verbatim. A buyer who cannot name one has answered</em></div></div>
+      <div class="q"><div class="n">6</div><div class="t">How many analysts sit on your central team?<em>Ten seconds, and it flips the channel plan</em></div></div>
+      <div class="q"><div class="n">7</div><div class="t">What are you currently spending on semantic-layer or metrics tooling?<em>Tests the strongest case against the market-type declaration directly</em></div></div>
+      <div class="bar bad">
+        <b>Never ask an analyst whether they would pay for this.</b> They do not know their budget and their guess is
+        worthless. Ask the budget owner the question above instead.
+      </div>
+    </div>
+
+    <div class="c c3">
+      <div class="ch v">The most consequential hour in the pack</div>
+      <div class="proto">
+        <div class="h"><b>The timed task</b><span>Sixty minutes, a separate session, run as a measurement and not a demo</span></div>
+        <div class="bd">
+          <div class="cond"><div class="k">Setup</div><div class="t">Two matched questions of equal complexity, each spanning a warehouse table and an unmodelled file, on a realistic sample schema. <b>Half the participants take the verify condition first</b></div></div>
+          <div class="cond"><div class="k">Verify</div><div class="t">They receive a <b>correct</b> answer with hop-level lineage. Task: decide whether you would put your name on this. The stopwatch stops when they commit</div></div>
+          <div class="cond"><div class="k">Derive</div><div class="t">They receive the question and database access. Task: answer this to the point where you would put your name on it</div></div>
+          <div class="cond"><div class="k">Record</div><div class="t">Minutes per condition, which hops they opened and in what order, what they said aloud, accept or reject, and <b>what they did not look at</b></div></div>
+          <div class="cond"><div class="k">Measure</div><div class="t">Median verify over median derive. Pass at 0.5 or below, fail above 0.8</div></div>
+          <div class="cond" style="border-bottom:none"><div class="k" style="color:var(--fail)">Do not</div><div class="t">Explain the product, defend the design, or answer questions about the interface until the stopwatch stops. <b>Confusion is data</b></div></div>
+        </div>
+      </div>
+      <div class="ch f" style="margin-top:11px">Anti-patterns, named because they are how this gets ruined</div>
+      <div class="ap"><div class="x">1</div><div class="t"><b>Pitching in a problem interview.</b> Everything after that is politeness</div></div>
+      <div class="ap"><div class="x">2</div><div class="t"><b>Accepting an estimate where a record exists.</b> Maybe half are multi-source is worthless. Ask them to open the queue and count</div></div>
+      <div class="ap"><div class="x">3</div><div class="t"><b>Interviewing whoever will talk to you.</b> A solo analyst at a thirty-person company has no queue, no buyer and no reviewer. Friendly, and teaches you nothing about this segment</div></div>
+      <div class="ap"><div class="x">4</div><div class="t"><b>Not writing the surprise line.</b> Ten interviews with no surprises were confirmatory, and an empty surprise field is evidence the interviewer was steering</div></div>
+      <div class="ap"><div class="x">5</div><div class="t"><b>Explaining during the timed task.</b> Confusion is the measurement</div></div>
+      <div class="ch" style="margin-top:11px">The aggregate view</div>
+      <div class="agg">
+        <div class="ag"><div class="t">Median share of last-twenty requests spanning sources</div><div class="th">≥ 25%</div></div>
+        <div class="ag"><div class="t">Buyers naming a specific budget line</div><div class="th">3 of 5</div></div>
+        <div class="ag"><div class="t">Analysts confirming both spectrum edges</div><div class="th">7 of 10</div></div>
+        <div class="ag"><div class="t">Median verification cost ratio</div><div class="th">≤ 0.5</div></div>
+        <div class="ag"><div class="t">Median central-team size</div><div class="th">5 to 15</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>validation/discovery_guide.md</code> §1 through §8</span>
+    <span>V58</span>
+  </div>
+</div>
+</body>
+</html>

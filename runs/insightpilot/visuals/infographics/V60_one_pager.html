@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V60 · The one-pager</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:30px 48px;display:flex;flex-direction:column}
+  .top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+  .top .nm .e{font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  .top .nm h1{font-size:34px;font-weight:700;color:var(--ink);line-height:1;margin-top:4px;letter-spacing:-.02em}
+  .top .nm .pl{font-size:12.5px;color:var(--muted);margin-top:4px}
+  .top .ol{max-width:560px;font-size:12px;line-height:1.45;color:var(--ink);text-align:right}
+  .top .ol b{font-weight:650}
+  .cols{display:flex;gap:24px;margin-top:14px;flex:1;min-height:0}
+  .c{flex:1;display:flex;flex-direction:column;min-width:0}
+  .sec{padding-bottom:9px;margin-bottom:9px;border-bottom:1px dashed var(--rule)}
+  .sec:last-child{border-bottom:none;margin-bottom:0}
+  .sec .h{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--accent)}
+  .sec.neg .h{color:var(--fail)}
+  .sec.thin .h{color:var(--doubt)}
+  .sec p{font-size:10.5px;line-height:1.48;margin-top:4px}
+  .sec p b{color:var(--ink)}
+  .sec p.lead{font-size:11.5px;font-weight:650;color:var(--ink)}
+  .call{margin-top:6px;padding:7px 10px;background:#EDF3FA;border-left:3px solid var(--accent);border-radius:0 4px 4px 0;font-size:11.5px;font-weight:650;color:var(--ink);line-height:1.38}
+  .li{font-size:10.5px;line-height:1.45;padding:3px 0 3px 12px;position:relative}
+  .li:before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+  .li.f:before{background:var(--fail)}
+  .li b{color:var(--ink)}
+  .nums{display:flex;gap:9px;margin-top:6px}
+  .nb{flex:1;border:1px solid var(--rule);border-radius:5px;padding:5px 7px;text-align:center}
+  .nb b{display:block;font-size:15px;font-weight:700;color:var(--accent);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+  .nb span{display:block;font-size:8.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:1px}
+  .nb.pes b{color:var(--doubt)}
+  .bottom{display:flex;gap:24px;margin-top:12px;padding-top:11px;border-top:2px solid var(--ink)}
+  .ask{flex:1.25}
+  .ask .h{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .ask .note{font-size:10px;color:var(--muted);margin-top:3px}
+  .asks{display:flex;gap:10px;margin-top:6px}
+  .a{flex:1;border-top:2px solid var(--accent);padding-top:6px}
+  .a b{display:block;font-size:10.5px;font-weight:700;color:var(--ink);line-height:1.25}
+  .a span{display:block;font-size:9.5px;color:var(--body);margin-top:2px;line-height:1.38}
+  .risk{flex:1;border:2px solid var(--fail);border-radius:7px;padding:9px 12px;background:#FDF7F6}
+  .risk .h{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fail)}
+  .risk p{font-size:12.5px;font-weight:650;color:var(--ink);line-height:1.38;margin-top:3px}
+  .risk span{display:block;font-size:10px;color:var(--body);margin-top:5px;line-height:1.45}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="top">
+    <div class="nm">
+      <div class="e">The front door</div>
+      <h1>InsightPilot</h1>
+      <div class="pl">An agentic platform for conversational business intelligence</div>
+    </div>
+    <div class="ol">
+      Conversational BI for enterprise data analysts that turns a business question into a
+      <b>planned, executed and fully traceable analytical workflow.</b> Every figure on this page traces to a
+      numbered source, and the page invents nothing.
+    </div>
+  </div>
+
+  <div class="cols">
+    <div class="c">
+      <div class="sec">
+        <div class="h">The problem</div>
+        <p>An enterprise analyst's ad-hoc question takes <b>one to four weeks</b> to come back, as reported by a large vendor attributing three other firms. So people stop asking: <b>76% of businesses have made a decision without consulting data because it was too hard to get.</b></p>
+      </div>
+      <div class="sec neg">
+        <div class="h">Why the obvious fix has not worked</div>
+        <p>Putting a chat box on the warehouse has been tried by every major vendor and has a specific failure. <b>Schema-level errors, wrong column and wrong meaning, are 81.2% of analysed text-to-SQL failures,</b> and failure looks like a plausible but incorrect answer.</p>
+        <p>Which is why <b>71% of practitioners name wrong output reaching stakeholders as a top concern,</b> and why trust in data as a stated priority jumped from 66% to 83% in a single year.</p>
+        <div class="call">The market's problem is not that answers are slow. It is that fast answers are not yet trustworthy.</div>
+      </div>
+      <div class="sec">
+        <div class="h">Why the incumbents cannot follow</div>
+        <p>Every one buys correctness by bounding scope before the question is asked: a <b>thirty-table cap per agent</b>, a <b>hand-authored token-capped semantic model</b>, <b>no metric that is not already a measure</b>.</p>
+        <p><b>Those are not bugs. They are the reliability mechanism.</b> The better the guardrail, the narrower the set of questions attempted, and an ad-hoc question is by definition the one nobody anticipated.</p>
+      </div>
+    </div>
+
+    <div class="c">
+      <div class="sec">
+        <div class="h">What we do</div>
+        <p>An orchestrator turns a question into an <b>analysis plan</b>, shows it before running anything, and dispatches it to four specialist agents across the analyst's <b>real</b> sources: the warehouse, the operational database, and the file nobody has ever modelled.</p>
+        <p>Every handoff emits its own <b>lineage</b>: the source touched, the query run, the transform applied, the row counts in and out. Each hop is separately inspectable and re-runnable, and the whole investigation exports as one self-contained file.</p>
+        <div class="call">The unit is the investigation, not the query, and it ships with a trace that makes verification cheaper than re-derivation.</div>
+      </div>
+      <div class="sec">
+        <div class="h">Why now</div>
+        <div class="li"><b>Tool access standardised.</b> The connector standard shipped in November 2024, was adopted by four major vendors within thirteen months, then handed to a neutral steward. A pluggable connector layer became a configuration problem rather than bespoke engineering per source.</div>
+        <div class="li f"><b>Agentic tool use became reliable enough to build and measure, not to trust unverified.</b> Multi-step data reasoning still measures about 15% on hard real-world tasks. <b>That is precisely why the trace is load-bearing rather than cosmetic,</b> and why the first spike tests one narrow path.</div>
+      </div>
+    </div>
+
+    <div class="c">
+      <div class="sec thin">
+        <div class="h">Evidence · thin, and honestly so</div>
+        <p class="lead">No customers. No revenue. What exists:</p>
+        <div class="li">A <b>mechanism arithmetic</b> decomposing a representative multi-source question from about 90 minutes to about 31, roughly <b>2.9 times</b> with a band of 1.8 to 4.2. And <b>about 1.0 or below on a single-source familiar question, where the analyst should keep writing SQL</b></div>
+        <div class="li">A <b>buildable stack</b> with two components named as research risk rather than hidden</div>
+        <div class="li">The first-semester deliverable: <b>a published multi-hop accuracy number on a fixed question set.</b> No commercial product in this category publishes one</div>
+      </div>
+      <div class="sec">
+        <div class="h">Market · bottom up from labour data</div>
+        <p>About <b>1.24 million</b> beachhead analysts globally and <b>74,600</b> in the US meeting the day-one criteria. At the top of the observed analyst-tool band:</p>
+        <div class="nums">
+          <div class="nb"><b>$1.1B</b><span>total</span></div>
+          <div class="nb"><b>$123M</b><span>serviceable</span></div>
+          <div class="nb pes"><b>$38M</b><span>pessimistic corner</span></div>
+        </div>
+        <p><b>This is a small market by venture standards, and the pack says so.</b> It is more than sufficient to justify a two-semester build.</p>
+      </div>
+      <div class="sec neg">
+        <div class="h">Team edge, and the gap beside it</div>
+        <p>Agent and language-model engineering: hands-on orchestration, tool-calling loops, and the failure modes of multi-step agent systems, which is exactly where the riskiest assumption lives.</p>
+        <p><b>No lived experience inside an enterprise analytics function.</b> The problem statement is researched rather than lived, and every number on this page is sourced rather than asserted for that reason.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="ask">
+      <div class="h">The ask</div>
+      <div class="note">Not funding. Monetisation is out of scope for the capstone. Three things:</div>
+      <div class="asks">
+        <div class="a"><b>Ten analysts for one hour each</b><span>Specifically: can you accept an answer you did not derive faster than you could derive it. That single question decides the venture, and it is untested</span></div>
+        <div class="a"><b>One heterogeneous stack to test against</b><span>A warehouse, plus an operational database, plus a file feed</span></div>
+        <div class="a"><b>Advisor challenge on the two research risks</b><span>The planner's accuracy on real schemas, and whether cheap structural checks catch the failures that actually matter</span></div>
+      </div>
+    </div>
+    <div class="risk">
+      <div class="h">The riskiest thing about this</div>
+      <p>If verifying an answer costs as much as writing it, this product is a slower way to get where the analyst was going anyway.</p>
+      <span>The beachhead's own words: <b>I read SQL faster than I read explanations.</b> That objection is correct as stated, it is unmeasured anywhere in the literature, and everything above depends on the answer.</span>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>narrative/one_pager.md</code> · arranges positioning, the whitepaper arithmetic, the survey and the market sizing</span>
+    <span>Evidence: <code>[S2][S4][S15][S16][S32][S36][S42][S44][S52][S62][S69][S70]</code> · V60</span>
+  </div>
+</div>
+</body>
+</html>

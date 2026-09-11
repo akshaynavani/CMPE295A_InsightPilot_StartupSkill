@@ -126,10 +126,10 @@ Per the A52b contract, no substantive artifact over ~400 words should be left wi
 | V54 | Go-to-market: the compounding loop | buyers | strategy/gtm.md | html | html |
 | V55 | Sales roadmap: organisation, influence and access maps | buyers | strategy/sales_roadmap.md | html | html |
 | V56 | Metrics by stage, and the vanity metrics to ignore | operators | validation/metrics_by_stage.md | html | html |
-| V57 | Pivot log: ten roads closed, ten triggers armed | investors | validation/pivot_log.md | html | planned |
-| V58 | Discovery guide: the questions that ask about the past | operators | validation/discovery_guide.md | html | planned |
-| V59 | Mission and five values stated as trade-offs | investors | narrative/mission_vision.md | html | planned |
-| V60 | The one-pager, as a frame | investors | narrative/one_pager.md | html | planned |
+| V57 | Pivot log: ten roads closed, ten triggers armed | investors | validation/pivot_log.md | html | html |
+| V58 | Discovery guide: the questions that ask about the past | operators | validation/discovery_guide.md | html | html |
+| V59 | Mission and five values stated as trade-offs | investors | narrative/mission_vision.md | html | html |
+| V60 | The one-pager, as a frame | investors | narrative/one_pager.md | html | html |
 | V61 | Memo in one frame: thesis, demolition, risks | investors | narrative/vc_memo.md | html | planned |
 | V62 | Working backwards from 2033 | investors | narrative/future_press.md | html | planned |
 | V63 | Founder-market fit, and the gap named openly | investors | narrative/founder_story.md | html | planned |
