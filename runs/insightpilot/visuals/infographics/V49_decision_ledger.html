@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V49 · Decision ledger</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:30px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .cols{display:flex;gap:24px;margin-top:15px;flex:1;min-height:0}
+  .left{flex:1;display:flex;flex-direction:column;min-width:0}
+  .right{width:362px;flex:none;display:flex;flex-direction:column}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:5px;border-bottom:2px solid var(--ink)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .ch.v{border-bottom-color:var(--verify)}
+  .grp{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:9px;padding-bottom:3px}
+  .grp.b{color:var(--doubt)}
+  .grp.c{color:var(--fail)}
+  .grp span{color:var(--muted);font-weight:400;letter-spacing:0;text-transform:none;font-size:9.5px}
+  .e{display:flex;gap:8px;padding:4px 0;border-bottom:1px dashed var(--rule);align-items:flex-start;font-size:10px;line-height:1.35}
+  .e .id{width:24px;flex:none;font-weight:700;color:var(--accent);font-size:10.5px}
+  .e .t{flex:1;min-width:0}
+  .e .t b{color:var(--ink);font-weight:650}
+  .e .t span{display:block;color:var(--muted);font-size:9px;margin-top:1px}
+  .e .st{width:96px;flex:none;font-size:8.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;text-align:right;line-height:1.3}
+  .e .st.closed{color:var(--verify)}
+  .e .st.decided{color:var(--accent)}
+  .e .st.raised{color:var(--doubt)}
+  .e .st.open{color:var(--fail)}
+  .e .kp{width:50px;flex:none;text-align:center;font-size:8.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+  .e .kp.yes{color:var(--fail)}
+  .e.kills{background:#FDF7F6}
+  .hdr{display:flex;gap:8px;font-size:8px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding:6px 0 3px}
+  .hdr .h1{width:24px;flex:none}.hdr .h2{flex:1}.hdr .h3{width:96px;flex:none;text-align:right}.hdr .h4{width:50px;flex:none;text-align:center}
+  .rl{display:flex;gap:8px;padding:5px 0;border-bottom:1px dashed var(--rule);font-size:10px;line-height:1.4}
+  .rl .x{width:13px;flex:none;color:var(--fail);font-weight:700}
+  .rl .t{flex:1}
+  .rl .t b{color:var(--ink)}
+  .quote{margin-top:8px;padding:8px 10px;background:#EDF3FA;border-left:3px solid var(--accent);border-radius:0 4px 4px 0;font-size:10px;line-height:1.45;color:var(--ink)}
+  .bar{margin-top:9px;padding:8px 10px;border-radius:6px;font-size:10px;line-height:1.45;background:var(--wash)}
+  .bar.bad{background:#F7EEEC}
+  .bar b{color:var(--ink)}
+  .foot{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:22px;margin-top:13px}
+  .zone{border-top:2px solid var(--ink);padding-top:8px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.v{border-top-color:var(--verify)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Decision ledger</div>
+  <h1>Six weeks from now, nobody remembers whether an empty section was an oversight or a choice</h1>
+  <p class="sub">
+    Thirteen entries recording what was decided without founder confirmation, what was deferred on purpose, and
+    what the generator inferred rather than received. Without this, an audit reads deliberate scope cuts as defects
+    and regenerates work that was removed deliberately.
+  </p>
+
+  <div class="cols">
+    <div class="left">
+      <div class="ch a">The ledger</div>
+      <div class="hdr"><div class="h1">#</div><div class="h2">Decision</div><div class="h3">State</div><div class="h4">Kills pack</div></div>
+
+      <div class="grp">Deliberate scope decisions <span>raised, discussed, decided. The audit must not reopen them</span></div>
+      <div class="e"><div class="id">A1</div><div class="t"><b>The financials layer is cost side only</b><span>Revenue build, use of funds and exit comparables excluded. No revenue, no acquisition data, no funnel, so any projection would be fabricated</span></div><div class="st decided">decided</div><div class="kp">no</div></div>
+      <div class="e"><div class="id">A2</div><div class="t"><b>No single ten-times claim; all four agents built as breadth</b><span>The tension was raised explicitly and the tradeoff accepted. Logged once as a deviation, not to be re-litigated per phase or papered over</span></div><div class="st decided">decided</div><div class="kp">no</div></div>
+      <div class="e"><div class="id">A3</div><div class="t"><b>No moat is declared</b><span>With an open-source core the code is not the asset. Three candidate loops are named with the evidence that would confirm the strongest</span></div><div class="st decided">decided</div><div class="kp">no</div></div>
+      <div class="e"><div class="id">A4</div><div class="t"><b>Visuals and website phases deferred, not cancelled</b><span>Prerequisites fully satisfied by the earlier phases, so both resume cleanly</span></div><div class="st closed">resumed</div><div class="kp">no</div></div>
+
+      <div class="grp b">Open decisions, deferred by choice and closed downstream</div>
+      <div class="e"><div class="id">A5</div><div class="t"><b>Self-hosting was undecided; now open core, self-hostable first</b><span>Forced by coupling it to the gravity question. Constraint that travels: the orchestration layer runs on the customer's own frontier key, not on a small local model</span></div><div class="st closed">closed</div><div class="kp">no</div></div>
+      <div class="e"><div class="id">A6</div><div class="t"><b>The differentiator was deferred to the teardown; now resolved</b><span>The investigation rather than the query is the unit, shipping with a hop-level trace. Derived from two failure mechanisms, not marketing gaps</span></div><div class="st closed">closed</div><div class="kp">no</div></div>
+      <div class="e"><div class="id">A11</div><div class="t"><b>The gravity question, raised by research and not present at the start</b><span>Every well-funded standalone attempt was absorbed by whoever owned the data, and none failed technically. Answered with cross-source neutrality</span></div><div class="st closed">closed</div><div class="kp">venture only</div></div>
+      <div class="e kills"><div class="id">A12</div><div class="t"><b>The beachhead captures the least value on any given day</b><span>Invisible until the personas were run against one shared day. A champion handed work while everyone else gets leverage does not advocate</span></div><div class="st raised">raised, tracked</div><div class="kp">kills adoption</div></div>
+      <div class="e kills"><div class="id">A13</div><div class="t"><b>The analytics manager is missing from the persona set</b><span>The one role that can kill a deployment silently, because his failure mode is allocating no time rather than objecting. No card, no journey, no evidence</span></div><div class="st raised">raised, open</div><div class="kp">silent pilot death</div></div>
+
+      <div class="grp c">Unconfirmed inferences, made by the generator and not the founder</div>
+      <div class="e kills"><div class="id">A7</div><div class="t"><b>The three-edge user spectrum was derived, not supplied</b><span>Chosen over a junior-to-senior analyst spectrum so that conversation and traceability both earn their place rather than being asserted</span></div><div class="st open">untested</div><div class="kp yes">yes</div></div>
+      <div class="e"><div class="id">A8</div><div class="t"><b>Problem magnitude was unquantified; partly closed</b><span>Turnaround is sourceable and queue length is not. The most circulated figure in the space was traced to unsourced marketing and rejected</span></div><div class="st closed">closed partial</div><div class="kp">resolved</div></div>
+      <div class="e"><div class="id">A9</div><div class="t"><b>The two why-now shifts were asserted and undated; one restated</b><span>Tool access standardised is fully supported and dated. The reliability claim was contradicted for this task class and had to be rewritten</span></div><div class="st closed">closed</div><div class="kp">no</div></div>
+      <div class="e"><div class="id">A10</div><div class="t"><b>The name was a placeholder taken from the proposal title; now chosen</b><span>A search found no existing product with the name. <b>This is not trademark clearance.</b> Two collision risks recorded rather than resolved</span></div><div class="st closed">closed</div><div class="kp">no</div></div>
+    </div>
+
+    <div class="right">
+      <div class="ch f">Standing rules that travel downstream</div>
+      <div class="rl"><div class="x">&#10005;</div><div class="t"><b>No artifact may state a requests-per-analyst-per-week figure.</b> No study with a disclosed method exists. Turnaround may be cited, always attributed to the chain it came through</div></div>
+      <div class="rl"><div class="x">&#10005;</div><div class="t"><b>No head-to-head accuracy claim against any incumbent,</b> because none of them publishes a benchmark figure</div></div>
+      <div class="rl"><div class="x">&#10005;</div><div class="t"><b>No manufactured ten-times claim</b> to fill the gap the breadth decision left</div></div>
+      <div class="rl"><div class="x">&#10005;</div><div class="t"><b>The phrase "crossed a usable threshold" must not appear anywhere.</b> The why-now has required wording instead</div></div>
+      <div class="quote">
+        Agentic tool use became reliable enough that a chained fetch, analyse, model and visualise workflow is worth
+        building and measuring. <b>Not reliable enough to trust unverified,</b> which is why lineage is load-bearing
+        rather than cosmetic, and why the spike tests one narrow path.
+      </div>
+      <div class="bar">
+        <b>The restatement is stronger than the original.</b> It converts the pack's central risk into the
+        justification for its signature feature.
+      </div>
+      <div class="ch" style="margin-top:12px">Two recorded and unresolved naming risks</div>
+      <div class="rl"><div class="x" style="color:var(--doubt)">1</div><div class="t">A substantial existing analytics vendor occupies an adjacent namespace in the same category. Not a conflict, and a search-result competitor</div></div>
+      <div class="rl"><div class="x" style="color:var(--doubt)">2</div><div class="t"><b>The suffix echoes the incumbent this pack positions against.</b> A name that rhymes with what you are differentiating from invites the association you are trying to break. The founder was told and chose it anyway, which is logged once</div></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone f">
+      <div class="lbl">The one row that invalidates downstream work</div>
+      <h3>The user spectrum was inferred and is still untested</h3>
+      <p>
+        The requirements document, the interface spec, all four journeys and the persona set are written against
+        those three edges. It is also nearly free to test, because every discovery interview checks it implicitly.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">Two entries no earlier phase could see</div>
+      <h3>Later phases found risks, not just filled templates</h3>
+      <p>
+        The champion's uneven gain appeared only when five personas were run against one shared day, and the silent
+        saboteur appeared only when the buying unit was mapped by who can say no.
+      </p>
+    </div>
+    <div class="zone v">
+      <div class="lbl">What the ledger is for</div>
+      <h3>So an advisor can tell a gap from a choice</h3>
+      <p>
+        An empty moat section and a missing moat section look identical in a finished document. The difference is
+        written down here, once, with its basis and its blast radius.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>ASSUMPTIONS.md</code> · thirteen entries across three categories</span>
+    <span>V49</span>
+  </div>
+</div>
+</body>
+</html>

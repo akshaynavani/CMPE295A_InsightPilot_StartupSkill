@@ -117,10 +117,10 @@ Per the A52b contract, no substantive artifact over ~400 words should be left wi
 
 | ID | Title | Audience | Source | Form | Status |
 |---|---|---|---|---|---|
-| V48 | The brief in one frame: user, mechanism, and what is not claimed | operators | BRIEF.md | html | planned |
-| V49 | The decision ledger: what was chosen, deferred and refused | operators | ASSUMPTIONS.md | html | planned |
-| V50 | Survey in one frame: the case for and against this mechanism | investors | research/survey.md | html | planned |
-| V51 | Lean canvas, with the riskiest cell marked | investors | strategy/lean_canvas.md | html | planned |
+| V48 | The brief in one frame: user, mechanism, and what is not claimed | operators | BRIEF.md | html | html |
+| V49 | The decision ledger: what was chosen, deferred and refused | operators | ASSUMPTIONS.md | html | html |
+| V50 | Survey in one frame: the case for and against this mechanism | investors | research/survey.md | html | html |
+| V51 | Lean canvas, with the riskiest cell marked | investors | strategy/lean_canvas.md | html | html |
 | V52 | Business model canvas: nine blocks, nine killing tests | investors | strategy/business_model_canvas.md | html | planned |
 | V53 | Value proposition: the five ranked fits | investors | strategy/value_prop_canvas.md | html | planned |
 | V54 | Go-to-market: the compounding loop | buyers | strategy/gtm.md | html | planned |

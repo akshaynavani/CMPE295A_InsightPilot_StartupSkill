@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V48 · The brief in one frame</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:32px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .oneline{margin-top:11px;padding:10px 14px;background:#EDF3FA;border-left:3px solid var(--accent);border-radius:0 5px 5px 0;font-size:13px;line-height:1.45;color:var(--ink)}
+  .oneline b{font-weight:700}
+  .cols{display:flex;gap:24px;margin-top:15px;flex:1;min-height:0}
+  .c{display:flex;flex-direction:column;min-width:0}
+  .c1{width:374px;flex:none}
+  .c2{flex:1}
+  .c3{width:356px;flex:none}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:2px solid var(--ink)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .ch.v{border-bottom-color:var(--verify)}
+  .sp{display:flex;gap:9px;padding:6px 0;border-bottom:1px dashed var(--rule)}
+  .sp .e{width:66px;flex:none;font-size:8.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+  .sp.bh .e{color:var(--accent)}
+  .sp .t{flex:1;font-size:10.5px;line-height:1.4}
+  .sp .t b{display:block;color:var(--ink);font-size:11px}
+  .sp .t span{display:block;color:var(--body);margin-top:2px}
+  .sp .t em{font-style:normal;display:block;color:var(--muted);font-size:9.5px;margin-top:2px}
+  .sp.bh{background:#F3F7FC}
+  .loop{display:flex;align-items:center;gap:5px;margin-top:10px;flex-wrap:wrap}
+  .loop .n{border:1px solid var(--rule);border-radius:4px;padding:4px 8px;font-size:10px;font-weight:650;color:var(--ink);background:#fff;white-space:nowrap}
+  .loop .ar{color:var(--muted);font-size:11px}
+  .ag{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+  .ag div{border:1px solid var(--rule);border-radius:4px;padding:5px 8px;font-size:10px;color:var(--ink);font-weight:650}
+  .ag div span{display:block;font-weight:400;font-size:9px;color:var(--muted);margin-top:1px}
+  .vocab{margin-top:8px}
+  .vocab div{display:flex;gap:8px;font-size:10px;line-height:1.38;padding:3px 0;border-bottom:1px dashed var(--rule)}
+  .vocab div:last-child{border-bottom:none}
+  .vocab b{width:104px;flex:none;color:var(--accent);font-weight:650}
+  .vocab span{flex:1}
+  .nc{display:flex;gap:8px;padding:4.5px 0;border-bottom:1px dashed var(--rule);font-size:10.5px;line-height:1.4}
+  .nc .x{width:13px;flex:none;color:var(--fail);font-weight:700}
+  .nc .t{flex:1}
+  .nc .t b{color:var(--ink)}
+  .bar{margin-top:10px;padding:9px 11px;border-radius:6px;font-size:10.5px;line-height:1.45;background:var(--wash)}
+  .bar.bad{background:#F7EEEC}
+  .bar.warn{background:#FDF3E6}
+  .bar b{color:var(--ink)}
+  .risk{margin-top:10px;border:2px solid var(--fail);border-radius:6px;padding:10px 12px;background:#FDF7F6}
+  .risk .k{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fail)}
+  .risk p{font-size:12px;font-weight:650;color:var(--ink);line-height:1.38;margin-top:4px}
+  .risk p.sm{font-size:10.5px;font-weight:400;color:var(--body);margin-top:6px}
+  .src{margin-top:11px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Founder brief</div>
+  <h1>One brief, so the PRD, the market sizing and the whitepaper describe one company</h1>
+  <div class="oneline">
+    Conversational business intelligence for enterprise data analysts that turns a business question into a
+    <b>planned, executed and fully traceable analytical workflow,</b> through a multi-agent orchestration layer.
+  </div>
+
+  <div class="cols">
+    <div class="c c1">
+      <div class="ch a">One adaptive system, three edges</div>
+      <div class="sp">
+        <div class="e">Low edge</div>
+        <div class="t"><b>Business manager, the requester</b><span>Needs a plain-language answer, cannot judge correctness, never writes a query</span><em>Justifies the conversational interface. Without this edge, natural language is decorative for a beachhead fluent in SQL</em></div>
+      </div>
+      <div class="sp bh">
+        <div class="e">Beachhead</div>
+        <div class="t"><b>Enterprise data analyst</b><span>Compress the per-question overhead while keeping control and verifiability</span><em>The user the entire pack is written for</em></div>
+      </div>
+      <div class="sp">
+        <div class="e">High edge</div>
+        <div class="t"><b>Staff data scientist</b><span>Audit lineage, override the model's target and algorithm, extend the pipeline</span><em>Makes traceability and override load-bearing rather than cosmetic</em></div>
+      </div>
+      <div class="bar">
+        <b>The user is not the payer.</b> The analyst is the user and the champion. The economic buyer owns the
+        analytics function's budget, and monetisation is modelled hypothetically only.
+      </div>
+      <div class="ch" style="margin-top:13px">The vocabulary, fixed here</div>
+      <div class="vocab">
+        <div><b>investigation</b><span>one business question pursued to a verified answer, follow-ups included</span></div>
+        <div><b>analysis plan</b><span>the decomposition of a question into agent tasks</span></div>
+        <div><b>handoff</b><span>one agent passing structured output to another</span></div>
+        <div><b>lineage</b><span>sources touched, queries run, transforms applied, methods chosen</span></div>
+        <div><b>answer</b><span>what the system returns. Never a dashboard, never a report</span></div>
+        <div><b>outcome metric</b><span>time to an answer the analyst will stake their name on</span></div>
+      </div>
+    </div>
+
+    <div class="c c2">
+      <div class="ch">The problem, and what it is not</div>
+      <div class="bar" style="margin-top:9px">
+        Each ad-hoc question costs the same manual sequence: locate the source, inspect the schema, write and debug
+        the query, clean and join, choose a chart, interpret, and build a model when the question is predictive.
+        The requester waits and the analyst context-switches away from planned work.
+        <b style="display:block;margin-top:5px">The pain is latency and analyst attention, not an absence of tooling.</b>
+        This beachhead already owns a BI stack and can write SQL. What they cannot compress is the fixed
+        per-question overhead, and what they cannot easily do at all is the modelling step.
+      </div>
+      <div class="ch" style="margin-top:13px">The mechanism</div>
+      <div class="loop">
+        <span class="n">question</span><span class="ar">&#8594;</span>
+        <span class="n">plan</span><span class="ar">&#8594;</span>
+        <span class="n">execute</span><span class="ar">&#8594;</span>
+        <span class="n">answer plus lineage</span><span class="ar">&#8594;</span>
+        <span class="n">follow-up</span>
+      </div>
+      <div class="ag">
+        <div>Data fetch and integration<span>Postgres, CSV and Excel, REST JSON</span></div>
+        <div>Analytics<span>profiling, reconciliation, statistics</span></div>
+        <div>Visualization<span>chart chosen from the data shape</span></div>
+        <div>ML<span>time-boxed, with an explicit not-attempted list</span></div>
+      </div>
+      <div class="bar warn">
+        <b>Replanning fires when an agent's result invalidates the plan,</b> rather than the run continuing into
+        nonsense. The connector layer sits behind interfaces so another source plugs in later if time permits.
+      </div>
+      <div class="ch f" style="margin-top:13px">Two sections left deliberately empty</div>
+      <div class="nc"><div class="x">&#10005;</div><div class="t"><b>No single ten-times claim.</b> All four agents are built together. A decision, not an oversight: the pack gains technical breadth appropriate to a two-semester capstone and forgoes a sharp differentiator. <b>Downstream artifacts must not manufacture one to fill the gap.</b></div></div>
+      <div class="nc"><div class="x">&#10005;</div><div class="t"><b>No moat declared.</b> With an open-source core the code is not the asset. The strongest candidate is a learned semantic layer, where copyable code sits on non-copyable semantics. Confirming evidence would be acceptance rate rising over time with no model change, and until then the section stays empty.</div></div>
+    </div>
+
+    <div class="c c3">
+      <div class="ch v">Why now, and it is asserted not sourced</div>
+      <div class="nc"><div class="x" style="color:var(--verify)">1</div><div class="t"><b>Tool-use and replanning reliability crossed a usable threshold.</b> The architecture was expressible before and was not dependable. Multi-step loops compounded error past the point where a chained workflow could be trusted without a human at each hop.</div></div>
+      <div class="nc"><div class="x" style="color:var(--verify)">2</div><div class="t"><b>Tool access standardised.</b> Connector integration became a configuration problem rather than bespoke engineering per source, which is what makes a pluggable layer tractable for a small team.</div></div>
+      <div class="bar">
+        <b>Both are founder-asserted,</b> and the research phase has to date and source them rather than inherit
+        the claim.
+      </div>
+      <div class="ch f" style="margin-top:12px">Not doing in year one</div>
+      <div class="nc"><div class="x">&#10005;</div><div class="t">Arbitrary source federation</div></div>
+      <div class="nc"><div class="x">&#10005;</div><div class="t">Real-time or streaming data</div></div>
+      <div class="nc"><div class="x">&#10005;</div><div class="t">Write-back to source systems</div></div>
+      <div class="nc"><div class="x">&#10005;</div><div class="t">A hosted multi-tenant service</div></div>
+      <div class="bar bad">
+        <b>The founder edge, and the gap beside it.</b> Agent and language-model engineering, hands-on, which is
+        the part most teams underestimate and maps directly onto the riskiest assumption. <b>No domain experience
+        inside an enterprise analytics function,</b> so the problem statement is researched rather than lived and
+        the research phase has to source it.
+      </div>
+      <div class="risk">
+        <div class="k">The riskiest assumption</div>
+        <p>Multi-agent planning is reliable enough end to end that error compounding across fetch, analyse, model and visualise does not make the output untrustworthy.</p>
+        <p class="sm">If it is false, nothing above matters: an analyst who must re-verify every answer has been given work rather than leverage. It is well matched to the first-semester spike, which tests it directly on one narrow path instead of deferring it.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>BRIEF.md</code> · the single upstream constraint for every artifact in the pack</span>
+    <span>V48</span>
+  </div>
+</div>
+</body>
+</html>

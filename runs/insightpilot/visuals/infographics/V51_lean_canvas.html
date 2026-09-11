@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V51 · Lean canvas</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:30px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .grid{display:flex;gap:7px;margin-top:14px;flex:1;min-height:0}
+  .col{flex:1;display:flex;flex-direction:column;gap:7px;min-width:0}
+  .cell{border:1px solid var(--rule);border-radius:6px;padding:7px 9px;background:#fff;flex:1;display:flex;flex-direction:column;min-height:0}
+  .cell .n{font-size:8.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .cell .n i{font-style:normal;color:var(--rule);margin-right:4px}
+  .cell h2{font-size:11px;font-weight:700;color:var(--ink);margin-top:1px;line-height:1.2}
+  .cell .b{font-size:9px;line-height:1.4;padding:3px 0 3px 10px;position:relative;color:var(--body)}
+  .cell .b:before{content:"";position:absolute;left:0;top:7px;width:4px;height:4px;border-radius:50%;background:var(--accent)}
+  .cell .b b{color:var(--ink)}
+  .cell.uvp{background:#EDF3FA;border-color:#C4D8EE}
+  .cell.uvp h2{color:var(--accent)}
+  .cell.uvp .b{font-size:10px}
+  .cell.uvp .b:before{background:var(--accent)}
+  .cell.warn{background:#FDF7F6;border:2px solid var(--fail)}
+  .cell.warn h2{color:var(--fail)}
+  .cell.warn .n{color:var(--fail)}
+  .cell.warn .b:before{background:var(--fail)}
+  .cell.warn .flag{position:absolute;top:-8px;right:9px;background:var(--fail);color:#fff;font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:3px}
+  .cell.warn{position:relative}
+  .cell.hyp{background:var(--wash)}
+  .cell.hyp .n{color:var(--doubt)}
+  .cell.hyp .b:before{background:var(--doubt)}
+  .bottom{display:flex;gap:7px;margin-top:7px}
+  .bottom .cell{flex:1}
+  .foot{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:22px;margin-top:13px}
+  .zone{border-top:2px solid var(--ink);padding-top:8px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.d{border-top-color:var(--doubt)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .zone p b{color:var(--ink)}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Lean canvas</div>
+  <h1>The riskiest cell is empty, and it is empty on purpose</h1>
+  <p class="sub">
+    The compression test: a venture that needs a page to explain its problem does not have one. If the problem, the
+    solution and the advantage cannot each be stated in three bullets without contradicting each other, something
+    upstream is wrong.
+  </p>
+
+  <div class="grid">
+    <div class="col">
+      <div class="cell">
+        <div class="n"><i>1</i>Problem</div>
+        <div class="b">Every ad-hoc question costs the same fixed manual sequence, and the requester waits <b>one to four weeks</b> at enterprise scale</div>
+        <div class="b">Answers that arrive fast are not trusted. <b>71%</b> name wrong output reaching stakeholders as a top concern, and verifying an answer you did not derive may cost what deriving it costs</div>
+        <div class="b">The predictive question is usually not attempted at all, because it is a different job rather than a slower one</div>
+      </div>
+      <div class="cell">
+        <div class="n"><i>2</i>Existing alternatives</div>
+        <div class="b"><b>Doing nothing.</b> 76% have decided without consulting data because access was too hard. The market leader</div>
+        <div class="b"><b>The analyst writes the SQL.</b> Correct, unverifiable by anyone else, does not scale past one person's attention</div>
+        <div class="b"><b>Warehouse-native assistants.</b> Single source, single hop, bounded by a pre-authored artifact</div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="cell">
+        <div class="n"><i>3</i>Solution</div>
+        <div class="b">An orchestrator that decomposes a question into a plan spanning heterogeneous sources, and replans when a result invalidates it</div>
+        <div class="b">Four specialist agents, each handoff emitting <b>inspectable, re-runnable lineage</b></div>
+        <div class="b">Open core and self-hostable, running inside the customer's boundary on their own model key</div>
+      </div>
+      <div class="cell">
+        <div class="n"><i>4</i>Key metrics</div>
+        <div class="b"><b>Time to a verified answer.</b> The outcome metric, and it contains both speed and trust</div>
+        <div class="b"><b>Verification cost.</b> Minutes to accept or reject an answer, against minutes to re-derive it</div>
+        <div class="b"><b>Multi-hop execution accuracy</b> on a fixed question set. The number no commercial product publishes</div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="cell uvp">
+        <div class="n"><i>5</i>Unique value proposition</div>
+        <h2>Not faster. Checkable</h2>
+        <div class="b">The only conversational analytics layer that answers a question spanning your real sources and hands back <b>an investigation you can verify hop by hop</b></div>
+        <div class="b">Checkable is what makes an answer you did not derive worth having at all</div>
+        <div class="b">For the enterprise analyst who can already write the query, <b>not</b> the business user who cannot</div>
+        <div class="b" style="margin-top:auto;border-top:1px dashed #C4D8EE;padding-top:7px"><b>Second riskiest cell.</b> It asserts that verification is cheaper than re-derivation, and the beachhead persona's own objection says the opposite. Testable in an afternoon, and untested</div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="cell warn">
+        <div class="flag">riskiest cell</div>
+        <div class="n"><i>6</i>Unfair advantage</div>
+        <h2>None yet, and none claimed</h2>
+        <div class="b">An open-source core means <b>the code is not the asset</b></div>
+        <div class="b">Strongest candidate is a <b>learned semantic layer</b>: accumulated disambiguation of one organisation's schema, metrics and vocabulary. Copyable code on non-copyable semantics</div>
+        <div class="b">Confirming evidence would be acceptance rate rising over time with no model change. <b>Not yet observed</b></div>
+      </div>
+      <div class="cell">
+        <div class="n"><i>7</i>Channels</div>
+        <div class="b">Open-source distribution: the repository, the documentation, the communities where the beachhead already reads</div>
+        <div class="b">Analyst-led adoption, buyer-closed. The analyst advocates and the budget owner signs</div>
+        <div class="b">The academic channel during the capstone, where <b>a published accuracy number is the credible artifact</b></div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="cell">
+        <div class="n"><i>8</i>Customer segments</div>
+        <h2>The analyst, not the business user</h2>
+        <div class="b"><b>Beachhead:</b> enterprise data analysts at organisations with a deployed BI stack, an ad-hoc queue, and questions spanning more than one source. About <b>74,600</b> in the US, built bottom up from labour data plus stated assumptions</div>
+        <div class="b"><b>Economic buyer:</b> the analytics function's budget owner</div>
+        <div class="b"><b>Early adopters:</b> analysts who already tried a warehouse copilot and hit its bounded-scope wall</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="cell">
+      <div class="n"><i>9</i>Cost structure</div>
+      <div class="b">Model inference per investigation across several agents, several hops and retries, anchored against a market price of about <b>$0.134 per message</b></div>
+      <div class="b">Connector engineering and maintenance. The standard made access a configuration problem and did nothing for semantics</div>
+      <div class="b"><b>Zero data-storage cost,</b> because the customer runs it</div>
+    </div>
+    <div class="cell hyp">
+      <div class="n"><i>10</i>Revenue streams · hypothetical by decision</div>
+      <div class="b"><b>Monetisation is out of scope</b> for the academic project, and this cell is empty by choice rather than omission</div>
+      <div class="b">Modelled threshold of <b>$75 per analyst per month</b>, at the top of the observed analyst-tool band. A price to falsify, not a forecast</div>
+      <div class="b">The incumbents already price the <b>question</b>, billing per message or capping an agent at 25 queries a month, which matches this product's unit of value</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone f">
+      <div class="lbl">Why the empty cell is the risk</div>
+      <h3>It fails for the opposite of the usual reason</h3>
+      <p>
+        Most canvases fail here by asserting a moat that does not exist. This one fails by having nothing to assert
+        and saying so. <b>With an open core and no evidenced compounding loop, a well-executed copy is a legitimate
+        outcome,</b> and the pack should own that rather than paper over it.
+      </p>
+    </div>
+    <div class="zone d">
+      <div class="lbl">The instruction that comes with it</div>
+      <h3>Do not fill block six in a later phase</h3>
+      <p>
+        Manufacturing a moat to make the canvas look complete would cost the pack exactly the credibility the empty
+        cell earns it.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">What this canvas drops</div>
+      <h3>Three blocks live next door</h3>
+      <p>
+        Key partners, key activities and customer relationships are a deliberate simplification here. They sit in
+        the nine-block canvas, where every block also carries a falsifiable hypothesis and the cheapest test that
+        would kill it. Neither page is complete alone.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>strategy/lean_canvas.md</code> · the canvas, the riskiest-cell note and the cross-link</span>
+    <span>Evidence: <code>[S15][S16][S32][S36][S42][S37][S38][S39][S44][S52][S62][S69][S70]</code> · V51</span>
+  </div>
+</div>
+</body>
+</html>

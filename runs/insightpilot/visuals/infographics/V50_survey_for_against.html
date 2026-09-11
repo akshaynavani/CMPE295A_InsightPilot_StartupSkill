@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V50 · For and against</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:30px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .cols{display:flex;gap:22px;margin-top:15px;flex:1;min-height:0}
+  .c{display:flex;flex-direction:column;min-width:0}
+  .cfor{width:330px;flex:none}
+  .cag{flex:1}
+  .cas{width:340px;flex:none}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:5px;border-bottom:2px solid var(--ink)}
+  .ch.v{border-bottom-color:var(--verify)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .ch span{float:right;font-weight:700;color:var(--ink)}
+  .it{display:flex;gap:8px;padding:5px 0;border-bottom:1px dashed var(--rule);font-size:10px;line-height:1.4}
+  .it .n{width:14px;flex:none;font-weight:700;color:var(--verify);font-size:10.5px}
+  .it.ag .n{color:var(--fail)}
+  .it .t{flex:1;min-width:0}
+  .it .t b{color:var(--ink)}
+  .it .t em{font-style:normal;color:var(--muted)}
+  .it.hot{background:#FDF7F6}
+  .ags{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+  .verdict{margin-top:9px;border:2px solid var(--ink);border-radius:7px;padding:10px 12px}
+  .verdict .k{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .verdict p{font-size:11.5px;line-height:1.45;margin-top:4px}
+  .verdict p b{color:var(--ink)}
+  .verdict p.big{font-size:12.5px;font-weight:650;color:var(--ink)}
+  .flip{margin-top:9px;padding:9px 11px;background:#EAF3EC;border-radius:6px;font-size:10.5px;line-height:1.45}
+  .flip b{color:var(--ink)}
+  .cons{margin-top:9px}
+  .cn{display:flex;gap:8px;padding:5px 0;border-bottom:1px dashed var(--rule);font-size:10px;line-height:1.4}
+  .cn .n{width:14px;flex:none;font-weight:700;color:var(--accent)}
+  .cn .t{flex:1}
+  .cn .t b{color:var(--ink)}
+  .bar{margin-top:9px;padding:8px 10px;border-radius:6px;font-size:10px;line-height:1.45;background:var(--wash)}
+  .bar b{color:var(--ink)}
+  .foot{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:22px;margin-top:13px}
+  .zone{border-top:2px solid var(--ink);padding-top:8px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.v{border-top-color:var(--verify)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Survey</div>
+  <h1>The case against is stronger on reliability and weaker on whether the position is worth occupying</h1>
+  <p class="sub">
+    A survey that only argues for its sponsor's mechanism is advocacy, so the opposing case is stated at full
+    strength and runs two items longer than the supporting one. Both readings survive the evidence, and the
+    resolution turns out to be architectural rather than rhetorical.
+  </p>
+
+  <div class="cols">
+    <div class="c cfor">
+      <div class="ch v">For the mechanism <span>6</span></div>
+      <div class="it"><div class="n">1</div><div class="t"><b>The strongest incumbent independently confirms decompose-then-verify.</b> Its self-check decomposes a query into smaller verification statements and regenerates on failure. Arrived at from the opposite direction, which makes it real corroboration</div></div>
+      <div class="it"><div class="n">2</div><div class="t"><b>The connector layer is now a configuration problem.</b> The standard is dated, multi-vendor and neutrally stewarded, which is exactly the stated condition for a pluggable layer being tractable for a small team</div></div>
+      <div class="it"><div class="n">3</div><div class="t"><b>Demand for verifiability is measured, not assumed.</b> 71% of practitioners name wrong output reaching stakeholders as a top concern, 24.9% name accuracy as their top reservation, and trust in data rose from 66% to 83% year over year</div></div>
+      <div class="it"><div class="n">4</div><div class="t"><b>The multi-hop cross-source position is genuinely unoccupied.</b> Every warehouse-native assistant is single-warehouse and effectively single-hop, and the semantic-layer market is an integration surface rather than a rival</div></div>
+      <div class="it"><div class="n">5</div><div class="t"><b>The predictive step is absent from every shipped product.</b> The capability exists in the literature and no BI product exposes it</div></div>
+      <div class="it"><div class="n">6</div><div class="t"><b>The problem predates the hype.</b> 44% of data engineers' time on building and rebuilding pipelines, measured in 2021, before this cycle. The overhead is not an artifact of current enthusiasm</div></div>
+    </div>
+
+    <div class="c cag">
+      <div class="ch f">Against, at full strength <span>8</span></div>
+      <div class="ags">
+        <div>
+          <div class="it ag hot"><div class="n">1</div><div class="t"><b>The benchmark evidence contradicts the mechanism's central requirement.</b> The orchestrator is exactly the capability measured at roughly 15% on hard real tasks. Not early. Measured, and low. <em>A reviewer finds this in one search.</em></div></div>
+          <div class="it ag hot"><div class="n">2</div><div class="t"><b>Compounding is arithmetic, not engineering debt.</b> Four to six hops at 95% each lands near 74%, and at 90% near 53%. <em>That is arithmetic rather than a measurement of this system.</em> Every hop added to make it more capable makes it less reliable</div></div>
+          <div class="it ag"><div class="n">3</div><div class="t"><b>The incumbents' restriction is a considered answer, not a limitation.</b> A table ceiling and a token-capped model read better as the field's settled response: constrain scope until reliability is acceptable. Remove the constraints and you inherit the unreliability they were bought to prevent</div></div>
+          <div class="it ag hot"><div class="n">4</div><div class="t"><b>Gravity has taken every standalone attempt so far.</b> One raised about $128.7M and became a warehouse division; another was folded into a BI vendor. <b>Neither failed technically</b></div></div>
+        </div>
+        <div>
+          <div class="it ag"><div class="n">5</div><div class="t"><b>The purest market test of the low edge was marked down 73.67%.</b> Well funded, early, technically credible. The natural-language-for-non-analysts thesis has not paid off at the price it was funded at</div></div>
+          <div class="it ag"><div class="n">6</div><div class="t"><b>The nearest neighbour is open source, two years ahead, and has a community.</b> Thirteen thousand stars and ten thousand cloud users. The difference is scope of loop, which is a quantitative difference</div></div>
+          <div class="it ag"><div class="n">7</div><div class="t"><b>A commodity trap sits at the entry point.</b> The day-one spreadsheet path is already served at $35 a month</div></div>
+          <div class="it ag"><div class="n">8</div><div class="t"><b>Forecasts cut both ways.</b> The same analysts predicting 40% agent penetration by the end of 2026 predict over 40% of agentic projects cancelled by the end of 2027, and half of deployment failures traced to governance</div></div>
+        </div>
+      </div>
+      <div class="verdict">
+        <div class="k">The assessment</div>
+        <p class="big">A system promising trustworthy autonomous answers would be promising what the field cannot currently deliver, and a pack claiming otherwise would be the graveyard's next entry.</p>
+        <p><b>But that is not the only product the same evidence supports.</b> It equally supports a system whose design centre is making failure cheap to detect: verification per hop, replanning on invalidation, and a trace structured so the analyst checks the one hop they doubt instead of re-deriving the chain.</p>
+      </div>
+      <div class="flip">
+        <b>On that reading the low reliability numbers are the reason for the architecture rather than an objection
+        to it,</b> and the market's own top-ranked concern is the demand signal for exactly that.
+      </div>
+    </div>
+
+    <div class="c cas">
+      <div class="ch a">Three consequences that bind downstream work</div>
+      <div class="cons">
+        <div class="cn"><div class="n">1</div><div class="t"><b>Lineage is not a feature.</b> It is the answer to the first objection, and it has to be specified as load-bearing in the requirements. <b>The bar is a notebook where every step is visible and re-runnable, not "we show the SQL."</b></div></div>
+        <div class="cn"><div class="n">2</div><div class="t"><b>The outcome metric is right and should not move.</b> Time to a verified answer prices verification into the measurement. An accuracy-only metric would hide the failure mode that actually matters, which is plausible but wrong.</div></div>
+        <div class="cn"><div class="n">3</div><div class="t"><b>Measure multi-hop accuracy on one narrow path and publish it.</b> No commercial product publishes one. Measuring it is both the honest response to the strongest objection and the most credible artifact the project could produce.</div></div>
+      </div>
+      <div class="ch" style="margin-top:12px">The split the survey found</div>
+      <div class="bar">
+        <b>Single-hop text-to-SQL on realistic schemas is strong,</b> with top systems near 96.7%.
+        <b>Multi-step data reasoning is largely unsolved,</b> at roughly 15% on hard tasks against 76% on easy ones,
+        with consistency collapsing from above 60% on one attempt to below 25% across eight, and error propagation
+        named the primary bottleneck.
+      </div>
+      <div class="bar">
+        <b>What changed between generations.</b> Language models removed the linguistic parsing bottleneck that
+        defeated the previous attempts and replaced it with a semantic grounding bottleneck. The field converged on
+        hand-authored semantic layers to solve it, <b>which buys correctness at the price of scope.</b>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone f">
+      <div class="lbl">The method's limits, stated by the survey itself</div>
+      <h3>This is desk research and says so</h3>
+      <p>
+        Thirty-three searches and six direct page fetches on one day. <b>No analyst was interviewed, no product was
+        installed, and no measurement in it is the authors' own.</b> Five gaps that were searched for and not found
+        are recorded rather than passed over.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">Why the survey exists at all</div>
+      <h3>A claim without a citation is a defect, not a style choice</h3>
+      <p>
+        The project concedes its problem is researched rather than lived, which makes an unsourced technical claim
+        the likeliest point of collapse under review.
+      </p>
+    </div>
+    <div class="zone v">
+      <div class="lbl">The conclusion in one line</div>
+      <h3>Well posed, currently unbuilt, and the risk is correctly named</h3>
+      <p>
+        The evidence supports building verification affordances rather than betting on end-to-end reliability.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>research/survey.md</code> abstract, §1, §5.1, §5.2 and §5.3</span>
+    <span>Evidence: <code>[S1][S2][S4][S5][S10][S13][S16][S17][S18][S30][S31][S32][S46][S50][S53][S54][S56][S57][S58][S62][S66][S9]</code> · V50</span>
+  </div>
+</div>
+</body>
+</html>

@@ -3,7 +3,7 @@
 **What this is** — The single source of truth for every downstream artifact in this pack: who the user is, what the mechanism is, and which claims are settled versus open.
 **Why it exists** — Generators fed a one-line idea produce generic slop. Concretely: without a fixed beachhead and vocabulary here, the PRD would write for "non-technical users," the market sizing would size all of BI, and the tech whitepaper would defend a different product than the one being built. This file prevents those three documents from describing three different companies.
 **How to read it** — Read *Users & spectrum* and *Riskiest assumption* first; they constrain the most downstream work. A skeptic should attack *Wedge* and *Mechanism & moat*, which are the weakest sections by deliberate choice.
-**Depends on / feeds** — Derived from `../../source/insightpilot-project-writeup.pdf` plus three rounds of founder interrogation. Feeds every artifact in this pack. Open items are tracked in [ASSUMPTIONS.md](ASSUMPTIONS.md).
+**Depends on / feeds** — Derived from `../../source/agentic-bi-project-writeup.pdf` plus three rounds of founder interrogation. Feeds every artifact in this pack. Open items are tracked in [ASSUMPTIONS.md](ASSUMPTIONS.md).
 
 ---
 
