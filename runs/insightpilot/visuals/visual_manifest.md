@@ -130,10 +130,10 @@ Per the A52b contract, no substantive artifact over ~400 words should be left wi
 | V58 | Discovery guide: the questions that ask about the past | operators | validation/discovery_guide.md | html | html |
 | V59 | Mission and five values stated as trade-offs | investors | narrative/mission_vision.md | html | html |
 | V60 | The one-pager, as a frame | investors | narrative/one_pager.md | html | html |
-| V61 | Memo in one frame: thesis, demolition, risks | investors | narrative/vc_memo.md | html | planned |
-| V62 | Working backwards from 2033 | investors | narrative/future_press.md | html | planned |
-| V63 | Founder-market fit, and the gap named openly | investors | narrative/founder_story.md | html | planned |
-| V64 | The deck arc: teardown first, concede three times | investors | narrative/pitch_deck.md | html | planned |
+| V61 | Memo in one frame: thesis, demolition, risks | investors | narrative/vc_memo.md | html | html |
+| V62 | Working backwards from 2033 | investors | narrative/future_press.md | html | html |
+| V63 | Founder-market fit, and the gap named openly | investors | narrative/founder_story.md | html | html |
+| V64 | The deck arc: teardown first, concede three times | investors | narrative/pitch_deck.md | html | html |
 
 ## 8. Deliberately not drawn
 

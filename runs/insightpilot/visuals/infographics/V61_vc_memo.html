@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V61 · The memo in one frame</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:30px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:27px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:6px;letter-spacing:-.01em}
+  .thesis{margin-top:10px;padding:9px 13px;background:#EDF3FA;border-left:3px solid var(--accent);border-radius:0 5px 5px 0;font-size:11.5px;line-height:1.45}
+  .thesis b{color:var(--ink)}
+  .cols{display:flex;gap:22px;margin-top:13px;flex:1;min-height:0}
+  .c{display:flex;flex-direction:column;min-width:0}
+  .c1{flex:1.1}
+  .c2{width:330px;flex:none}
+  .c3{width:336px;flex:none}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:5px;border-bottom:2px solid var(--ink)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .cat{padding:5px 0;border-bottom:1px dashed var(--rule)}
+  .cat .n{font-size:10.5px;font-weight:700;color:var(--ink);line-height:1.2}
+  .cat .n span{font-weight:400;color:var(--muted);font-size:9px}
+  .cat .ln{display:flex;gap:8px;font-size:9.5px;line-height:1.4;margin-top:2px}
+  .cat .ln .k{width:46px;flex:none;font-size:8px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-top:1px}
+  .cat .ln .t{flex:1}
+  .cat .ln .t b{color:var(--ink)}
+  .cat .ln.good .k{color:var(--verify)}
+  .cat .ln.lim .k{color:var(--fail)}
+  .gv{display:flex;gap:8px;padding:5px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.38}
+  .gv .w{width:94px;flex:none}
+  .gv .w b{display:block;font-size:10px;color:var(--ink)}
+  .gv .w span{display:block;font-size:8.5px;color:var(--muted);margin-top:1px}
+  .gv .m{flex:1;color:var(--body)}
+  .gv .m b{color:var(--ink)}
+  .rk{border:1px solid var(--rule);border-radius:6px;padding:7px 9px;margin-top:8px}
+  .rk.end{border:2px solid var(--fail);background:#FDF7F6}
+  .rk .n{font-size:8.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .rk.end .n{color:var(--fail)}
+  .rk b.t{display:block;font-size:11px;font-weight:700;color:var(--ink);margin-top:1px;line-height:1.22}
+  .rk p{font-size:9.5px;line-height:1.42;margin-top:3px}
+  .rk p b{color:var(--ink)}
+  .rk .mit{font-size:9px;line-height:1.4;margin-top:4px;padding-top:4px;border-top:1px dashed var(--rule);color:var(--body)}
+  .rk .mit i{font-style:normal;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--verify);margin-right:4px}
+  .chg{display:flex;gap:8px;padding:4.5px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.4}
+  .chg .ar{width:13px;flex:none;color:var(--accent);font-weight:700}
+  .chg .t{flex:1}
+  .chg .t b{color:var(--ink)}
+  .bar{margin-top:9px;padding:8px 10px;border-radius:6px;font-size:10px;line-height:1.45;background:var(--wash)}
+  .bar.good{background:#EAF3EC}
+  .bar.bad{background:#F7EEEC}
+  .bar b{color:var(--ink)}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Technical investor memo</div>
+  <h1>The mechanism that makes these products safe is the mechanism that makes them decline the work</h1>
+  <div class="thesis">
+    Every serious attempt has converged on one correctness mechanism: <b>require a human to pre-encode the semantics
+    before the question is asked.</b> It works, and it has a structural cost nobody has priced, because an ad-hoc
+    question is by construction the one nobody anticipated. <b>The alternative is not a better guardrail. It is to
+    accept that a system spanning unmodelled sources will sometimes be wrong, and to make being wrong cheap to
+    detect.</b> The unit of value is the investigation rather than the query, it ships with a hop-level trace, and
+    the bet is that verification is cheaper than re-derivation.
+  </div>
+
+  <div class="cols">
+    <div class="c c1">
+      <div class="ch">The demolition, category by category</div>
+      <div class="cat">
+        <div class="n">Warehouse-native assistants <span>the bundled incumbents</span></div>
+        <div class="ln good"><div class="k">strong</div><div class="t">Governance, lineage and compute inherited from the platform, zero data movement. One of them re-reads its own generated SQL, authors smaller statements to verify specific aspects, and regenerates. <b>Verification by decomposition, arrived at independently, which corroborates the bet here</b></div></div>
+        <div class="ln lim"><div class="k">limit</div><div class="t">All are single-source and effectively single-hop, each bounded by a pre-authored artifact: a thirty-table cap, a token-capped hand-maintained model, existing measures only, single-number metrics</div></div>
+        <div class="ln"><div class="k">why stuck</div><div class="t">Removing the bounds reintroduces the unreliability the bounds were bought to prevent. <b>The constraint is the product</b></div></div>
+        <div class="ln"><div class="k">ceiling</div><div class="t">On one benchmark family, top systems reach 96.7% on a curated setting and <b>65.6% once semantic indirection and real project structure appear.</b> On production-scale schemas, 30 to 36%. <b>And no commercial product publishes any accuracy figure at all</b></div></div>
+      </div>
+      <div class="cat">
+        <div class="n">Search-first analytics <span>the purest market test</span></div>
+        <div class="ln lim"><div class="k">repriced</div><div class="t">A secondary cleared at a <b>73.67% markdown</b> against the last primary round. The let-non-analysts-self-serve thesis did not pay off at the price it was funded at. Its agent is also capped at twenty-five queries per user per month, which prices occasional use rather than a core loop</div></div>
+        <div class="ln"><div class="k">consequence</div><div class="t">The beachhead here is the analyst, not the business user. <b>A deliberate renunciation of the category's largest revenue segment, made on that evidence</b></div></div>
+      </div>
+      <div class="cat">
+        <div class="n">Agentic notebooks <span>the most honest competitor</span></div>
+        <div class="ln good"><div class="k">strong</div><div class="t">Covers fetch, analyse, model and visualise, and <b>already solves auditability structurally.</b> Every hop is a visible, editable, re-runnable cell. The notebook is the lineage</div></div>
+        <div class="ln lim"><div class="k">limit</div><div class="t">The analyst still directs. No plan before execution, no replanning on invalidation, no dispatch across specialists. The unit is a notebook, not an investigation pursued to a verified answer</div></div>
+        <div class="ln"><div class="k">the bar</div><div class="t"><b>Any lineage claim has to beat "we show you every cell", and "our trace is prettier" does not</b></div></div>
+      </div>
+      <div class="cat">
+        <div class="n">Open source <span>nearest neighbour, two years ahead</span></div>
+        <div class="ln lim"><div class="k">honest</div><div class="t">Thirteen thousand stars and ten thousand cloud users, with a semantic engine and its own modelling language. <b>The difference is scope of loop, not novelty of approach,</b> which is quantitative, and the memo states it rather than letting a reader discover it</div></div>
+      </div>
+      <div class="cat" style="border-bottom:none">
+        <div class="n">The two that actually win <span>and neither is a product</span></div>
+        <div class="ln lim"><div class="k">leader</div><div class="t"><b>Doing nothing.</b> 76% have decided without consulting data, 60 to 73% of enterprise data is never used for analytics, and about 25% of employees use the BI tools their employer bought. Free, instant, and rational against a one-to-four-week wait</div></div>
+        <div class="ln"><div class="k">hardest</div><div class="t">The analyst's own SQL <b>never fails on correctness, only on latency.</b> She is the verification step, and that asymmetry is why this targets verification cost rather than raw speed</div></div>
+      </div>
+    </div>
+
+    <div class="c c2">
+      <div class="ch f">The graveyard, and none died of bad technology</div>
+      <div class="gv"><div class="w"><b>Watson Analytics</b><span>discontinued 2019</span></div><div class="m">Curation burden exceeded value returned</div></div>
+      <div class="gv"><div class="w"><b>A retiring Q&amp;A feature</b><span>fully retired Dec 2026</span></div><div class="m">Shipped inside the most widely deployed BI tool on earth. <b>Distribution was never its problem.</b> The linguistic curation it demanded of modellers was</div></div>
+      <div class="gv"><div class="w"><b>Narrative Science</b><span>acquired Dec 2021</span></div><div class="m">Narration is a feature, not a company. Absorbed by whoever owned the data</div></div>
+      <div class="gv"><div class="w"><b>Sisu Data</b><span>≈$128.7M raised, acquired 2023</span></div><div class="m">Attacked the diagnostic question, the highest-value part of the loop, <b>and was still absorbed by the warehouse</b></div></div>
+      <div class="bar bad">
+        <b>Two failure modes, both live here.</b> Two died of the curation-to-value ratio. Two died of gravity.
+      </div>
+      <div class="ch" style="margin-top:11px">Why this does not become a warehouse feature</div>
+      <div class="bar">
+        <b>The value is in spanning, and no warehouse vendor can sell spanning.</b> A feature treating an operational
+        database, a file and an API as equal peers to the lakehouse argues against its own gravity. One incumbent's
+        design says so out loud: its reliability strategy is a curated space of at most thirty tables. Another is
+        single-platform by construction.
+      </div>
+      <div class="bar good">
+        <b>Open core and self-hostable is what makes the claim credible rather than convenient.</b> Neutrality
+        asserted by a hosted service that sees all the customer's data is a claim. Neutrality backed by code the
+        customer runs in their own environment, on their own key, is a property.
+      </div>
+      <div class="bar bad">
+        <b>The honest residual.</b> Neutrality is a structural answer, not an empirical one. If the first serious
+        customer's questions all live in one warehouse anyway, the argument is true and worthless.
+      </div>
+    </div>
+
+    <div class="c c3">
+      <div class="ch f">Three honest risks</div>
+      <div class="rk end">
+        <div class="n">Risk one · this ends it</div>
+        <b class="t">Verification may not be cheaper than re-derivation</b>
+        <p>The beachhead's own words: verifying your reasoning is not obviously faster than writing it myself, I read SQL faster than I read explanations. <b>That objection is correct as stated and unmeasured anywhere in the literature.</b> If it holds, the plan gate and the verifier deliver an answer the analyst cannot use</p>
+        <div class="mit"><i>mitigation</i>Testable in one afternoon with five analysts and a stopwatch. It is the first experiment, and it precedes further building rather than following it</div>
+      </div>
+      <div class="rk">
+        <div class="n">Risk two</div>
+        <b class="t">The planner may not be reliable enough on real schemas</b>
+        <p>Roughly 15% on hard tasks against 76% on easy ones, over 450 tasks from a real financial-analytics workload. <b>The field's weakest measured capability and this product's core dependency</b></p>
+        <div class="mit"><i>mitigation, and its limit</i>Typed plan structures, static validation, short plans with a hop ceiling, verification per hop. <b>Mitigations, not solutions,</b> and the planner is labelled research risk rather than presented as solved. The spike measures it and publishes the number, which is more than any competitor does</div>
+      </div>
+      <div class="rk">
+        <div class="n">Risk three</div>
+        <b class="t">The champion may capture the least value</b>
+        <p>Across one modelled day the staff scientist goes from two hours to nineteen minutes and the platform lead from a day and a half to eight minutes, <b>while the analyst absorbs the review burden the other four shed.</b> Since the whole go-to-market routes through her advocacy, a champion handed work while everyone else gets leverage does not advocate</p>
+        <div class="mit"><i>mitigation</i>Two contingent things keep it viable: reviewing must be structurally cheaper than deriving, and the flywheel must reduce future review load. Review time per week is a first-class metric with queue depth as its leading indicator</div>
+      </div>
+      <div class="bar bad">
+        <b>What is not the top risk, and should not be presented as one: competition.</b> The dominant risk is segment
+        reality, and both halves of it are answerable in ten conversations with no code.
+      </div>
+      <div class="ch a" style="margin-top:10px">What would change this memo</div>
+      <div class="chg"><div class="ar">&#8594;</div><div class="t">Analysts accept answers they did not derive, faster than re-deriving. <b>The thesis is validated</b></div></div>
+      <div class="chg"><div class="ar">&#8594;</div><div class="t">Fewer than a quarter of real requests span sources. <b>Neutrality is true and worthless, the market halves, and the product should be rescoped</b></div></div>
+      <div class="chg"><div class="ar">&#8594;</div><div class="t">No buyer can name a budget line. <b>This is a feature, not a company</b></div></div>
+      <div class="chg"><div class="ar">&#8594;</div><div class="t">The published accuracy number lands near the hard-task baseline. <b>The mitigations do not work</b></div></div>
+      <div class="bar">
+        <b>Each is cheap to test and none has been tested.</b> A memo claiming otherwise at this stage would be the
+        graveyard's next entry.
+      </div>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>narrative/vc_memo.md</code> §1, §2, §5.3, §6 and §7</span>
+    <span>Evidence: <code>[S1][S2][S4][S5][S15][S16][S17][S22][S32][S36][S40][S41][S42][S44][S46][S49][S50][S54][S56][S57][S58][S59][S62]</code> · V61</span>
+  </div>
+</div>
+</body>
+</html>

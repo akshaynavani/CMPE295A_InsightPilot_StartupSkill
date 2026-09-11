@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V64 · The deck arc</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:30px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:27px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:6px;letter-spacing:-.01em}
+  .sub{font-size:12px;color:var(--muted);margin-top:6px;max-width:1050px;line-height:1.48}
+  .lg{display:flex;gap:16px;margin-top:11px;font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);align-items:center}
+  .lg span{display:inline-flex;align-items:center;gap:5px}
+  .sw{width:11px;height:9px;border-radius:2px;display:inline-block}
+  .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px;flex:1;min-height:0}
+  .s{border:1px solid var(--rule);border-radius:6px;padding:6px 8px;background:#fff;display:flex;flex-direction:column;min-width:0;overflow:hidden}
+  .s .n{font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .s h3{font-size:10.5px;font-weight:700;color:var(--ink);margin-top:2px;line-height:1.25}
+  .s p{font-size:8.5px;line-height:1.4;color:var(--body);margin-top:4px}
+  .s p b{color:var(--ink)}
+  .s .vis{margin-top:auto;padding-top:4px;font-size:7.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-top:1px dashed var(--rule)}
+  .s.tear{background:#FDF7F6;border-color:#E3C9C4}
+  .s.tear .n{color:var(--fail)}
+  .s.hinge{background:#EDF3FA;border:2px solid var(--accent)}
+  .s.hinge .n{color:var(--accent)}
+  .s.hinge h3{color:var(--accent)}
+  .s.mech{background:#F4FAF6;border-color:#BFDCC9}
+  .s.mech .n{color:var(--verify)}
+  .s.concede{background:#FDFAF4;border:2px solid var(--doubt)}
+  .s.concede .n{color:var(--doubt)}
+  .s.concede h3{color:#8A5A11}
+  .s.ask{background:var(--wash)}
+  .foot{display:grid;grid-template-columns:1fr 1fr 1.15fr;gap:22px;margin-top:12px}
+  .zone{border-top:2px solid var(--ink);padding-top:8px}
+  .zone.a{border-top-color:var(--accent)}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.d{border-top-color:var(--doubt)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .zone p b{color:var(--ink)}
+  .nv{display:flex;gap:8px;padding:4px 0;font-size:10px;line-height:1.4}
+  .nv .x{width:13px;flex:none;color:var(--fail);font-weight:700}
+  .nv .t{flex:1}
+  .nv .t b{color:var(--ink)}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Pitch deck</div>
+  <h1>Fourteen slides, every title a claim rather than a category, and three of them concede</h1>
+  <p class="sub">
+    The arc is fixed: cold-open on the problem, demolish the status quo, then show the mechanism. Teardown before
+    build, because credibility is earned by demonstrating you know why everything else falls short. Read the titles
+    in sequence and they carry the argument on their own.
+  </p>
+
+  <div class="lg">
+    <span><i class="sw" style="background:#E3C9C4"></i> teardown · a third of the time</span>
+    <span><i class="sw" style="background:var(--accent)"></i> the hinge</span>
+    <span><i class="sw" style="background:#BFDCC9"></i> mechanism</span>
+    <span><i class="sw" style="background:var(--doubt)"></i> where a normal deck inflates and this one concedes</span>
+  </div>
+
+  <div class="grid">
+    <div class="s tear">
+      <div class="n">Slide 1</div>
+      <h3>People stop asking questions when the answer takes a month</h3>
+      <p>One to four weeks for an ad-hoc question, so requesters route around it. <b>76% have decided without data.</b> The market leader is doing nothing, and it is free and instant</p>
+      <div class="vis">visual · one message, answered four days later</div>
+    </div>
+    <div class="s tear">
+      <div class="n">Slide 2</div>
+      <h3>Every vendor tried a chat box, and it fails in a documented way</h3>
+      <p><b>81.2% of analysed failures are schema-level,</b> and failure looks like a plausible but incorrect answer. One such feature shipped inside the most widely deployed BI tool on earth and still retired</p>
+      <div class="vis">visual · the graveyard, with cause of death</div>
+    </div>
+    <div class="s tear">
+      <div class="n">Slide 3</div>
+      <h3>The problem is not slow answers, it is that fast answers cannot be trusted</h3>
+      <p>Trust in data went from 66% to 83% in a year, and 59% are funding semantic layers to constrain output. <b>The budget is already moving toward verifiability, to a different answer than ours</b></p>
+      <div class="vis">visual · latency evidence beside trust evidence</div>
+    </div>
+    <div class="s tear">
+      <div class="n">Slide 4</div>
+      <h3>Incumbents buy correctness by refusing the questions nobody anticipated</h3>
+      <p>A thirty-table cap, a hand-authored token-capped model, no metric that is not already a measure. <b>Not bugs. The reliability mechanism</b></p>
+      <div class="vis">visual · each bound, in its own documentation</div>
+    </div>
+    <div class="s hinge">
+      <div class="n">Slide 5 · the hinge</div>
+      <h3>Stop promising correctness, start making failure cheap to catch</h3>
+      <p>About 15% on hard tasks, and consistency degrades faster than capability. <b>If multi-hop execution were reliable nobody would need a trace. Because it is not, the trace is what makes the hops usable</b></p>
+      <div class="vis">visual · the two-axis map, open quadrant empty</div>
+    </div>
+
+    <div class="s mech">
+      <div class="n">Slide 6</div>
+      <h3>The unit is the investigation, and it ships with its own audit trail</h3>
+      <p>A plan shown before a single query runs, four agents across the real sources, lineage per handoff, each hop re-runnable. <b>Verification consumes zero model tokens</b></p>
+      <div class="vis">visual · the investigation pipeline</div>
+    </div>
+    <div class="s mech">
+      <div class="n">Slide 7</div>
+      <h3>In the demo, the system catches its own join failure in 40 seconds</h3>
+      <p>Step three returns amber: the join preserved 13,061 of 14,201 rows, and the file has four region codes against the warehouse's six. <b>That takes twenty minutes to find by hand</b></p>
+      <div class="vis">visual · the amber hop as the analyst sees it</div>
+    </div>
+    <div class="s mech">
+      <div class="n">Slide 8</div>
+      <h3>Verification by decomposition, corroborated by the strongest incumbent</h3>
+      <p>Cheap SQL checks, never the model checking itself. Reflection and self-critique declined on principle. <b>The intellectual ancestor is financial audit: the workpaper, not the number, is the deliverable</b></p>
+      <div class="vis">visual · the verify and replan loop</div>
+    </div>
+    <div class="s concede">
+      <div class="n">Slide 9 · concession</div>
+      <h3>The honest arithmetic is about 2.9 times, and on familiar single-source questions it is 1.0</h3>
+      <p>Ninety minutes to thirty-one, band 1.8 to 4.2. Cross-source reconciliation is the big one. <b>On a familiar single-source question the analyst should keep writing SQL, and we say so</b></p>
+      <div class="vis">visual · six frictions, four attacked</div>
+    </div>
+    <div class="s concede">
+      <div class="n">Slide 10 · concession</div>
+      <h3>The addressable market is modest, built bottom up, and we are not calling it bigger</h3>
+      <p>About 1.24 million analysts globally, total $1.1B and serviceable $123M, pessimistic corner $38M. <b>A share-of-a-huge-category slide would contradict our own market-type analysis</b></p>
+      <div class="vis">visual · the bottom-up build with its corners</div>
+    </div>
+
+    <div class="s">
+      <div class="n">Slide 11</div>
+      <h3>At this contract value only zero-cost channels survive, so we ship open source</h3>
+      <p>Outbound would need a four-to-nine-seat account just to repay acquisition. The loop closes when an exported artifact is shareable <b>and</b> checkable. <b>Adoption precedes revenue structurally</b></p>
+      <div class="vis">visual · the loop, with the export as its edge</div>
+    </div>
+    <div class="s">
+      <div class="n">Slide 12</div>
+      <h3>This does not become a warehouse feature, because the value is in spanning</h3>
+      <p>One company raised about $128.7M attacking the highest-value part of this loop and became a division. <b>The residual, stated: if a real customer's questions live in one warehouse, the argument is true and worthless</b></p>
+      <div class="vis">visual · the petal, and which budget each customer comes from</div>
+    </div>
+    <div class="s concede">
+      <div class="n">Slide 13 · concession</div>
+      <h3>Our evidence is thin, and the one number that matters is untested</h3>
+      <p>No customers, no revenue, no accuracy measurement. <b>The beachhead's objection is correct as stated.</b> One afternoon, five analysts and a timed task settles it, and it precedes further building</p>
+      <div class="vis">visual · three untested claims, ranked by blast radius</div>
+    </div>
+    <div class="s ask">
+      <div class="n">Slide 14</div>
+      <h3>What we are asking for is ten analysts and one heterogeneous stack</h3>
+      <p>Not funding. Ten analysts for an hour each, one stack with a warehouse and an operational database and a file feed, and advisor challenge on the two research risks</p>
+      <div class="vis">visual · the two-semester timeline, harness first</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone f">
+      <div class="lbl">On the arc</div>
+      <h3>The teardown takes a third of the time, so do not rush to the product</h3>
+      <p>
+        Credibility is earned by showing you know why everything else falls short. <b>The architecture then reads as
+        the obvious recombination rather than as a proposal.</b>
+      </p>
+    </div>
+    <div class="zone a">
+      <div class="lbl">The hinge, and it is fragile</div>
+      <h3>A figure that looks like an argument against the venture is the argument for it</h3>
+      <p>
+        If the room does not follow that inversion on slide five, <b>nothing after it lands.</b>
+      </p>
+    </div>
+    <div class="zone d">
+      <div class="lbl">Why conceding three times is the strongest asset</div>
+      <h3>An audience that has watched three slides decline to overclaim will believe slide six</h3>
+      <div class="nv"><div class="x">&#10005;</div><div class="t"><b>The withdrawn queueing multiplier must never appear.</b> It was computed and withdrawn because induced demand consumes it</div></div>
+      <div class="nv"><div class="x">&#10005;</div><div class="t"><b>No head-to-head accuracy claim against any incumbent.</b> None publishes a benchmark, so no comparison is supportable</div></div>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>narrative/pitch_deck.md</code> · fourteen slides and the speaker notes on the arc</span>
+    <span>Evidence: <code>[S1][S2][S4][S5][S15][S16][S17][S32][S36][S40][S42][S44][S50][S52][S56][S57][S58][S69][S70]</code> · V64</span>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V63 · Founder-market fit</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:30px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:27px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:6px;letter-spacing:-.01em}
+  .sub{font-size:12px;color:var(--muted);margin-top:6px;max-width:1050px;line-height:1.48}
+  .cols{display:flex;gap:22px;margin-top:13px;flex:1;min-height:0}
+  .c{display:flex;flex-direction:column;min-width:0}
+  .c1{flex:1}
+  .c2{width:342px;flex:none}
+  .c3{width:340px;flex:none}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:5px;border-bottom:2px solid var(--ink)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .ch.v{border-bottom-color:var(--verify)}
+  .lead{margin-top:9px;padding:9px 12px;background:#EDF3FA;border-left:3px solid var(--accent);border-radius:0 5px 5px 0;font-size:12.5px;font-weight:650;color:var(--ink);line-height:1.4}
+  p.tx{font-size:10.5px;line-height:1.5;margin-top:7px}
+  p.tx b{color:var(--ink)}
+  .arith{margin-top:8px;padding:8px 10px;background:var(--wash);border-radius:5px;font-size:10px;line-height:1.45}
+  .arith b{color:var(--ink)}
+  .arith em{font-style:normal;color:var(--muted)}
+  .quote{margin-top:8px;padding:8px 11px;border-left:3px solid var(--ink);font-size:11.5px;font-weight:650;color:var(--ink);line-height:1.4}
+  .fm{display:flex;gap:9px;padding:6px 0;border-bottom:1px dashed var(--rule);font-size:10px;line-height:1.42}
+  .fm .n{width:14px;flex:none;font-weight:700;color:var(--fail)}
+  .fm .t{flex:1}
+  .fm .t b{color:var(--ink);display:block;font-size:10.5px;margin-bottom:1px}
+  .gap{margin-top:9px;border:2px solid var(--fail);border-radius:7px;padding:9px 11px;background:#FDF7F6}
+  .gap .k{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fail)}
+  .gap b.t{display:block;font-size:13px;font-weight:700;color:var(--ink);margin-top:2px;line-height:1.25}
+  .gap p{font-size:10px;line-height:1.45;margin-top:4px}
+  .gap p b{color:var(--ink)}
+  .rsn{display:flex;gap:8px;padding:5px 0;border-top:1px dashed #E3C9C4;font-size:9.5px;line-height:1.42}
+  .rsn .n{width:40px;flex:none;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--fail);padding-top:1px}
+  .rsn .t{flex:1}
+  .rsn .t b{color:var(--ink)}
+  .ph{margin-top:9px;border:2px dashed var(--doubt);border-radius:7px;padding:9px 11px;background:#FDFAF4}
+  .ph .k{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--doubt)}
+  .ph p{font-size:10px;line-height:1.45;margin-top:3px}
+  .ph p b{color:var(--ink)}
+  .ph .l{font-size:9.5px;line-height:1.4;padding:3px 0 3px 12px;position:relative;margin-top:2px}
+  .ph .l:before{content:"";position:absolute;left:0;top:7px;width:4px;height:4px;border-radius:50%;background:var(--doubt)}
+  .ph .l b{color:var(--ink)}
+  .bar{margin-top:9px;padding:9px 11px;border-radius:6px;font-size:10px;line-height:1.45;background:var(--wash)}
+  .bar.good{background:#EAF3EC}
+  .bar b{color:var(--ink)}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Founder-market fit</div>
+  <h1>The standard founder story is unavailable here, and pretending otherwise would be the fastest way to lose a room</h1>
+  <p class="sub">
+    Every other artifact argues from evidence about the world. This one has to answer why these people, for this
+    problem, for the next ten years. The team has never worked inside an enterprise analytics function, so "I lived
+    this pain for six years" would be a fabrication.
+  </p>
+
+  <div class="cols">
+    <div class="c c1">
+      <div class="ch a">The story</div>
+      <div class="lead">I did not come to this from analytics. I came to it from watching multi-agent systems fail.</div>
+      <p class="tx">
+        What you learn building orchestration loops and tool-calling chains, and you learn it the hard way, is that
+        <b>the interesting failures are never the loud ones.</b> A crashed tool call is easy. The one that costs you
+        is the step that returned something plausible, and the next four steps that built confidently on top of it.
+      </p>
+      <div class="arith">
+        <b>That is not a feeling, it is arithmetic.</b> At 95% reliability per step a six-step chain is near 74%, and
+        at 90% it is near 53%. <em>That is compounding arithmetic rather than a measurement of this system.</em> The
+        field's own benchmarks agree on the direction: error propagation is the primary reliability bottleneck, and
+        agents scoring above 60% on a single attempt fall below 25% when eight consecutive attempts must all succeed.
+      </div>
+      <p class="tx">
+        So when I looked at what everyone was building on top of enterprise data, a chat box on a warehouse, I did not
+        see a product. <b>I saw a six-hop agent chain with no verification between the hops, sold to people who had no
+        way to tell when it was wrong.</b>
+      </p>
+      <p class="tx">
+        And the numbers say exactly that. Schema-level errors, where the model picked the wrong column or the right
+        column meaning something else, are <b>81.2% of analysed text-to-SQL failures,</b> and failure presents as a
+        plausible but incorrect answer. Meanwhile <b>71% of practitioners name wrong output reaching stakeholders as a
+        top concern.</b> That is a market watching the exact failure mode I had spent years debugging, and reaching
+        for the wrong fix: constrain the system until it can only answer pre-modelled questions. That works, and it
+        means the ad-hoc question stays unanswered.
+      </p>
+      <div class="quote">
+        My answer is the one I would have wanted for my own systems: stop promising the chain is right, and make it
+        cheap to find out where it went wrong. Then the analyst does not have to trust me. They have to spend forty
+        seconds.
+      </div>
+    </div>
+
+    <div class="c c2">
+      <div class="ch">Why the next ten years, and not because I know analytics better than an analyst</div>
+      <div class="bar">
+        <b>The hard part of this problem is the part I have already done badly, repeatedly, and learned from.</b> Most
+        teams here come from data, so they know warehouses and dimensional modelling and are meeting multi-step agent
+        reliability for the first time. <b>That ordering matters, because the failure modes are counter-intuitive.</b>
+      </div>
+      <div class="fm"><div class="n">1</div><div class="t"><b>Adding capability reduces reliability</b>Every hop added to make the system smarter makes it less trustworthy. Teams that have not felt this build ambitious plans and cannot understand why the output degrades</div></div>
+      <div class="fm"><div class="n">2</div><div class="t"><b>Self-critique is not verification</b>A model asked to check its own output shares the failure that produced it. The single most common architectural mistake in the current agent literature, declined explicitly here, and the strongest incumbent reached the same conclusion in production</div></div>
+      <div class="fm"><div class="n">3</div><div class="t"><b>Consistency degrades faster than capability</b>A demo that works once is not a product. An analyst who asks the same question twice and gets two answers has been given work, not leverage</div></div>
+      <div class="ch v" style="margin-top:11px">The second edge, which is temperament rather than skill</div>
+      <div class="bar good">
+        The whole pack is built on refusing to overclaim. The arithmetic comes to roughly 2.9 times rather than ten,
+        and says so. The market is modest, and says so. The central premise is untested, and says so.
+        <b>That is not modesty.</b> In a category with a graveyard this specific, <b>overclaiming is the documented
+        cause of death</b>: one well-funded failure is recorded as overpromise against delivery.
+        <b>I would rather publish a modest number that survives contact with a reviewer than a large one that does
+        not.</b>
+      </div>
+      <div class="bar">
+        <b>The ten-year version is not a bigger product. It is a format:</b> an investigation record any tool can emit
+        and any auditor can read. I am well positioned for that specifically <b>because I am not defending a
+        warehouse.</b>
+      </div>
+    </div>
+
+    <div class="c c3">
+      <div class="ch f">The gap, confronted rather than finessed</div>
+      <div class="gap">
+        <div class="k">What I do not have</div>
+        <b class="t">I have never worked inside an enterprise analytics function. Not one day</b>
+        <p>My problem statement is researched, not lived, and <b>that is the single largest risk to everything I have written.</b> I could paper over it. I am choosing not to, for three reasons.</p>
+        <div class="rsn"><div class="n">one</div><div class="t"><b>I made the research do the work instead.</b> Every number traces to a numbered source with an access date and a confidence grade. Looking for how many requests an analyst absorbs per week, the figure a practitioner would know from experience, <b>I could not find a single credible study.</b> The most circulated figure traced to unsourced vendor marketing and I recorded it as rejected. <b>What I found instead was better:</b> the high-confidence current evidence is about trust rather than speed, and that reframing changed the positioning. I only got it because I had to source what a practitioner would have assumed</div></div>
+        <div class="rsn"><div class="n">two</div><div class="t"><b>The risk I am best placed to judge is the one that decides everything.</b> The riskiest assumption is not whether analysts want this. It is whether multi-agent planning holds up end to end without the output becoming untrustworthy, which is an agent-engineering question. The market questions I cannot answer alone, I am testing by asking rather than assuming</div></div>
+        <div class="rsn"><div class="n">three</div><div class="t"><b>I know precisely what I need from other people.</b> Ten analysts, one hour each, one question: can you accept an answer you did not derive faster than you could derive it</div></div>
+        <p><b>The beachhead's objection is the one I take most seriously:</b> I read SQL faster than I read explanations. That is correct as stated, and if it holds I have built a slower way to get where they were already going. <b>I would rather find that out in an afternoon with five analysts than in a year of building.</b></p>
+      </div>
+      <div class="ph">
+        <div class="k">What this document deliberately leaves blank</div>
+        <p><b>Bracketed placeholders only the founder can fill.</b> Everything else is derived from the pack and defensible. A fabricated origin anecdote is the fastest way to lose a room, because the follow-up question exposes it. If one cannot be filled truthfully, <b>cut the sentence rather than soften it.</b></p>
+        <div class="l"><b>The specific systems actually built,</b> what they did, at what scale</div>
+        <div class="l"><b>The moment the failure bit:</b> the project, the debugging session, the plausible-wrong output that shipped. An unspecific version is worse than none</div>
+        <div class="l"><b>Who has already been asked, and what they said.</b> If nobody yet, say so, which is better than implying access you lack</div>
+        <div class="l"><b>Why this project, this year,</b> and who it is being built with</div>
+      </div>
+      <div class="bar">
+        <b>The voice is deliberately flat.</b> No hype adjectives, and the evidence carries the weight. In a category
+        whose graveyard was filled by overpromising, understatement is a positioning choice.
+      </div>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>narrative/founder_story.md</code> §1 through §4 and its usage notes</span>
+    <span>Evidence: <code>[S2][S5][S10][S13][S15][S16][S32][S36][S42][S56][S60][S62][S4]</code> · V63</span>
+  </div>
+</div>
+</body>
+</html>

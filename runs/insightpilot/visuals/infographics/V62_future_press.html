@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V62 · Working backwards from 2033</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:30px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:27px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:6px;letter-spacing:-.01em}
+  .sub{font-size:12px;color:var(--muted);margin-top:6px;max-width:1050px;line-height:1.48}
+  .cols{display:flex;gap:22px;margin-top:13px;flex:1;min-height:0}
+  .c{display:flex;flex-direction:column;min-width:0}
+  .c1{width:332px;flex:none}
+  .c2{flex:1}
+  .c3{width:330px;flex:none}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:5px;border-bottom:2px solid var(--ink)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .ch.v{border-bottom-color:var(--verify)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .hd{margin-top:9px;padding:9px 11px;background:#EDF3FA;border-left:3px solid var(--accent);border-radius:0 5px 5px 0}
+  .hd .dl{font-size:8.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+  .hd b{display:block;font-size:14px;font-weight:700;color:var(--ink);line-height:1.28;margin-top:2px}
+  .hd span{display:block;font-size:10px;color:var(--body);margin-top:5px;line-height:1.45}
+  .mt{display:flex;gap:9px;margin-top:10px}
+  .mb{flex:1;border:1px solid var(--rule);border-radius:6px;padding:7px 8px;text-align:center}
+  .mb b{display:block;font-size:19px;font-weight:700;color:var(--accent);letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
+  .mb span{display:block;font-size:8.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:3px;line-height:1.3}
+  .mb.v b{color:var(--verify)}
+  .q{padding:6px 0;border-bottom:1px dashed var(--rule)}
+  .q p{font-size:10px;line-height:1.45;color:var(--ink);font-style:italic}
+  .q p b{font-style:normal}
+  .q .who{font-size:8.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  .tl{margin-top:9px}
+  .ty{display:flex;gap:10px;align-items:flex-start;padding-bottom:8px}
+  .ty:last-child{padding-bottom:0}
+  .ty .yr{width:40px;flex:none;font-size:12px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1.2}
+  .ty .rail{width:12px;flex:none;display:flex;flex-direction:column;align-items:center}
+  .ty .rail i{width:9px;height:9px;border-radius:50%;background:var(--accent);display:block;margin-top:3px;flex:none}
+  .ty .rail .ln{flex:1;width:2px;background:var(--rule);margin-top:2px;min-height:12px}
+  .ty:last-child .rail .ln{display:none}
+  .ty.crit .rail i{background:var(--fail);width:12px;height:12px;margin-top:2px}
+  .ty.crit .yr{color:var(--fail)}
+  .ty .t{flex:1;font-size:9.5px;line-height:1.42}
+  .ty .t b{color:var(--ink)}
+  .ty .t em{font-style:normal;display:block;color:var(--muted);font-size:8.5px;margin-top:2px}
+  .chk{display:flex;gap:8px;padding:5px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.42}
+  .chk .n{width:14px;flex:none;font-weight:700;color:var(--fail)}
+  .chk .t{flex:1}
+  .chk .t b{color:var(--ink)}
+  .bar{margin-top:9px;padding:9px 11px;border-radius:6px;font-size:10px;line-height:1.45;background:var(--wash)}
+  .bar.bad{background:#F7EEEC}
+  .bar.good{background:#EAF3EC}
+  .bar b{color:var(--ink)}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Working backwards</div>
+  <h1>Written in 2026, dated 2033, and the good ending is losing control of the differentiator</h1>
+  <p class="sub">
+    Working backwards forces a question the pack had deferred: is success a company or a practice? The discipline is
+    that a release announcing a very large business would contradict the market sizing and the channel this pack
+    already committed to, so it does not announce one.
+  </p>
+
+  <div class="cols">
+    <div class="c c1">
+      <div class="ch a">The release, 14 March 2033</div>
+      <div class="hd">
+        <div class="dl">San Jose</div>
+        <b>The signed answer becomes the default unit of analytical work</b>
+        <span>The <b>signed investigation</b>, an analytical answer shipped with a hop-level trace and a named human reviewer, has passed 50% adoption among large data organisations.</span>
+      </div>
+      <div class="bar">
+        Seven years earlier, an ad-hoc question took one to four weeks and 76% of businesses admitted deciding
+        without data. The industry's response was to put chat interfaces on warehouses, which answered quickly and
+        were bounded to questions someone had modelled in advance. <b>So the ad-hoc question stayed unanswered or
+        unverifiable.</b>
+      </div>
+      <div class="q">
+        <p>We stopped trying to convince people our answers were right. We built a system that assumes it will
+        sometimes be wrong and makes that cheap to discover. <b>They never wanted to be told to trust a black box.
+        They wanted to check it in forty seconds instead of ninety minutes.</b></p>
+        <div class="who">the founder</div>
+      </div>
+      <div class="q">
+        <p>The worst outcome used to be that the analysis turned out fine, because I had spent two hours confirming
+        something with no way to spend less next time. <b>Now I open the trace, check the target definition and the
+        split, and spot-check the one join I do not like. Nineteen minutes.</b></p>
+        <div class="who">a staff data scientist</div>
+      </div>
+      <div class="q" style="border-bottom:none">
+        <p>The question I could never answer was where this number came from. Not because nobody knew, but because
+        reconstructing it took two days. <b>Now provenance is a property of the artifact.</b></p>
+        <div class="who">a VP of data and analytics</div>
+      </div>
+    </div>
+
+    <div class="c c2">
+      <div class="ch">The metric that did not exist in 2026</div>
+      <div class="mt">
+        <div class="mb v"><b>0.31</b><span>median verification<br>cost ratio, 2033</span></div>
+        <div class="mb"><b>~1.0</b><span>baseline where the<br>practice began</span></div>
+        <div class="mb"><b>$74M</b><span>annual recurring<br>revenue</span></div>
+        <div class="mb"><b>1,900</b><span>customer<br>organisations</span></div>
+      </div>
+      <div class="bar">
+        Before 2027, analytics organisations measured query latency and dashboard adoption, <b>both of which can
+        improve while trust falls.</b> Time to a verified answer was not a tracked metric anywhere.
+      </div>
+      <div class="q">
+        <p>Five years ago vendors competed on how confident their AI sounded. Now they compete on how fast you can
+        prove it wrong. <b>That reframing is the company's real legacy, and most of the market has adopted it without
+        adopting their software.</b></p>
+        <div class="who">an industry analyst</div>
+      </div>
+      <div class="ch v" style="margin-top:11px">How it happened</div>
+      <div class="tl">
+        <div class="ty crit"><div class="yr">2026</div><div class="rail"><i></i><div class="ln"></div></div><div class="t">A two-person capstone builds the harness before the agents, publishes the first public multi-hop accuracy figure in commercial agentic BI, and runs the timed verification study with eleven analysts. <b>The study is the reason there is a company: the ratio comes back at 0.4, not above 1.0</b></div></div>
+        <div class="ty"><div class="yr">2027</div><div class="rail"><i></i><div class="ln"></div></div><div class="t">Open-source release. First deployment through an analyst who found the repository in a community thread. A second analyst in that company installs after receiving an exported investigation, and <b>the compounding loop closes for the first time</b></div></div>
+        <div class="ty crit"><div class="yr">2028</div><div class="rail"><i></i><div class="ln"></div></div><div class="t"><b>The review-queue problem nearly kills adoption.</b> Analysts absorb the verification burden their colleagues shed and stop advocating. Fixed by trust levels per question shape, so repeat investigations auto-approve<em>The risk raised three phases before launch. It fired, and was survived by design change rather than by luck</em></div></div>
+        <div class="ty"><div class="yr">2029</div><div class="rail"><i></i><div class="ln"></div></div><div class="t">Override rate per source falls measurably across long-running deployments with no model change. <b>The learned semantic layer is evidenced for the first time,</b> three years after it was named as an unproven candidate and deliberately not claimed</div></div>
+        <div class="ty"><div class="yr">2030</div><div class="rail"><i></i><div class="ln"></div></div><div class="t">The lineage format is contributed to a neutral foundation and two warehouse vendors adopt it. <b>The company loses exclusivity over its differentiator and gains the standard</b></div></div>
+        <div class="ty"><div class="yr">2031</div><div class="rail"><i></i><div class="ln"></div></div><div class="t">Managed deployment for regulated customers. Neutrality is preserved contractually, because the format is now a standard the company does not own</div></div>
+        <div class="ty"><div class="yr">2033</div><div class="rail"><i></i></div><div class="t">Verification cost ratio enters procurement requirements. <b>The practice outgrows the product</b></div></div>
+      </div>
+    </div>
+
+    <div class="c c3">
+      <div class="ch f">Four checks, because this is where a vision contradicts its own evidence</div>
+      <div class="chk"><div class="n">1</div><div class="t"><b>No hypergrowth and no venture-scale outcome.</b> Seventy-four million across nineteen hundred organisations is consistent with the serviceable market sized in 2026. Announcing a multi-billion business would contradict the pack's own sizing, which states plainly that this market is small</div></div>
+      <div class="chk"><div class="n">2</div><div class="t"><b>No order-of-magnitude claim, in 2033 either.</b> The original arithmetic came to roughly 2.9 times on multi-source questions and about 1.0 on familiar single-source ones. <b>The outcome is a practice change, from a ratio near 1.0 down to 0.31,</b> which is a different kind of claim and the one the mechanism actually supports</div></div>
+      <div class="chk"><div class="n">3</div><div class="t"><b>The moat is evidenced in 2029, not asserted in 2026.</b> The confirming observation was named and declined at the start. The timeline observes it three years after launch, which is how long a compounding semantic asset would actually take</div></div>
+      <div class="chk"><div class="n">4</div><div class="t"><b>The company loses control of the differentiator and that is the good ending.</b> With an open-source core the code was never the asset. A release where the company still exclusively owns hop-level lineage in 2033 would contradict its own licensing decision</div></div>
+      <div class="bar bad">
+        <b>And one thing the release cannot do.</b> It assumes the 2026 verification study came back below 1.0. If
+        that ratio had been above 1.0, none of this happens.
+      </div>
+      <div class="bar good">
+        <b>The honest press release for that branch is one paragraph long.</b> It says the team measured the thing
+        that mattered, found the premise false, and published the negative result. <b>That would still have been a
+        good capstone.</b>
+      </div>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>narrative/future_press.md</code> · the release, the timeline and the four consistency checks</span>
+    <span>V62</span>
+  </div>
+</div>
+</body>
+</html>
