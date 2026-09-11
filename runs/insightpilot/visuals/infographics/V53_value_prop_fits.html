@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V53 · The five ranked fits</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:30px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .cols{display:flex;gap:22px;margin-top:15px;flex:1;min-height:0}
+  .c{display:flex;flex-direction:column;min-width:0}
+  .c1{width:292px;flex:none}
+  .c2{flex:1}
+  .c3{width:320px;flex:none}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:5px;border-bottom:2px solid var(--ink)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .grp{font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:8px}
+  .pl{display:flex;justify-content:space-between;gap:8px;padding:3.5px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.38}
+  .pl .t{flex:1;color:var(--ink)}
+  .pl .s{flex:none;font-size:8.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;color:var(--muted)}
+  .pl .s.hi{color:var(--fail)}
+  .pl .s.crit{color:var(--fail)}
+  .pl .s.med{color:var(--doubt)}
+  .pl .s.must{color:var(--verify)}
+  .fit{border:1px solid var(--rule);border-radius:6px;padding:7px 10px;margin-top:8px;display:flex;gap:10px;align-items:flex-start}
+  .fit .rk{width:20px;flex:none;font-size:18px;font-weight:700;color:var(--accent);line-height:1}
+  .fit .bd{flex:1;min-width:0}
+  .fit .pn{font-size:11px;font-weight:700;color:var(--ink);line-height:1.25}
+  .fit .rv{font-size:9.5px;line-height:1.4;margin-top:3px;color:var(--body)}
+  .fit .rv b{color:var(--ink)}
+  .fit .mt{display:flex;gap:10px;align-items:center;margin-top:5px}
+  .fit .who{font-size:8.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+  .fit .tk{flex:1;height:7px;background:var(--wash);border-radius:4px;overflow:hidden}
+  .fit .fl{height:100%;border-radius:4px;background:var(--accent)}
+  .fit .sg{font-size:8.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+  .fit.one{border:2px solid var(--accent);background:#EDF3FA}
+  .fit.one .fl{background:var(--accent)}
+  .fit.one .sg{color:var(--accent)}
+  .fit.two{background:#F6FAF7}
+  .fit.two .fl{background:var(--verify)}
+  .fit.two .sg{color:var(--verify)}
+  .fit.three{background:#F6FAF7}
+  .fit.three .fl{background:var(--verify)}
+  .fit.three .sg{color:var(--verify)}
+  .fit.four{background:var(--wash)}
+  .fit.four .fl{background:var(--doubt)}
+  .fit.four .sg{color:var(--doubt)}
+  .fit.five{background:#FDFAF4}
+  .fit.five .fl{background:var(--doubt)}
+  .fit.five .sg{color:var(--doubt)}
+  .wk{display:flex;gap:8px;padding:5.5px 0;border-bottom:1px dashed var(--rule);font-size:10px;line-height:1.4}
+  .wk .x{width:13px;flex:none;color:var(--fail);font-weight:700}
+  .wk .t{flex:1}
+  .wk .t b{color:var(--ink)}
+  .bar{margin-top:9px;padding:8px 10px;border-radius:6px;font-size:10px;line-height:1.45;background:var(--wash)}
+  .bar.bad{background:#F7EEEC}
+  .bar b{color:var(--ink)}
+  .foot{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:22px;margin-top:13px}
+  .zone{border-top:2px solid var(--ink);padding-top:8px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.a{border-top-color:var(--accent)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .zone p b{color:var(--ink)}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Value proposition</div>
+  <h1>The top three fits are one mechanism sold to three people for three reasons</h1>
+  <p class="sub">
+    Ranked by pain severity times relief strength, which is the only ranking that predicts adoption. That
+    concentration is coherent and it is also the concentrated risk, because all three rest on one untested premise.
+  </p>
+
+  <div class="cols">
+    <div class="c c1">
+      <div class="ch a">The beachhead's profile</div>
+      <div class="grp">Jobs to be done</div>
+      <div class="pl"><div class="t">Answer the question that just arrived, correctly, without derailing planned work</div><div class="s">core</div></div>
+      <div class="pl"><div class="t"><b>Be able to defend the answer when someone challenges it</b></div><div class="s">the job behind the job</div></div>
+      <div class="pl"><div class="t">Avoid becoming the bottleneck colleagues route around</div><div class="s">social</div></div>
+      <div class="pl"><div class="t">Reclaim attention for the work she was hired for</div><div class="s">emotional</div></div>
+      <div class="grp" style="color:var(--fail)">Pains</div>
+      <div class="pl"><div class="t">Fixed per-question overhead that does not amortise</div><div class="s hi">high</div></div>
+      <div class="pl"><div class="t">Context switching. The cost is the switch, not the query</div><div class="s hi">high</div></div>
+      <div class="pl"><div class="t">The unmodelled source nobody has ever joined</div><div class="s hi">high</div></div>
+      <div class="pl"><div class="t">Her copilot cannot compute a metric that is not already a measure, so it helps least when the question is novel</div><div class="s med">med-high</div></div>
+      <div class="pl"><div class="t">Shipping an answer she has not fully checked, in a bad week</div><div class="s crit">critical, rare</div></div>
+      <div class="grp" style="color:var(--verify)">Gains</div>
+      <div class="pl"><div class="t">An answer she will put her name on, sooner</div><div class="s must">must have</div></div>
+      <div class="pl"><div class="t">Seeing exactly what was done, at the grain where she doubts it</div><div class="s must">must have</div></div>
+      <div class="pl"><div class="t">Not having to re-derive in order to check</div><div class="s must">must have</div></div>
+      <div class="pl"><div class="t">The predictive question answered at all</div><div class="s">nice to have</div></div>
+    </div>
+
+    <div class="c c2">
+      <div class="ch">The five ranked fits</div>
+      <div class="fit one">
+        <div class="rk">1</div>
+        <div class="bd">
+          <div class="pn">Cannot verify an answer without re-deriving it</div>
+          <div class="rv"><b>Reliever:</b> per-handoff, re-runnable lineage. The only mapping that serves every persona at once, and the exact claim the beachhead's objection denies</div>
+          <div class="mt"><div class="who">all three personas</div><div class="tk"><div class="fl" style="width:95%"></div></div><div class="sg">strong, unproven</div></div>
+        </div>
+      </div>
+      <div class="fit two">
+        <div class="rk">2</div>
+        <div class="bd">
+          <div class="pn">The unmodelled source costs disproportionately</div>
+          <div class="rv"><b>Reliever:</b> plan across heterogeneous sources with no pre-authored artifact. Directly attacks the incumbents' structural limit, and conditional on questions actually spanning sources</div>
+          <div class="mt"><div class="who">the analyst</div><div class="tk"><div class="fl" style="width:84%"></div></div><div class="sg">strong</div></div>
+        </div>
+      </div>
+      <div class="fit three">
+        <div class="rk">3</div>
+        <div class="bd">
+          <div class="pn">Provenance is not answerable on demand</div>
+          <div class="rv"><b>Reliever:</b> lineage retained as a queryable artifact. The same mechanism as the first fit, sold to a different buyer. Cheap to serve, and <b>it is what converts a user's enthusiasm into a signature</b></div>
+          <div class="mt"><div class="who">the budget owner</div><div class="tk"><div class="fl" style="width:78%"></div></div><div class="sg">strong commercially</div></div>
+        </div>
+      </div>
+      <div class="fit four">
+        <div class="rk">4</div>
+        <div class="bd">
+          <div class="pn">Fixed per-question overhead</div>
+          <div class="rv"><b>Reliever:</b> automated fetch, analyse and visualise. Real, and <b>this is the crowded part</b>, attacked by every incumbent. Necessary and not differentiating, because automating what the analyst can already do is convenience rather than leverage</div>
+          <div class="mt"><div class="who">the analyst</div><div class="tk"><div class="fl" style="width:50%"></div></div><div class="sg">medium</div></div>
+        </div>
+      </div>
+      <div class="fit five">
+        <div class="rk">5</div>
+        <div class="bd">
+          <div class="pn">The predictive question is not attempted</div>
+          <div class="rv"><b>Reliever:</b> a time-boxed model with its choices exposed. The widest capability gap in the landscape <b>and the least trusted by the person who must approve it.</b> Deliberately not the differentiator</div>
+          <div class="mt"><div class="who">analyst and staff scientist</div><div class="tk"><div class="fl" style="width:32%"></div></div><div class="sg">weak to medium</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c c3">
+      <div class="ch f">Where the fit is weak or absent</div>
+      <div class="wk"><div class="x">1</div><div class="t"><b>It does not relieve the low edge's pain.</b> The requester cannot verify, so the central gain creator is inaccessible to him. His only path is an analyst's sign-off, which means the system must make sign-off cheap rather than make him self-sufficient. Anything else is the bet the market marked down</div></div>
+      <div class="wk"><div class="x">2</div><div class="t"><b>It does not relieve the data-quality pain underneath everything.</b> 77% report data-quality issues and 91% say those issues affect performance. <b>Perfect lineage over bad data produces a beautifully traceable wrong answer,</b> and the product should say so rather than let a buyer assume otherwise</div></div>
+      <div class="wk"><div class="x">3</div><div class="t"><b>It does not reduce headcount,</b> and pretending it might is the fastest way to lose a buyer who has heard it before</div></div>
+      <div class="wk"><div class="x">4</div><div class="t"><b>The fourth fit is where competition actually lives.</b> A demo that leads with it is a demo of a worse version of the bundled incumbent</div></div>
+      <div class="ch" style="margin-top:11px">Why three personas and not five</div>
+      <div class="bar">
+        The low edge <b>shapes the design and does not buy;</b> his questions arrive through the analyst, and a value
+        proposition written for him is the bet that was marked down 73.67%. The platform lead <b>has a veto, not a
+        value proposition;</b> his requirements are security constraints. The three that remain are the three whose
+        value actually differs.
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone f">
+      <div class="lbl">What the ranking says</div>
+      <h3>Coherent, and a single point of failure</h3>
+      <p>
+        One mechanism relieves the top three pains for three different people. <b>If the first fit's premise is
+        false, all three collapse together,</b> and the timed task that settles it takes an afternoon.
+      </p>
+    </div>
+    <div class="zone a">
+      <div class="lbl">The operational rule</div>
+      <h3>Lead with the first fit, never the fourth</h3>
+      <p>
+        The fourth is table stakes and invites the head-to-head comparison the pack forbids. The first is the only
+        mapping that serves all three personas at once.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">The failure this page exists to catch</div>
+      <h3>A best feature relieving a pain nobody ranked highly</h3>
+      <p>
+        That is what happened to the natural-language feature retired from the most widely deployed BI tool on earth
+        after a decade. <b>Distribution did not save it. The curation-to-value ratio killed it.</b>
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>strategy/value_prop_canvas.md</code> §1, §2, §5 and §6</span>
+    <span>Evidence: <code>[S15][S32][S36][S40][S42][S46]</code> · V53</span>
+  </div>
+</div>
+</body>
+</html>

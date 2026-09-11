@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V54 · The compounding loop</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:30px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .cons{display:flex;gap:11px;margin-top:13px}
+  .cn{flex:1;border-left:3px solid var(--accent);padding:5px 0 5px 9px}
+  .cn b{display:block;font-size:10.5px;font-weight:700;color:var(--ink);line-height:1.25}
+  .cn span{display:block;font-size:9.5px;color:var(--muted);margin-top:2px;line-height:1.38}
+  .cols{display:flex;gap:22px;margin-top:14px;flex:1;min-height:0}
+  .c{display:flex;flex-direction:column;min-width:0}
+  .c1{width:368px;flex:none}
+  .c2{flex:1}
+  .c3{width:344px;flex:none}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:5px;border-bottom:2px solid var(--ink)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .ch.v{border-bottom-color:var(--verify)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .sg{display:flex;gap:8px;padding:5px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.38}
+  .sg .w{width:74px;flex:none;font-size:8.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-top:1px}
+  .sg .t{flex:1}
+  .sg .t b{display:block;color:var(--ink);font-size:10.5px}
+  .sg .t span{display:block;color:var(--body);margin-top:1px}
+  .sg .t em{font-style:normal;display:block;color:var(--muted);margin-top:2px}
+  .loop{margin-top:10px}
+  .lp{display:flex;gap:10px;align-items:flex-start;padding-bottom:9px}
+  .lp:last-child{padding-bottom:0}
+  .lp .dot{width:20px;flex:none;display:flex;flex-direction:column;align-items:center}
+  .lp .dot i{width:10px;height:10px;border-radius:50%;background:var(--accent);display:block;margin-top:3px;flex:none}
+  .lp .dot .ln{flex:1;width:2px;background:var(--rule);margin-top:2px;min-height:14px}
+  .lp:last-child .dot .ln{display:none}
+  .lp.br .dot i{background:var(--doubt);width:13px;height:13px;margin-top:2px}
+  .lp .t{flex:1;font-size:10.5px;line-height:1.4}
+  .lp .t b{color:var(--ink)}
+  .lp .t span{display:block;font-size:9.5px;color:var(--muted);margin-top:1px;line-height:1.35}
+  .lp.br .t b{color:var(--doubt)}
+  .closing{margin-top:4px;padding:5px 9px;border:1px dashed var(--accent);border-radius:5px;font-size:9.5px;color:var(--accent);font-weight:650;text-align:center}
+  .bar{margin-top:9px;padding:9px 11px;border-radius:6px;font-size:10.5px;line-height:1.45;background:var(--wash)}
+  .bar.warn{background:#FDF3E6}
+  .bar.good{background:#EAF3EC}
+  .bar b{color:var(--ink)}
+  .ten{display:flex;gap:8px;padding:5px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.4}
+  .ten .r{width:30px;flex:none;font-size:9px;font-weight:700;color:var(--accent);padding-top:1px}
+  .ten .t{flex:1}
+  .ten .t b{color:var(--ink);display:block;font-size:10px}
+  .mv{display:flex;gap:8px;padding:4.5px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.4}
+  .mv .n{width:14px;flex:none;font-weight:700;color:var(--verify)}
+  .mv .t{flex:1}
+  .mv .t b{color:var(--ink)}
+  .foot{display:grid;grid-template-columns:1.2fr 1fr;gap:26px;margin-top:13px}
+  .zone{border-top:2px solid var(--ink);padding-top:8px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.v{border-top-color:var(--verify)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .zone p b{color:var(--ink)}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Go to market</div>
+  <h1>Most of the channels do not compound. One does, and the plan is a bet on it</h1>
+  <p class="sub">
+    A channel list where everything is equally weighted is a way of not deciding. This one starts from a concession
+    rather than an advantage, runs a single channel first, and names the product requirement the loop secretly
+    depends on.
+  </p>
+
+  <div class="cons">
+    <div class="cn"><b>The buyer already owns a competing product, bundled and paid for</b><span>Every conversation opens by explaining why the thing they have is not this thing</span></div>
+    <div class="cn"><b>The product is open core and self-hostable</b><span>Which makes the primary channel a repository rather than a sales team, and the first conversion an install rather than a meeting</span></div>
+    <div class="cn"><b>There is no revenue and no sales function</b><span>The ninety-day motion below is what a small capstone team can actually run, not what a funded company would</span></div>
+  </div>
+
+  <div class="cols">
+    <div class="c c1">
+      <div class="ch a">Channels by segment, and why each one</div>
+      <div class="sg"><div class="w">Analyst</div><div class="t"><b>Repository and technical writing</b><span>Self-serve: find, install, first successful investigation</span><em>She is technical, sceptical of vendors, and has already watched a licensed tool go unused. An open-source peer reached thirteen thousand stars on this motion</em></div></div>
+      <div class="sg"><div class="w">Analyst</div><div class="t"><b>Analyst communities</b><span>Participate, publish, do not pitch</span><em>Where the beachhead already reads. Requires credibility, which the published accuracy number supplies</em></div></div>
+      <div class="sg"><div class="w">Buyer</div><div class="t"><b>Analyst-led referral</b><span>The analyst advocates internally and the buyer is closed, not prospected</span><em>Prospecting her cold means competing with a warehouse vendor's account team</em></div></div>
+      <div class="sg"><div class="w">Blocker</div><div class="t"><b>Documentation</b><span>Deployment guide, credential handling, the audit log</span><em>He is satisfied by artifacts and not by conversations</em></div></div>
+      <div class="sg"><div class="w">High edge</div><div class="t"><b>Technical depth</b><span>The whitepaper and the published benchmark</span><em>Credibility rather than acquisition. He converts internal scepticism into internal advocacy</em></div></div>
+      <div class="sg"><div class="w">Academic</div><div class="t"><b>Publication</b><span>Poster plus the published multi-hop accuracy number</span><em>The one credible artifact the commercial market does not have</em></div></div>
+    </div>
+
+    <div class="c c2">
+      <div class="ch">The loop that compounds, and where it breaks</div>
+      <div class="loop">
+        <div class="lp"><div class="dot"><i></i><div class="ln"></div></div><div class="t"><b>An analyst installs the open core</b><span>No purchase order, no meeting, no vendor relationship</span></div></div>
+        <div class="lp"><div class="dot"><i></i><div class="ln"></div></div><div class="t"><b>Runs an investigation on their own sources</b><span>Their question, their data, their judgment of the answer</span></div></div>
+        <div class="lp"><div class="dot"><i></i><div class="ln"></div></div><div class="t"><b>The investigation and its lineage are shareable</b><span>A dashboard is shareable and not checkable. A chat answer is neither</span></div></div>
+        <div class="lp br"><div class="dot"><i></i><div class="ln"></div></div><div class="t"><b>Where the loop breaks, honestly</b><span>A colleague sees a verifiable answer and asks where it came from. This edge only exists if the artifact is readable outside a running instance. If lineage lives only inside the app, there is no edge here and growth reverts to whatever the repository does alone</span></div></div>
+        <div class="lp"><div class="dot"><i></i><div class="ln"></div></div><div class="t"><b>A second analyst installs</b><span>And the loop closes</span></div></div>
+        <div class="lp"><div class="dot"><i></i></div><div class="t"><b>Enough internal use that a budget owner is asked to fund it</b></div></div>
+      </div>
+      <div class="closing">the loop closes back to step one</div>
+      <div class="bar good">
+        <b>The engine is that an investigation is a shareable artifact.</b> With its lineage it is shareable and
+        checkable at once, which makes forwarding it a professional act rather than a risk. <b>This is the
+        differentiator used as distribution,</b> which is the strongest form of a growth loop, because improving the
+        product improves the loop.
+      </div>
+      <div class="bar warn">
+        <b>A product requirement disguised as a go-to-market requirement.</b> An investigation must export as a
+        self-contained readable artifact. It is the highest-leverage decision on this page, nearly free to build
+        early, and expensive to retrofit later.
+      </div>
+    </div>
+
+    <div class="c c3">
+      <div class="ch v">The first ten, by type rather than by name</div>
+      <div class="ten"><div class="r">1 to 3</div><div class="t"><b>Analysts inside the team's own network</b>Reachable this week, and they will give an honest hour, which is exactly what the two cheapest killing tests need</div></div>
+      <div class="ten"><div class="r">4 to 6</div><div class="t"><b>Analysts who have publicly complained about a copilot's limits</b>Pre-qualified on the exact pain. They have hit the bounded-scope wall and can say what they hit</div></div>
+      <div class="ten"><div class="r">7 to 8</div><div class="t"><b>An analyst with a genuinely heterogeneous stack</b>The only type that can test the neutrality argument. <b>If none can be found, that is itself the answer</b></div></div>
+      <div class="ten"><div class="r">9 to 10</div><div class="t"><b>One staff data scientist and one analytics leader</b>Not users. The credibility test and the budget test</div></div>
+      <div class="bar">
+        <b>What acquired means here.</b> Not payment. A completed conversation, plus a real question run against
+        their own data for at least four of them.
+      </div>
+      <div class="ch" style="margin-top:11px">The first hundred, by loop and one publication</div>
+      <div class="mv"><div class="n">1</div><div class="t"><b>Publish the accuracy number</b> with the question set and the harness. The single most distributable asset, and a byproduct of the spike rather than extra work</div></div>
+      <div class="mv"><div class="n">2</div><div class="t"><b>Ship the quickstart under thirty minutes and instrument it.</b> Above that median, self-serve has failed and the real motion is design-partner led, which rewrites this page</div></div>
+      <div class="mv"><div class="n">3</div><div class="t"><b>Make the investigation exportable,</b> so the loop has its edge</div></div>
+      <div class="mv"><div class="n">4</div><div class="t"><b>Answer "how is this not the bundled one" above the fold.</b> Every visitor arrives with that question, and making them dig for it loses most of them</div></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone f">
+      <div class="lbl">Deliberately not in the ninety-day motion</div>
+      <h3>No outbound, no paid acquisition, no partnerships, no sponsorship, no landing-page tuning</h3>
+      <p>
+        Each would spend the scarcest resource available, which is engineering hours, to buy something the loop is
+        supposed to produce for free. <b>Every figure in the acquisition-cost hypothesis is an assumption with no
+        funnel behind it, and is labelled as one.</b> The payback logic matters and the values do not.
+      </p>
+    </div>
+    <div class="zone v">
+      <div class="lbl">The reframe that makes the plan work</div>
+      <h3>Treat the benchmark as the go-to-market asset, not a research output</h3>
+      <p>
+        Scope the spike so the harness, the question set and the write-up are shippable. One artifact is
+        simultaneously the academic deliverable, the credibility proof for the internal sceptic, and the top of the
+        funnel.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>strategy/gtm.md</code> §1 through §5</span>
+    <span>Evidence: <code>[S22][S42][S50]</code> · V54</span>
+  </div>
+</div>
+</body>
+</html>

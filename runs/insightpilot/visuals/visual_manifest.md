@@ -121,11 +121,11 @@ Per the A52b contract, no substantive artifact over ~400 words should be left wi
 | V49 | The decision ledger: what was chosen, deferred and refused | operators | ASSUMPTIONS.md | html | html |
 | V50 | Survey in one frame: the case for and against this mechanism | investors | research/survey.md | html | html |
 | V51 | Lean canvas, with the riskiest cell marked | investors | strategy/lean_canvas.md | html | html |
-| V52 | Business model canvas: nine blocks, nine killing tests | investors | strategy/business_model_canvas.md | html | planned |
-| V53 | Value proposition: the five ranked fits | investors | strategy/value_prop_canvas.md | html | planned |
-| V54 | Go-to-market: the compounding loop | buyers | strategy/gtm.md | html | planned |
-| V55 | Sales roadmap: organisation, influence and access maps | buyers | strategy/sales_roadmap.md | html | planned |
-| V56 | Metrics by stage, and the vanity metrics to ignore | operators | validation/metrics_by_stage.md | html | planned |
+| V52 | Business model canvas: nine blocks, nine killing tests | investors | strategy/business_model_canvas.md | html | html |
+| V53 | Value proposition: the five ranked fits | investors | strategy/value_prop_canvas.md | html | html |
+| V54 | Go-to-market: the compounding loop | buyers | strategy/gtm.md | html | html |
+| V55 | Sales roadmap: organisation, influence and access maps | buyers | strategy/sales_roadmap.md | html | html |
+| V56 | Metrics by stage, and the vanity metrics to ignore | operators | validation/metrics_by_stage.md | html | html |
 | V57 | Pivot log: ten roads closed, ten triggers armed | investors | validation/pivot_log.md | html | planned |
 | V58 | Discovery guide: the questions that ask about the past | operators | validation/discovery_guide.md | html | planned |
 | V59 | Mission and five values stated as trade-offs | investors | narrative/mission_vision.md | html | planned |

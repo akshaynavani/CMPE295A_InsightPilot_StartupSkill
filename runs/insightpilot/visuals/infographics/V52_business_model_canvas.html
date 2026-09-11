@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V52 · Nine blocks, nine tests</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:30px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .tbl{margin-top:14px;flex:1;min-height:0;display:flex;flex-direction:column}
+  .hd{display:flex;gap:9px;font-size:8px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding-bottom:4px;border-bottom:2px solid var(--ink)}
+  .hd .h1{width:22px;flex:none}
+  .hd .h2{width:126px;flex:none}
+  .hd .h3{flex:1}
+  .hd .h4{flex:1.08}
+  .hd .h5{width:66px;flex:none;text-align:center}
+  .r{display:flex;gap:9px;padding:6px 0;border-bottom:1px dashed var(--rule);align-items:flex-start;font-size:9.5px;line-height:1.4}
+  .r .n{width:22px;flex:none;font-size:11px;font-weight:700;color:var(--accent)}
+  .r .bl{width:126px;flex:none}
+  .r .bl b{display:block;font-size:10.5px;font-weight:700;color:var(--ink);line-height:1.2}
+  .r .bl span{display:block;font-size:8.5px;color:var(--muted);margin-top:1px;line-height:1.3}
+  .r .hy{flex:1;color:var(--ink);font-style:italic}
+  .r .ts{flex:1.08;color:var(--body)}
+  .r .ts b{color:var(--ink);font-style:normal}
+  .r .wh{width:66px;flex:none;text-align:center;font-size:8.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;line-height:1.3}
+  .r .wh.now{color:var(--verify)}
+  .r .wh.eng{color:var(--accent)}
+  .r .wh.dep{color:var(--fail)}
+  .r.kill{background:#FDF7F6}
+  .r.kill .n{color:var(--fail)}
+  .r.venture{background:#EDF3FA}
+  .r.venture .n{color:var(--accent)}
+  .r.rest .bl b:after{content:" *";color:var(--doubt)}
+  .foot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:13px}
+  .zone{border-top:2px solid var(--ink);padding-top:8px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.v{border-top-color:var(--verify)}
+  .zone.d{border-top-color:var(--doubt)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .zone p b{color:var(--ink)}
+  .note{margin-top:8px;font-size:9.5px;color:var(--muted)}
+  .note b{color:var(--doubt)}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Business model canvas</div>
+  <h1>Nine blocks, each carrying the cheapest test that would kill it</h1>
+  <p class="sub">
+    One canvas says what the business is. This one says what would have to be true and how little it costs to find
+    out it is not. The column that matters is the last pair: a wrong assumption found over a week of conversations
+    rather than halfway through a build.
+  </p>
+
+  <div class="tbl">
+    <div class="hd"><div class="h1">#</div><div class="h2">Block</div><div class="h3">Falsifiable hypothesis</div><div class="h4">Cheapest killing test</div><div class="h5">When</div></div>
+
+    <div class="r kill">
+      <div class="n">1</div>
+      <div class="bl"><b>Customer segments</b><span>analyst, budget owner, platform blocker</span></div>
+      <div class="hy">A material share of the ad-hoc questions an enterprise analyst receives require data from more than one source</div>
+      <div class="ts">Ten analysts classify their <b>last twenty real requests</b> as single or multi-source. Five conversations. <b>Under about 25% and the neutrality argument is true and worthless,</b> and the addressable market halves</div>
+      <div class="wh now">this month</div>
+    </div>
+    <div class="r venture">
+      <div class="n">2</div>
+      <div class="bl"><b>Value propositions</b><span>an investigation with hop-level lineage</span></div>
+      <div class="hy">An analyst can accept or reject a correct answer they did not derive, faster than they could derive it themselves</div>
+      <div class="ts">Timed task, five analysts, same question, two conditions. Minutes to a confident yes or no. <b>This is the beachhead's own objection and the single most important test in the pack.</b> One afternoon</div>
+      <div class="wh now">one afternoon</div>
+    </div>
+    <div class="r">
+      <div class="n">3</div>
+      <div class="bl"><b>Channels</b><span>repository, communities, analyst-led adoption</span></div>
+      <div class="hy">Analysts will install a self-hosted open-source analytics tool without a vendor relationship</div>
+      <div class="ts">Publish the repository with a working quickstart and count installs reaching a first successful investigation over thirty days. Free, and it doubles as the growth loop's first data point</div>
+      <div class="wh eng">30 days</div>
+    </div>
+    <div class="r rest">
+      <div class="n">4</div>
+      <div class="bl"><b>Customer relationships</b><span>self-serve, community, ten design partners</span></div>
+      <div class="hy">A self-serve open-source motion is sufficient to reach first use with no sales conversation</div>
+      <div class="ts">Instrument the quickstart. Median clone to first successful investigation above thirty minutes and <b>self-serve fails, the motion is really design-partner led,</b> and both the go-to-market and the channel plan change materially</div>
+      <div class="wh eng">with first installs</div>
+    </div>
+    <div class="r kill">
+      <div class="n">5</div>
+      <div class="bl"><b>Revenue streams</b><span>hypothetical by decision</span></div>
+      <div class="hy">A budget owner would pay about $900 per analyst per year for verifiability, on top of the BI platform they already own</div>
+      <div class="ts">Not a pricing survey. A <b>budget-source question</b> to five buyers: what line does this come out of, and what does it displace. <b>A buyer who cannot name a line has already answered</b></div>
+      <div class="wh now">two weeks</div>
+    </div>
+    <div class="r rest">
+      <div class="n">6</div>
+      <div class="bl"><b>Key resources</b><span>capability, not assets</span></div>
+      <div class="hy">The learned semantic layer compounds: acceptance rate rises over time with no model change</div>
+      <div class="ts">Instrument acceptance rate per organisation from day one and check the slope after ninety days of real use. <b>Cannot be tested before deployment,</b> which is exactly why no moat is claimed and why this row must not be inflated later</div>
+      <div class="wh dep">90 days deployed</div>
+    </div>
+    <div class="r rest">
+      <div class="n">7</div>
+      <div class="bl"><b>Key activities</b><span>planning, connectors, lineage, the harness</span></div>
+      <div class="hy">Per-hop verification measurably raises end-to-end accuracy over an unverified baseline</div>
+      <div class="ts">Build the fixed question set first, then measure with and without verification. This is the first-semester spike, tested against a hard-task baseline of roughly 15%</div>
+      <div class="wh eng">first semester</div>
+    </div>
+    <div class="r rest">
+      <div class="n">8</div>
+      <div class="bl"><b>Key partners</b><span>semantic layers, connector standard, model providers</span></div>
+      <div class="hy">Consuming an existing dbt or Cube semantic layer materially improves accuracy over raw schema introspection</div>
+      <div class="ts">The same question set against one schema, with and without its semantic layer attached. A large gain makes this the highest-leverage integration in the roadmap; a small one makes the semantic-layer story weaker than assumed</div>
+      <div class="wh eng">4 days</div>
+    </div>
+    <div class="r">
+      <div class="n">9</div>
+      <div class="bl"><b>Cost structure</b><span>inference, connectors, zero storage</span></div>
+      <div class="hy">Cost to serve one investigation stays below the threshold the modelled price implies, at realistic question volume</div>
+      <div class="ts">Instrument token spend per investigation in the spike and multiply by an assumed monthly volume. Computable from the architecture, which is why unit economics is retained while revenue projection is not</div>
+      <div class="wh eng">with the spike</div>
+    </div>
+    <div class="note"><b>*</b> The four blocks marked with an asterisk are the ones the shorter lean canvas drops. <b>Two of this venture's live decisions sit in them</b>, which is why they are restored here.</div>
+  </div>
+
+  <div class="foot">
+    <div class="zone v">
+      <div class="lbl">What makes the column worth having</div>
+      <h3>Seven of nine cost days, not months</h3>
+      <p>
+        All but two are runnable this semester. The remaining pair need a real deployment and are marked as such
+        rather than quietly scheduled alongside the others.
+      </p>
+    </div>
+    <div class="zone f">
+      <div class="lbl">Two tests, either one fatal, neither needing code</div>
+      <h3>Both are conversations</h3>
+      <p>
+        The first kills the neutrality argument and halves the addressable market. The fifth kills the market-type
+        declaration. <b>Conversations are the cheapest possible way to be wrong.</b>
+      </p>
+    </div>
+    <div class="zone d">
+      <div class="lbl">What the canvas concedes</div>
+      <h3>The weak block is weak honestly, and one partner is a tension</h3>
+      <p>
+        The team holds capability rather than assets, and the only candidate compounding resource cannot be tested
+        before deployment. Consuming someone else's semantic layer is the highest-leverage integration available
+        <b>and</b> deepens dependence on artifacts the customer maintains for another product. Worth doing, worth
+        naming.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>strategy/business_model_canvas.md</code> · the nine blocks and the three reading notes</span>
+    <span>Evidence: <code>[S4][S37][S38][S44][S62][S66]</code> · V52</span>
+  </div>
+</div>
+</body>
+</html>

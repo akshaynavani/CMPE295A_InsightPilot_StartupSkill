@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V55 · Sales roadmap</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:30px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .cols{display:flex;gap:22px;margin-top:15px;flex:1;min-height:0}
+  .c{display:flex;flex-direction:column;min-width:0}
+  .c1{width:306px;flex:none}
+  .c2{flex:1}
+  .c3{width:340px;flex:none}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:5px;border-bottom:2px solid var(--ink)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .tree{margin-top:10px}
+  .lvl{display:flex;justify-content:center;gap:6px}
+  .bx{border:1px solid var(--rule);border-radius:5px;padding:5px 8px;background:#fff;text-align:center;flex:1;min-width:0}
+  .bx b{display:block;font-size:10px;font-weight:700;color:var(--ink);line-height:1.2}
+  .bx span{display:block;font-size:8.5px;color:var(--muted);margin-top:1px;line-height:1.3}
+  .bx.buyer{background:#EDF3FA;border-color:var(--accent);border-width:2px}
+  .bx.buyer b{color:var(--accent);font-size:11px}
+  .bx.veto{background:#FDF7F6;border-color:var(--fail)}
+  .bx.veto b{color:var(--fail)}
+  .bx.user{background:#EAF3EC;border-color:var(--verify);border-width:2px}
+  .bx.user b{color:var(--verify);font-size:11px}
+  .bx.top{flex:0 0 150px}
+  .down{width:2px;height:8px;background:var(--rule);margin:0 auto}
+  .down.wide{width:62%;height:2px;margin:4px auto}
+  .detach{margin-top:9px;border:1px dashed var(--rule);border-radius:5px;padding:6px 8px;font-size:9.5px;line-height:1.4;color:var(--muted);text-align:center}
+  .detach b{color:var(--body)}
+  .fact{margin-top:9px;padding:8px 10px;background:var(--wash);border-radius:6px;font-size:10px;line-height:1.45}
+  .fact b{color:var(--ink)}
+  .inf{display:flex;gap:8px;padding:5.5px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.38;align-items:flex-start}
+  .inf .r{width:16px;flex:none;font-size:13px;font-weight:700;color:var(--accent);line-height:1.1}
+  .inf .a{width:106px;flex:none}
+  .inf .a b{display:block;font-size:10.5px;color:var(--ink);font-weight:700;line-height:1.2}
+  .inf .a span{display:block;font-size:8.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:1px}
+  .inf .how{flex:1}
+  .inf .nd{width:132px;flex:none;color:var(--body)}
+  .inf.one{background:#F4FAF6}
+  .inf.one .r{color:var(--verify)}
+  .inf.three{background:#FDF7F6}
+  .inf.three .r{color:var(--fail)}
+  .inf.none .r{color:var(--muted)}
+  .acc{display:flex;gap:8px;padding:5px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.38}
+  .acc .w{width:76px;flex:none}
+  .acc .w b{display:block;font-size:10px;color:var(--ink)}
+  .acc .w span{display:block;font-size:8.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-top:1px}
+  .acc .w span.y{color:var(--verify)}
+  .acc .w span.n{color:var(--fail)}
+  .acc .w span.wk{color:var(--doubt)}
+  .acc .p{flex:1}
+  .acc .p b{color:var(--ink)}
+  .bar{margin-top:9px;padding:8px 10px;border-radius:6px;font-size:10px;line-height:1.45;background:var(--wash)}
+  .bar.good{background:#EAF3EC}
+  .bar.bad{background:#F7EEEC}
+  .bar b{color:var(--ink)}
+  .steps{margin-top:13px;border-top:2px solid var(--ink);padding-top:9px}
+  .stl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .strip{display:flex;gap:6px;margin-top:7px}
+  .st{flex:1;border:1px solid var(--rule);border-radius:5px;padding:5px 7px;min-width:0}
+  .st .n{font-size:8px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+  .st b{display:block;font-size:9.5px;font-weight:700;color:var(--ink);margin-top:1px;line-height:1.2}
+  .st span{display:block;font-size:8.5px;color:var(--muted);margin-top:2px;line-height:1.3}
+  .st.piv{border:2px solid var(--accent);background:#EDF3FA}
+  .st.piv b{color:var(--accent)}
+  .st.comm{border:2px solid var(--fail);background:#FDF7F6}
+  .st.comm b{color:var(--fail)}
+  .src{margin-top:9px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Sales roadmap</div>
+  <h1>The person who feels the pain has no budget, and the person with budget never uses it</h1>
+  <p class="sub">
+    That gap is the sale. The only viable channel produces users rather than revenue, so every dollar arrives
+    through internal expansion, which is a sales process whether or not anyone is called a salesperson.
+  </p>
+
+  <div class="cols">
+    <div class="c c1">
+      <div class="ch">Organisation map</div>
+      <div class="tree">
+        <div class="lvl"><div class="bx top"><b>CFO and COO</b><span>budget authority above about $50k</span></div></div>
+        <div class="down"></div>
+        <div class="lvl"><div class="bx buyer"><b>VP of data and analytics</b><span>economic buyer · signs · does not use</span></div></div>
+        <div class="down"></div>
+        <div class="lvl">
+          <div class="bx"><b>Analytics manager</b><span>runs the queue, owns the team's time</span></div>
+          <div class="bx veto"><b>Data platform lead</b><span>security veto, no budget</span></div>
+          <div class="bx"><b>Staff data scientist</b><span>technical credibility</span></div>
+        </div>
+        <div class="down"></div>
+        <div class="lvl"><div class="bx user" style="flex:0 0 62%"><b>Data analysts, five to fifteen</b><span>user and champion · installs · advocates · cannot buy</span></div></div>
+      </div>
+      <div class="detach">Business stakeholders sit <b>outside this tree entirely.</b> They generate the demand and have no say in the purchase</div>
+      <div class="fact">
+        <b>Two structural facts.</b> The gap between who feels the pain and who holds the budget is the sale. And
+        <b>the platform lead can end the process without being in it,</b> because a security veto needs no budget
+        and no meeting.
+      </div>
+    </div>
+
+    <div class="c c2">
+      <div class="ch a">Influence map, ranked by ability to change the outcome</div>
+      <div class="inf one"><div class="r">1</div><div class="a"><b>The analyst</b><span>decisive</span></div><div class="how">Already using it. The purchase request originates with her and nothing happens without it</div><div class="nd">An answer she will stake her name on, and a trace she can show</div></div>
+      <div class="inf"><div class="r">2</div><div class="a"><b>The VP</b><span>authority</span></div><div class="how">Approves, or does not</div><div class="nd">A budget line this comes from, and a governance story</div></div>
+      <div class="inf three"><div class="r">3</div><div class="a"><b>Platform lead</b><span>veto, asymmetric</span></div><div class="how">One sentence about read access to production ends it</div><div class="nd">Self-hosted deployment, credentials that never leave, a readable audit log</div></div>
+      <div class="inf"><div class="r">4</div><div class="a"><b>Staff scientist</b><span>credibility gate</span></div><div class="how">The VP asks him whether it is sound, and his answer is the technical due diligence</div><div class="nd">Method-level lineage, override affordances, no leakage</div></div>
+      <div class="inf"><div class="r">5</div><div class="a"><b>Analytics manager</b><span>practical gatekeeper</span></div><div class="how">Owns the queue and the team's time, and can starve a rollout by allocating none</div><div class="nd">Evidence it shortens the queue rather than adding a tool to learn</div></div>
+      <div class="inf none"><div class="r">&ndash;</div><div class="a"><b>Business stakeholder</b><span>none in the purchase</span></div><div class="how">Generates demand and is never consulted</div><div class="nd">&nbsp;</div></div>
+      <div class="bar good">
+        <b>The contestable claim this map makes:</b> the analyst outranks the budget owner. In a self-serve motion
+        the product is already in use before any purchase conversation exists, so the VP is not deciding whether to
+        try something. <b>She is deciding whether to formalise something her team already relies on,</b> which is a
+        materially easier decision and a different sale.
+      </div>
+      <div class="bar bad">
+        <b>Where the claim breaks.</b> If the security veto fires before adoption spreads, the analyst never gets to
+        advocate. <b>The platform lead is therefore the first actor to satisfy chronologically despite being third
+        by influence,</b> which is the commercial content of the self-hosted decision.
+      </div>
+    </div>
+
+    <div class="c c3">
+      <div class="ch f">Access map: how a stranger reaches each actor</div>
+      <div class="acc"><div class="w"><b>The analyst</b><span class="y">cold-reachable</span></div><div class="p">Repository, analyst communities, meetups, and the published benchmark. <b>This is the only cold-access path in the whole map.</b> Cost is founder hours</div></div>
+      <div class="acc"><div class="w"><b>Platform lead</b><span class="n">no</span></div><div class="p">Reached through documentation before he is reached through conversation. He evaluates artifacts, not pitches</div></div>
+      <div class="acc"><div class="w"><b>Staff scientist</b><span class="wk">weakly</span></div><div class="p">Through technical publication. Convinced by method and not by demo, and it comes free with the spike</div></div>
+      <div class="acc"><div class="w"><b>The VP</b><span class="n">no</span></div><div class="p">Introduced by the analyst after internal use is established, and never prospected. Three to nine months from first install, which is an assumption</div></div>
+      <div class="acc"><div class="w"><b>Analytics manager</b><span class="n">no</span></div><div class="p">Through the analyst, or through observing the queue shorten</div></div>
+      <div class="bar">
+        <b>One conclusion: there is exactly one door.</b> Everything else in this map is reached after that door
+        opens, which is why a single channel runs and why outbound is ruled out. <b>There is no second door to spend
+        money on.</b>
+      </div>
+      <div class="ch" style="margin-top:11px">What the roadmap cannot know yet</div>
+      <div class="bar">
+        Whether internal advocacy actually converts, and the three-to-nine-month estimate has nothing behind it.
+        Whether security review fires on the first install or at purchase. Whether accounts hold ten analysts or
+        fifty. <b>And whether the buyer has a line item at all.</b> All four are answerable in the first ten
+        conversations.
+      </div>
+    </div>
+  </div>
+
+  <div class="steps">
+    <div class="stl">The process, and the artifact each step requires</div>
+    <div class="strip">
+      <div class="st"><div class="n">1 · analyst</div><b>Discovers the tool</b><span>A readme answering the comparison above the fold, and a quickstart under thirty minutes</span></div>
+      <div class="st"><div class="n">2 · analyst</div><b>First real investigation</b><span>Working connectors and the lineage view. She runs a real question, not the sample</span></div>
+      <div class="st piv"><div class="n">3 · analyst</div><b>The verification moment</b><span>A hop-level trace she can spot-check. <b>She accepts an answer she did not derive.</b> The pivotal event, and the untested claim</span></div>
+      <div class="st"><div class="n">4 · colleague</div><b>Sharing</b><span>An exportable self-contained investigation. A second analyst installs and the loop closes</span></div>
+      <div class="st"><div class="n">5 · platform</div><b>Security review</b><span>Deployment guide, credential handling, audit log, data-flow diagram. No veto</span></div>
+      <div class="st"><div class="n">6 · scientist</div><b>Technical diligence</b><span>Whitepaper, the published accuracy number, method lineage on a model output</span></div>
+      <div class="st comm"><div class="n">7 · analyst to VP</div><b>Budget conversation</b><span><b>The hardest objection in the pack.</b> It needs a demonstration of the product reading her own semantic layer, not a sentence</span></div>
+      <div class="st"><div class="n">8 · VP</div><b>Close</b><span>Seat-level pricing and the open-core boundary stated clearly</span></div>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>strategy/sales_roadmap.md</code> §1 through §5</span>
+    <span>Evidence: <code>[S17][S29]</code> · V55</span>
+  </div>
+</div>
+</body>
+</html>

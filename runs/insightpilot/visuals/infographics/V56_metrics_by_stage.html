@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V56 · Metrics and vanity metrics</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:30px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .cols{display:flex;gap:16px;margin-top:15px;flex:1;min-height:0}
+  .stg{display:flex;flex-direction:column;min-width:0}
+  .s1{flex:1.06}
+  .s2{flex:1.12}
+  .s3{flex:.9}
+  .right{width:318px;flex:none;display:flex;flex-direction:column}
+  .sh{border-top:3px solid var(--accent);padding-top:6px}
+  .sh.now{border-top-color:var(--verify)}
+  .sh.far{border-top-color:var(--rule)}
+  .sh .n{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+  .sh.now .n{color:var(--verify)}
+  .sh.far .n{color:var(--muted)}
+  .sh .q{font-size:9.5px;line-height:1.4;color:var(--body);margin-top:3px}
+  .sh .q b{color:var(--ink)}
+  .lbl{font-size:8.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-top:9px}
+  .m{display:flex;gap:7px;padding:4px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.35}
+  .m .t{flex:1}
+  .m .t b{color:var(--ink)}
+  .m .t span{display:block;color:var(--muted);font-size:8.5px;margin-top:1px}
+  .m .th{flex:none;font-size:8.5px;font-weight:700;color:var(--accent);white-space:nowrap;font-variant-numeric:tabular-nums;padding-top:1px}
+  .m.hot{background:#EDF3FA}
+  .m.flag .th{color:var(--fail)}
+  .ig{display:flex;gap:7px;padding:4px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.35}
+  .ig .x{width:12px;flex:none;color:var(--fail);font-weight:700}
+  .ig .t{flex:1}
+  .ig .t b{color:var(--ink);display:block}
+  .ig .t span{display:block;color:var(--muted);margin-top:1px}
+  .igwrap{margin-top:2px;background:#FDF7F6;border-radius:5px;padding:5px 8px}
+  .far{margin-top:auto;padding-top:9px}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:5px;border-bottom:2px solid var(--ink)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .band{margin-top:10px}
+  .band .tk{height:22px;display:flex;border-radius:4px;overflow:hidden;font-size:8.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .band .tk div{display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;line-height:1.15;padding:0 3px}
+  .band .bad{background:#C9776C}
+  .band .good{background:var(--verify)}
+  .band .sc{display:flex;justify-content:space-between;font-size:8.5px;color:var(--muted);margin-top:2px;font-variant-numeric:tabular-nums}
+  .rd{display:flex;gap:8px;padding:4.5px 0;border-bottom:1px dashed var(--rule);font-size:9.5px;line-height:1.38}
+  .rd .k{width:52px;flex:none;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+  .rd .t{flex:1}
+  .rd .v{width:48px;flex:none;text-align:right;font-size:8.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .rd .v.f{color:var(--fail)}
+  .rd .v.g{color:var(--verify)}
+  .bar{margin-top:9px;padding:9px 11px;border-radius:6px;font-size:10px;line-height:1.45;background:var(--wash)}
+  .bar.bad{background:#F7EEEC}
+  .bar.good{background:#EAF3EC}
+  .bar b{color:var(--ink)}
+  .src{margin-top:11px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Metrics by stage</div>
+  <h1>This product's most flattering metrics are its least informative ones</h1>
+  <p class="sub">
+    A repository generates stars, a demo generates enthusiasm, and a verification surface generates an inspection
+    rate that is healthiest in the middle. Without this page, a team under review pressure reports the numbers that
+    go up. The ignore column carries more information than the track column.
+  </p>
+
+  <div class="cols">
+    <div class="stg s1">
+      <div class="sh now"><div class="n">Discovery · current stage</div><div class="q">Is the problem real, and <b>is our reading of it right?</b></div></div>
+      <div class="lbl">Track</div>
+      <div class="m"><div class="t"><b>Share of an analyst's last twenty real requests spanning more than one source</b><span>median across ten analysts</span></div><div class="th">≥ 25%</div></div>
+      <div class="m hot"><div class="t"><b>Verification cost ratio</b><span>minutes to accept or reject, over minutes to derive</span></div><div class="th">≤ 0.5</div></div>
+      <div class="m"><div class="t"><b>Seeded-defect rejection with the trace, against control</b><span>whether verification works, not what it costs</span></div><div class="th">≥ 70%</div></div>
+      <div class="m"><div class="t"><b>Buyers naming a specific budget line</b><span>company or feature</span></div><div class="th">3 of 5</div></div>
+      <div class="m flag"><div class="t"><b>Surprise count</b><span>findings per interview that contradicted the pack</span></div><div class="th">&gt; 0 per 3</div></div>
+      <div class="lbl" style="color:var(--fail)">Ignore</div>
+      <div class="igwrap">
+        <div class="ig"><div class="x">&#10005;</div><div class="t"><b>Stars and repository traffic</b><span>Measures whether the readme is interesting. An open-source peer has thirteen thousand stars and that says nothing about whether this thesis holds</span></div></div>
+        <div class="ig"><div class="x">&#10005;</div><div class="t"><b>Analysts said they liked it</b><span>Enthusiasm in a problem interview usually means the interviewer pitched</span></div></div>
+        <div class="ig"><div class="x">&#10005;</div><div class="t"><b>Number of interviews conducted</b><span>Twenty unscreened conversations are worth less than eight screened ones</span></div></div>
+        <div class="ig"><div class="x">&#10005;</div><div class="t"><b>Document count in this pack</b><span>A complete pack is not progress, and the stage gate says so in plain terms</span></div></div>
+        <div class="ig"><div class="x">&#10005;</div><div class="t"><b>Demo requests</b><span>There is nothing to demo, and wanting to see something is not wanting to use it</span></div></div>
+      </div>
+    </div>
+
+    <div class="stg s2">
+      <div class="sh"><div class="n">Validation</div><div class="q">Does the thing work, and <b>will they adopt it unaided?</b></div></div>
+      <div class="lbl">Track</div>
+      <div class="m"><div class="t"><b>Multi-hop execution accuracy on the fixed set</b><span>the only number no commercial product publishes</span></div><div class="th">≥ 50%</div></div>
+      <div class="m flag"><div class="t"><b>Silent-error rate</b><span>seeded defects escaping every check. <b>The metric most likely to be quietly dropped because it makes the system look bad</b></span></div><div class="th">report it<br>regardless</div></div>
+      <div class="m"><div class="t"><b>Clone to first successful investigation, median</b><span>the gate on the only channel with viable economics</span></div><div class="th">&lt; 30 min</div></div>
+      <div class="m hot"><div class="t"><b>Hop-inspection rate</b><span>the band, not the direction, is the signal</span></div><div class="th">20 to 60%</div></div>
+      <div class="m"><div class="t"><b>Analyst review time per week</b><span>the champion's tripwire</span></div><div class="th">&lt; 4 h, flat</div></div>
+      <div class="lbl" style="color:var(--fail)">Ignore</div>
+      <div class="igwrap">
+        <div class="ig"><div class="x">&#10005;</div><div class="t"><b>Total investigations run</b><span>Design partners run them because you asked. Split the cohorts or the number means nothing</span></div></div>
+        <div class="ig"><div class="x">&#10005;</div><div class="t"><b>Accuracy on the easy subset</b><span>One benchmark tops 96.7% on its curated setting and drops to 65.6% with real project structure. Reporting only the easy split is the exact selective reading this pack criticises incumbents for</span></div></div>
+        <div class="ig"><div class="x">&#10005;</div><div class="t"><b>Time to answer alone</b><span>A fast wrong answer scores well, which is why the outcome metric is time to a verified answer</span></div></div>
+        <div class="ig"><div class="x">&#10005;</div><div class="t"><b>Doubt-surfacing frequency</b><span>Surfacing a lot of doubt looks conscientious. Only calibration makes it meaningful, and that is unmeasured</span></div></div>
+        <div class="ig"><div class="x">&#10005;</div><div class="t"><b>Installs</b><span>An install that never reaches a successful investigation is a download, not a user</span></div></div>
+      </div>
+    </div>
+
+    <div class="stg s3">
+      <div class="sh"><div class="n">Customer creation</div><div class="q">Does one user become two <b>without us?</b></div></div>
+      <div class="lbl">Track</div>
+      <div class="m"><div class="t"><b>Deployments reaching a second analyst with no founder involvement</b></div><div class="th">≥ 20%<br>by wk 12</div></div>
+      <div class="m"><div class="t"><b>Override rate per source, trend over ninety days</b><span>the only evidence for the moat candidate</span></div><div class="th">falling</div></div>
+      <div class="m"><div class="t"><b>Exports per active analyst per week</b><span>the compounding loop's only edge</span></div><div class="th">≥ 1</div></div>
+      <div class="m"><div class="t"><b>Deployments where a budget owner is asked to fund it</b></div><div class="th">≥ 10%<br>by wk 24</div></div>
+      <div class="lbl" style="color:var(--fail)">Ignore</div>
+      <div class="igwrap">
+        <div class="ig"><div class="x">&#10005;</div><div class="t"><b>Cumulative installs</b><span>Growth without retention</span></div></div>
+        <div class="ig"><div class="x">&#10005;</div><div class="t"><b>Community size</b><span>Correlates with interest, not with use</span></div></div>
+        <div class="ig"><div class="x">&#10005;</div><div class="t"><b>Feature request volume</b><span>Reads as engagement, and often signals the core loop is unfinished</span></div></div>
+      </div>
+      <div class="far">
+        <div class="sh far"><div class="n">Company building</div><div class="q">Beyond the honest planning horizon. One metric is worth fixing now because its instrumentation has to exist from day one: <b>verification cost ratio measured in production rather than in a lab.</b> It is only measurable if sign-off timing is captured from the first deployment</div></div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="ch">The one metric where both extremes fail</div>
+      <div class="band">
+        <div class="tk"><div class="bad" style="width:20%">trusting blind</div><div class="good" style="width:40%">healthy</div><div class="bad" style="width:40%">re-deriving everything</div></div>
+        <div class="sc"><span>0%</span><span>20%</span><span>60%</span><span>100%</span></div>
+      </div>
+      <div class="rd"><div class="k">~0%</div><div class="t">Nobody opens the trace. Trusting blind, which is unsafe, and it makes the differentiator decorative</div><div class="v f">failure</div></div>
+      <div class="rd"><div class="k">20 to 60%</div><div class="t">They check when something feels off, guided by what the system flags</div><div class="v g">healthy</div></div>
+      <div class="rd"><div class="k">~100%</div><div class="t">They check everything. Re-derivation wearing a nicer interface, and the cost ratio is about 1.0</div><div class="v f">failure</div></div>
+      <div class="bar">
+        <b>Which is why engagement is the wrong frame for this product.</b> A metric that goes up is normally good.
+        Here, driving inspection toward 100% would mean the system had lost their trust entirely. No competitor has
+        an analogous metric, because none has a verify beat to instrument.
+      </div>
+      <div class="ch f" style="margin-top:12px">The metric this team will most want to report</div>
+      <div class="bar bad">
+        <b>A working demo.</b> It is the most natural thing to show an advisor and nearly uninformative here, because
+        a demo shows one path working once. Agents above 60% on a single attempt fall below 25% when eight
+        consecutive attempts must all succeed, <b>so a demo that works is consistent with a system that fails three
+        times in four.</b>
+      </div>
+      <div class="bar good">
+        <b>The honest substitute</b> is the harness number with its question set published. Less impressive, harder
+        to produce, and the only claim that survives someone re-running it. <b>Second most tempting is reporting
+        accuracy without the silent-error rate,</b> which is the flattering half on its own.
+      </div>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>validation/metrics_by_stage.md</code> §1 through §5</span>
+    <span>Evidence: <code>[S1][S4][S5][S50]</code> · V56</span>
+  </div>
+</div>
+</body>
+</html>
