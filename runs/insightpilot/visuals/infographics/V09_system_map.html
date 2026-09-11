@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V09 · System map</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:36px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:29px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:8px;max-width:1030px;line-height:1.5}
+  .boundary{margin-top:18px;border:2px dashed var(--verify);border-radius:9px;padding:13px;background:#F6FAF7;position:relative;flex:1;display:flex;flex-direction:column}
+  .btag{position:absolute;top:-9px;left:16px;background:var(--verify);color:#fff;font-size:9px;font-weight:700;letter-spacing:.09em;padding:2px 8px;border-radius:3px}
+  .tiers{display:flex;gap:11px;align-items:stretch;flex:1}
+  .col{flex:1;display:flex;flex-direction:column;gap:8px}
+  .col.wide{flex:1.5}
+  .box{border:1px solid var(--rule);border-radius:6px;padding:9px 10px;background:#fff}
+  .box .t{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .box h2{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:3px;line-height:1.2}
+  .box p{font-size:10px;line-height:1.35;color:var(--body);margin-top:4px}
+  .box.orch{background:#EDF3FA;border-color:#C4D8EE;flex:1;display:flex;flex-direction:column;justify-content:center}
+  .box.orch h2{font-size:15px;color:var(--accent)}
+  .box.ver{background:#EAF3EC;border-color:#BFDCC9}
+  .box.ver h2{color:var(--verify)}
+  .agents{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+  .agents .box{min-height:56px}
+  .stores{display:flex;gap:8px}
+  .stores .box{flex:1}
+  .egress{margin-top:11px;display:flex;align-items:center;gap:12px;border-top:1px solid var(--rule);padding-top:11px}
+  .egress .lab{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--doubt);white-space:nowrap}
+  .egress .arrow{flex:1;height:2px;background:var(--doubt);position:relative}
+  .egress .arrow:after{content:"";position:absolute;right:0;top:-4px;border-left:8px solid var(--doubt);border-top:5px solid transparent;border-bottom:5px solid transparent}
+  .egress .ext{border:1px solid #E8D3AE;background:#FDF3E6;border-radius:6px;padding:8px 12px;font-size:11px;font-weight:650;color:var(--ink);white-space:nowrap}
+  .egress .ext span{display:block;font-weight:400;font-size:9.5px;color:var(--muted);margin-top:2px}
+  .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:16px}
+  .zone{border-top:2px solid var(--ink);padding-top:9px}
+  .zone.v{border-top-color:var(--verify)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:13px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .src{margin-top:11px;padding-top:9px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · System map</div>
+  <h1>Everything runs inside the customer's boundary, with one arrow leaving</h1>
+  <p class="sub">
+    Orchestration, agents, connectors, bindings, lineage and the audit log all sit inside the customer
+    environment. The single crossing is to a model provider, on the customer's own key, and it is configurable
+    down to schema only. That is what makes neutrality a property rather than a claim.
+  </p>
+
+  <div class="boundary">
+    <div class="btag">Customer environment</div>
+    <div class="tiers">
+      <div class="col">
+        <div class="box"><div class="t">Ask and follow up</div><h2>Investigation surface</h2><p>Question, established facts, source scope, turn history</p></div>
+        <div class="box"><div class="t">Ground</div><h2>Semantic resolver</h2><p>Hybrid retrieval, value linking, halt on margin</p></div>
+        <div class="box ver"><div class="t">Verify</div><h2>Lineage surface</h2><p>Inspect a step, re-run it, override it, export it</p></div>
+      </div>
+      <div class="col wide">
+        <div class="box orch">
+          <div class="t">The single writer</div>
+          <h2>Orchestrator</h2>
+          <p>Owns the plan DAG and all routing. Every handoff passes through it, which is why there is exactly one place lineage is appended and one place verification fires.</p>
+        </div>
+        <div class="agents">
+          <div class="box"><div class="t">Agent</div><h2>Data fetch</h2></div>
+          <div class="box"><div class="t">Agent</div><h2>Analytics</h2></div>
+          <div class="box"><div class="t">Agent</div><h2>Visualization</h2></div>
+          <div class="box"><div class="t">Agent · minutes</div><h2>ML</h2></div>
+        </div>
+        <div class="box ver"><div class="t">After every handoff</div><h2>Step verifier</h2><p>Six structural checks in plain SQL. Zero model calls, so the cheapest thing in the system is the differentiating one</p></div>
+      </div>
+      <div class="col">
+        <div class="box"><div class="t">Read only</div><h2>Connector layer</h2><p>PostgreSQL, CSV and Excel via DuckDB, REST services</p></div>
+        <div class="box"><div class="t">Supplier, not source</div><h2>Semantic interface</h2><p>dbt and Cube definitions take hard precedence over inferred bindings</p></div>
+        <div class="stores">
+          <div class="box"><div class="t">Store</div><h2>Bindings</h2></div>
+          <div class="box"><div class="t">Store</div><h2>Lineage</h2></div>
+        </div>
+        <div class="box"><div class="t">Grep-able file</div><h2>Audit log</h2><p>Every query issued, readable without the app running</p></div>
+      </div>
+    </div>
+
+    <div class="egress">
+      <div class="lab">Only egress</div>
+      <div class="arrow"></div>
+      <div class="ext">Model provider<span>customer's own key · schema-only mode available</span></div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <div class="zone v">
+      <div class="lbl">What is absent by design</div>
+      <h3>No write path exists</h3>
+      <p>Not disabled, absent. Combined with a read-only role, the blast radius of a total compromise is what the analyst could already read.</p>
+    </div>
+    <div class="zone">
+      <div class="lbl">Single tenant by construction</div>
+      <h3>No shared control plane</h3>
+      <p>There is no cross-organisation path to secure, because there is none. Growth is a distribution problem rather than an infrastructure one.</p>
+    </div>
+    <div class="zone">
+      <div class="lbl">What it costs</div>
+      <h3>The flywheel is the customer's</h3>
+      <p>Each deployment's binding store starts empty. A hundred deployments produce a hundred learning curves, which directly caps the moat candidate.</p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>tech/architecture/00_INDEX.md</code> and D01 through D10 · <code>tech/deep_dives.md</code></span>
+    <span>V09</span>
+  </div>
+</div>
+</body>
+</html>

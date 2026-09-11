@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V24 · Technique by feature</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:36px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:29px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:8px;max-width:1030px;line-height:1.5}
+  .heat{margin-top:18px;border:1px solid var(--rule);border-radius:7px;overflow:hidden}
+  .hrow{display:flex;border-bottom:1px solid var(--rule);align-items:stretch}
+  .hrow:last-child{border-bottom:none}
+  .hrow.head{background:var(--wash)}
+  .hcell{flex:1;padding:7px 6px;font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);text-align:center;border-left:1px solid var(--rule);line-height:1.25}
+  .fname{width:266px;flex:none;padding:8px 11px;font-size:11px;font-weight:650;color:var(--ink);line-height:1.3;display:flex;align-items:center;gap:7px}
+  .fname .id{color:var(--muted);font-weight:700;min-width:20px}
+  .cell{flex:1;border-left:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+  .c3{background:#1F5FA8;color:#fff}
+  .c2{background:#7FA5CC;color:#fff}
+  .c1{background:#CBD9E9;color:#2C4A6B}
+  .c0{background:#fff;color:var(--rule)}
+  .gap{background:#F7EEEC;color:var(--fail)}
+  .hrow.weak .fname{color:var(--fail)}
+  .legend{display:flex;gap:16px;margin-top:9px;font-size:10px;color:var(--muted);align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .sw{width:13px;height:11px;border-radius:2px;display:inline-block;border:1px solid var(--rule)}
+  .zones{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:18px;flex:1}
+  .zone{border-top:2px solid var(--fail);padding-top:10px}
+  .zone.n{border-top-color:var(--ink)}
+  .zone .lbl{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:13.5px;font-weight:650;color:var(--ink);margin-top:5px;line-height:1.3}
+  .zone p{font-size:11px;line-height:1.5;margin-top:6px}
+  .src{margin-top:12px;padding-top:10px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Technique coverage</div>
+  <h1>The verification layer is well armed. Statistical honesty is not</h1>
+  <p class="sub">
+    Techniques drawn from three waves, mapped onto the flagship features. The pattern that matters is not the
+    density but where it thins: mechanical correctness has nine techniques behind it, while the two features
+    that concern statistical honesty are supported by candidates rather than dependencies.
+  </p>
+
+  <div class="heat">
+    <div class="hrow head">
+      <div class="fname" style="font-size:9px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)">Flagship feature</div>
+      <div class="hcell">Schema<br>linking</div>
+      <div class="hcell">Profiling<br>reconcile</div>
+      <div class="hcell">Query<br>construct</div>
+      <div class="hcell">Structural<br>checks</div>
+      <div class="hcell">Statistical<br>method</div>
+      <div class="hcell">Lineage<br>provenance</div>
+      <div class="hcell">Agent<br>frontier</div>
+      <div class="hcell">Cross-domain<br>imports</div>
+    </div>
+    <div class="hrow">
+      <div class="fname"><span class="id">02</span>Ambiguity interception</div>
+      <div class="cell c3">5</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c1">1</div><div class="cell c0">·</div>
+    </div>
+    <div class="hrow">
+      <div class="fname"><span class="id">04</span>Analysis plan shown first</div>
+      <div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c2">2</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c2">2</div><div class="cell c1">1</div>
+    </div>
+    <div class="hrow">
+      <div class="fname"><span class="id">08</span>Semantic layer consumption</div>
+      <div class="cell c1">1</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c1">1</div>
+    </div>
+    <div class="hrow">
+      <div class="fname"><span class="id">09</span>Per-step verification</div>
+      <div class="cell c0">·</div><div class="cell c2">2</div><div class="cell c0">·</div><div class="cell c3">7</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c1">1</div><div class="cell c0">·</div>
+    </div>
+    <div class="hrow">
+      <div class="fname"><span class="id">11</span>ML agent, time-boxed</div>
+      <div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c3">6</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div>
+    </div>
+    <div class="hrow weak">
+      <div class="fname"><span class="id">13</span>Doubt surfacing</div>
+      <div class="cell c0">·</div><div class="cell c2">2</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell gap">gap</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div>
+    </div>
+    <div class="hrow weak">
+      <div class="fname"><span class="id">14</span>Established facts, diagnostic</div>
+      <div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell gap">gap</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c1">1</div>
+    </div>
+    <div class="hrow">
+      <div class="fname"><span class="id">15</span>Step-level lineage</div>
+      <div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c2">2</div><div class="cell c0">·</div><div class="cell c2">2</div>
+    </div>
+    <div class="hrow">
+      <div class="fname"><span class="id">16</span>Single-step re-run</div>
+      <div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c1">1</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c2">2</div><div class="cell c0">·</div><div class="cell c0">·</div>
+    </div>
+    <div class="hrow">
+      <div class="fname"><span class="id">18</span>Exportable investigation</div>
+      <div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c1">1</div><div class="cell c0">·</div><div class="cell c2">2</div>
+    </div>
+    <div class="hrow">
+      <div class="fname"><span class="id">19</span>Sign-off state</div>
+      <div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c0">·</div><div class="cell c1">1</div><div class="cell c1">1</div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span><i class="sw c0"></i> none</span>
+    <span><i class="sw c1"></i> one technique</span>
+    <span><i class="sw c2"></i> two</span>
+    <span><i class="sw c3"></i> five or more</span>
+    <span><i class="sw gap" style="background:#F7EEEC"></i> unsupported, candidate only</span>
+    <span style="margin-left:auto">113 techniques across three waves · 5 orphaned · 3 features thinly supported</span>
+  </div>
+
+  <div class="zones">
+    <div class="zone">
+      <div class="lbl">The two high-severity gaps</div>
+      <h3>Both concern statistical honesty, not mechanics</h3>
+      <p>
+        Diagnostic questions run contribution analysis across many dimension members with no
+        multiple-comparisons correction, so the system will confidently name noise as a driver and no
+        structural check will catch it. Doubt surfacing has no calibration measurement, so its self-assessment
+        is currently unfalsifiable.
+      </p>
+    </div>
+    <div class="zone n">
+      <div class="lbl">Where the support is oldest</div>
+      <h3>The differentiator rests on imports</h3>
+      <p>
+        Features 15, 16 and 18 draw mostly on audit trails, chain of custody and reproducible research.
+        Disciplines that solved trust-what-you-did-not-do long ago. Technique support that is old and
+        well-tested is a stronger position than novelty.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>tech/techniques/technique_feature_matrix.md</code> §1, §3 and §4</span>
+    <span>V24</span>
+  </div>
+</div>
+</body>
+</html>

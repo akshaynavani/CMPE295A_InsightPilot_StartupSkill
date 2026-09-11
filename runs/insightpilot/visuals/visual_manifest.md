@@ -54,14 +54,14 @@ Every infographic in this set obeys these, so the pack reads as one system rathe
 | V04 | The stakeholder who cannot verify: gated until an analyst signs | users | product/journeys/edge_low.md | html | html |
 | V05 | The reviewer's two hours become nineteen minutes | users | product/journeys/edge_high.md | html | html |
 | V06 | One ordinary Tuesday across five roles | users | product/journeys/day_in_life.md | html | html |
-| V07 | Twelve screens: the interface surface | users | product/ux_spec.md | html | planned |
+| V07 | Twelve screens: the interface surface | users | product/ux_spec.md | html | html |
 | V08 | The verification tick problem: what green does and does not mean | users | product/ux_spec.md | html | html |
 
 ## 4. Audience B — Operators and the build team
 
 | ID | Title | Audience | Source | Form | Status |
 |---|---|---|---|---|---|
-| V09 | System map: the whole architecture on one canvas | operators | tech/architecture/00_INDEX.md | html | planned |
+| V09 | System map: the whole architecture on one canvas | operators | tech/architecture/00_INDEX.md | html | html |
 | V10 | Investigation pipeline, end to end | operators | tech/architecture/D01_investigation_pipeline.md | mermaid | mermaid |
 | V11 | Verify-and-replan closed loop | operators | tech/architecture/D02_verify_replan_loop.md | mermaid | mermaid |
 | V12 | Agent orchestration: the star topology | operators | tech/architecture/D03_agent_orchestration.md | mermaid | mermaid |
@@ -76,8 +76,8 @@ Every infographic in this set obeys these, so the pack reads as one system rathe
 | V21 | Seven components, five buildable and two research risk | operators | tech/deep_dives.md | html | html |
 | V22 | Feature roadmap: Now / Next / Later with the cut list | operators | product/features_prioritized.md | html | html |
 | V23 | The twenty flagship features by loop phase | operators | product/features_flagship.md | html | planned |
-| V24 | Technique × feature matrix, with orphans and gaps | operators | tech/techniques/technique_feature_matrix.md | html | planned |
-| V25 | Three technique waves: 44 / 38 / 31, and eight declines | operators | tech/techniques/wave1.md, tech/techniques/wave2.md, tech/techniques/wave3.md | html | planned |
+| V24 | Technique × feature matrix, with orphans and gaps | operators | tech/techniques/technique_feature_matrix.md | html | html |
+| V25 | Three technique waves: 44 / 38 / 31, and eight declines | operators | tech/techniques/wave1.md, tech/techniques/wave2.md, tech/techniques/wave3.md | html | html |
 | V26 | Named stack, and the line between engineering and research | operators | tech/not_vaporware.md | html | planned |
 | V27 | Ten principles every feature must map to | operators | product/PRD.md | html | html |
 

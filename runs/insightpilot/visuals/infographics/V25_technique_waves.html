@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V25 · Three technique waves</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:36px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:29px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:8px;max-width:1030px;line-height:1.5}
+  .waves{display:flex;gap:14px;margin-top:20px}
+  .w{flex:1;border:1px solid var(--rule);border-radius:7px;overflow:hidden;display:flex;flex-direction:column}
+  .w .hd{padding:11px 13px;border-bottom:1px solid var(--rule)}
+  .w .hd .n{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .w .hd h2{font-size:15px;font-weight:700;color:var(--ink);margin-top:3px}
+  .w .hd .cnt{font-size:26px;font-weight:700;color:var(--accent);margin-top:5px;letter-spacing:-.02em}
+  .w .hd .cnt span{font-size:11px;font-weight:400;color:var(--muted);letter-spacing:0}
+  .w.w1 .hd{background:#EDF3FA}
+  .w.w2 .hd{background:var(--wash)}
+  .w.w3 .hd{background:#FDF3E6}
+  .w.w3 .hd .cnt{color:var(--doubt)}
+  .w .body{padding:11px 13px;flex:1;display:flex;flex-direction:column}
+  .cl{font-size:10.5px;line-height:1.5;padding:3px 0;border-bottom:1px dashed var(--rule);display:flex;justify-content:space-between;gap:8px}
+  .cl:last-of-type{border-bottom:none}
+  .cl b{color:var(--ink);font-weight:600}
+  .cl i{font-style:normal;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .note{margin-top:auto;padding-top:10px;border-top:1px solid var(--rule);font-size:10.5px;line-height:1.45;color:var(--body)}
+  .note b{color:var(--ink)}
+  .zones{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:22px;margin-top:20px;flex:1}
+  .zone{border-top:2px solid var(--ink);padding-top:10px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.v{border-top-color:var(--verify)}
+  .zone .lbl{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:13.5px;font-weight:650;color:var(--ink);margin-top:5px;line-height:1.3}
+  .zone p{font-size:11px;line-height:1.5;margin-top:6px}
+  .dec{margin-top:7px;font-size:10.5px;line-height:1.45}
+  .dec div{padding:2px 0;border-bottom:1px dashed var(--rule)}
+  .dec div:last-child{border-bottom:none}
+  .src{margin-top:12px;padding-top:10px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Technique arsenal</div>
+  <h1>113 techniques, and the most useful cluster is the one borrowed from other fields</h1>
+  <p class="sub">
+    Three waves, none padded to a round number. Each stops where the field genuinely runs out and says so.
+    The frontier wave is the shortest, because most of the current agent literature addresses problems a
+    six-step read-only loop with three human gates does not have.
+  </p>
+
+  <div class="waves">
+    <div class="w w1">
+      <div class="hd"><div class="n">Wave 1</div><h2>Established practice</h2><div class="cnt">44<span> techniques · 43 used</span></div></div>
+      <div class="body">
+        <div class="cl"><b>Schema understanding and linking</b><i>8</i></div>
+        <div class="cl"><b>Profiling and reconciliation</b><i>9</i></div>
+        <div class="cl"><b>Query construction and repair</b><i>7</i></div>
+        <div class="cl"><b>Verification and data quality</b><i>8</i></div>
+        <div class="cl"><b>Analytical methods</b><i>6</i></div>
+        <div class="cl"><b>Statistical baselines</b><i>6</i></div>
+        <div class="cl"><b>Lineage and hygiene</b><i>5</i></div>
+        <div class="note"><b>Stopped at 44, not 50.</b> The remaining candidates were duplicates under other names or belonged to fields this system does not touch. Padding would have meant listing the same technique three ways.</div>
+      </div>
+    </div>
+    <div class="w w2">
+      <div class="hd"><div class="n">Wave 2</div><h2>Advanced and theory-grounded</h2><div class="cnt">38<span> techniques · 17 used</span></div></div>
+      <div class="body">
+        <div class="cl"><b>Program synthesis</b><i>7</i></div>
+        <div class="cl"><b>Reliability and error propagation</b><i>7</i></div>
+        <div class="cl"><b>Decision theory and uncertainty</b><i>6</i></div>
+        <div class="cl"><b>Retrieval and ranking</b><i>6</i></div>
+        <div class="cl"><b>Database and dimensional theory</b><i>6</i></div>
+        <div class="cl"><b>Queueing and operations</b><i>6</i></div>
+        <div class="note"><b>Three gaps surfaced here</b> that wave 1 could not see: no multiple-comparisons correction, no slowly-changing-dimension handling, and no consistency measurement across repeated runs.</div>
+      </div>
+    </div>
+    <div class="w w3">
+      <div class="hd"><div class="n">Wave 3</div><h2>Frontier and cross-domain</h2><div class="cnt">31<span> techniques · 15 used · 8 declined</span></div></div>
+      <div class="body">
+        <div class="cl"><b>Agent and LLM frontier</b><i>13</i></div>
+        <div class="cl"><b>Cross-domain imports</b><i>9</i></div>
+        <div class="cl"><b>Evaluation frontier</b><i>5</i></div>
+        <div class="cl"><b>Emerging and speculative</b><i>4</i></div>
+        <div class="note"><b>Stopped well short of 50, and the shortfall is the finding.</b> Long-horizon autonomy, tool discovery and open-ended navigation solve problems this system does not have.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="zones">
+    <div class="zone v">
+      <div class="lbl">The highest hit rate in the arsenal</div>
+      <h3>Cross-domain: 6 used, 3 candidates, 0 declined</h3>
+      <p>
+        Financial audit made the trail the deliverable. Accounting gave four-eyes. Forensics gave chain of
+        custody. Scientific computing gave reproducible artifacts. Clinical trials gave pre-registration,
+        which is what the shown-plan gate already is without having claimed the name.
+      </p>
+    </div>
+    <div class="zone f">
+      <div class="lbl">Eight declines, five of them fashionable</div>
+      <h3>Reflection, debate and LLM-as-judge are refused</h3>
+      <div class="dec">
+        <div>Self-critique loops · same failure mode as the output</div>
+        <div>Multi-agent debate · same objection, twice the cost</div>
+        <div>LLM-as-judge · the harness has ground truth</div>
+        <div>Long-horizon autonomy · three mandatory human gates</div>
+        <div>Small-model self-hosting · 89% tool-init failure</div>
+      </div>
+    </div>
+    <div class="zone">
+      <div class="lbl">What this says about novelty</div>
+      <h3>The techniques are old. The composition is not</h3>
+      <p>
+        Forty-three of forty-four foundation techniques are established practice a data engineer would
+        recognise. Any claim of algorithmic novelty at this layer would be overclaiming, and the pack says so
+        in the wave-one summary rather than leaving it implied.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>tech/techniques/wave1.md</code>, <code>wave2.md</code>, <code>wave3.md</code> · counts from each coverage summary</span>
+    <span>V25</span>
+  </div>
+</div>
+</body>
+</html>
