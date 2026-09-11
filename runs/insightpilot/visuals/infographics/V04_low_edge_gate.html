@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V04 · The stakeholder who cannot verify</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:38px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:30px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:13px;color:var(--muted);margin-top:9px;max-width:1010px;line-height:1.5}
+  .flow{display:flex;align-items:stretch;gap:10px;margin-top:24px}
+  .step{flex:1;border:1px solid var(--rule);border-radius:7px;padding:13px 12px;background:var(--wash);display:flex;flex-direction:column;position:relative}
+  .step .t{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .step h2{font-size:14px;font-weight:650;color:var(--ink);margin-top:5px;line-height:1.25}
+  .step p{font-size:11px;line-height:1.45;margin-top:7px}
+  .step .who{margin-top:auto;padding-top:9px;border-top:1px solid var(--rule);font-size:10px;font-weight:600;color:var(--muted)}
+  .step.gate{background:#FDF3E6;border-color:#E8D3AE}
+  .step.gate h2{color:var(--doubt)}
+  .step.gate .who{border-top-color:#E8D3AE}
+  .step.ok{background:#EAF3EC;border-color:#BFDCC9}
+  .step.ok h2{color:var(--verify)}
+  .step.ok .who{border-top-color:#BFDCC9}
+  .bar{margin-top:22px;display:flex;border:1px solid var(--rule);border-radius:7px;overflow:hidden}
+  .bar div{padding:12px 15px;font-size:11.5px;line-height:1.45}
+  .bar .before{flex:1;background:#F7EEEC;border-right:1px solid var(--rule)}
+  .bar .after{flex:1;background:#EAF3EC}
+  .bar b{display:block;font-size:13px;color:var(--ink);font-weight:700;margin-bottom:4px}
+  .zones{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:22px;flex:1}
+  .zone{border-top:2px solid var(--ink);padding-top:11px}
+  .zone.v{border-top-color:var(--verify)}
+  .zone.f{border-top-color:var(--fail)}
+  .zone .lbl{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:14px;font-weight:650;color:var(--ink);margin-top:6px;line-height:1.3}
+  .zone p{font-size:11.5px;line-height:1.55;margin-top:7px}
+  .stat{font-size:21px;font-weight:700;color:var(--ink);margin-top:9px}
+  .stat span{font-size:11px;font-weight:400;color:var(--muted)}
+  .src{margin-top:16px;padding-top:11px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <div class="eyebrow">InsightPilot · Low edge</div>
+  <h1>He gets an answer in ninety seconds, and he cannot ship it alone</h1>
+  <p class="sub">
+    Marcus runs a region and owns a P&amp;L. He cannot read a query, so he cannot tell a good answer from a
+    plausible wrong one. The gate is not paternalism. It is the only honest way to serve someone who has no
+    means of checking, and the alternative is what he does today, which is guess.
+  </p>
+
+  <div class="flow">
+    <div class="step">
+      <div class="t">Step 1</div><h2>He asks</h2>
+      <p>Types the question the way he would message an analyst, from his phone between meetings.</p>
+      <div class="who">Marcus · 90 seconds</div>
+    </div>
+    <div class="step">
+      <div class="t">Step 2</div><h2>Terms resolve in business language</h2>
+      <p>Ambiguity is phrased as "deals whose close date moved" rather than as column names.</p>
+      <div class="who">Same screen, different default</div>
+    </div>
+    <div class="step">
+      <div class="t">Step 3</div><h2>Answer arrives, marked</h2>
+      <p>An amber bar reads "not yet reviewed by an analyst." The plan renders collapsed.</p>
+      <div class="who">Sign-off state</div>
+    </div>
+    <div class="step gate">
+      <div class="t">Step 4 · the gate</div><h2>Export is blocked</h2>
+      <p>It offers a different action instead: send to an analyst for review.</p>
+      <div class="who">PRD non-goal 1, enforced</div>
+    </div>
+    <div class="step ok">
+      <div class="t">Step 5</div><h2>Reviewed, then released</h2>
+      <p>The analyst checks one step, signs off, and the bar turns green with her name on it.</p>
+      <div class="who">Priya · 6 minutes</div>
+    </div>
+  </div>
+
+  <div class="bar">
+    <div class="before">
+      <b>What he does today</b>
+      Messages an analyst on Thursday. Gets an answer Monday, if he is lucky. Otherwise builds the slide from
+      memory and hedges the language. He is part of the 76% of businesses that have decided without consulting
+      data because it was too hard to get.
+    </div>
+    <div class="after">
+      <b>What changes</b>
+      Ninety seconds of his attention, then a two-hour wait for six minutes of hers. The number reaches his
+      slide with an analyst's name beside it, which is what makes it usable in a room where he will be
+      challenged.
+    </div>
+  </div>
+
+  <div class="zones">
+    <div class="zone v">
+      <div class="lbl">Why the gate is dignity</div>
+      <h3>It replaces doing the work with checking it</h3>
+      <p>
+        He was already blocked, by three days rather than two hours. The gate does not stop him getting an
+        answer. It changes what he is waiting for.
+      </p>
+      <div class="stat">6 min<span> &nbsp;versus ninety</span></div>
+    </div>
+    <div class="zone f">
+      <div class="lbl">What he still cannot do</div>
+      <h3>Nothing here makes him self-sufficient</h3>
+      <p>
+        He cannot tell a good answer from a plausible wrong one, and no design changes that. The system makes
+        his dependence fast and legible rather than removing it. On a Friday before a holiday, the gate is a
+        wall.
+      </p>
+      <div class="stat">Open<span> &nbsp;what to do when no analyst is free</span></div>
+    </div>
+    <div class="zone">
+      <div class="lbl">The bet this refuses</div>
+      <h3>Selling to the low edge was already priced</h3>
+      <p>
+        ThoughtSpot is the purest market test of non-analyst self-service. A June 2024 secondary cleared at a
+        73.67% markdown against its Series F. This product declines that bet deliberately.
+      </p>
+      <div class="stat">73.67%<span> &nbsp;markdown</span></div>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>product/journeys/edge_low.md</code> · <code>product/PRD.md</code> non-goal 1</span>
+    <span>Evidence: <code>[S15]</code> decided without data · <code>[S46]</code> ThoughtSpot markdown · V04</span>
+  </div>
+
+</div>
+</body>
+</html>

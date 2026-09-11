@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V08 · What a green tick does and does not mean</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:38px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:30px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:13px;color:var(--muted);margin-top:9px;max-width:1010px;line-height:1.5}
+  .split{display:flex;gap:14px;margin-top:22px}
+  .panel{flex:1;border-radius:7px;padding:15px 16px;border:1px solid var(--rule)}
+  .panel.good{background:#EAF3EC;border-color:#BFDCC9}
+  .panel.bad{background:#F7EEEC;border-color:#E3C4BF}
+  .panel .tag{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+  .panel.good .tag{color:var(--verify)}
+  .panel.bad .tag{color:var(--fail)}
+  .panel h2{font-size:15px;font-weight:700;color:var(--ink);margin-top:5px}
+  .panel .render{background:#fff;border:1px solid var(--rule);border-radius:5px;padding:9px 11px;margin-top:10px;font-size:11.5px;line-height:1.5}
+  .panel .render b{color:var(--verify);font-weight:700}
+  .panel.bad .render b{color:var(--fail)}
+  .panel p{font-size:11.5px;line-height:1.5;margin-top:10px}
+  .checks{margin-top:22px;border:1px solid var(--rule);border-radius:7px;overflow:hidden}
+  .checks .hd{background:var(--wash);padding:9px 14px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule)}
+  .row{display:flex;padding:8px 14px;border-bottom:1px solid var(--rule);font-size:11.5px;align-items:center;gap:14px}
+  .row:last-child{border-bottom:none}
+  .row .name{width:210px;font-weight:650;color:var(--ink);flex:none}
+  .row .catches{flex:1;line-height:1.4}
+  .row .verdict{width:150px;flex:none;text-align:right;font-weight:650;font-size:11px}
+  .row .verdict.y{color:var(--verify)}
+  .row .verdict.n{color:var(--fail)}
+  .zones{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:20px;flex:1}
+  .zone{border-top:2px solid var(--doubt);padding-top:10px}
+  .zone.n{border-top-color:var(--ink)}
+  .zone .lbl{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:14px;font-weight:650;color:var(--ink);margin-top:5px;line-height:1.3}
+  .zone p{font-size:11.5px;line-height:1.55;margin-top:7px}
+  .src{margin-top:14px;padding-top:11px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <div class="eyebrow">InsightPilot · UX specification</div>
+  <h1>A green tick means these checks passed. It never means the answer is right</h1>
+  <p class="sub">
+    This is the most consequential detail in the interface. A tick that reads as "correct" would turn the
+    verify surface into false reassurance, which is worse than having no trace at all. The distinction has to
+    survive a busy user glancing at it, which makes it a design obligation rather than a documentation one.
+  </p>
+
+  <div class="split">
+    <div class="panel good">
+      <div class="tag">How it must render</div>
+      <h2>Always with the named check and its numbers</h2>
+      <div class="render">
+        <b>&#10003; Step 3</b> &nbsp;join preserved row count (14,201 &rarr; 14,201)<br>
+        <span style="color:var(--muted);font-size:10.5px">not checked: semantic grain, time basis</span>
+      </div>
+      <p>The tick never stands alone. Hovering states what was not checked. The unchecked set is a stored
+      field, not a runtime detail, so an omission stays auditable months later.</p>
+    </div>
+    <div class="panel bad">
+      <div class="tag">What it must never become</div>
+      <h2>A bare mark that reads as a verdict</h2>
+      <div class="render">
+        <b>&#10003; Step 3</b> &nbsp;verified<br>
+        <span style="color:var(--muted);font-size:10.5px">&nbsp;</span>
+      </div>
+      <p>Dr. Chen read the ticks correctly as "these structural checks passed." A less careful reviewer must
+      be unable to read them wrongly, and hierarchy alone may not achieve that.</p>
+    </div>
+  </div>
+
+  <div class="checks">
+    <div class="hd">The six structural checks, and the failure class each one cannot see</div>
+    <div class="row"><div class="name">Row-count reconciliation</div><div class="catches">Fan-out and row loss across a join</div><div class="verdict y">countable</div></div>
+    <div class="row"><div class="name">Grain assertion</div><div class="catches">The declared key is not unique in the output</div><div class="verdict y">countable</div></div>
+    <div class="row"><div class="name">Coverage and anti-join</div><div class="catches">Unmatched keys, such as the 8% region-code gap</div><div class="verdict y">countable</div></div>
+    <div class="row"><div class="name">Null-rate delta</div><div class="catches">Columns silently emptied by a bad join</div><div class="verdict y">countable</div></div>
+    <div class="row"><div class="name">Boundary totals</div><div class="catches">Double counting and dropped rows in a split</div><div class="verdict y">countable</div></div>
+    <div class="row"><div class="name">Type and range sanity</div><div class="catches">Unit errors, sign flips, impossible dates</div><div class="verdict y">countable</div></div>
+    <div class="row" style="background:#FDF3E6"><div class="name">A join at the wrong meaning</div><div class="catches">Right cardinality, clean margins, wrong semantic grain. No count anomaly to find</div><div class="verdict n">invisible to all six</div></div>
+  </div>
+
+  <div class="zones">
+    <div class="zone">
+      <div class="lbl">The residual, priced in</div>
+      <h3>The whitepaper discounts itself for this</h3>
+      <p>
+        The reconciliation mechanism was observed at 6.7x in the worked example and is claimed at 4.0x. The
+        difference is exactly this uncertainty: the checks provably catch countable failures, and their
+        coverage of plausible ones is unmeasured. The seeded-error set exists to replace that judgement with
+        a number.
+      </p>
+    </div>
+    <div class="zone n">
+      <div class="lbl">The fallback, stated in advance</div>
+      <h3>If hierarchy is not enough, remove green entirely</h3>
+      <p>
+        The spec concedes that treatment may not stop a busy user pattern-matching a tick to "correct." The
+        named fallback is to show only amber and red, so the absence of a warning carries no positive claim.
+        Worth testing rather than assuming.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>product/ux_spec.md</code> §5 and §14 · <code>tech/architecture/D02_verify_replan_loop.md</code></span>
+    <span>Evidence: <code>[S2]</code> plausible failure · <code>[S32]</code> Inspect · V08</span>
+  </div>
+
+</div>
+</body>
+</html>

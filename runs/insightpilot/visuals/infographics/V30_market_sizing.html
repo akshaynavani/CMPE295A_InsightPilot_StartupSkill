@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V30 · TAM, SAM, SOM built bottom-up</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:38px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:30px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:13px;color:var(--muted);margin-top:9px;max-width:1010px;line-height:1.5}
+  .main{display:flex;gap:30px;margin-top:22px;flex:1}
+  .build{flex:1.15}
+  .step{display:flex;align-items:center;gap:12px;margin-bottom:7px}
+  .step .lab{width:212px;flex:none;font-size:11.5px;line-height:1.35}
+  .step .lab b{display:block;color:var(--ink);font-weight:650;font-size:12px}
+  .step .lab span{color:var(--muted);font-size:10px}
+  .step .barwrap{flex:1;background:var(--wash);border-radius:3px;height:30px;position:relative;overflow:hidden}
+  .step .bar{height:100%;background:var(--accent);display:flex;align-items:center;padding-left:10px;color:#fff;font-size:11.5px;font-weight:700;font-variant-numeric:tabular-nums}
+  .step.tam .bar{background:#2E6FB8}
+  .step.sam .bar{background:var(--accent)}
+  .step.som .bar{background:#17507F}
+  .step.capstone .bar{background:#8B94A3}
+  .assum{margin-top:16px;border:1px solid var(--rule);border-radius:7px;overflow:hidden}
+  .assum .hd{background:var(--wash);padding:8px 13px;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule)}
+  .assum .r{display:flex;padding:7px 13px;border-bottom:1px solid var(--rule);font-size:11px;align-items:center}
+  .assum .r:last-child{border-bottom:none}
+  .assum .k{width:26px;font-weight:700;color:var(--muted);flex:none}
+  .assum .d{flex:1;line-height:1.35}
+  .assum .v{width:74px;text-align:right;font-weight:700;color:var(--ink);flex:none;font-variant-numeric:tabular-nums}
+  .assum .s{width:92px;text-align:right;font-size:9.5px;flex:none}
+  .assum .s.src{color:var(--verify);font-weight:650}
+  .assum .s.ass{color:var(--doubt);font-weight:650}
+  .side{flex:1;display:flex;flex-direction:column;gap:14px}
+  .zone{border-top:2px solid var(--ink);padding-top:10px}
+  .zone.d{border-top-color:var(--doubt)}
+  .zone.f{border-top-color:var(--fail)}
+  .zone .lbl{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:13.5px;font-weight:650;color:var(--ink);margin-top:5px;line-height:1.3}
+  .zone p{font-size:11.5px;line-height:1.5;margin-top:6px}
+  .sens{margin-top:8px;font-size:11px}
+  .sens div{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dashed var(--rule)}
+  .sens b{color:var(--ink);font-variant-numeric:tabular-nums}
+  .src{margin-top:14px;padding-top:11px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <div class="eyebrow">InsightPilot · Market sizing</div>
+  <h1>This is a small market, and the pack says so rather than reaching</h1>
+  <p class="sub">
+    Built from labour statistics upward, not from a category headline downward. A "1% of a $40B BI market"
+    slide would contradict the re-segmentation declaration this venture rests on, so the arithmetic is shown
+    with its assumptions tagged and its pessimistic corner published.
+  </p>
+
+  <div class="main">
+    <div class="build">
+      <div class="step tam">
+        <div class="lab"><b>TAM</b><span>1.24M beachhead analysts globally, at $900/yr</span></div>
+        <div class="barwrap"><div class="bar" style="width:100%">$1.116B</div></div>
+      </div>
+      <div class="step sam">
+        <div class="lab"><b>SAM</b><span>English-language, multi-source, day-one connectors</span></div>
+        <div class="barwrap"><div class="bar" style="width:11%">$123M</div></div>
+      </div>
+      <div class="step som">
+        <div class="lab"><b>SOM, 3-year hypothetical</b><span>~1,370 seats. A target to falsify, not a forecast</span></div>
+        <div class="barwrap"><div class="bar" style="width:2.2%;min-width:62px;font-size:10px">$1.2M</div></div>
+      </div>
+      <div class="step capstone">
+        <div class="lab"><b>SOM for the capstone</b><span>Monetisation out of scope by decision, A1</span></div>
+        <div class="barwrap"><div class="bar" style="width:6%;background:#8B94A3;font-size:10.5px">$0</div></div>
+      </div>
+
+      <div class="assum">
+        <div class="hd">Four factors. One sourced, three tagged as assumptions</div>
+        <div class="r"><div class="k">a</div><div class="d">US data scientists plus operations research analysts, 2025</div><div class="v">388,700</div><div class="s src">BLS</div></div>
+        <div class="r"><div class="k">b</div><div class="d">Share inside an organisation with a BI stack and a queue</div><div class="v">60%</div><div class="s ass">assumed</div></div>
+        <div class="r"><div class="k">c</div><div class="d">Correction for analysts coded outside those two SOC codes</div><div class="v">1.6x</div><div class="s ass">weakest</div></div>
+        <div class="r"><div class="k">d</div><div class="d">US share of the addressable global market</div><div class="v">30%</div><div class="s ass">assumed</div></div>
+      </div>
+    </div>
+
+    <div class="side">
+      <div class="zone d">
+        <div class="lbl">Sensitivity</div>
+        <h3>Where the number breaks</h3>
+        <div class="sens">
+          <div><span>Base case</span><b>$123M</b></div>
+          <div><span>Under-count correction is 1.0, not 1.6</span><b>$77M</b></div>
+          <div><span>Only 25% of questions are multi-source</span><b>$61M</b></div>
+          <div><span>Both together</span><b>$38M</b></div>
+          <div style="border-bottom:none"><span>Price is $50/mo, not $75</span><b>$82M</b></div>
+        </div>
+        <p>The pessimistic corner is $38M. Published here rather than left for a reviewer to compute.</p>
+      </div>
+      <div class="zone">
+        <div class="lbl">Top-down sanity check</div>
+        <h3>2.2% to 2.8% of the 2026 BI market</h3>
+        <p>
+          Right order of magnitude for an analyst-seat tool in a category whose revenue is dominated by
+          platform licences and warehouse consumption. Had this come out at 20%, the sizing would be wrong.
+        </p>
+      </div>
+      <div class="zone f">
+        <div class="lbl">The uncomfortable conclusion</div>
+        <h3>Not a venture-scale outcome on seats alone</h3>
+        <p>
+          The pack accepts this rather than re-expanding to the BI market. It notes where a larger market
+          would be, since the incumbents already price per question, and declines to size it because no
+          volume data exists to size it with.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>strategy/market_sizing.md</code> §2 and §5 · methodological note: BLS has no "data analyst" SOC code</span>
+    <span>Evidence: <code>[S69][S70]</code> BLS · <code>[S44][S52]</code> price band · V30</span>
+  </div>
+
+</div>
+</body>
+</html>

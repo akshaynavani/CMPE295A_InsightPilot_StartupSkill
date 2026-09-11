@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V05 · Two hours become nineteen minutes</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:38px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:30px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:13px;color:var(--muted);margin-top:9px;max-width:1020px;line-height:1.5}
+  .main{display:flex;gap:28px;margin-top:22px;flex:1}
+  .left{flex:1.25}
+  .card{border:1px solid var(--rule);border-radius:7px;padding:13px 14px;margin-bottom:9px;display:flex;gap:13px;align-items:flex-start}
+  .card .m{font-size:15px;font-weight:700;color:var(--accent);min-width:52px;font-variant-numeric:tabular-nums}
+  .card h3{font-size:13px;font-weight:650;color:var(--ink)}
+  .card p{font-size:11.5px;line-height:1.45;margin-top:4px}
+  .card.hit{background:#EAF3EC;border-color:#BFDCC9}
+  .card.hit .m{color:var(--verify)}
+  .card.miss{background:#F7EEEC;border-color:#E3C4BF}
+  .card.miss .m{color:var(--fail)}
+  .right{flex:1;display:flex;flex-direction:column;gap:14px}
+  .zone{border-top:2px solid var(--ink);padding-top:10px}
+  .zone.v{border-top-color:var(--verify)}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.d{border-top-color:var(--doubt)}
+  .zone .lbl{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:13.5px;font-weight:650;color:var(--ink);margin-top:5px;line-height:1.3}
+  .zone p{font-size:11.5px;line-height:1.5;margin-top:6px}
+  .ratio{display:flex;align-items:baseline;gap:10px;margin-top:20px;padding:13px 16px;background:var(--wash);border-radius:7px;border:1px solid var(--rule)}
+  .ratio .big{font-size:30px;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+  .ratio .txt{font-size:11.5px;line-height:1.45;color:var(--body)}
+  .src{margin-top:14px;padding-top:11px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <div class="eyebrow">InsightPilot · High edge</div>
+  <h1>The largest measured gain in the pack, from one mechanism used alone</h1>
+  <p class="sub">
+    Dr. Chen reviews other people's analyses. His usual cost is two hours, and the worst outcome is that the
+    work turns out fine, because then he has spent two hours confirming something with no way to spend less
+    next time. He touches no agent, no orchestrator and no connector. He reads and challenges.
+  </p>
+
+  <div class="main">
+    <div class="left">
+      <div class="card">
+        <div class="m">0:00</div>
+        <div><h3>Opens the export in a text editor first</h3>
+        <p>To confirm it is genuinely self-contained. It is. That act is what earns the next fifteen minutes.</p></div>
+      </div>
+      <div class="card">
+        <div class="m">0:02</div>
+        <div><h3>Reads the plan, not the answer</h3>
+        <p>Seven steps: three fetch, two analytics, one model, one render.</p></div>
+      </div>
+      <div class="card">
+        <div class="m">0:04</div>
+        <div><h3>Goes straight to the join he did not write</h3>
+        <p>Re-runs that single step against current data. Ninety seconds, against twenty minutes rebuilding it.</p></div>
+      </div>
+      <div class="card hit">
+        <div class="m">0:07</div>
+        <div><h3>Checks the model card for leakage</h3>
+        <p>Target definition in full, entity-grouped split with a thirty-day embargo, and last-login excluded
+        as a leakage candidate with the reason stated. It caught the thing he would have caught.</p></div>
+      </div>
+      <div class="card miss">
+        <div class="m">0:12</div>
+        <div><h3>Catches what the system could not</h3>
+        <p>Support-ticket counts rank third. He knows tickets migrated systems in April, so pre-April counts
+        are structurally lower. The data is wrong in a way no schema records.</p></div>
+      </div>
+      <div class="card">
+        <div class="m">0:19</div>
+        <div><h3>Overrides, annotates, signs off</h3>
+        <p>Marked as a data-provenance issue rather than a model error. Top two drivers hold.</p></div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="zone v">
+        <div class="lbl">What makes it work</div>
+        <h3>Renunciation is the credibility</h3>
+        <p>
+          The model card publishes what it did not have time to try. An exhaustive not-attempted list is what
+          makes the rest believable to the person who has to approve it.
+        </p>
+      </div>
+      <div class="zone f">
+        <div class="lbl">The honest ceiling</div>
+        <h3>April beat the system, and always will</h3>
+        <p>
+          No amount of lineage, verification or model capability catches a ticketing migration that lives only
+          in his head. What the design can do is make the correction cheap, attributed and durable.
+        </p>
+      </div>
+      <div class="zone d">
+        <div class="lbl">What he refuses</div>
+        <h3>A screening tool, not a forecast</h3>
+        <p>
+          He will not accept a four-minute time-boxed baseline for a production decision, and says so in his
+          note. That is exactly what the product should want him to say.
+        </p>
+      </div>
+      <div class="ratio">
+        <div class="big">6x</div>
+        <div class="txt">Two hours becomes nineteen minutes. The largest ratio in the pack, and it belongs to the persona who is not the beachhead.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>product/journeys/edge_high.md</code> · <code>tech/deep_dives.md</code> §7 model card</span>
+    <span>V05</span>
+  </div>
+
+</div>
+</body>
+</html>
