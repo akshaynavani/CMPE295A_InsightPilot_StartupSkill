@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V40 · Market type</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:32px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .types{display:flex;gap:9px;margin-top:16px}
+  .ty{flex:1;border:1px solid var(--rule);border-radius:6px;padding:8px 10px;background:#fff;position:relative}
+  .ty h2{font-size:13px;font-weight:700;color:var(--ink)}
+  .ty .rk{font-size:9px;color:var(--muted);margin-top:3px;line-height:1.35}
+  .ty .rk b{color:var(--body)}
+  .ty .no{font-size:9.5px;line-height:1.4;margin-top:5px;padding-top:5px;border-top:1px dashed var(--rule);color:var(--fail)}
+  .ty.pick{border:2px solid var(--accent);background:#EDF3FA;flex:1.42}
+  .ty.pick h2{color:var(--accent);font-size:14px}
+  .ty.pick .tag{position:absolute;top:-8px;right:10px;background:var(--accent);color:#fff;font-size:8.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:2px 7px;border-radius:3px}
+  .ty.pick .yes{font-size:9.5px;line-height:1.4;margin-top:5px;padding-top:5px;border-top:1px dashed #C4D8EE;color:var(--ink)}
+  .cols{display:flex;gap:24px;margin-top:16px;flex:1;min-height:0}
+  .left{width:520px;flex:none;display:flex;flex-direction:column}
+  .right{flex:1;display:flex;flex-direction:column;min-width:0}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:2px solid var(--ink)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .ar{display:flex;gap:9px;padding:6px 0;border-bottom:1px dashed var(--rule)}
+  .ar .n{width:17px;flex:none;font-size:14px;font-weight:700;color:var(--accent);line-height:1}
+  .ar .t{flex:1;font-size:10.5px;line-height:1.42}
+  .ar .t b{color:var(--ink)}
+  .cs{display:flex;gap:9px;padding:4.5px 0;border-bottom:1px dashed var(--rule);font-size:10px;line-height:1.38}
+  .cs .k{width:104px;flex:none;font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-top:1px}
+  .cs .v{flex:1;color:var(--body)}
+  .cs .v b{color:var(--ink)}
+  .cs.hot .k{color:var(--fail)}
+  .cs.hot{background:#FDF7F6}
+  .foot{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:22px;margin-top:14px}
+  .zone{border-top:2px solid var(--ink);padding-top:8px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.v{border-top-color:var(--verify)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Market type</div>
+  <h1>The category is old and the capability is not, which is what makes this ambiguous</h1>
+  <p class="sub">
+    Budget exists, buyers exist, and nobody needs the phrase explained. By every conventional test that is an
+    existing market. But what is being sold is not what that market buys, and naming the type wrongly is the
+    most expensive early mistake available in either direction.
+  </p>
+
+  <div class="types">
+    <div class="ty">
+      <h2>Existing</h2>
+      <div class="rk"><b>Dominant risk:</b> losing on distribution<br><b>Cycle:</b> shortest</div>
+      <div class="no">Rejected. The bundled incumbents sit inside the warehouse and the most widely deployed BI tool already. On that axis this cannot win and should not try.</div>
+    </div>
+    <div class="ty pick">
+      <div class="tag">declared</div>
+      <h2>Re-segmented, by different attribute</h2>
+      <div class="rk"><b>Dominant risk:</b> the segment is not real, or is too small<br><b>Cycle:</b> medium, you teach the distinction rather than the category</div>
+      <div class="yes">Re-segmented along <b>verifiability across sources</b>, with the enterprise data analyst as the beachhead rather than the business user the category spent a decade failing to serve.</div>
+    </div>
+    <div class="ty">
+      <h2>New</h2>
+      <div class="rk"><b>Dominant risk:</b> adoption, not competition<br><b>Cycle:</b> longest, you fund education</div>
+      <div class="no">Tempting and wrong. The graveyard proves demand was repeatedly found. Claiming it would license skipping the teardown and inventing an adoption curve.</div>
+    </div>
+    <div class="ty">
+      <h2>Clone</h2>
+      <div class="rk"><b>Dominant risk:</b> execution and local dynamics<br><b>Cycle:</b> short</div>
+      <div class="no">No proven model is being transplanted.</div>
+    </div>
+  </div>
+
+  <div class="cols">
+    <div class="left">
+      <div class="ch a">Four reasons the re-segmentation holds</div>
+      <div class="ar"><div class="n">1</div><div class="t"><b>The low-end play has been tried and marked down.</b> The purest expression of letting non-analysts self-serve cleared a secondary at a 73.67% markdown against its Series F price. A re-segmentation into the business-user tier is a move this market has already priced, which is why the beachhead is the analyst.</div></div>
+      <div class="ar"><div class="n">2</div><div class="t"><b>The attribute is one the market is actively funding.</b> 59% of decision-makers at large organisations are directing incremental budget to semantic layers, 24.9% name accuracy as their top reservation, and 71% of practitioners name wrong output reaching stakeholders as a top concern. The money is moving toward verifiability.</div></div>
+      <div class="ar"><div class="n">3</div><div class="t"><b>Incumbents cannot follow without contradicting their own design.</b> Each buys correctness by bounding scope: a table cap, a token-capped model, existing measures only, single-number metrics. Removing the bound reintroduces the unreliability they were bought to prevent.</div></div>
+      <div class="ar"><div class="n">4</div><div class="t"><b>The empty quadrant is empty for a stateable reason.</b> Many-hop execution carrying correctness in the answer measures about 15% on hard real-world tasks. The segment exists and the capability to serve it is marginal, which is exactly what makes this a bet rather than a parity race.</div></div>
+    </div>
+
+    <div class="right">
+      <div class="ch">What the declaration commits us to</div>
+      <div class="cs"><div class="k">Sales cycle</div><div class="v">Medium. The first conversation goes on <b>how is this not the bundled one</b>, so every narrative artifact budgets for it.</div></div>
+      <div class="cs"><div class="k">Positioning</div><div class="v">Against the attribute, never against a product. <b>Comparative accuracy claims are forbidden</b> because no measurement supports one.</div></div>
+      <div class="cs"><div class="k">Capital</div><div class="v">Moderate. No category education and no distribution war. <b>The only type honestly executable by a capstone,</b> which is itself a reason for suspicion.</div></div>
+      <div class="cs hot"><div class="k">Dominant risk</div><div class="v"><b>Segment reality, not competition.</b> The named risk is that a real customer's questions live inside one warehouse anyway, making neutrality true and worthless.</div></div>
+      <div class="cs"><div class="k">Pricing</div><div class="v">Price the investigation. Both incumbent shapes already point that way, billing per message or capping queries per month.</div></div>
+      <div class="cs"><div class="k">Beachhead</div><div class="v">The analyst, non-negotiable. The low edge stays a <b>design constraint that earns the conversational interface,</b> not the first customer.</div></div>
+      <div class="cs"><div class="k">What proves it</div><div class="v">An analyst accepting an answer they did not derive, faster than re-deriving it, on a question spanning two sources. <b>One observation validates segment, attribute and differentiator together.</b></div></div>
+      <div class="cs"><div class="k">What revokes it</div><div class="v">Analysts wanting a faster single-warehouse answer and not valuing lineage. That collapses to an existing-market play, and would be a reason to change the product rather than the marketing.</div></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone f">
+      <div class="lbl">The strongest case against, at full strength</div>
+      <h3>Verification may be a complaint rather than a budget</h3>
+      <p>
+        The buyers who fear wrong output are describing a reservation about adopting the technology, not a
+        willingness to buy a separate product. Look at what they did with the money instead: they funded semantic
+        layers inside platforms they already own. <b>Observed spending supports the incumbents' re-segmentation,
+        not this one.</b>
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">The answer, and its limit</div>
+      <h3>Budgeted, yes. Budgeted outside the platform, unknown</h3>
+      <p>
+        That spend is evidence verifiability carries money, which is the load-bearing half and more than most
+        re-segmentations can show. Desk research cannot close the rest, so it is recorded as an open risk rather
+        than resolved.
+      </p>
+    </div>
+    <div class="zone v">
+      <div class="lbl">Three things that must not be quietly reversed</div>
+      <h3>Distinction, beachhead, and where validation spends first</h3>
+      <p>
+        Sell the distinction and make no head-to-head claims. The analyst is the first customer. Segment reality
+        outranks every competitor, so the first validation budget goes there and not to accuracy.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>strategy/market_type.md</code> §1 through §4</span>
+    <span>Evidence: <code>[S46][S17][S16][S32][S36][S42][S49][S4][S37][S38][S44]</code> · V40</span>
+  </div>
+</div>
+</body>
+</html>

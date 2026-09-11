@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V41 · Petal diagram</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:32px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .cols{display:flex;gap:26px;margin-top:16px;flex:1;min-height:0}
+  .left{flex:1;display:flex;flex-direction:column;min-width:0}
+  .right{width:376px;flex:none;display:flex;flex-direction:column}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:2px solid var(--ink)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .prow{display:flex;gap:11px;margin-top:10px}
+  .p{flex:1;border:1px solid var(--rule);border-radius:7px;padding:8px 10px;background:#fff;display:flex;flex-direction:column}
+  .p .hd{display:flex;justify-content:space-between;align-items:baseline;gap:6px}
+  .p .no{font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+  .p .rk{font-size:8.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:1.5px 5px;border-radius:3px;background:var(--wash);color:var(--muted);white-space:nowrap}
+  .p h2{font-size:12.5px;font-weight:700;color:var(--ink);margin-top:2px;line-height:1.2}
+  .p .inc{font-size:9px;color:var(--muted);margin-top:3px;line-height:1.35}
+  .p .sp{font-size:9.5px;font-weight:700;color:var(--accent);margin-top:4px;font-variant-numeric:tabular-nums}
+  .p .sw{font-size:9px;line-height:1.38;margin-top:5px;padding-top:5px;border-top:1px dashed var(--rule);color:var(--body)}
+  .p .sw b{color:var(--ink)}
+  .p.src1{border:2px solid var(--verify);background:#F4FAF6}
+  .p.src1 .rk{background:var(--verify);color:#fff}
+  .p.src1 .sp{color:var(--verify)}
+  .p.aligned{border:2px solid var(--accent);background:#F3F7FC}
+  .p.aligned .rk{background:var(--accent);color:#fff}
+  .p.supplier{border:1px dashed var(--doubt);background:#FDFAF4}
+  .p.supplier .rk{background:var(--doubt);color:#fff}
+  .p.supplier .sp{color:var(--doubt)}
+  .p.later{opacity:.72}
+  .mid{display:flex;align-items:center;gap:14px;margin:11px 0}
+  .mid .ln{flex:1;height:1px;background:var(--rule);position:relative}
+  .mid .ln:before{content:"draws customers from";position:absolute;top:-13px;left:50%;transform:translateX(-50%);font-size:8.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);background:#fff;padding:0 7px;white-space:nowrap}
+  .core{border:2px solid var(--ink);border-radius:7px;padding:9px 18px;background:var(--ink);color:#fff;text-align:center;flex:none}
+  .core b{display:block;font-size:15px;font-weight:700;letter-spacing:-.01em}
+  .core span{display:block;font-size:9px;color:#B9C2CE;margin-top:2px;letter-spacing:.05em;text-transform:uppercase}
+  .ord{margin-top:9px}
+  .o{display:flex;gap:9px;padding:5px 0;border-bottom:1px dashed var(--rule);font-size:10px;line-height:1.35}
+  .o .r{width:15px;flex:none;font-weight:700;color:var(--accent);font-size:11.5px}
+  .o .t{flex:1}
+  .o .t b{color:var(--ink)}
+  .o .t em{font-style:normal;display:block;color:var(--muted);font-size:9px;margin-top:1px}
+  .o.dim .r{color:var(--muted)}
+  .bar{margin-top:10px;padding:9px 11px;border-radius:6px;font-size:10.5px;line-height:1.45;background:var(--wash)}
+  .bar.warn{background:#FDF3E6}
+  .bar b{color:var(--ink)}
+  .foot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:14px}
+  .zone{border-top:2px solid var(--ink);padding-top:8px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.v{border-top-color:var(--verify)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Petal diagram</div>
+  <h1>The empty quadrant has no budget attached to it</h1>
+  <p class="sub">
+    A two-by-two asks where rivals sit. The petal asks which existing budget and which existing habit this
+    displaces. The answer is uncomfortable and coherent: customers come from the petal with no budget line, the
+    aligned budget sits in the hardest petal to win, and the largest budget belongs to a supplier.
+  </p>
+
+  <div class="cols">
+    <div class="left">
+      <div class="prow">
+        <div class="p src1">
+          <div class="hd"><div class="no">Petal 1</div><div class="rk">primary source</div></div>
+          <h2>Analyst time</h2>
+          <div class="inc">The status quo. The analyst writing SQL by hand, no vendor involved</div>
+          <div class="sp">Salary · unbudgeted as tooling</div>
+          <div class="sw"><b>Switches when</b> an answer they did not derive becomes cheaper to accept than to write. Their current method never fails on correctness, only on latency, and that asymmetry is why it is durable. <b>No competitor has to lose and no procurement is triggered.</b></div>
+        </div>
+        <div class="p">
+          <div class="hd"><div class="no">Petal 2</div><div class="rk">additive, not a switch</div></div>
+          <h2>Warehouse-native copilots</h2>
+          <div class="inc">Genie · Cortex Analyst · Power BI Copilot · Pulse · Spotter</div>
+          <div class="sp">Bundled, plus metered AI credits</div>
+          <div class="sw"><b>Switches when</b> they hit the bounded-scope wall: a source outside the platform, or a metric that is not already a measure. Pre-qualified on the exact pain. <b>But the bundled incumbent cannot be cancelled,</b> so this is an addition to justify rather than a replacement.</div>
+        </div>
+        <div class="p supplier">
+          <div class="hd"><div class="no">Petal 3</div><div class="rk">supplier, not source</div></div>
+          <h2>Semantic layer and metrics tooling</h2>
+          <div class="inc">dbt Semantic Layer · Cube · AtScale · Honeydew</div>
+          <div class="sp">59% of large orgs adding budget</div>
+          <div class="sw"><b>The largest active budget in the diagram, and the wrong one to draw from.</b> It answers what a metric means, which this product does not answer and depends on.</div>
+        </div>
+      </div>
+
+      <div class="mid">
+        <div class="ln"></div>
+        <div class="core"><b>InsightPilot</b><span>agentic BI</span></div>
+        <div class="ln"></div>
+      </div>
+
+      <div class="prow">
+        <div class="p later">
+          <div class="hd"><div class="no">Petal 5</div><div class="rk">not year one</div></div>
+          <h2>Data science and automated ML</h2>
+          <div class="inc">AutoML platforms and internal data-science headcount</div>
+          <div class="sp">Headcount, overwhelmingly</div>
+          <div class="sw"><b>Switches when</b> nothing does, in year one. Agent medal rates on real competitions run against a twelve-hour budget, which is real capability on a timescale that is not conversational. It is on the diagram because it is where expansion would come from, and naming it stops a later phase discovering it as if it were new.</div>
+        </div>
+        <div class="p aligned">
+          <div class="hd"><div class="no">Petal 4</div><div class="rk">budget and price align</div></div>
+          <h2>Analyst notebooks</h2>
+          <div class="inc">Hex · Deepnote · Jupyter</div>
+          <div class="sp">$36 to $75 per editor/month</div>
+          <div class="sw"><b>Switches when</b> they want a plan rather than a canvas. The honest competitive petal: these customers understand the proposition immediately and are hardest to win, because the notebook already solves auditability by making them do the work. <b>The only petal where spend, buyer and price all line up.</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="ch a">Which petals to draw from, in order</div>
+      <div class="ord">
+        <div class="o"><div class="r">1</div><div class="t"><b>Analyst time.</b> Users, adoption, the compounding loop, honest feedback<em>Costs: no revenue. Right for a capstone, a real constraint for a company</em></div></div>
+        <div class="o"><div class="r">2</div><div class="t"><b>Analyst notebooks.</b> Displaceable spend at the right contract value<em>Costs: the hardest customers, because they already have a working answer</em></div></div>
+        <div class="o"><div class="r">3</div><div class="t"><b>Warehouse copilots.</b> Pre-qualified pain, easy to find, loud about limits<em>Costs: additive spend, and a bundled incumbent nobody can cancel</em></div></div>
+        <div class="o dim"><div class="r">4</div><div class="t"><b>Semantic layer.</b> The largest active budget<em>Wrong budget. It is a supplier petal</em></div></div>
+        <div class="o dim"><div class="r">5</div><div class="t"><b>Data science.</b> The expansion story<em>Not year one</em></div></div>
+      </div>
+      <div class="bar warn">
+        <b>Why the largest budget is the wrong one.</b> Drawing from it means telling the buyer that the thing she
+        is currently funding is unnecessary. It is not. The highest-leverage move available is to consume her
+        existing semantic layer and inherit correctness work she already paid for, which turns the largest petal
+        from a competitor into a supplier and defuses her hardest objection.
+      </div>
+      <div class="bar">
+        <b>A venture that mistakes an adjacent budget for a displaceable one</b> picks a fight with a decision the
+        buyer has already made. Answering "I am buying a semantic layer for exactly this" with "you should not be"
+        loses the deal.
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone f">
+      <div class="lbl">Consequence one, structural</div>
+      <h3>Adoption precedes revenue by a long way</h3>
+      <p>
+        The primary source petal has no budget line, so users arrive well before money does. That is fine for a
+        capstone and has to be stated rather than glossed in any investor-facing framing.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">Consequence two, and it is counterintuitive</div>
+      <h3>Prepare for the notebook comparison, not the warehouse one</h3>
+      <p>
+        The bundled copilot is the question everyone asks. The notebook is the competitor whose customers have
+        both the budget and the understanding, which makes it the more informative conversation.
+      </p>
+    </div>
+    <div class="zone v">
+      <div class="lbl">Consequence three, the test</div>
+      <h3>The buyer conversation is a budget-source conversation</h3>
+      <p>
+        Ask what line this comes out of and what it displaces, verbatim. A buyer who cannot name one has answered
+        the market-type question more decisively than any survey could.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>strategy/petal_diagram.md</code> §1 through §5</span>
+    <span>Evidence: <code>[S15][S17][S38][S39][S42][S44][S45][S52][S54][S66][S9]</code> · V41</span>
+  </div>
+</div>
+</body>
+</html>

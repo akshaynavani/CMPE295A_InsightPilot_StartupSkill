@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V39 · Riskiest assumptions</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:32px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .cols{display:flex;gap:26px;margin-top:16px;flex:1;min-height:0}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:2px solid var(--ink)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .left{width:572px;flex:none;display:flex;flex-direction:column}
+  .plotwrap{display:flex;margin-top:10px;flex:1;min-height:0}
+  .yax{width:16px;flex:none;position:relative}
+  .yax span{position:absolute;left:0;font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl;transform:rotate(180deg)}
+  .yax .hi{top:0}
+  .yax .lo{bottom:0}
+  .plot{flex:1;position:relative;border-left:1px solid var(--rule);border-bottom:1px solid var(--rule);background:linear-gradient(to bottom,#FCF8F7 0%,#FFFFFF 62%)}
+  .band{position:absolute;left:0;top:0;bottom:0;width:27%;background:#EAF3EC;border-right:1px dashed #9BC4AC}
+  .bandlab{position:absolute;left:6px;bottom:7px;font-size:8.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--verify);line-height:1.3;max-width:132px}
+  .d{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:5px;white-space:nowrap}
+  .d .dot{width:11px;height:11px;border-radius:50%;background:var(--accent);flex:none;border:2px solid #fff;box-shadow:0 0 0 1px var(--accent)}
+  .d.k .dot{background:var(--fail);box-shadow:0 0 0 1px var(--fail)}
+  .d.s .dot{background:var(--doubt);box-shadow:0 0 0 1px var(--doubt)}
+  .d.n .dot{background:var(--muted);box-shadow:0 0 0 1px var(--muted)}
+  .d b{font-size:10px;font-weight:700;color:var(--ink)}
+  .d i{font-style:normal;font-size:9px;color:var(--muted)}
+  .d.flip{flex-direction:row-reverse}
+  .xax{display:flex;justify-content:space-between;margin:6px 0 0 16px;font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+  .lg{display:flex;gap:14px;margin-top:8px;font-size:9.5px;color:var(--muted);align-items:center;margin-left:16px}
+  .lg span{display:inline-flex;align-items:center;gap:5px}
+  .sw{width:9px;height:9px;border-radius:50%;display:inline-block}
+  .right{flex:1;display:flex;flex-direction:column;min-width:0}
+  .r{display:flex;gap:8px;padding:4.5px 0;border-bottom:1px dashed var(--rule);font-size:10px;line-height:1.35}
+  .r .id{width:23px;flex:none;font-weight:700;color:var(--accent)}
+  .r.kill .id{color:var(--fail)}
+  .r .tx{flex:1;color:var(--ink)}
+  .r .tx em{font-style:normal;display:block;color:var(--muted);font-size:9px;margin-top:1px}
+  .r .ev{width:96px;flex:none;font-size:8.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;text-align:right;line-height:1.3}
+  .r .ev.none{color:var(--muted)}
+  .r .ev.neg{color:var(--fail)}
+  .r .ev.part{color:var(--doubt)}
+  .r .ev.pos{color:var(--verify)}
+  .r .c{width:46px;flex:none;text-align:right;font-weight:700;color:var(--body);font-variant-numeric:tabular-nums}
+  .bar{margin-top:9px;padding:8px 10px;border-radius:6px;font-size:10.5px;line-height:1.45;background:var(--wash)}
+  .bar.good{background:#EAF3EC}
+  .bar b{color:var(--ink)}
+  .foot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:14px}
+  .zone{border-top:2px solid var(--ink);padding-top:8px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.v{border-top-color:var(--verify)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Riskiest assumptions</div>
+  <h1>The cheapest tests attack the largest risks, and not one has been run</h1>
+  <p class="sub">
+    Twelve load-bearing assumptions, ranked by how much damage a wrong answer does against how little it costs
+    to find out. Status reads untested on every row, which is the honest state of a pre-traction pack. The shape
+    of the chart is the argument for the sequence.
+  </p>
+
+  <div class="cols">
+    <div class="left">
+      <div class="ch a">Consequence if wrong, against cost of the cheapest decisive test</div>
+      <div class="plotwrap">
+        <div class="yax"><span class="hi">Ends the venture</span><span class="lo">Narrows a claim</span></div>
+        <div class="plot">
+          <div class="band"></div>
+          <div class="bandlab">No code needed<br>≈19 founder-hours<br>three weeks</div>
+          <div class="d k" style="left:24%;top:10%"><div class="dot"></div><b>R1</b><i>verification cost</i></div>
+          <div class="d k flip" style="left:92%;top:10%"><div class="dot"></div><b>R2</b><i>multi-hop reliability</i></div>
+          <div class="d k flip" style="left:66%;top:20%"><div class="dot"></div><b>R6</b><i>verifier coverage</i></div>
+          <div class="d k" style="left:8%;top:30%"><div class="dot"></div><b>R7</b><i>user spectrum</i></div>
+          <div class="d s" style="left:8%;top:45%"><div class="dot"></div><b>R5</b><i>review burden</i></div>
+          <div class="d s flip" style="left:66%;top:54%"><div class="dot"></div><b>R8</b><i>self-serve install</i></div>
+          <div class="d s" style="left:20%;top:62%"><div class="dot"></div><b>R3</b><i>questions span sources</i></div>
+          <div class="d s" style="left:16%;top:74%"><div class="dot"></div><b>R4</b><i>budget line exists</i></div>
+          <div class="d n" style="left:8%;top:86%"><div class="dot"></div><b>R11</b><i>account size</i></div>
+          <div class="d n flip" style="left:52%;top:90%"><div class="dot"></div><b>R9</b><i>semantic-layer lift</i></div>
+          <div class="d n" style="left:8%;top:96%"><div class="dot"></div><b>R10</b><i>moat candidate, declined</i></div>
+        </div>
+      </div>
+      <div class="xax"><span>Free, rides an interview</span><span>Days</span><span>Three weeks of engineering</span></div>
+      <div class="lg">
+        <span><i class="sw" style="background:var(--fail)"></i> ends the venture or the pack</span>
+        <span><i class="sw" style="background:var(--doubt)"></i> kills a channel or the segment</span>
+        <span><i class="sw" style="background:var(--muted)"></i> narrows a claim</span>
+      </div>
+      <div class="bar good">
+        <b>Four rows can end this, and three of them need no code.</b> Verification cost, the source-spanning
+        share, the budget line and the user spectrum are all answerable with interviews in about nineteen hours
+        across three weeks. The two engineering risks need the harness, which is the first semester's work.
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="ch">The board, in rank order</div>
+      <div class="r kill"><div class="id">R1</div><div class="tx">An analyst accepts an answer faster than deriving it<em>the beachhead's own objection denies it</em></div><div class="ev none">no evidence</div><div class="c">6 h</div></div>
+      <div class="r kill"><div class="id">R2</div><div class="tx">Multi-hop planning is reliable enough end to end<em>error compounding does not void the output</em></div><div class="ev neg">points the wrong way</div><div class="c">3 wk</div></div>
+      <div class="r"><div class="id">R3</div><div class="tx">A material share of real questions span sources<em>structural argument only</em></div><div class="ev none">no evidence</div><div class="c">5 h</div></div>
+      <div class="r"><div class="id">R4</div><div class="tx">A budget owner can name the line this displaces<em>buyers are funding semantic layers instead</em></div><div class="ev neg">counter-evidence</div><div class="c">4 h</div></div>
+      <div class="r"><div class="id">R5</div><div class="tx">The champion is not made worse off by review load<em>modelled as a problem, not discovered as one</em></div><div class="ev neg">negative, modelled</div><div class="c">free</div></div>
+      <div class="r kill"><div class="id">R6</div><div class="tx">Cheap structural checks catch the failures that matter<em>plausible failures, not just countable ones</em></div><div class="ev part">judgement only</div><div class="c">1 wk</div></div>
+      <div class="r kill"><div class="id">R7</div><div class="tx">The three-edge user spectrum is right<em>derived by the generator, not supplied by the founder</em></div><div class="ev none">no evidence</div><div class="c">free</div></div>
+      <div class="r"><div class="id">R8</div><div class="tx">Analysts install a self-hosted tool unaided<em>an open-source peer reached this scale on the same motion</em></div><div class="ev pos">adjacent positive</div><div class="c">1 wk</div></div>
+      <div class="r"><div class="id">R9</div><div class="tx">Consuming a semantic layer improves accuracy<em>demand for them is evidenced, lift is not</em></div><div class="ev none">no evidence</div><div class="c">4 d</div></div>
+      <div class="r"><div class="id">R10</div><div class="tx">The learned semantic layer compounds<em>the moat candidate, and the pack declines to claim it</em></div><div class="ev none">by admission</div><div class="c">free</div></div>
+      <div class="r"><div class="id">R11</div><div class="tx">A realistic account is five to fifteen analysts<em>fifty would flip the channel verdict</em></div><div class="ev none">assumed</div><div class="c">free</div></div>
+      <div class="r"><div class="id">R12</div><div class="tx">Self-hosting works on a frontier key, not a small local model<em>constrained rather than open</em></div><div class="ev pos">positive, bounds it</div><div class="c">done</div></div>
+      <div class="bar">
+        <b>The board is built to be read in week nine,</b> when a confident sentence repeated across five files
+        starts to feel like evidence. Everything still unknown is in one place, ranked, with its price attached.
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone f">
+      <div class="lbl">The sequencing this implies</div>
+      <h3>Verification cost before anything else</h3>
+      <p>
+        It gates the two engineering risks and the architecture itself. If checking a trace costs what
+        re-deriving the answer costs, a more accurate planner does not help anyone.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">Two rows already lean negative</div>
+      <h3>That is a reason to measure, not to stop</h3>
+      <p>
+        The benchmark evidence on multi-step reasoning points the wrong way, and the review-burden risk was
+        modelled rather than discovered. Both are why the first semester leads with measurement and not agents.
+      </p>
+    </div>
+    <div class="zone v">
+      <div class="lbl">One row is a refusal</div>
+      <h3>The moat candidate sits here to stay testable</h3>
+      <p>
+        It is listed so the instrumentation exists from day one, not so it can be counted as evidence now.
+        Confirming it would take ninety days of real use, and until then it is not claimed anywhere.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>validation/riskiest_assumptions.md</code> · the board and its three reading notes</span>
+    <span>Evidence: <code>[S4][S10][S11][S16][S17][S50]</code> · V39</span>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V42 · Evidence ledger</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:32px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .cols{display:flex;gap:24px;margin-top:16px;flex:1;min-height:0}
+  .c{display:flex;flex-direction:column}
+  .c1{width:400px;flex:none}
+  .c2{flex:1;min-width:0}
+  .c3{width:352px;flex:none}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:2px solid var(--ink)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .stack{display:flex;height:40px;border-radius:4px;overflow:hidden;margin-top:11px}
+  .stack div{display:flex;flex-direction:column;justify-content:center;padding-left:9px;color:#fff}
+  .stack b{font-size:15px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+  .stack span{font-size:8.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:2px;opacity:.9}
+  .stack .hg{background:var(--verify)}
+  .stack .md{background:#6E96C2}
+  .stack .lm{background:var(--doubt)}
+  .stack .lo{background:var(--fail)}
+  .gdef{margin-top:9px}
+  .gdef div{font-size:9.5px;line-height:1.42;padding:3.5px 0;border-bottom:1px dashed var(--rule)}
+  .gdef div:last-child{border-bottom:none}
+  .gdef b{color:var(--ink)}
+  .sec{margin-top:11px}
+  .sb{display:flex;align-items:center;gap:9px;margin-bottom:5px;font-size:10px}
+  .sb .nm{width:170px;flex:none;color:var(--ink);line-height:1.25}
+  .sb .tk{flex:1;height:14px;background:var(--wash);border-radius:2px}
+  .sb .fl{height:100%;background:var(--accent);border-radius:2px}
+  .sb .ct{width:18px;flex:none;text-align:right;font-weight:700;color:var(--body);font-variant-numeric:tabular-nums}
+  .note{display:flex;gap:9px;padding:6px 0;border-bottom:1px dashed var(--rule)}
+  .note .ic{width:20px;flex:none;font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--doubt);padding-top:2px}
+  .note .t{flex:1;font-size:10.5px;line-height:1.42}
+  .note .t b{color:var(--ink)}
+  .gap{display:flex;gap:9px;padding:6px 0;border-bottom:1px dashed var(--rule)}
+  .gap .n{width:16px;flex:none;font-size:13px;font-weight:700;color:var(--fail);line-height:1.1}
+  .gap .t{flex:1;font-size:10px;line-height:1.4}
+  .gap .t b{color:var(--ink);display:block;font-size:10.5px;margin-bottom:1px}
+  .bar{margin-top:10px;padding:9px 11px;border-radius:6px;font-size:10.5px;line-height:1.45;background:var(--wash)}
+  .bar.bad{background:#F7EEEC}
+  .bar.good{background:#EAF3EC}
+  .bar b{color:var(--ink)}
+  .foot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:14px}
+  .zone{border-top:2px solid var(--ink);padding-top:8px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.v{border-top-color:var(--verify)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Evidence ledger</div>
+  <h1>Seventy-one sources, graded, with the weak ones labelled rather than laundered</h1>
+  <p class="sub">
+    The pack's central credibility risk is that its problem statement is researched rather than lived. A register
+    is what separates a vendor's marketing number from a leaderboard reading. Every claim resolves to a title, a
+    URL, an access date, and a note on what the source is good for.
+  </p>
+
+  <div class="cols">
+    <div class="c c1">
+      <div class="ch a">Confidence distribution</div>
+      <div class="stack">
+        <div class="hg" style="width:40.8%"><b>29</b><span>High</span></div>
+        <div class="md" style="width:33.8%"><b>24</b><span>Medium</span></div>
+        <div class="lm" style="width:16.9%"><b>12</b><span>Low to medium</span></div>
+        <div class="lo" style="width:8.5%"><b>6</b><span>Low</span></div>
+      </div>
+      <div class="gdef">
+        <div><b>High</b> means primary: a leaderboard, a preprint or peer-reviewed paper, a vendor's own documentation or pricing page, or a named survey with disclosed sample and field dates</div>
+        <div><b>Medium</b> means credible secondary reporting of a primary fact</div>
+        <div><b>Low</b> means vendor content marketing, an undated blog, or a figure whose underlying study is not identified. These appear only as range indicators, never as sole support</div>
+      </div>
+      <div class="ch" style="margin-top:13px">Where the evidence concentrates</div>
+      <div class="sec">
+        <div class="sb"><div class="nm">Competitors, pricing, documented limits</div><div class="tk"><div class="fl" style="width:100%"></div></div><div class="ct">24</div></div>
+        <div class="sb"><div class="nm">Benchmarks and measured performance</div><div class="tk"><div class="fl" style="width:58%"></div></div><div class="ct">14</div></div>
+        <div class="sb"><div class="nm">Adoption and market structure</div><div class="tk"><div class="fl" style="width:42%"></div></div><div class="ct">10</div></div>
+        <div class="sb"><div class="nm">Problem magnitude</div><div class="tk"><div class="fl" style="width:29%"></div></div><div class="ct">7</div></div>
+        <div class="sb"><div class="nm">Enabling technology and cost curve</div><div class="tk"><div class="fl" style="width:29%"></div></div><div class="ct">7</div></div>
+        <div class="sb"><div class="nm">The graveyard</div><div class="tk"><div class="fl" style="width:25%"></div></div><div class="ct">6</div></div>
+        <div class="sb"><div class="nm">Labour-market baseline</div><div class="tk"><div class="fl" style="width:13%"></div></div><div class="ct">3</div></div>
+      </div>
+      <div class="bar good">
+        <b>Every source was accessed on one date and that date is printed.</b> Where a page carries no publication
+        date, the absence itself lowers the grade.
+      </div>
+    </div>
+
+    <div class="c c2">
+      <div class="ch">Cautions that govern how the register may be used</div>
+      <div class="note">
+        <div class="ic">one</div>
+        <div class="t"><b>The low-confidence rows are quarantined.</b> Eight rows are vendor or aggregator content with no disclosed underlying study, and they appear only where the surrounding text names them as weak. One of them, a widely repeated claim that a data team spends 80% of its time on ad-hoc questions, <b>supports nothing anywhere in this pack.</b> It is registered so a later reader who meets the figure elsewhere knows it was found and rejected.</div>
+      </div>
+      <div class="note">
+        <div class="ic">two</div>
+        <div class="t"><b>One heavily used row is a citation chain, not a primary source.</b> The one-to-four-week turnaround figure reaches this pack through a large vendor restating three other firms' numbers. Those underlying reports were not reachable, so the figure is graded Medium and is always presented as reported-and-attributed rather than as a finding of the firm that published it.</div>
+      </div>
+      <div class="note">
+        <div class="ic">three</div>
+        <div class="t"><b>Eight rows are registered and deliberately uncited.</b> The market-size estimates were staged for a later phase because no early artifact had an argument that needed one, and the quality bar penalises a decorative number. Their spread is the reason to report a range: four estimates of the same market in the same year run from about $40B to about $50B, with growth rates between 8.67% and 14.98%.</div>
+      </div>
+      <div class="note">
+        <div class="ic">four</div>
+        <div class="t"><b>One row is about five years old.</b> Its fieldwork closed before the generative-AI cycle this pack depends on. It establishes that the overhead problem predates language models, which is genuinely useful, and nothing more. It must never be cited as a current measurement.</div>
+      </div>
+      <div class="bar bad">
+        <b>The discipline this enforces.</b> A number without a source is a defect under the pack's own quality bar,
+        so every figure either resolves to a row here or carries a visible flag saying it does not.
+      </div>
+    </div>
+
+    <div class="c c3">
+      <div class="ch f">Five gaps: searched for, not found</div>
+      <div class="gap"><div class="n">1</div><div class="t"><b>No measured ad-hoc queue per analyst</b>Every requests-per-week figure came from consultancy or vendor marketing with no stated method. Turnaround time is sourceable; queue length is not. This is the load-bearing gap in the problem statement.</div></div>
+      <div class="gap"><div class="n">2</div><div class="t"><b>No published accuracy benchmark from any commercial product</b>Five major vendors describe mechanism and none publishes an execution-accuracy figure against any public benchmark. Every accuracy number here comes from a leaderboard or third-party analysis, never a vendor's claim.</div></div>
+      <div class="gap"><div class="n">3</div><div class="t"><b>No founder post-mortem from a failed natural-language BI company</b>The graveyard is assembled from acquisition records and retirement notices, which establish that attempts ended and rarely say why in the operators' own words.</div></div>
+      <div class="gap"><div class="n">4</div><div class="t"><b>No disclosed pricing for three sales-qualified vendors</b>One total-raised figure is the only hard number obtainable for any of them.</div></div>
+      <div class="gap"><div class="n">5</div><div class="t"><b>One likely graveyard entry could not be confirmed</b>No authoritative deprecation notice was found, so it is omitted rather than asserted.</div></div>
+      <div class="bar">
+        <b>Recording the absence matters as much as recording the finding.</b> A later phase should not spend budget
+        re-searching these blind.
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone v">
+      <div class="lbl">What good grading bought</div>
+      <h3>A rejected figure is worth registering</h3>
+      <p>
+        The most circulated number in this problem space was traced to unsourced vendor marketing and excluded.
+        Writing down why is what stops it reappearing three artifacts later as common knowledge.
+      </p>
+    </div>
+    <div class="zone f">
+      <div class="lbl">The gap that costs the most</div>
+      <h3>Nobody publishes accuracy, so nobody can be compared</h3>
+      <p>
+        That absence is why this pack forbids head-to-head accuracy claims and why publishing one measured number
+        would be its only genuine public contribution.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">How to read the ledger as a skeptic</div>
+      <h3>Start with the low rows and check where they were used</h3>
+      <p>
+        Eighteen of seventy-one rows sit below Medium. The test of the register is not that they exist but that
+        the text around each one admits what it is.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>research/sources.md</code> · grade tallies and section counts computed from the register itself</span>
+    <span>V42</span>
+  </div>
+</div>
+</body>
+</html>

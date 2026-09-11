@@ -96,10 +96,10 @@ Every infographic in this set obeys these, so the pack reads as one system rathe
 | V36 | Pricing as a falsifiable threshold, not a forecast | investors | financials/pricing.md | html | html |
 | V37 | Stage gate: Customer Discovery, not exited | investors | validation/stage_gate.md | html | html |
 | V38 | Nine experiments with thresholds declared in advance | investors | validation/experiment_board.md | html | html |
-| V39 | Twelve assumptions ranked by kill-power and cost to test | investors | validation/riskiest_assumptions.md | html | planned |
-| V40 | Market type: re-segmented, and what that commits us to | investors | strategy/market_type.md | html | planned |
-| V41 | The petal: which budgets this draws from | investors | strategy/petal_diagram.md | html | planned |
-| V42 | Evidence ledger: 71 sources graded, five named gaps | investors | research/sources.md | html | planned |
+| V39 | Twelve assumptions ranked by kill-power and cost to test | investors | validation/riskiest_assumptions.md | html | html |
+| V40 | Market type: re-segmented, and what that commits us to | investors | strategy/market_type.md | html | html |
+| V41 | The petal: which budgets this draws from | investors | strategy/petal_diagram.md | html | html |
+| V42 | Evidence ledger: 71 sources graded, five named gaps | investors | research/sources.md | html | html |
 
 ## 6. Audience D — Buyers, partners and the security reviewer
 
