@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V31 · The graveyard</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:38px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:30px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:13px;color:var(--muted);margin-top:9px;max-width:1020px;line-height:1.5}
+  .timeline{margin-top:24px;position:relative;padding-bottom:8px}
+  .axis{position:absolute;left:0;right:0;top:64px;height:2px;background:var(--rule)}
+  .row{display:flex;gap:12px;position:relative}
+  .ev{flex:1;text-align:center}
+  .ev .yr{font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+  .ev .dot{width:13px;height:13px;border-radius:50%;background:var(--fail);margin:9px auto;position:relative;z-index:2;border:3px solid #fff}
+  .ev.live .dot{background:var(--doubt)}
+  .ev .card{border:1px solid var(--rule);border-radius:7px;padding:11px 11px;text-align:left;background:var(--wash);min-height:186px;display:flex;flex-direction:column}
+  .ev .card h2{font-size:13.5px;font-weight:700;color:var(--ink);line-height:1.2}
+  .ev .card .what{font-size:10.5px;color:var(--muted);margin-top:4px;line-height:1.35}
+  .ev .card .fate{font-size:11px;margin-top:8px;line-height:1.4}
+  .ev .card .why{margin-top:auto;padding-top:8px;border-top:1px solid var(--rule);font-size:10.5px;line-height:1.4;color:var(--fail);font-weight:600}
+  .ev.live .card{background:#FDF3E6;border-color:#E8D3AE}
+  .ev.live .card .why{color:var(--doubt);border-top-color:#E8D3AE}
+  .money{font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink)}
+  .zones{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:22px;flex:1}
+  .zone{border-top:2px solid var(--fail);padding-top:10px}
+  .zone.n{border-top-color:var(--ink)}
+  .zone .lbl{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:14px;font-weight:650;color:var(--ink);margin-top:5px;line-height:1.3}
+  .zone p{font-size:11.5px;line-height:1.55;margin-top:7px}
+  .src{margin-top:14px;padding-top:11px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <div class="eyebrow">InsightPilot · Prior attempts</div>
+  <h1>Four attempts ended. None of them died of bad technology</h1>
+  <p class="sub">
+    Conversational access to enterprise data has been attempted continuously since at least 2014. The pattern
+    matters more than the list: two died of the curation-to-value ratio, and two were absorbed by whoever owned
+    the data. Both failure modes are live for this project, and only one of them has an answer.
+  </p>
+
+  <div class="timeline">
+    <div class="axis"></div>
+    <div class="row">
+      <div class="ev">
+        <div class="yr">2019</div><div class="dot"></div>
+        <div class="card">
+          <h2>IBM Watson Analytics</h2>
+          <div class="what">Natural-language questions over uploaded business data. The flagship of its generation.</div>
+          <div class="fate">Discontinued June 2019, folded into Cognos Exploration. The wider Watson line sold Watson Health for about <span class="money">$1B</span> after roughly <span class="money">$5B</span> invested.</div>
+          <div class="why">Demoed well. Did not survive contact with real schemas and real users.</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="yr">2021</div><div class="dot"></div>
+        <div class="card">
+          <h2>Narrative Science</h2>
+          <div class="what">Natural-language generation over BI. Founded 2010, partnered with Tableau since 2016.</div>
+          <div class="fate">Acquired by Salesforce in December 2021 and folded into Tableau. Terms undisclosed.</div>
+          <div class="why">Narration is a feature, not a company. Absorbed by the platform that owned the data.</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="yr">2023</div><div class="dot"></div>
+        <div class="card">
+          <h2>Sisu Data</h2>
+          <div class="what">Diagnostic decomposition. Automatically explaining why a metric moved.</div>
+          <div class="fate">Raised about <span class="money">$128.7M</span>. Acquired by Snowflake in October 2023, standalone product in wind-down.</div>
+          <div class="why">Attacked the highest-value part of the loop, well funded, and still ended as a warehouse feature.</div>
+        </div>
+      </div>
+      <div class="ev live">
+        <div class="yr">2026</div><div class="dot"></div>
+        <div class="card">
+          <h2>Power BI Q&amp;A</h2>
+          <div class="what">Natural-language querying via a curated linguistic schema: synonyms, relationships, teach Q&amp;A.</div>
+          <div class="fate">Fully retired by end of December 2026. Existing Q&amp;A visuals stop working. Users directed to Copilot.</div>
+          <div class="why">Shipped inside the most widely deployed BI tool on earth. Distribution was never its problem.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="zones">
+    <div class="zone">
+      <div class="lbl">Failure mode one, and its answer</div>
+      <h3>The curation-to-value ratio</h3>
+      <p>
+        Watson and Q&amp;A both demanded that modellers pre-encode meaning: synonyms, linguistic
+        relationships, explicit corrections. The burden exceeded the value returned. This project's answer is
+        to consume a semantic layer where one exists and never require one, which is principle P6. Note that
+        Microsoft replaced Q&amp;A with an approach that inherits the same dependency on a well-prepared model.
+      </p>
+    </div>
+    <div class="zone n">
+      <div class="lbl">Failure mode two, unanswered by evidence</div>
+      <h3>Gravity, and why this is not a warehouse feature</h3>
+      <p>
+        Narrative Science and Sisu were absorbed by whoever owned the data. The only structural answer this
+        research supports is cross-source neutrality: the value is in spanning, and a warehouse vendor cannot
+        sell spanning without arguing against its own gravity. That is an argument, not an observation, and
+        it stays untested until a real customer's questions are examined.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>research/landscape.md</code> §6 · assembled from acquisition records and retirement notices</span>
+    <span>Evidence: <code>[S59][S60]</code> Watson · <code>[S58]</code> Narrative Science · <code>[S56][S57]</code> Sisu · <code>[S40]</code> Q&amp;A · V31</span>
+  </div>
+
+</div>
+</body>
+</html>

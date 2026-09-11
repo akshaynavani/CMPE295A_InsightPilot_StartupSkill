@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V27 · Ten principles every feature must map to</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:36px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:29px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:8px;max-width:1030px;line-height:1.5}
+  table{width:100%;border-collapse:collapse;margin-top:18px}
+  th{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:0 9px 6px;border-bottom:1px solid var(--rule)}
+  td{font-size:11px;padding:7px 9px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.4}
+  td.p{font-weight:700;color:var(--accent);width:34px;font-variant-numeric:tabular-nums}
+  td.pr{font-weight:650;color:var(--ink);width:250px}
+  td.ev{width:250px;color:var(--muted);font-size:10.5px}
+  td.ev b{color:var(--ink);font-weight:700}
+  td.cons{font-size:10.5px}
+  tr.load td{background:#EDF3FA}
+  tr.load td.p{color:var(--accent)}
+  .foot{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:18px;flex:1}
+  .zone{border-top:2px solid var(--ink);padding-top:10px}
+  .zone.d{border-top-color:var(--doubt)}
+  .zone .lbl{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:14px;font-weight:650;color:var(--ink);margin-top:5px;line-height:1.3}
+  .zone p{font-size:11.5px;line-height:1.55;margin-top:7px}
+  .src{margin-top:12px;padding-top:10px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <div class="eyebrow">InsightPilot · First principles</div>
+  <h1>A feature that maps to none of these gets cut, or the list was wrong</h1>
+  <p class="sub">
+    Each of these is an empirical finding from the research layer, not a design preference. That is what makes
+    the rule enforceable: a feature can be checked against evidence rather than argued about. The two shaded
+    rows are the ones that carry the most weight in the design.
+  </p>
+
+  <table>
+    <tr><th>P</th><th>Principle</th><th>Evidence</th><th>Design consequence</th></tr>
+    <tr>
+      <td class="p">P1</td><td class="pr">Schema grounding dominates language understanding</td>
+      <td class="ev"><b>81.2%</b> of 4,602 analysed failures are wrong column or misread meaning</td>
+      <td class="cons">Spend engineering on grounding and disambiguation, not conversational polish</td>
+    </tr>
+    <tr>
+      <td class="p">P2</td><td class="pr">Error compounds multiplicatively across steps</td>
+      <td class="ev">Capability and reliability trade against each other; propagation is the primary agent bottleneck</td>
+      <td class="cons">Keep plans short. Verify per step. Never add a step for elegance</td>
+    </tr>
+    <tr>
+      <td class="p">P3</td><td class="pr">Failure is plausible, not obvious</td>
+      <td class="ev"><b>"Failure looks like a plausible but incorrect answer"</b></td>
+      <td class="cons">Surface doubt, not confidence. No confidence scores presented as accuracy</td>
+    </tr>
+    <tr>
+      <td class="p">P4</td><td class="pr">Consistency degrades faster than capability</td>
+      <td class="ev">Above <b>60%</b> on one attempt falls below <b>25%</b> when eight must all succeed</td>
+      <td class="cons">Cache plans, pin resolved bindings, make re-runs reproduce</td>
+    </tr>
+    <tr class="load">
+      <td class="p">P5</td><td class="pr">Verification cost is the adoption gate, not accuracy</td>
+      <td class="ev"><b>71%</b> fear hallucinated output reaching stakeholders; <b>24.9%</b> name accuracy as their top reservation</td>
+      <td class="cons">Design for cheap checking rather than for autonomy. Optimise the verify beat</td>
+    </tr>
+    <tr class="load">
+      <td class="p">P6</td><td class="pr">Pre-encoded correctness narrows the answerable question set</td>
+      <td class="ev">30 tables per Genie Agent, a 32K-token Cortex model, existing measures only in Copilot</td>
+      <td class="cons">Consume a semantic layer when present. Never require one</td>
+    </tr>
+    <tr>
+      <td class="p">P7</td><td class="pr">Verification by decomposition beats verification by assertion</td>
+      <td class="ev">Databricks Inspect authors smaller SQL statements to check its own query</td>
+      <td class="cons">Check a step with a cheaper, different query. Never ask the model if it is confident</td>
+    </tr>
+    <tr>
+      <td class="p">P8</td><td class="pr">Tool access is standardised; semantics are not</td>
+      <td class="ev">MCP shipped Nov 2024, adopted by four major vendors within thirteen months</td>
+      <td class="cons">Connectors are configuration. Mapping vocabulary onto schema is the real work</td>
+    </tr>
+    <tr>
+      <td class="p">P9</td><td class="pr">Automated modelling exists, but not at conversational latency</td>
+      <td class="ev"><b>36.4%</b> medal rate on MLE-bench, under a <b>12-hour</b> budget</td>
+      <td class="cons">Time-box the ML agent in minutes and state what it did not try</td>
+    </tr>
+    <tr>
+      <td class="p">P10</td><td class="pr">Multi-step data reasoning is the weakest measured capability</td>
+      <td class="ev">About <b>15%</b> on DABstep hard against <b>76%</b> easy</td>
+      <td class="cons">Build the evaluation harness first. Assume failure is the common case</td>
+    </tr>
+  </table>
+
+  <div class="foot">
+    <div class="zone">
+      <div class="lbl">What P2, P5 and P10 say together</div>
+      <h3>The design follows from an admission</h3>
+      <p>
+        This product cannot promise reliable autonomous answers, because the field cannot deliver them. It can
+        promise that when the system is wrong, the analyst finds out in seconds rather than after the number
+        reaches a slide. That is the whole design, and it is derived rather than chosen.
+      </p>
+    </div>
+    <div class="zone d">
+      <div class="lbl">The principle with no feature</div>
+      <h3>P10 is satisfied by a practice, not a build</h3>
+      <p>
+        Nine principles carry at least one flagship feature. P10 carries none, because the answer to it is an
+        ordering decision: build the harness and the fixed question set before the agents. Stated plainly in
+        the coverage table rather than filled with an invented feature.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>product/PRD.md</code> §3 · coverage check in <code>product/features_flagship.md</code> §2</span>
+    <span>Evidence: <code>[S2][S4][S5][S9][S16][S17][S32][S36][S42][S62]</code> · V27</span>
+  </div>
+
+</div>
+</body>
+</html>
