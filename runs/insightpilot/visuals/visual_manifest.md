@@ -75,10 +75,10 @@ Every infographic in this set obeys these, so the pack reads as one system rathe
 | V20 | Technique decision tree | operators | tech/techniques/decision_tree.md | mermaid | mermaid |
 | V21 | Seven components, five buildable and two research risk | operators | tech/deep_dives.md | html | html |
 | V22 | Feature roadmap: Now / Next / Later with the cut list | operators | product/features_prioritized.md | html | html |
-| V23 | The twenty flagship features by loop phase | operators | product/features_flagship.md | html | planned |
+| V23 | The twenty flagship features by loop phase | operators | product/features_flagship.md | html | html |
 | V24 | Technique × feature matrix, with orphans and gaps | operators | tech/techniques/technique_feature_matrix.md | html | html |
 | V25 | Three technique waves: 44 / 38 / 31, and eight declines | operators | tech/techniques/wave1.md, tech/techniques/wave2.md, tech/techniques/wave3.md | html | html |
-| V26 | Named stack, and the line between engineering and research | operators | tech/not_vaporware.md | html | planned |
+| V26 | Named stack, and the line between engineering and research | operators | tech/not_vaporware.md | html | html |
 | V27 | Ten principles every feature must map to | operators | product/PRD.md | html | html |
 
 ## 5. Audience C — Investors, advisor and evaluator
@@ -89,8 +89,8 @@ Every infographic in this set obeys these, so the pack reads as one system rathe
 | V29 | Mechanism arithmetic: six frictions, four attacked, ≈2.9× | investors | tech/whitepaper.md | html | html |
 | V30 | TAM / SAM / SOM built bottom-up, with the pessimistic corner | investors | strategy/market_sizing.md | html | html |
 | V31 | The graveyard: four attempts, none died of bad technology | investors | research/landscape.md | html | html |
-| V32 | Competitor teardown: where each fails mechanistically | investors | research/competitors.md | html | planned |
-| V33 | Capability frontier: what the field can and cannot do today | investors | research/capability_table.md | html | planned |
+| V32 | Competitor teardown: where each fails mechanistically | investors | research/competitors.md | html | html |
+| V33 | Capability frontier: what the field can and cannot do today | investors | research/capability_table.md | html | html |
 | V34 | Risk matrix: no residual below medium | investors | financials/risk_matrix.md | html | html |
 | V35 | Unit economics: who actually pays the compute | investors | financials/unit_economics.md | html | planned |
 | V36 | Pricing as a falsifiable threshold, not a forecast | investors | financials/pricing.md | html | planned |

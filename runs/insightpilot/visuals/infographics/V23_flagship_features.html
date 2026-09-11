@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V23 · Twenty flagship features</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:34px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:29px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:8px;max-width:1030px;line-height:1.5}
+  .loop{display:flex;gap:9px;margin-top:18px;align-items:stretch}
+  .ph{flex:1;display:flex;flex-direction:column;border-top:3px solid var(--rule);padding-top:8px}
+  .ph.p3{flex:1.85}
+  .ph.p5{flex:1.5}
+  .ph.p6{flex:.62}
+  .ph.hot{border-top-color:var(--verify)}
+  .ph .nm{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--ink)}
+  .ph .ct{font-size:9.5px;color:var(--muted);margin-top:2px}
+  .cards{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;align-content:flex-start}
+  .f{border:1px solid var(--rule);border-radius:5px;padding:6px 7px;background:#fff;flex:1 1 100%;min-width:0}
+  .ph.p3 .f,.ph.p5 .f{flex:1 1 calc(50% - 3px)}
+  .f .n{font-size:9px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+  .f h3{font-size:10.5px;font-weight:650;color:var(--ink);margin-top:1px;line-height:1.25}
+  .f p{font-size:9px;line-height:1.35;color:var(--body);margin-top:3px}
+  .f.key{background:#EAF3EC;border-color:#BFDCC9}
+  .f.key .n{color:var(--verify)}
+  .f.soft{background:#FDF3E6;border-color:#E8D3AE}
+  .f.soft .n{color:var(--doubt)}
+  .zones{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:22px;margin-top:16px}
+  .zone{border-top:2px solid var(--ink);padding-top:9px}
+  .zone.v{border-top-color:var(--verify)}
+  .zone.f{border-top-color:var(--fail)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:13px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.48;margin-top:6px}
+  .legend{display:flex;gap:18px;margin-top:9px;font-size:9.5px;color:var(--muted);align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .sw{width:12px;height:10px;border-radius:2px;display:inline-block;border:1px solid var(--rule)}
+  .src{margin-top:11px;padding-top:9px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Flagship features</div>
+  <h1>Nine of the twenty sit in the verify beat, and none of them is defensible alone</h1>
+  <p class="sub">
+    Twenty features placed on the loop they serve. The distribution is the argument: the heaviest cluster is
+    not in answering the question but in making the answer checkable. Every row here is individually copyable,
+    which is why the pack's claim is the closure rather than any single feature.
+  </p>
+
+  <div class="loop">
+    <div class="ph">
+      <div class="nm">Ask</div><div class="ct">3 features</div>
+      <div class="cards">
+        <div class="f"><div class="n">01</div><h3>Investigation thread</h3><p>Durable state, not a chat log. Reopens Monday still knowing what the terms resolved to</p></div>
+        <div class="f"><div class="n">02</div><h3>Ambiguity interception</h3><p>A term resolving to two columns halts and asks. Never a silent guess</p></div>
+        <div class="f"><div class="n">03</div><h3>Bindings shown and correctable</h3><p>Editable chips above the plan. A fix persists for everyone</p></div>
+      </div>
+    </div>
+    <div class="ph">
+      <div class="nm">Plan</div><div class="ct">3 features</div>
+      <div class="cards">
+        <div class="f key"><div class="n">04</div><h3>Plan shown before execution</h3><p>Six numbered steps, each naming agent and source. Delete step 4 before anything runs</p></div>
+        <div class="f"><div class="n">05</div><h3>Plan-length discipline</h3><p>Reports hop count and argues against its own ambition when a plan runs long</p></div>
+        <div class="f"><div class="n">06</div><h3>Plan caching, pinned bindings</h3><p>Two analysts asking the same question get the same answer</p></div>
+      </div>
+    </div>
+    <div class="ph p3">
+      <div class="nm">Execute</div><div class="ct">6 features · the widest beat</div>
+      <div class="cards">
+        <div class="f"><div class="n">07</div><h3>Heterogeneous fetch</h3><p>Warehouse in step 1, an unmodelled carrier CSV in step 2</p></div>
+        <div class="f"><div class="n">08</div><h3>Semantic layer consumption</h3><p>A dbt or Cube definition outranks an inferred one</p></div>
+        <div class="f key"><div class="n">09</div><h3>Per-hop verification</h3><p>A structurally different, cheaper query checks each result</p></div>
+        <div class="f"><div class="n">10</div><h3>Replanning on invalidation</h3><p>A failed check revises the remaining steps rather than continuing</p></div>
+        <div class="f soft"><div class="n">11</div><h3>ML agent, time-boxed</h3><p>Baseline, uncertainty, and a list of what it had no time to try</p></div>
+        <div class="f"><div class="n">12</div><h3>Chart justified by data shape</h3><p>States why small multiples rather than a stacked bar</p></div>
+      </div>
+    </div>
+    <div class="ph">
+      <div class="nm">Answer</div><div class="ct">2 features</div>
+      <div class="cards">
+        <div class="f soft"><div class="n">13</div><h3>Doubt surfacing</h3><p>Names the least certain hop and why. Narrows the failure surface without closing it</p></div>
+        <div class="f"><div class="n">14</div><h3>Established facts, not a number</h3><p>Three checkable claims instead of one unfalsifiable summary</p></div>
+      </div>
+    </div>
+    <div class="ph p5 hot">
+      <div class="nm">Verify</div><div class="ct">5 features · the differentiator</div>
+      <div class="cards">
+        <div class="f key"><div class="n">15</div><h3>Hop-level lineage</h3><p>Sources, query, transform, row counts in and out, as an inspectable step</p></div>
+        <div class="f key"><div class="n">16</div><h3>Single-hop re-run</h3><p>Re-executes in isolation, diffed against the stored output</p></div>
+        <div class="f soft"><div class="n">17</div><h3>Override and re-flow</h3><p>Hard case. A grain change invalidates downstream, so the fallback is replanning</p></div>
+        <div class="f key"><div class="n">18</div><h3>Exportable investigation</h3><p>One readable file, openable without the product running. Four jobs at once</p></div>
+        <div class="f key"><div class="n">19</div><h3>Sign-off state</h3><p>Unreviewed answers are visibly marked and cannot be exported unacknowledged</p></div>
+      </div>
+    </div>
+    <div class="ph p6">
+      <div class="nm">Follow up</div><div class="ct">1</div>
+      <div class="cards">
+        <div class="f"><div class="n">20</div><h3>Context inheritance</h3><p>Three steps instead of six, because the mapping is already settled</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span><i class="sw key" style="background:#EAF3EC;border-color:#BFDCC9"></i> serves the verification-cost principle</span>
+    <span><i class="sw soft" style="background:#FDF3E6;border-color:#E8D3AE"></i> value asserted, not yet demonstrated</span>
+    <span style="margin-left:auto">Nine of ten principles carry a flagship feature. The tenth deliberately carries a practice instead</span>
+  </div>
+
+  <div class="zones">
+    <div class="zone v">
+      <div class="lbl">Why the loop and not the feature</div>
+      <h3>Each element makes the next one cheaper</h3>
+      <p>
+        A visible plan shortens verification. Per-hop verification makes an override targeted. An override feeds
+        the binding store. Better bindings shorten the next plan, and a shorter plan compounds less error. Ship
+        hop-level lineage without that structure and what you have shipped is a log file.
+      </p>
+    </div>
+    <div class="zone f">
+      <div class="lbl">The concession that keeps this honest</div>
+      <h3>One untested claim holds features 15 to 18 up</h3>
+      <p>
+        If verification is not cheaper than re-derivation, those four are ceremony. The beachhead analyst's own
+        objection says it is not.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">The missing feature, on purpose</div>
+      <h3>Multi-hop weakness gets a practice</h3>
+      <p>
+        Build the harness and the fixed question set before the agents, then publish the accuracy number. That
+        is feature one in the build order and not a feature on this chart.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>product/features_flagship.md</code> §1, §2 and §3</span>
+    <span>V23</span>
+  </div>
+</div>
+</body>
+</html>

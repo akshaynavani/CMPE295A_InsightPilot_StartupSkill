@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V32 · Competitor teardown</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:34px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:29px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:8px;max-width:1030px;line-height:1.5}
+  table{width:100%;border-collapse:collapse;margin-top:16px}
+  th{font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);text-align:left;padding:0 8px 6px;border-bottom:1px solid var(--rule)}
+  td{font-size:10.5px;padding:6px 8px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.38}
+  td.c{font-weight:650;color:var(--ink);width:168px}
+  td.c span{display:block;font-weight:400;font-size:9.5px;color:var(--muted);margin-top:1px}
+  td.price{width:150px;font-size:10px;font-variant-numeric:tabular-nums}
+  td.wins{width:210px}
+  td.fails{color:var(--fail)}
+  tr.top td{background:#FBF0EE}
+  tr.us td{background:#EDF3FA}
+  tr.us td.c{color:var(--accent)}
+  .zones{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:16px;flex:1}
+  .zone{border-top:2px solid var(--fail);padding-top:9px}
+  .zone.n{border-top-color:var(--ink)}
+  .zone.v{border-top-color:var(--verify)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:13px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.5;margin-top:6px}
+  .src{margin-top:11px;padding-top:9px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Teardown</div>
+  <h1>The two that win most often are free, and neither is a product</h1>
+  <p class="sub">
+    A competitor is anything that consumes the budget or the hour. That makes doing nothing and writing the
+    SQL yourself the market leaders, and the failure column is where the shipped products genuinely diverge.
+  </p>
+
+  <table>
+    <tr><th>Competitor</th><th>Mechanism</th><th>Pricing</th><th>Where it wins</th><th>Where it fails mechanistically</th></tr>
+    <tr class="top">
+      <td class="c">Doing nothing<span>every segment</span></td>
+      <td>Estimate, or drop the question</td>
+      <td class="price">Free</td>
+      <td class="wins">Zero latency, zero cost, no auditable way to be wrong. Rational at one to four weeks turnaround</td>
+      <td class="fails">It does not fail. A stable equilibrium, and the true market leader. 76% have decided without data</td>
+    </tr>
+    <tr class="top">
+      <td class="c">The analyst writes SQL<span>the beachhead itself</span></td>
+      <td>Read schema, write, debug, join, chart</td>
+      <td class="price">Salary</td>
+      <td class="wins">Correctness she will personally stake her name on. No verification step needed, because she is it</td>
+      <td class="fails">Fails on latency, never on correctness. That asymmetry is why it is hard to displace</td>
+    </tr>
+    <tr>
+      <td class="c">Databricks Genie<span>lakehouse enterprises</span></td>
+      <td>Curated space, SQL generation, Inspect self-check</td>
+      <td class="price">Bundled in consumption</td>
+      <td class="wins">Governance and compute inherited from Unity Catalog. Self-verification by decomposition is genuinely strong</td>
+      <td class="fails">30 tables per agent. The reliability strategy is to keep the schema small, excluding the wide-schema case measured at 30 to 36%</td>
+    </tr>
+    <tr>
+      <td class="c">Snowflake Cortex Analyst<span>Snowflake enterprises</span></td>
+      <td>Text to SQL over a hand-authored YAML model</td>
+      <td class="price">~$0.134 per message<br>plus warehouse compute</td>
+      <td class="wins">Cleanest semantic contract in the category. Prices the question, which is the right unit</td>
+      <td class="fails">The model is hand-maintained and capped near 32K tokens. A component, not a loop. Snowflake only by construction</td>
+    </tr>
+    <tr>
+      <td class="c">Power BI Copilot<span>anyone on Fabric</span></td>
+      <td>Natural language over an existing semantic model</td>
+      <td class="price">Bundled, needs dedicated capacity</td>
+      <td class="wins">Unmatched distribution. The organisation already owns it, so it is the default to be measured against</td>
+      <td class="fails">Cannot compute a metric that is not already a measure, so it cannot answer a genuinely ad hoc question by definition</td>
+    </tr>
+    <tr>
+      <td class="c">ThoughtSpot Spotter<span>search-first analytics</span></td>
+      <td>Search and agent over an indexed model</td>
+      <td class="price">$50/user/mo, capped at<br>25 Spotter queries</td>
+      <td class="wins">Most complete expression of search-first analytics, with real enterprise deployments</td>
+      <td class="fails">73.67% secondary markdown against Series F. A 25-query monthly cap prices occasional use, not a core loop</td>
+    </tr>
+    <tr>
+      <td class="c">Hex Notebook Agent<span>analyst-native</span></td>
+      <td>Agent inside a SQL and Python notebook</td>
+      <td class="price">$36 to $75 per editor/mo</td>
+      <td class="wins">Already solves auditability structurally. The notebook is the lineage, every step visible and re-runnable</td>
+      <td class="fails">The analyst still drives. No plan produced up front, no replanning, no dispatch. A notebook, not an investigation</td>
+    </tr>
+    <tr>
+      <td class="c">Wren AI<span>open-source GenBI</span></td>
+      <td>Semantic-engine-anchored RAG with its own modelling language</td>
+      <td class="price">Open source, paid cloud</td>
+      <td class="wins">13,000+ stars, 10,000+ cloud users. Occupies the same open-core position, two years earlier</td>
+      <td class="fails">Text to SQL plus charts. The difference is scope of loop, not approach, which is quantitative rather than categorical</td>
+    </tr>
+    <tr class="us">
+      <td class="c">InsightPilot<span>what this project claims</span></td>
+      <td>Plan across sources, verify per step, trace per handoff</td>
+      <td class="price">$900/analyst/yr threshold</td>
+      <td class="wins">The only position that spans unmodelled sources and returns a trace built to be checked</td>
+      <td class="fails">Untested. Multi-step planning measures about 15% today, and verification may cost what rebuilding costs</td>
+    </tr>
+  </table>
+
+  <div class="zones">
+    <div class="zone">
+      <div class="lbl">Failure mode one</div>
+      <h3>Pre-encoded correctness cannot answer the unanticipated</h3>
+      <p>
+        Every incumbent that gets correctness right requires an artifact authored before the question, and
+        that artifact is bounded. The better the mechanism, the narrower the set of questions attempted.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">Failure mode two</div>
+      <h3>Plausible-but-wrong is undetectable at delivery</h3>
+      <p>
+        Every incumbent's answer is to show the SQL, which hands verification back to the analyst. Reading a
+        query you did not write is not obviously cheaper than writing it.
+      </p>
+    </div>
+    <div class="zone v">
+      <div class="lbl">What cannot be claimed</div>
+      <h3>No head-to-head accuracy comparison exists</h3>
+      <p>
+        Not one commercial agentic-BI product publishes an execution-accuracy figure against any public
+        benchmark. Every comparison here is mechanism-level, and the pack forbids implying a measured
+        advantage.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>research/competitors.md</code> §2 and §3.3</span>
+    <span>Evidence: <code>[S15][S32][S36][S38][S42][S44][S46][S50][S52][S2]</code> · V32</span>
+  </div>
+</div>
+</body>
+</html>

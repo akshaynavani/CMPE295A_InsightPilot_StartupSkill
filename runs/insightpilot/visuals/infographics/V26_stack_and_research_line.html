@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V26 · Stack and the research line</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:34px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:29px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:8px;max-width:1040px;line-height:1.5}
+  .cols{display:flex;gap:26px;margin-top:18px;flex:1;min-height:0}
+  .left{width:412px;flex:none;display:flex;flex-direction:column}
+  .right{flex:1;display:flex;flex-direction:column}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:2px solid var(--ink)}
+  .ch.v{border-bottom-color:var(--verify)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .sl{display:flex;gap:9px;padding:4.5px 0;border-bottom:1px dashed var(--rule);font-size:10.5px;line-height:1.3}
+  .sl .ly{width:108px;flex:none;color:var(--muted);font-size:9.5px;padding-top:1px}
+  .sl .ch2{flex:1;color:var(--ink);font-weight:650}
+  .sl .ch2 span{display:block;font-weight:400;font-size:9px;color:var(--muted);margin-top:1px;line-height:1.3}
+  .sl.mark .ch2{color:var(--accent)}
+  .sl.mark{background:#F3F7FC}
+  .split{display:flex;gap:20px;flex:1;min-height:0}
+  .bucket{flex:1;display:flex;flex-direction:column}
+  .bucket.risk{flex:1.12}
+  .it{display:flex;gap:8px;align-items:baseline;padding:4px 0;border-bottom:1px dashed var(--rule);font-size:10.5px;line-height:1.35}
+  .it .tx{flex:1;color:var(--ink)}
+  .it .tx span{display:block;color:var(--muted);font-size:9px;margin-top:1px;line-height:1.3}
+  .tag{font-size:8.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:1.5px 5px;border-radius:3px;white-space:nowrap;flex:none}
+  .tag.h{background:#EAF3EC;color:var(--verify)}
+  .tag.mh{background:var(--wash);color:var(--body)}
+  .tag.hi{background:#F7EEEC;color:var(--fail)}
+  .tag.md{background:#FDF3E6;color:var(--doubt)}
+  .note{margin-top:9px;padding:8px 10px;border-radius:5px;font-size:10px;line-height:1.45}
+  .note.v{background:#EAF3EC}
+  .note.f{background:#F7EEEC}
+  .note b{color:var(--ink)}
+  .foot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:16px}
+  .zone{border-top:2px solid var(--ink);padding-top:9px}
+  .zone.v{border-top-color:var(--verify)}
+  .zone.f{border-top-color:var(--fail)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:13px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.48;margin-top:6px}
+  .src{margin-top:11px;padding-top:9px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Buildability</div>
+  <h1>Nine of nine near-term items are ordinary engineering. The two that are not are the two the venture needs</h1>
+  <p class="sub">
+    A named stack with no placeholder rows, and an explicit line between what a small team builds in a semester
+    and what stays a research question. The point of drawing the line in public is that both unsolved items are
+    measurement problems first, which is why the evaluation harness is built before any agent.
+  </p>
+
+  <div class="cols">
+    <div class="left">
+      <div class="ch">The stack, named</div>
+      <div class="sl"><div class="ly">Language</div><div class="ch2">Python 3.12<span>every profiling and modelling library below is Python-native</span></div></div>
+      <div class="sl mark"><div class="ly">Orchestrator</div><div class="ch2">Custom, typed plan DAG<span>deliberately not an agent framework, because the plan must be diffable and cacheable</span></div></div>
+      <div class="sl"><div class="ly">Model access</div><div class="ch2">Provider-agnostic client<span>customer's own key, frontier class for planning, small class for prose</span></div></div>
+      <div class="sl mark"><div class="ly">File engine</div><div class="ch2">DuckDB<span>turns the unmodelled CSV into a queryable source with no ETL step</span></div></div>
+      <div class="sl"><div class="ly">Warehouse</div><div class="ch2">SQLAlchemy and psycopg</div></div>
+      <div class="sl"><div class="ly">Profiling</div><div class="ch2">DuckDB SQL, pandas for sampling<span>cardinality, uniqueness, overlap and null rate are all SQL</span></div></div>
+      <div class="sl"><div class="ly">Modelling</div><div class="ch2">scikit-learn and LightGBM<span>no AutoML, because a minutes-long budget makes search infeasible</span></div></div>
+      <div class="sl"><div class="ly">Time series</div><div class="ch2">statsmodels STL</div></div>
+      <div class="sl"><div class="ly">App store</div><div class="ch2">Postgres<span>bindings, lineage, investigations</span></div></div>
+      <div class="sl mark"><div class="ly">Audit log</div><div class="ch2">Append-only JSONL on disk<span>a file, not a table, so it is grep-able without the app running</span></div></div>
+      <div class="sl"><div class="ly">API and web</div><div class="ch2">FastAPI and React<span>conventional, nothing here is differentiating</span></div></div>
+      <div class="sl"><div class="ly">Packaging</div><div class="ch2">Docker Compose<span>the under-30-minute quickstart gates the only viable channel</span></div></div>
+      <div class="sl"><div class="ly">Harness</div><div class="ch2">pytest and a question-set fixture<span>ordinary test infrastructure, run as an evaluation loop</span></div></div>
+    </div>
+
+    <div class="right">
+      <div class="split">
+        <div class="bucket">
+          <div class="ch v">Buildable in one semester</div>
+          <div class="it"><div class="tx">Evaluation harness, fixed question set, seeded errors<span>pytest and fixtures</span></div><div class="tag h">high</div></div>
+          <div class="it"><div class="tx">Postgres connector, read only</div><div class="tag h">high</div></div>
+          <div class="it"><div class="tx">CSV and Excel through DuckDB</div><div class="tag h">high</div></div>
+          <div class="it"><div class="tx">Semantic resolver<span>hybrid retrieval, value linking, margin thresholding</span></div><div class="tag h">high</div></div>
+          <div class="it"><div class="tx">Binding store with provenance and version invalidation</div><div class="tag h">high</div></div>
+          <div class="it"><div class="tx">SQL generation with execution-feedback repair</div><div class="tag h">high</div></div>
+          <div class="it"><div class="tx">The six structural hop checks<span>they are plain SQL</span></div><div class="tag h">high</div></div>
+          <div class="it"><div class="tx">Lineage capture, single-hop replay, export artifact</div><div class="tag h">high</div></div>
+          <div class="it"><div class="tx">Plan surface with approval gate<span>the UI is the work, not the logic</span></div><div class="tag mh">med-high</div></div>
+          <div class="note v"><b>Why this reads as engineering.</b> The substrate is built from techniques that are mostly decades old. Forty-three of the forty-four foundation techniques are established practice a data engineer would recognise.</div>
+        </div>
+        <div class="bucket risk">
+          <div class="ch f">Research risk, named rather than hidden</div>
+          <div class="it"><div class="tx">Plan synthesiser quality on real schemas<span>multi-step data reasoning measures about 15% on hard tasks. Short plans and static validation are mitigations, not solutions. The spike exists to measure this</span></div><div class="tag hi">high</div></div>
+          <div class="it"><div class="tx">Verifier coverage of plausible failures<span>the checks provably catch countable failures. The dangerous ones are plausible, and coverage is unmeasured</span></div><div class="tag hi">med-high</div></div>
+          <div class="it"><div class="tx">Verification cheaper than re-derivation<span>needs humans, not code. Gates the entire model</span></div><div class="tag hi">high</div></div>
+          <div class="it"><div class="tx">Override re-flow across a grain change<span>honest fallback is invalidate and replan</span></div><div class="tag md">medium</div></div>
+          <div class="it"><div class="tx">Useful modelling inside a minutes budget<span>the published medal rate runs on twelve hours. The short version is unspecified anywhere</span></div><div class="tag md">medium</div></div>
+          <div class="note f"><b>Both unsolved items are measurement problems before they are research problems.</b> That is the whole reason the harness is the first thing built and not the twentieth.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone">
+      <div class="lbl">The two stack choices worth defending</div>
+      <h3>No agent framework, and DuckDB</h3>
+      <p>
+        A framework that hides the plan in control flow forfeits the approval gate, which is the cheapest
+        error-catch in the system. DuckDB makes a CSV, a Parquet file and a query result the same thing, which
+        is what makes heterogeneous sources tractable for a small team.
+      </p>
+    </div>
+    <div class="zone f">
+      <div class="lbl">What the cost model cannot supply</div>
+      <h3>Expected attempts dominates and is unknown</h3>
+      <p>
+        Verification costs zero model tokens and so does the statistical work, so the frontier surface is narrow.
+        But a roughly one-dollar estimate per investigation assumes one clean pass, and the accuracy figures say
+        retries are the common case.
+      </p>
+    </div>
+    <div class="zone v">
+      <div class="lbl">What a reviewer should conclude</div>
+      <h3>Not a wrapper, and not solved</h3>
+      <p>
+        The verification layer, the lineage model and the cross-source reconciler are real engineering with
+        named methods. The two parts that are not are named on this page rather than buried in an appendix.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>tech/not_vaporware.md</code> §1, §3 and §4 · accuracy anchors from <code>research/capability_table.md</code></span>
+    <span>Evidence: <code>[S4][S2][S9]</code> · V26</span>
+  </div>
+</div>
+</body>
+</html>

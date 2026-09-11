@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V33 · Capability frontier</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:36px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:29px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:8px;max-width:1030px;line-height:1.5}
+  .bars{margin-top:20px}
+  .b{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+  .b .nm{width:236px;flex:none;font-size:11.5px;line-height:1.3}
+  .b .nm b{display:block;color:var(--ink);font-weight:650;font-size:12px}
+  .b .nm span{color:var(--muted);font-size:9.5px}
+  .b .trk{flex:1;height:26px;background:var(--wash);border-radius:3px;position:relative}
+  .b .fill{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:9px;color:#fff;font-size:11px;font-weight:700;font-variant-numeric:tabular-nums}
+  .b .fill.hi{background:var(--verify)}
+  .b .fill.mid{background:var(--accent)}
+  .b .fill.lo{background:var(--fail)}
+  .b .fill.amb{background:var(--doubt)}
+  .b .ctx{width:224px;flex:none;font-size:10px;color:var(--muted);line-height:1.35}
+  .b .ctx b{color:var(--ink);font-weight:650}
+  .marker{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink)}
+  .marker span{position:absolute;top:-13px;left:50%;transform:translateX(-50%);font-size:8.5px;font-weight:700;color:var(--ink);white-space:nowrap}
+  .zones{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:20px;flex:1}
+  .zone{border-top:2px solid var(--ink);padding-top:10px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.v{border-top-color:var(--verify)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:13px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.5;margin-top:6px}
+  .src{margin-top:12px;padding-top:10px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Capability table</div>
+  <h1>The spread is the finding, not the headline number</h1>
+  <p class="sub">
+    Text to SQL looks solved until the benchmark introduces semantic indirection and real project structure.
+    The same class of system loses roughly a third of its accuracy, and the capability this project actually
+    depends on sits at the bottom of the chart.
+  </p>
+
+  <div class="bars">
+    <div class="b">
+      <div class="nm"><b>Spider 2.0, Snow setting</b><span>text to SQL, curated warehouse</span></div>
+      <div class="trk"><div class="fill hi" style="width:96.7%">96.7%</div></div>
+      <div class="ctx">The headline. A fetch agent is plausible at all because of this</div>
+    </div>
+    <div class="b">
+      <div class="nm"><b>Spider 2.0, Lite setting</b><span>same family, less scaffolding</span></div>
+      <div class="trk"><div class="fill hi" style="width:76.2%">76.2%</div></div>
+      <div class="ctx">Twenty points lost to a change in setting alone</div>
+    </div>
+    <div class="b">
+      <div class="nm"><b>Spider 2.0, DBT setting</b><span>semantic indirection, real project structure</span></div>
+      <div class="trk"><div class="fill mid" style="width:65.6%">65.6%</div></div>
+      <div class="ctx"><b>A 31-point drop from Snow.</b> This is the honest number for real deployments</div>
+    </div>
+    <div class="b">
+      <div class="nm"><b>BIRD, best single model</b><span>against 92.96% human performance</span></div>
+      <div class="trk"><div class="fill mid" style="width:80%">80.0%</div><div class="marker" style="left:92.96%"><span>human 93.0%</span></div></div>
+      <div class="ctx">A 13-point residual gap to a human analyst</div>
+    </div>
+    <div class="b">
+      <div class="nm"><b>Production wide schemas</b><span>~1,000 columns, 54 tables</span></div>
+      <div class="trk"><div class="fill lo" style="width:33%">30 to 36%</div></div>
+      <div class="ctx">Third-party analysis, not a leaderboard. The case Genie's 30-table cap excludes</div>
+    </div>
+    <div class="b">
+      <div class="nm"><b>Agent consistency, eight attempts</b><span>all eight must succeed</span></div>
+      <div class="trk"><div class="fill lo" style="width:25%">under 25%</div><div class="marker" style="left:60%"><span>same agent, one attempt: 60%+</span></div></div>
+      <div class="ctx"><b>Consistency degrades faster than capability.</b> Two answers to one question is work, not leverage</div>
+    </div>
+    <div class="b">
+      <div class="nm"><b>DABstep, easy split</b><span>real financial analytics workload</span></div>
+      <div class="trk"><div class="fill mid" style="width:76.4%">76.4%</div></div>
+      <div class="ctx">16% of the benchmark's tasks sit here</div>
+    </div>
+    <div class="b">
+      <div class="nm"><b>DABstep, hard split</b><span>84% of tasks · this project depends on it</span></div>
+      <div class="trk"><div class="fill lo" style="width:16%">~15%</div></div>
+      <div class="ctx"><b>The weakest measured capability in the field, and the Orchestrator's core job</b></div>
+    </div>
+    <div class="b">
+      <div class="nm"><b>Automated ML, medal rate</b><span>MLE-bench, 75 Kaggle competitions</span></div>
+      <div class="trk"><div class="fill amb" style="width:36.4%">36.4%</div></div>
+      <div class="ctx">Real capability, but on a <b>12-hour budget</b>. Not a conversational latency</div>
+    </div>
+  </div>
+
+  <div class="zones">
+    <div class="zone f">
+      <div class="lbl">Why this chart argues for the design</div>
+      <h3>The bottom bar is the whole thesis</h3>
+      <p>
+        If multi-step reasoning were reliable, correctness could stay pre-encoded and nobody would need a
+        trace. Because it is not, the trace is what makes the steps usable. The weakness is the reason for
+        the architecture rather than an objection to it.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">A caution on every bar</div>
+      <h3>Benchmark scores are not deployment accuracy</h3>
+      <p>
+        Annotation errors in the standard text-to-SQL benchmarks are documented well enough that deltas of a
+        few points carry no meaning. Treat each figure as an ordering signal rather than a specification.
+      </p>
+    </div>
+    <div class="zone v">
+      <div class="lbl">What is genuinely favourable</div>
+      <h3>Tool access standardised, on the record</h3>
+      <p>
+        MCP shipped November 2024 with a Postgres reference server and was adopted by four major vendors
+        within thirteen months, then handed to a neutral steward. That is what makes a pluggable connector
+        layer tractable for a small team.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>research/capability_table.md</code> · all figures accessed 2026-09-08</span>
+    <span>Evidence: <code>[S1][S3][S2][S5][S4][S9][S12][S62]</code> · V33</span>
+  </div>
+</div>
+</body>
+</html>
