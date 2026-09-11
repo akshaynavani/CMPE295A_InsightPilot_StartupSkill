@@ -4,8 +4,8 @@
 
 Conversational BI for enterprise data analysts: a multi-agent system that turns a business question into a planned, executed and fully traceable analytical workflow. An Orchestrator decomposes intent into an *analysis plan*, shows it before anything runs, and dispatches it to four specialist agents — Data Fetch/Integration, Analytics, Visualization and ML — across the analyst's real sources: the warehouse, the operational database, and the file nobody has ever modelled. Every handoff emits its own *lineage*, so the answer arrives with a trace the analyst can check hop by hop. Built for the analyst who can already write the query, on the bet that **the binding constraint is not how fast an answer arrives but what it costs to verify one you did not derive.**
 
-> **Status** — 2026-09-09 · run slug `insightpilot` · **54 / 54 in-scope required artifacts · 0 / 78 visuals rendered**
-> **COMPLETE for the document scope.** 7 manifest rows are excluded or deferred by founder decision (see [audit/COVERAGE.md](audit/COVERAGE.md) §5). Visuals and website phases are deferred, not cancelled.
+> **Status** — 2026-09-11 · run slug `insightpilot` · **54 / 54 in-scope required artifacts · 64 / 64 manifest visuals satisfied · 0 rasters**
+> **COMPLETE for the document and visual scope.** 7 manifest rows are excluded by founder decision (see [audit/COVERAGE.md](audit/COVERAGE.md) §5). The visuals phase is now done — 53 HTML frames plus 11 Mermaid diagrams cover all 64 rows, with zero PNG rasters recorded rather than hidden. Only the optional website phase remains.
 > **The count above is documents, not evidence:** twelve assumptions remain untested and no customer has been interviewed.
 
 ## Start here — 60 seconds
@@ -41,17 +41,26 @@ Conversational BI for enterprise data analysts: a multi-agent system that turns 
 | [`narrative/`](narrative/) | One-pager, VC memo, pitch deck, future press release, founder story, mission | 6 | startup-narrative |
 | [`validation/`](validation/) | Riskiest assumptions, experiment board, discovery guide, get/keep/grow, stage gates, metrics by stage, pivot log, MVP definitions, decision-making unit | 9 | startup-validation |
 | [`financials/`](financials/) | Pricing threshold, unit economics, risk matrix — **cost side only** | 3 | startup-financials |
+| [`visuals/`](visuals/) | Visual manifest, image prompts, and 53 self-contained HTML infographics | 2 + 53 | startup-visuals |
 | [`audit/`](audit/) | Coverage report | 1 | startup-audit |
-| | **Total** | **65** | |
+| | **Total** | **66 documents + 53 frames** | |
 
 ## Visual index
 
-**None rendered.** The visuals phase is deferred by decision ([ASSUMPTIONS.md](ASSUMPTIONS.md) A4) — `node` is not installed on this machine and the visuals skill requires it. Nothing is embedded below because nothing exists to embed.
+**All 64 manifest rows are satisfied.** 11 are carried by Mermaid diagrams inside their own source artifacts and need no separate file; the other 53 are self-contained HTML frames in [`visuals/infographics/`](visuals/infographics/), 1280×720, no external assets, openable directly in a browser. The plan they were built against is [`visuals/visual_manifest.md`](visuals/visual_manifest.md), and [`visuals/docimages.json`](visuals/docimages.json) records which frame illustrates which artifact: **63 documents, 67 placements, zero content artifacts left unillustrated.**
 
-Two things are already on disk for when it resumes:
+**Four frames to open first.**
 
-- **Eleven Mermaid diagrams** in [`tech/architecture/`](tech/architecture/00_INDEX.md), which render live in any GitHub-flavoured Markdown viewer. Per the manifest's own guidance, rows whose source artifact already ships a Mermaid diagram do not need a duplicate HTML infographic.
-- **A `visual:` line on every slide** of [narrative/pitch_deck.md](narrative/pitch_deck.md) — these are the future rows of the visual manifest.
+| Frame | What it carries |
+|---|---|
+| [`V60_one_pager.html`](visuals/infographics/V60_one_pager.html) | The whole venture in one frame, every figure sourced |
+| [`V33_capability_frontier.html`](visuals/infographics/V33_capability_frontier.html) | Nine measured capabilities. The spread is the finding, and the weakest bar is this project's core dependency |
+| [`V50_survey_for_against.html`](visuals/infographics/V50_survey_for_against.html) | The case for the mechanism beside the case against it. The case against is the longer column |
+| [`V37_stage_gate.html`](visuals/infographics/V37_stage_gate.html) | Where this actually sits: hypotheses stated, none tested, six exit criteria with thresholds |
+
+**Zero PNG rasters, recorded rather than hidden.** No text-to-image capability existed in the session that built this phase. Prompts for all 64 rows are written in [`visuals/image_prompts.md`](visuals/image_prompts.md) so a later session renders from a specification — and eleven of those rows carry an explicit instruction **never** to generate them, because an approximated topology is worse than none.
+
+Also on disk and worth knowing about: **eleven Mermaid diagrams** in [`tech/architecture/`](tech/architecture/00_INDEX.md) render live in any GitHub-flavoured Markdown viewer, and [narrative/pitch_deck.md](narrative/pitch_deck.md) carries a `visual:` line on every slide naming the frame that belongs to it.
 
 ## Top 5 sharpest claims
 
@@ -65,6 +74,8 @@ Each traces to [research/sources.md](research/sources.md).
 
 ## Completeness
 
-**COMPLETE for the document scope.** All 54 in-scope required rows are present with no stubs; the audit found eleven defects and fixed them, and accepted three deviations with stated reasons. Seven rows are excluded or deferred by founder decision rather than omission — the three revenue-side financial artifacts (no revenue, no CAC, no funnel, so any projection would be fabricated) and the visuals and website phases (deferred, not cancelled). Row-by-row status, the defects found, and what to do next are in [audit/COVERAGE.md](audit/COVERAGE.md).
+**COMPLETE for the document and visual scope.** All 54 in-scope required rows are present with no stubs; the audit found eleven defects and fixed them, and accepted three deviations with stated reasons. Three rows are excluded by founder decision rather than omission — the revenue-side financial artifacts, since with no revenue, no acquisition data and no funnel any projection would be fabricated. Row-by-row status, the defects found, and what to do next are in [audit/COVERAGE.md](audit/COVERAGE.md).
+
+**The visuals phase has since closed** all 64 manifest rows, with PNG rasters the one thing still outstanding and recorded as such. **The optional website phase is the only part of the pack's scope not started.**
 
 **What is finished is the pack, not the venture.** Twelve assumptions remain untested, nine experiments are all status `planned`, and no customer has been interviewed. Four of those assumptions can end the project and three of the four are answerable in roughly twenty-five founder-hours without writing any code — which is why [validation/stage_gate.md](validation/stage_gate.md) places this at *Customer Discovery, not exited*, and why the honest one-line summary is: **sixty-five artifacts, twelve untested assumptions, zero customers interviewed.**

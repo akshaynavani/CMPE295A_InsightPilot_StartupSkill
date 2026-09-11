@@ -24,8 +24,12 @@ These were raised, discussed, and decided. The audit must not reopen them.
 — basis: founder selected "no durable moat yet" over asserting one. With an open-source core the code is not the asset. Three candidate compounding loops are stated in BRIEF.md with the evidence that would confirm the strongest.
 — kills-pack-if-wrong: **no**
 
-**A4: Visuals and website phases are deferred, not cancelled.** Open manifest rows: **A49**, **A50**, **A51**, **A52b** (required); **A52**, **A56**, **A57** (optional).
-— basis: run scoped to documents only. Prerequisites for both phases are fully satisfied by phases 0–7, so they resume cleanly later. Note: `node` is not installed on this machine and both skills shell out to it.
+**A4: Visuals and website phases were deferred, not cancelled.** — **VISUALS CLOSED 2026-09-11. Website still open (optional).**
+— original basis: run scoped to documents only. Prerequisites for both phases were fully satisfied by phases 0–7, so they resumed cleanly. `node` was not installed on this machine at the time and both skills shell out to it.
+— **what closed:** `node` was installed, and **A49, A50, A51 and A52b are satisfied** — a 64-row visual manifest, 53 self-contained HTML infographics, a text-to-image prompt per row, and a `docimages.json` reporting 63 documents, 67 placements and zero content artifacts left unillustrated.
+— **what did not, and why it is recorded rather than hidden:** **A52 (PNG rasters) is unsatisfied** because no text-to-image capability existed in the session that built the phase. Every row's raster is `pending-image` with its prompt written, so a later session renders from a specification. **Eleven of the 64 rows carry an explicit instruction never to be generated** — their value is an exact topology, and a reader cannot tell a generated edge from a real one, which makes an approximated graph worse than a missing one.
+— **one deviation logged:** `visuals/build_docimages.js` is modified from the template, which maps PNGs only and would therefore have reported zero placements on this run. The run-local copy maps HTML frames and Mermaid rows too and still reports the raster count separately as zero. Commented in the file and recorded in [audit/COVERAGE.md](audit/COVERAGE.md) §5.2.
+— **still open:** **A56** and **A57**, the website and its published URL. Both optional, and now the only untouched part of the pack's scope. A57 is newly possible because the repository has a remote.
 — kills-pack-if-wrong: **no**
 
 ## Open decisions (deferred by choice, to be closed downstream)

@@ -18,12 +18,13 @@ Working repository for the **InsightPilot** master's capstone (CMPE 295A / 295B,
 cmpe295A/
 ├── README.md          ← you are here — repo index
 ├── source/            ← the original proposal this pack was derived from
-└── runs/insightpilot/ ← the generated founder pack (65 artifacts)
+└── runs/insightpilot/ ← the generated founder pack (65 artifacts + 53 visuals)
     ├── README.md      ← the pack's own front door: reading paths by audience
     ├── BRIEF.md       ← source of truth
     ├── ASSUMPTIONS.md ← decision ledger
     ├── research/  strategy/  product/  tech/
     ├── narrative/  validation/  financials/
+    ├── visuals/       ← 53 HTML infographics, one per manifest row
     └── audit/         ← coverage report
 ```
 
@@ -149,6 +150,16 @@ Three of six manifest rows. Revenue build, use of funds and exit comparables are
 | [`unit_economics.md`](runs/insightpilot/financials/unit_economics.md) | Cost per investigation and per analyst-year, CAC by channel, and why self-hosting **inverts** the usual gross-margin analysis |
 | [`risk_matrix.md`](runs/insightpilot/financials/risk_matrix.md) | Eight risks with leading indicators and honest residuals — no risk mitigates to Low — and capstone exposure separated from venture exposure |
 
+### `visuals/` — the visual layer (53 frames + 2 documents)
+
+| Artifact | What it is |
+|---|---|
+| [`visual_manifest.md`](runs/insightpilot/visuals/visual_manifest.md) | The ranked list of 64 visuals by audience, the shared palette and type scale every frame obeys, what is deliberately not drawn and why, and the honest state of the phase. Statuses are written from `ls`, never from memory |
+| [`image_prompts.md`](runs/insightpilot/visuals/image_prompts.md) | One text-to-image prompt per manifest row, each naming its title line, the data it must embed and its composition zones — plus the eleven rows that must **never** be generated, because an approximated topology is worse than none |
+| [`infographics/`](runs/insightpilot/visuals/infographics/) | 53 self-contained HTML frames, 1280×720, no external assets. Open any one directly in a browser |
+
+**Where to start.** [`V60_one_pager.html`](runs/insightpilot/visuals/infographics/V60_one_pager.html) is the whole venture in one frame. [`V33_capability_frontier.html`](runs/insightpilot/visuals/infographics/V33_capability_frontier.html) is the measured evidence the architecture is a response to. [`V50_survey_for_against.html`](runs/insightpilot/visuals/infographics/V50_survey_for_against.html) puts the case against the project beside the case for it, and the case against is the longer column.
+
 ### `audit/` — the completeness check (1)
 
 | Artifact | What it is |
@@ -170,4 +181,6 @@ Three of six manifest rows. Revenue build, use of funds and exit comparables are
 
 Four of those assumptions can end the project, and three of the four are answerable in roughly twenty-five founder-hours **without writing any code**. The cheapest single action is a timed task with five analysts and a stopwatch, testing whether an analyst can accept an answer they did not derive faster than they could derive it — the claim everything else rests on. See [`audit/COVERAGE.md`](runs/insightpilot/audit/COVERAGE.md) §8 for the full draw order.
 
-The visuals and website phases are **deferred, not cancelled** — `node` is not installed on this machine and both require it. Their prerequisites are fully satisfied, and eleven Mermaid diagrams already exist in `tech/architecture/` to reduce that work when it resumes.
+**The visuals phase is now complete.** All 64 manifest rows are satisfied: 11 by Mermaid diagrams already inside their source artifacts, and 53 by self-contained HTML frames in [`visuals/infographics/`](runs/insightpilot/visuals/infographics/). Every artifact over ~400 words is illustrated, verified by `visuals/docimages.json` rather than asserted. **No PNG rasters exist, and that is recorded rather than hidden** — no text-to-image capability was available, so prompts for all 64 rows are written in [`visuals/image_prompts.md`](runs/insightpilot/visuals/image_prompts.md) for a later session, and eleven of those rows carry an explicit instruction never to generate them.
+
+The website phase remains **optional and not started** (`index.html` and a published URL). It is the only thing left in the pack's scope.

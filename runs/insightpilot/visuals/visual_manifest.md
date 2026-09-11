@@ -1,8 +1,8 @@
 # Visual manifest
 
 **What this is** — The complete, ranked list of visuals this pack needs: what each one shows, who it is for, which artifact it draws its data from, what form it takes, and whether it exists yet.
-**Why it exists** — Sixty-three artifacts, every one over 400 words, is where readers stop. This file is the plan that turns that wall of prose into something scannable, and it is written **before** any visual is generated so that generation is reconciliation against a list rather than improvisation. It is also the audit's grep target: statuses here are written from `ls`, never from memory.
-**How to read it** — §2 declares the shared visual language every file must obey. §3 onward is the ranked table by audience. A skeptic should attack §6, which records what is deliberately not being drawn and why.
+**Why it exists** — Sixty-five artifacts, every one over 400 words, is where readers stop. This file is the plan that turns that wall of prose into something scannable, and it is written **before** any visual is generated so that generation is reconciliation against a list rather than improvisation. It is also the audit's grep target: statuses here are written from `ls`, never from memory.
+**How to read it** — §2 declares the shared visual language every file must obey. §3 onward is the ranked table by audience. A skeptic should attack §8, which records what is deliberately not being drawn and why.
 **Depends on / feeds** — Sources every row from the pack's own artifacts; no number appears on a visual that does not exist in one. Feeds `infographics/`, `image_prompts.md`, and `docimages.json`.
 
 ---
@@ -149,7 +149,8 @@ Recorded with reasons, per the skill's instruction that rows are dropped only wi
 
 ## 9. Honest state of this phase
 
-- **64 rows.** 11 are already satisfied by Mermaid diagrams inside their source artifacts and need no separate file.
-- **53 rows need an HTML infographic.** Status is written from `ls` at the end of every working session, never from memory.
-- **0 rasters, and that is expected.** `docimages.json` maps PNGs only, so it will report zero placements until a session with image generation runs `image_prompts.md`. The HTML files are the deliverable; the rasters are polish.
-- **This manifest is the contract.** A visual that is not on this list should not exist, and a row that is marked `html` without a file on disk is a defect the audit will catch.
+- **64 rows, and all 64 are satisfied.** 11 are already carried by Mermaid diagrams inside their source artifacts and need no separate file; the remaining **53 each have an HTML infographic in `infographics/`**, verified against `ls` rather than against memory.
+- **0 rasters, and that is expected.** No text-to-image capability existed in the session that built this phase. Prompts for all 64 rows are written in [image_prompts.md](image_prompts.md), so a later session or a human renders from a specification rather than improvising.
+- **`docimages.json` maps both forms, which is a deliberate change to the template script.** The stock `build_docimages.js` maps PNGs only, so on this run it would have reported zero placements and listed every artifact as unillustrated — false for the reader, and it would leave the A52b contract unverifiable. The run-local copy maps HTML frames and Mermaid rows too and **still reports the raster count separately as zero.** Current output: **63 documents, 67 placements, 0 unillustrated content artifacts.**
+- **Eleven rows must never be rendered as images.** Their value is the exact topology, and a generated graph is worse than none because a reader cannot tell an invented edge from a real one. `image_prompts.md` says so on each of those rows.
+- **This manifest is the contract.** A visual that is not on this list should not exist, and a row marked `html` without a file on disk is a defect the audit will catch.

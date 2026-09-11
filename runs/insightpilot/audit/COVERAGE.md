@@ -215,6 +215,16 @@ Deferred per **ASSUMPTIONS A4** — deferred, *not cancelled*. The run is scoped
 
 **Consequence for A55:** the README's visual index states *none rendered* and embeds nothing, because there is nothing to embed. That is a true statement of a deferred phase, not a skipped contract.
 
+> **Addendum, 2026-09-11 — the visuals phase has since closed. This audit's §1 headline and §2 rows are the 2026-09-09 snapshot and are deliberately left unedited.**
+>
+> `node` was installed after this audit ran, and **A49, A50, A51 and A52b are now satisfied**: a 64-row `visuals/visual_manifest.md`, 53 self-contained HTML infographics in `visuals/infographics/`, a prompt per row in `visuals/image_prompts.md`, and `visuals/docimages.json` reporting **63 documents, 67 placements and zero content artifacts left unillustrated.**
+>
+> **A52 (PNG rasters) remains unsatisfied and is optional.** No text-to-image capability existed in the session that built the phase, so every row's raster is `pending-image` with its prompt written. Eleven of the 64 rows carry an explicit instruction never to be generated, because their value is an exact topology and an approximated graph is worse than none.
+>
+> **One deliberate deviation to record:** `visuals/build_docimages.js` is a run-local modification of the template, which maps PNGs only. On this run the stock script would have reported zero placements and listed every artifact as unillustrated — false for the reader, and it would leave the A52b contract unverifiable. The run-local copy maps HTML frames and Mermaid rows as well, **and still reports the raster count separately as zero.** The change is commented in the file itself.
+>
+> **A56 and A57 (the website) remain not started**, and both are optional. That is now the only part of the pack's scope untouched.
+
 ## 6. Quality-bar spot-check
 
 Sampled beyond the mechanical property-0 sweep.
