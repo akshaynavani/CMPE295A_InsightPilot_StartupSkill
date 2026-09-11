@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V36 · Pricing threshold</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:34px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:29px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:8px;max-width:1040px;line-height:1.5}
+  .cols{display:flex;gap:24px;margin-top:18px;flex:1;min-height:0}
+  .c{display:flex;flex-direction:column}
+  .c1{width:316px;flex:none}
+  .c2{flex:1}
+  .c3{width:318px;flex:none}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:2px solid var(--ink)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .ch.f{border-bottom-color:var(--fail)}
+  .an{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px dashed var(--rule);font-size:10.5px;line-height:1.3}
+  .an .l{flex:1;color:var(--ink);font-weight:650}
+  .an .l span{display:block;color:var(--muted);font-size:9px;font-weight:400;margin-top:1px}
+  .an .p{text-align:right;font-variant-numeric:tabular-nums;font-size:10px;white-space:nowrap;flex:none;color:var(--body)}
+  .an.band{background:#EDF3FA}
+  .bar{margin-top:10px;padding:9px 11px;background:var(--wash);border-radius:6px;font-size:10.5px;line-height:1.45}
+  .bar b{color:var(--ink)}
+  .lad{margin-top:10px}
+  .row{margin-bottom:11px}
+  .row .hd{display:flex;justify-content:space-between;font-size:10.5px;margin-bottom:4px}
+  .row .hd b{color:var(--ink)}
+  .row .hd i{font-style:normal;font-weight:700;font-variant-numeric:tabular-nums}
+  .trk{height:22px;background:var(--wash);border-radius:3px;position:relative;overflow:hidden}
+  .need{position:absolute;left:0;top:0;bottom:0;background:#D8C29A;display:flex;align-items:center;padding-left:8px;font-size:10px;font-weight:700;color:#5A4318}
+  .deliv{position:absolute;top:0;bottom:0;border-left:2px solid var(--verify)}
+  .delivlab{position:absolute;top:0;bottom:0;display:flex;align-items:center;padding-left:7px;font-size:10px;font-weight:700;color:var(--verify)}
+  .tiers{margin-top:9px}
+  .t{border:1px solid var(--rule);border-radius:6px;padding:7px 9px;margin-bottom:7px}
+  .t.free{background:#EAF3EC;border-color:#BFDCC9}
+  .t.paid{background:#EDF3FA;border-color:#C4D8EE}
+  .t .tn{display:flex;justify-content:space-between;align-items:baseline}
+  .t .tn b{font-size:12px;font-weight:700;color:var(--ink)}
+  .t .tn i{font-style:normal;font-size:12px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+  .t p{font-size:9.5px;line-height:1.4;margin-top:3px}
+  .fals{margin-top:9px}
+  .fals div{font-size:10px;line-height:1.4;padding:4px 0;border-bottom:1px dashed var(--rule)}
+  .fals div:last-child{border-bottom:none}
+  .fals div b{color:var(--fail)}
+  .foot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:16px}
+  .zone{border-top:2px solid var(--ink);padding-top:9px}
+  .zone.v{border-top-color:var(--verify)}
+  .zone.f{border-top-color:var(--fail)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:13px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.48;margin-top:6px}
+  .src{margin-top:11px;padding-top:9px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Pricing</div>
+  <h1>The threshold holds by 1.3 to 2.1 times, which is a real result and a narrow one</h1>
+  <p class="sub">
+    With no revenue and no funnel, a forecast would be fabricated. What the architecture can answer is whether
+    a stated price clears its own cost and whether the time saved exceeds it. Three of the four things that
+    would falsify the answer are pending experiments, and they are named rather than assumed away.
+  </p>
+
+  <div class="cols">
+    <div class="c c1">
+      <div class="ch">What budget this sits next to</div>
+      <div class="an"><div class="l">Snowflake Cortex Analyst<span>per question, billed on success only</span></div><div class="p">≈$0.134<br>per message</div></div>
+      <div class="an"><div class="l">ThoughtSpot Essentials<span>seat</span></div><div class="p">$25<br>per user/mo</div></div>
+      <div class="an band"><div class="l">ThoughtSpot Pro<span>seat plus metered agent, capped at 25 queries per month</span></div><div class="p">$50<br>per user/mo</div></div>
+      <div class="an band"><div class="l">Hex<span>entry editor seat, then team seat</span></div><div class="p">$36 to ~$75<br>per editor/mo</div></div>
+      <div class="an"><div class="l">ThoughtSpot Enterprise<span>negotiated average contract</span></div><div class="p">≈$137k<br>per year</div></div>
+      <div class="an"><div class="l">Julius AI<span>free tier through team seat</span></div><div class="p">$35 to $200<br>per month</div></div>
+      <div class="bar" style="background:#EDF3FA">
+        <b>The analyst-tool band is $36 to $75 per seat per month.</b> Above it is a different category. Below it
+        leaves value on the table for a product that spans sources.
+      </div>
+      <div class="bar">
+        <b>Which line item this displaces is genuinely unknown,</b> and it is the sharpest open question in the
+        commercial story. If fewer than three of five buyers can name a line, the arithmetic to the right is
+        answering a question nobody is asking.
+      </div>
+    </div>
+
+    <div class="c c2">
+      <div class="ch a">Hours that must be saved, against hours the mechanism delivers</div>
+      <div class="lad">
+        <div class="row">
+          <div class="hd"><b>One clean pass per step</b><span>licence $900 plus model $167</span><i style="color:var(--verify)">2.1× margin</i></div>
+          <div class="trk"><div class="need" style="width:48%">18.4 h needed</div><div class="delivlab" style="left:48%">38.4 h delivered</div></div>
+        </div>
+        <div class="row">
+          <div class="hd"><b>Three attempts per step</b><span>licence $900 plus model $502</span><i style="color:var(--doubt)">1.6× margin</i></div>
+          <div class="trk"><div class="need" style="width:63%">24.2 h needed</div><div class="delivlab" style="left:63%">38.4 h delivered</div></div>
+        </div>
+        <div class="row">
+          <div class="hd"><b>Five attempts per step</b><span>licence $900 plus model $836</span><i style="color:var(--fail)">1.3× margin</i></div>
+          <div class="trk"><div class="need" style="width:78%">29.9 h needed</div><div class="delivlab" style="left:78%">38.4 h delivered</div></div>
+        </div>
+      </div>
+      <div class="bar">
+        <b>Where the delivered figure comes from.</b> A multi-source question against an unmodelled source goes
+        from about 90 minutes to about 31, saving 59. Single-source familiar questions save nothing at all.
+        Assuming a quarter of questions are multi-source, that is 39 investigations a year and 38.4 hours.
+        <b>Every term in that sentence is an assumption with a tag on it.</b>
+      </div>
+      <div class="bar" style="background:#EAF3EC">
+        <b>The one genuinely favourable fact.</b> Verification adds zero model tokens, because the checks are
+        SQL. The mechanism that justifies the price is the part that does not move the cost.
+      </div>
+    </div>
+
+    <div class="c c3">
+      <div class="ch">Three tiers, deliberately simple</div>
+      <div class="tiers">
+        <div class="t free">
+          <div class="tn"><b>Open core</b><i style="color:var(--verify)">Free</i></div>
+          <p>The entire differentiator ships free: plan surface, per-hop verification, hop-level lineage, single-hop re-run, export, audit log. Charging for the thing that recruits the next analyst would break the only channel whose economics work.</p>
+        </div>
+        <div class="t paid">
+          <div class="tn"><b>Team</b><i>$75 per analyst/mo</i></div>
+          <p>Semantic-layer consumption, shared review queue, history search, binding review, reconciliation reporting. What a team needs and an individual does not, which is also what the buyer evaluates.</p>
+        </div>
+        <div class="t">
+          <div class="tn"><b>Enterprise</b><i style="color:var(--muted)">Negotiated</i></div>
+          <p>Managed deployment, support commitments, single sign-on, retention controls. Not a growth vector.</p>
+        </div>
+      </div>
+      <div class="ch f" style="margin-top:6px">What would falsify this</div>
+      <div class="fals">
+        <div><b>Multi-source share below 15%.</b> Delivered hours fall to about 23 and the threshold fails at three attempts or more</div>
+        <div><b>Expected attempts above five.</b> Margin approaches 1.0 and the customer pays to break even</div>
+        <div><b>Verification cost ratio above 0.8.</b> The 59-minute saving is fiction and the whole computation is void</div>
+        <div><b>Analyst cost of $80k rather than $120k.</b> Break-even hours rise by half and margin at three attempts falls to about 1.1</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone">
+      <div class="lbl">The right meter and the right invoice differ</div>
+      <h3>Price the investigation, bill the seat</h3>
+      <p>
+        The market already meters the question: one vendor bills per message on success, another caps its agent
+        at 25 queries a month. Tokens are wrong because the customer already pays them. Seats are wrong because
+        value is lumpy, and are recommended anyway because a simple invoice costs no sales team.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">Who the conversation is with</div>
+      <h3>The payer has never used the product</h3>
+      <p>
+        The analyst advocates but holds no budget, and her stated willingness to pay is not a useful signal. The
+        platform owner can only say no. That is why the paid tier holds the artifacts the budget holder
+        evaluates rather than the features the user enjoys.
+      </p>
+    </div>
+    <div class="zone f">
+      <div class="lbl">One section left deliberately empty</div>
+      <h3>No pricing-power argument</h3>
+      <p>
+        The usual claim is that price rises as a data moat compounds. The candidate here is unevidenced and
+        confirming it needs 90 days of real deployment. Until then the section stays blank, and anything
+        downstream asserting pricing power is asserting a moat this pack declines to claim.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>financials/pricing.md</code> §2 through §6 · time saving from <code>tech/whitepaper.md</code> §5</span>
+    <span>Evidence: <code>[S37][S38][S39][S44][S45][S52][S53][S4]</code> · V36</span>
+  </div>
+</div>
+</body>
+</html>

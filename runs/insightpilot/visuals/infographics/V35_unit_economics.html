@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V35 · Who pays the compute</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:34px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:29px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:8px;max-width:1040px;line-height:1.5}
+  .cols{display:flex;gap:24px;margin-top:18px;flex:1;min-height:0}
+  .c{display:flex;flex-direction:column}
+  .c1{width:330px;flex:none}
+  .c2{flex:1}
+  .c3{width:300px;flex:none}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:2px solid var(--ink)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .ch.v{border-bottom-color:var(--verify)}
+  .pay{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px dashed var(--rule);font-size:10.5px;line-height:1.3}
+  .pay .l{flex:1;color:var(--ink)}
+  .pay .l span{display:block;color:var(--muted);font-size:9px;margin-top:1px}
+  .pay .w{font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;flex:none}
+  .pay .w.cust{color:var(--doubt)}
+  .pay .w.us{color:var(--accent)}
+  .pay .w.none{color:var(--muted)}
+  table{width:100%;border-collapse:collapse;margin-top:9px}
+  th{font-size:8.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);text-align:right;padding:0 7px 5px;border-bottom:1px solid var(--rule)}
+  th:first-child{text-align:left}
+  td{font-size:11px;padding:6px 7px;border-bottom:1px solid var(--rule);text-align:right;font-variant-numeric:tabular-nums}
+  td:first-child{text-align:left;font-weight:650;color:var(--ink)}
+  td.tot{font-weight:700;color:var(--ink)}
+  tr.base td{background:#EAF3EC}
+  tr.lik td{background:#FDF3E6}
+  tr.lik td:first-child{color:var(--doubt)}
+  tr.hi td{background:#F7EEEC}
+  .bar{margin-top:10px;padding:9px 11px;background:var(--wash);border-radius:6px;font-size:10.5px;line-height:1.45}
+  .bar b{color:var(--ink)}
+  .mg{margin-top:11px;border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+  .mg .r{display:flex;justify-content:space-between;padding:6px 10px;font-size:10.5px;border-bottom:1px solid var(--rule)}
+  .mg .r:last-child{border-bottom:none}
+  .mg .r b{color:var(--ink);font-variant-numeric:tabular-nums}
+  .mg .r.big{background:#EDF3FA}
+  .mg .r.big b{font-size:15px;color:var(--accent)}
+  .mg .r.warn{background:#F7EEEC}
+  .mg .r.warn b{color:var(--fail)}
+  .cant{margin-top:11px}
+  .cant div{font-size:10px;line-height:1.4;padding:3.5px 0;border-bottom:1px dashed var(--rule);color:var(--body)}
+  .cant div:last-child{border-bottom:none}
+  .cant div b{color:var(--ink)}
+  .foot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:16px}
+  .zone{border-top:2px solid var(--ink);padding-top:9px}
+  .zone.v{border-top-color:var(--verify)}
+  .zone.f{border-top-color:var(--fail)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:13px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.48;margin-top:6px}
+  .src{margin-top:11px;padding-top:9px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Unit economics</div>
+  <h1>The margin looks excellent because the customer absorbed the variable cost</h1>
+  <p class="sub">
+    Self-hosting moves inference onto the customer's own key, which inverts the usual analysis. The honest
+    question is not what this venture earns per analyst but what the deployment costs the customer to run, and
+    that figure rests on a number nobody in the category publishes.
+  </p>
+
+  <div class="cols">
+    <div class="c c1">
+      <div class="ch">The inversion, line by line</div>
+      <div class="pay"><div class="l">Frontier inference<span>planning, resolution, SQL generation, replanning</span></div><div class="w cust">customer</div></div>
+      <div class="pay"><div class="l">Warehouse compute<span>for queries and for verification</span></div><div class="w cust">customer</div></div>
+      <div class="pay"><div class="l">Small-model calls<span>prose and chart choice</span></div><div class="w cust">customer</div></div>
+      <div class="pay"><div class="l">Bindings and lineage storage<span>it is their database</span></div><div class="w cust">customer</div></div>
+      <div class="pay"><div class="l">Support, documentation, releases</div><div class="w us">us</div></div>
+      <div class="pay"><div class="l">Hosting</div><div class="w none">nobody · no hosted plane</div></div>
+      <div class="bar">
+        <b>Consequence, stated plainly.</b> Cost of goods on the paid tier is support and release engineering.
+        Margin is high for structural reasons that have nothing to do with efficiency, so reporting it as a
+        strength would mislead.
+      </div>
+      <div class="ch v" style="margin-top:14px">Verification, in cost terms</div>
+      <div class="bar" style="background:#EAF3EC">
+        All six structural checks are plain SQL against the customer's own warehouse. <b>Zero model calls, about
+        six cents of compute per investigation.</b> The differentiating mechanism is the cheapest line in the
+        system. A design built on model self-critique would have tied the differentiator to token price instead.
+      </div>
+    </div>
+
+    <div class="c c2">
+      <div class="ch a">Customer cost per investigation, by retry rate</div>
+      <table>
+        <tr><th>Expected attempts</th><th>Frontier</th><th>Small model</th><th>Warehouse</th><th>Per investigation</th><th>Per analyst-year</th></tr>
+        <tr class="base"><td>1.0 · one clean pass</td><td>$1.07</td><td>$0.02</td><td>$0.12</td><td class="tot">$1.21</td><td class="tot">$189</td></tr>
+        <tr class="lik"><td>2.0</td><td>$2.14</td><td>$0.02</td><td>$0.12</td><td class="tot">$2.28</td><td class="tot">$356</td></tr>
+        <tr class="lik"><td>3.0</td><td>$3.22</td><td>$0.02</td><td>$0.12</td><td class="tot">$3.36</td><td class="tot">$524</td></tr>
+        <tr class="hi"><td>5.0</td><td>$5.36</td><td>$0.02</td><td>$0.12</td><td class="tot">$5.50</td><td class="tot">$858</td></tr>
+      </table>
+      <div class="bar">
+        <b>Retry rate moves the total 4.5 times across this range, and it is unmeasured.</b> Hard multi-step data
+        reasoning scores about 15% today, which implies retries are the common case rather than the exception.
+        A model assuming one clean pass will be wrong by a large multiple. The figure is a free byproduct of the
+        first evaluation harness run, and no commercial vendor in this category publishes it.
+      </div>
+      <div class="ch" style="margin-top:14px">Our side, and the comparison that keeps it honest</div>
+      <div class="mg">
+        <div class="r"><span>Revenue, paid tier</span><b>$900 per analyst-year</b></div>
+        <div class="r"><span>Inference cost of goods</span><b>$0 · customer's key</b></div>
+        <div class="r"><span>Hosting and storage</span><b>$0 · no hosted plane</b></div>
+        <div class="r"><span>Support, assumed at small scale</span><b>$60 to $120</b></div>
+        <div class="r big"><span>Gross margin</span><b>87 to 93%</b></div>
+        <div class="r warn"><span>The same product, hosted, at three attempts</span><b>42% before support</b></div>
+      </div>
+    </div>
+
+    <div class="c c3">
+      <div class="ch">Acquisition cost by channel</div>
+      <div class="pay"><div class="l">Open-source self-serve<span>fixed hours on the quickstart, amortised forever</span></div><div class="w us" style="color:var(--verify)">≈$0</div></div>
+      <div class="pay"><div class="l">Analyst-led internal referral</div><div class="w us" style="color:var(--verify)">≈$0</div></div>
+      <div class="pay"><div class="l">Community and technical content<span>credibility, not acquisition</span></div><div class="w none">hours</div></div>
+      <div class="pay"><div class="l">Inside sales and outbound<span>exceeds first-year revenue at five analysts</span></div><div class="w" style="color:var(--fail)">$3k to $8k</div></div>
+      <div class="pay"><div class="l">Reseller<span>fails on redundancy, not margin</span></div><div class="w" style="color:var(--fail)">20 to 35%</div></div>
+      <div class="pay"><div class="l">Paid acquisition</div><div class="w" style="color:var(--fail)">high, poor intent</div></div>
+      <div class="bar" style="background:#EDF3FA">
+        <b>The conclusion is arithmetic, not preference.</b> At a $900 annual contract value only the zero-cost
+        channels survive.
+      </div>
+      <div class="ch f" style="margin-top:14px;border-bottom-color:var(--fail)">What this cannot support</div>
+      <div class="cant">
+        <div><b>No lifetime-value to acquisition-cost ratio.</b> Undefined at zero acquisition cost, and meaningless if quoted</div>
+        <div><b>No retention figure.</b> Nothing is deployed, so the lifetime-value rows are illustrative arithmetic</div>
+        <div><b>No revenue model.</b> Excluded by founder decision and closed rather than missing</div>
+        <div><b>No support-cost basis.</b> Open-source support load scales with deployment count, not revenue</div>
+        <div><b>No measured retry rate,</b> the dominant term in the only table that matters</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone f">
+      <div class="lbl">The cost curve, honestly read</div>
+      <h3>Falling model prices are the customer's tailwind, not a margin story</h3>
+      <p>
+        A threefold decline takes the three-attempt case from $524 to roughly $175 per analyst-year. Our margin
+        does not move, because it contains no inference. Cheaper inference also makes it cheaper for incumbents
+        to widen their bounded scope.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">The counter-pressure worth naming</div>
+      <h3>Retries matter more than price declines</h3>
+      <p>
+        Over a two-year horizon, getting expected attempts from three down to one is worth more than a
+        threefold fall in token price. Engineering beats the market curve here.
+      </p>
+    </div>
+    <div class="zone v">
+      <div class="lbl">The metric that should lead instead</div>
+      <h3>Deployments reaching a second analyst</h3>
+      <p>
+        At zero acquisition cost, expansion without founder intervention is what turns a free install into a
+        paid account. That, and not margin, is the number that decides whether the economics exist.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>financials/unit_economics.md</code> §2 through §6 · price proxy and accuracy anchors as cited there</span>
+    <span>Evidence: <code>[S38][S39][S4][S63][S64]</code> · V35</span>
+  </div>
+</div>
+</body>
+</html>

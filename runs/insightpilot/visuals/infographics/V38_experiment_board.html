@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V38 · Experiment board</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:30px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:28px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:7px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:7px;max-width:1050px;line-height:1.5}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:15px;flex:1;min-height:0}
+  .e{border:1px solid var(--rule);border-radius:6px;padding:8px 10px;display:flex;flex-direction:column;background:#fff}
+  .e.kill{border-color:#D8B3AC;background:#FDF7F6}
+  .e.eng{background:#F8FAFC}
+  .e .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .e .id{font-size:12.5px;font-weight:700;color:var(--accent)}
+  .e.kill .id{color:var(--fail)}
+  .e .risk{font-size:8.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:right}
+  .e h3{font-size:12px;font-weight:650;color:var(--ink);margin-top:2px;line-height:1.22}
+  .e .hyp{font-size:9.5px;line-height:1.4;margin-top:4px;color:var(--body)}
+  .th{display:flex;gap:3px;margin-top:6px}
+  .th div{flex:1;font-size:8.5px;font-weight:700;text-align:center;padding:3px 2px;border-radius:3px;line-height:1.25}
+  .th .p{background:#EAF3EC;color:var(--verify)}
+  .th .a{background:#FDF3E6;color:var(--doubt)}
+  .th .f{background:#F7EEEC;color:var(--fail)}
+  .th .n{background:var(--wash);color:var(--muted)}
+  .ff{font-size:9px;line-height:1.4;margin-top:6px;padding-top:5px;border-top:1px dashed var(--rule);color:var(--body)}
+  .ff b{color:var(--ink)}
+  .e .st{margin-top:auto;padding-top:5px;font-size:8.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .waves{display:flex;gap:10px;margin-top:14px}
+  .w{flex:1;border-top:2px solid var(--rule);padding-top:7px}
+  .w.now{border-top-color:var(--fail)}
+  .w .n{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .w h4{font-size:11.5px;font-weight:700;color:var(--ink);margin-top:2px}
+  .w p{font-size:9.5px;line-height:1.4;color:var(--body);margin-top:3px}
+  .w .cost{font-size:9.5px;font-weight:700;color:var(--accent);margin-top:3px}
+  .w.now .cost{color:var(--fail)}
+  .foot{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:22px;margin-top:14px}
+  .zone{border-top:2px solid var(--ink);padding-top:8px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.v{border-top-color:var(--verify)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:12.5px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.45;margin-top:5px}
+  .src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Experiment board</div>
+  <h1>Nine thresholds fixed in writing while they are still uncomfortable</h1>
+  <p class="sub">
+    A threshold set after seeing the data is a rationalisation, not a threshold. Every result below reads
+    planned, which is the honest state. The column that makes the board real is the last one: what gets decided
+    if the number comes in wrong.
+  </p>
+
+  <div class="grid">
+    <div class="e kill">
+      <div class="top"><div class="id">E1</div><div class="risk">kills the company</div></div>
+      <h3>Verification cost ratio</h3>
+      <p class="hyp">Five analysts, within subject, counterbalanced. Accept or reject an answer with lineage, against deriving the same answer from scratch. Correct answers only, so this measures cost rather than detection.</p>
+      <div class="th"><div class="p">pass ≤ 0.5</div><div class="a">amber 0.5 to 0.8</div><div class="f">fail &gt; 0.8</div></div>
+      <p class="ff"><b>If it fails:</b> stop and publish the negative result. A faster wrong-answer generator is not worth building, and the field has no public measurement either way.</p>
+      <div class="st">result · planned</div>
+    </div>
+
+    <div class="e kill">
+      <div class="top"><div class="id">E2</div><div class="risk">the dangerous twin</div></div>
+      <h3>Silent-error detection</h3>
+      <p class="hyp">Same analysts, later session. Six investigations, three carrying a planted defect: a wrong join grain, a wrong region mapping, a wrong time window. Control group sees answer plus SQL, the incumbent experience.</p>
+      <div class="th"><div class="p">pass ≥ 70% and ≥ 2× control</div><div class="f">fail &lt; 50% or no lift</div></div>
+      <p class="ff"><b>If it fails:</b> the trace is comfortable rather than effective, which is worse than E1 failing. Redesign the verify surface before building anything further.</p>
+      <div class="st">result · planned</div>
+    </div>
+
+    <div class="e">
+      <div class="top"><div class="id">E3</div><div class="risk">rescope trigger</div></div>
+      <h3>Do real questions span sources</h3>
+      <p class="hyp">Ten analysts open their actual ticket history and classify their last twenty real requests by source count. Past behaviour, not estimation. Separate systems of record, not two tables in one warehouse.</p>
+      <div class="th"><div class="p">pass ≥ 25%</div><div class="a">amber 15 to 25%</div><div class="f">fail &lt; 15%</div></div>
+      <p class="ff"><b>If it fails:</b> the neutrality argument is true and worthless, addressable market halves, and the product narrows toward single-warehouse depth where it loses on distribution.</p>
+      <div class="st">result · planned</div>
+    </div>
+
+    <div class="e kill">
+      <div class="top"><div class="id">E4</div><div class="risk">feature or company</div></div>
+      <h3>Can a buyer name a budget line</h3>
+      <p class="hyp">Five budget owners, one question asked without pitching: what line would this come out of, and what would it displace. Answer recorded verbatim, then what they last bought against that line.</p>
+      <div class="th"><div class="p">pass ≥ 3 of 5</div><div class="f">fail ≤ 1 of 5, or "we would create one"</div></div>
+      <p class="ff"><b>If it fails:</b> the market-type declaration is wrong and the honest conclusion is a feature rather than a company. Acceptable for a capstone, decisive for a venture.</p>
+      <div class="st">result · planned</div>
+    </div>
+
+    <div class="e">
+      <div class="top"><div class="id">E5</div><div class="risk">adoption stall</div></div>
+      <h3>Analyst review load</h3>
+      <p class="hyp">Instrument review events from the first deployment: time from opening a review to sign-off, reviews per week, queue depth. Design-partner cohort kept separate so hand-holding does not contaminate the signal.</p>
+      <div class="th"><div class="p">pass &lt; 4 h/wk, flat</div><div class="a">amber 4 to 8 h</div><div class="f">fail &gt; 8 h or rising</div></div>
+      <p class="ff"><b>If it fails:</b> the champion was handed work while everyone else got leverage. The fix is a design change, trust levels per question shape, not abandonment.</p>
+      <div class="st">result · planned</div>
+    </div>
+
+    <div class="e eng">
+      <div class="top"><div class="id">E6</div><div class="risk">the engineering risk</div></div>
+      <h3>Multi-hop execution accuracy</h3>
+      <p class="hyp">Harness first. Thirty to fifty questions over a known two-source schema with ground-truth results, scored strictly, with a per-hop-count breakdown so compounding is visible. Question set published.</p>
+      <div class="th"><div class="p">pass ≥ 50%</div><div class="a">amber 30 to 50%</div><div class="f">fail &lt; 30%</div></div>
+      <p class="ff"><b>If it fails:</b> narrow the spike to two-hop questions and report honestly. <b>Publishing a low number is still the only public contribution available,</b> since no commercial product publishes one.</p>
+      <div class="st">result · planned</div>
+    </div>
+
+    <div class="e eng">
+      <div class="top"><div class="id">E7</div><div class="risk">largest soft number</div></div>
+      <h3>Verifier coverage</h3>
+      <p class="hyp">Two defect classes. Countable ones, such as fan-out and coverage loss and null spikes. Plausible ones, where row counts are right and the meaning is wrong. Catch rate measured per class.</p>
+      <div class="th"><div class="p">pass ≥ 60% overall and ≥ 30% plausible</div><div class="f">fail &lt; 30%, or near zero on plausible</div></div>
+      <p class="ff"><b>If the plausible class fails:</b> state that the verifier catches mechanical and not semantic failures. Narrower, still useful, and it makes the shown plan the primary defence instead.</p>
+      <div class="st">result · planned</div>
+    </div>
+
+    <div class="e">
+      <div class="top"><div class="id">E8</div><div class="risk">the channel gate</div></div>
+      <h3>Time to first investigation</h3>
+      <p class="hyp">Published repository with a container quickstart. Instrumented from clone timestamp through first connector, first approved plan, first signed-off answer. Self-serve split from design partners.</p>
+      <div class="th"><div class="p">pass &lt; 30 min</div><div class="a">amber 30 to 60</div><div class="f">fail &gt; 60 min</div></div>
+      <p class="ff"><b>If it fails:</b> self-serve does not work and the real motion is design-partner led, which rewrites the channel plan. That was the only channel with viable economics at this contract value.</p>
+      <div class="st">result · planned</div>
+    </div>
+
+    <div class="e eng">
+      <div class="top"><div class="id">E9</div><div class="risk">buyer objection</div></div>
+      <h3>Semantic-layer lift</h3>
+      <p class="hyp">Same question set, same schema, two configurations. One with the dbt manifest available to the resolver and one without. Measured as a percentage-point difference in execution accuracy.</p>
+      <div class="th"><div class="p">pass ≥ 15 pp</div><div class="a">amber 5 to 15</div><div class="f">fail &lt; 5 pp</div></div>
+      <p class="ff"><b>If it fails:</b> consuming an existing semantic layer delivers less than claimed, which weakens the answer to the buyer's hardest objection and moves that principle to the roadmap's edge.</p>
+      <div class="st">result · planned</div>
+    </div>
+  </div>
+
+  <div class="waves">
+    <div class="w now">
+      <div class="n">Wave 1 · no code</div><h4>E1, E3, E4</h4>
+      <p>Needs five to ten analysts and five buyers, nothing else</p>
+      <div class="cost">≈19 founder-hours · 3 weeks</div>
+    </div>
+    <div class="w now">
+      <div class="n">Wave 2 · no code</div><h4>E2</h4>
+      <p>Reuses the wave-one recruits in a later session</p>
+      <div class="cost">≈6 founder-hours · 1 week</div>
+    </div>
+    <div class="w">
+      <div class="n">Wave 3 · harness</div><h4>E6, E7</h4>
+      <p>Needs the harness and the seeded-error set built first</p>
+      <div class="cost">First-semester engineering · 4 weeks</div>
+    </div>
+    <div class="w">
+      <div class="n">Wave 4 · deployed</div><h4>E5, E8, E9</h4>
+      <p>Needs a working system and real installs</p>
+      <div class="cost">Second-semester engineering · ongoing</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone f">
+      <div class="lbl">The most consequential process decision in the pack</div>
+      <h3>Twenty-five hours that can invalidate the venture come before a semester of engineering</h3>
+      <p>
+        Waves one and two need no code at all. Running them first is not intuitive, because it means the opening
+        month of a build project contains almost no building, and it is the ordering the whole plan rests on.
+      </p>
+    </div>
+    <div class="zone">
+      <div class="lbl">Why E1 and E2 are separate</div>
+      <h3>Cheap checking and working checking are different claims</h3>
+      <p>
+        One measures the cost of checking a correct answer, the other whether checking catches a wrong one. Pass
+        the first and fail the second and the product ships confident errors wearing an audit trail.
+      </p>
+    </div>
+    <div class="zone v">
+      <div class="lbl">What the board deliberately omits</div>
+      <h3>No traction rows, and no "validate demand"</h3>
+      <p>
+        There are no users, no revenue and no pipeline, so a board reporting any would be inventing them.
+        Validating demand is not a hypothesis, and E3 and E4 are what it decomposes into once made falsifiable.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>validation/experiment_board.md</code> E1 through E9 and the sequencing table</span>
+    <span>Evidence: <code>[S4][S1]</code> · V38</span>
+  </div>
+</div>
+</body>
+</html>

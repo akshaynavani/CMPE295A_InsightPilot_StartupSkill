@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V37 · Stage gate</title>
+<style>
+  :root{--ink:#14181F;--body:#3A424E;--muted:#6B7484;--rule:#E2E6EC;--paper:#FFFFFF;--accent:#1F5FA8;--verify:#1E7A54;--doubt:#B4741A;--fail:#A3352B;--wash:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--body);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .canvas{width:1280px;height:720px;padding:32px 48px;display:flex;flex-direction:column}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:29px;font-weight:700;color:var(--ink);line-height:1.18;margin-top:8px;letter-spacing:-.01em}
+  .sub{font-size:12.5px;color:var(--muted);margin-top:8px;max-width:1040px;line-height:1.5}
+  .rail{display:flex;gap:6px;margin-top:16px}
+  .st{flex:1;border:1px solid var(--rule);border-radius:6px;padding:8px 11px;background:#fff;position:relative}
+  .st .n{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .st h2{font-size:13px;font-weight:700;color:var(--ink);margin-top:2px}
+  .st p{font-size:9.5px;color:var(--muted);margin-top:3px;line-height:1.35}
+  .st.here{background:#EDF3FA;border-color:var(--accent);border-width:2px}
+  .st.here h2{color:var(--accent)}
+  .st.here .tag{position:absolute;top:-8px;right:11px;background:var(--accent);color:#fff;font-size:8.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:2px 7px;border-radius:3px}
+  .st.out{opacity:.58}
+  .cols{display:flex;gap:22px;margin-top:17px;flex:1;min-height:0}
+  .c{display:flex;flex-direction:column}
+  .c1{width:306px;flex:none}
+  .c2{flex:1}
+  .c3{width:322px;flex:none}
+  .ch{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:2px solid var(--ink)}
+  .ch.a{border-bottom-color:var(--accent)}
+  .ch.v{border-bottom-color:var(--verify)}
+  .ev{display:flex;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px dashed var(--rule);font-size:10.5px;line-height:1.3}
+  .ev .l{flex:1;color:var(--ink)}
+  .ev .s{font-weight:700;white-space:nowrap;flex:none;font-variant-numeric:tabular-nums}
+  .ev .s.zero{color:var(--fail)}
+  .ev .s.ok{color:var(--verify)}
+  .ev .s.na{color:var(--muted);font-weight:400}
+  .g{display:flex;gap:9px;padding:6px 0;border-bottom:1px dashed var(--rule)}
+  .g .id{font-size:11px;font-weight:700;color:var(--accent);width:22px;flex:none;padding-top:1px}
+  .g .tx{flex:1;font-size:10.5px;line-height:1.35;color:var(--ink)}
+  .g .tx span{display:block;color:var(--body);font-size:9.5px;margin-top:2px;line-height:1.35}
+  .g .th{font-size:10px;font-weight:700;color:var(--ink);text-align:right;width:132px;flex:none;font-variant-numeric:tabular-nums;line-height:1.3}
+  .bar{margin-top:10px;padding:9px 11px;border-radius:6px;font-size:10.5px;line-height:1.45;background:var(--wash)}
+  .bar.warn{background:#F7EEEC}
+  .bar.good{background:#EAF3EC}
+  .bar b{color:var(--ink)}
+  .nx{display:flex;justify-content:space-between;gap:9px;padding:4px 0;border-bottom:1px dashed var(--rule);font-size:10px;line-height:1.3}
+  .nx .l{flex:1;color:var(--ink)}
+  .nx .t{font-weight:700;white-space:nowrap;flex:none;color:var(--body);font-variant-numeric:tabular-nums}
+  .sem{margin-top:9px;border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+  .sem .r{display:flex;border-bottom:1px solid var(--rule);font-size:9.5px;line-height:1.35}
+  .sem .r:last-child{border-bottom:none}
+  .sem .r.h{background:var(--wash);font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:8.5px;color:var(--muted)}
+  .sem .k{width:86px;flex:none;padding:5px 7px;color:var(--muted);border-right:1px solid var(--rule)}
+  .sem .v{flex:1;padding:5px 7px;border-right:1px solid var(--rule)}
+  .sem .v:last-child{border-right:none}
+  .sem .r.h .k,.sem .r.h .v{color:var(--muted)}
+  .foot{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:14px}
+  .zone{border-top:2px solid var(--ink);padding-top:9px}
+  .zone.f{border-top-color:var(--fail)}
+  .zone.v{border-top-color:var(--verify)}
+  .zone .lbl{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .zone h3{font-size:13px;font-weight:650;color:var(--ink);margin-top:4px;line-height:1.25}
+  .zone p{font-size:10.5px;line-height:1.48;margin-top:6px}
+  .src{margin-top:10px;padding-top:9px;border-top:1px solid var(--rule);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .src code{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:9.5px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="eyebrow">InsightPilot · Stage placement</div>
+  <h1>A complete artifact pack, twelve untested assumptions, zero customers interviewed</h1>
+  <p class="sub">
+    Stating the unflattering placement first is stronger than being asked for it. Hypotheses are written and
+    falsifiable, and not one has been tested. The six criteria that would move this to the next stage need about
+    twenty-five founder-hours and no code at all.
+  </p>
+
+  <div class="rail">
+    <div class="st here"><div class="tag">here, not exited</div><div class="n">Stage 1</div><h2>Customer Discovery</h2><p>Hypotheses stated. Problem testing not begun</p></div>
+    <div class="st"><div class="n">Stage 2</div><h2>Customer Validation</h2><p>Reachable within the second semester, partially</p></div>
+    <div class="st out"><div class="n">Stage 3</div><h2>Customer Creation</h2><p>Beyond the capstone horizon</p></div>
+    <div class="st out"><div class="n">Stage 4</div><h2>Company Building</h2><p>Specifying it in detail would be theatre</p></div>
+  </div>
+
+  <div class="cols">
+    <div class="c c1">
+      <div class="ch">Evidence for the placement</div>
+      <div class="ev"><div class="l">Hypotheses stated and falsifiable</div><div class="s ok">9</div></div>
+      <div class="ev"><div class="l">Customers interviewed</div><div class="s zero">0</div></div>
+      <div class="ev"><div class="l">Problem validated outside the team</div><div class="s zero">no</div></div>
+      <div class="ev"><div class="l">Working software</div><div class="s zero">none</div></div>
+      <div class="ev"><div class="l">Riskiest assumptions tested</div><div class="s zero">0 of 12</div></div>
+      <div class="ev"><div class="l">Revenue, pipeline, letters of intent</div><div class="s na">none, out of scope</div></div>
+      <div class="ev"><div class="l">Problem statement source</div><div class="s na">desk research</div></div>
+      <div class="bar good" style="margin-top:12px">
+        <b>What the pack is evidence of, stated precisely.</b> A market map naming real systems with measured
+        limits and a documented graveyard. A sourced problem statement, including one widely circulated figure
+        traced to vendor marketing and rejected. An architecture with its two research-risk components labelled.
+        Arithmetic that came out at roughly 2.9 times and was published at roughly 2.9 times.
+      </div>
+      <div class="bar warn">
+        <b>Why not further along.</b> Every claim here about what a customer wants is inferred from public
+        evidence about the market, not observed in a customer. The one claim everything rests on is denied by
+        the beachhead persona's own objection.
+      </div>
+    </div>
+
+    <div class="c c2">
+      <div class="ch a">Exit criteria, all six required, thresholds set before any data exists</div>
+      <div class="g"><div class="id">G1</div><div class="tx">Problem interviews completed<span>screened against the discovery guide</span></div><div class="th">≥ 10 analysts<br>+ 5 budget owners</div></div>
+      <div class="g"><div class="id">G2</div><div class="tx">Multi-source reality confirmed<span>of each analyst's last twenty actual requests</span></div><div class="th">median ≥ 25%<br>span two systems</div></div>
+      <div class="g"><div class="id">G3</div><div class="tx">Verification cost ratio measured and favourable<span>checking a trace against re-deriving the answer</span></div><div class="th">median ≤ 0.5<br>hard fail above 0.8</div></div>
+      <div class="g"><div class="id">G4</div><div class="tx">Verification demonstrably works<span>seeded defects rejected, against a no-trace control</span></div><div class="th">≥ 70% rejected<br>and ≥ 2× control</div></div>
+      <div class="g"><div class="id">G5</div><div class="tx">Budget line identified<span>a specific existing line this displaces</span></div><div class="th">≥ 3 of 5 buyers<br>name one</div></div>
+      <div class="g"><div class="id">G6</div><div class="tx">User spectrum confirmed<span>a non-technical requester upstream and a senior reviewer downstream</span></div><div class="th">≥ 7 of 10<br>confirm both edges</div></div>
+      <div class="bar warn">
+        <b>The dangerous combination is G3 passing while G4 fails:</b> cheap verification that does not verify.
+        That ships confident wrong answers wearing an audit trail, which is a worse product than having no trace
+        at all. The gate is written specifically to catch it, which is why both must pass.
+      </div>
+      <div class="bar">
+        <b>Cost to clear all six: about twenty-five founder-hours over four weeks, and no engineering.</b> They
+        can also invalidate the architecture the rest of the semester would implement, which is the
+        uncomfortable part.
+      </div>
+    </div>
+
+    <div class="c c3">
+      <div class="ch">The next gate, stated so the path is visible</div>
+      <div class="nx"><div class="l">Published multi-hop execution accuracy on a fixed question set</div><div class="t">≥ 50%</div></div>
+      <div class="nx"><div class="l">Verifier coverage, including the plausible defect class</div><div class="t">≥ 60% / ≥ 30%</div></div>
+      <div class="nx"><div class="l">Clone to first successful investigation</div><div class="t">&lt; 30 min</div></div>
+      <div class="nx"><div class="l">Deployments reaching a second analyst unaided</div><div class="t">≥ 3</div></div>
+      <div class="nx"><div class="l">Analyst review time per week, stable or falling</div><div class="t">&lt; 4 h</div></div>
+      <div class="nx"><div class="l">A buyer asks unprompted what it would cost</div><div class="t">≥ 1</div></div>
+      <div class="ch v" style="margin-top:12px">Academic and venture timelines, side by side</div>
+      <div class="sem">
+        <div class="r h"><div class="k"></div><div class="v">First semester</div><div class="v">Second semester</div></div>
+        <div class="r"><div class="k">Venture stage</div><div class="v">Discovery, then exit it</div><div class="v">Validation, partially</div></div>
+        <div class="r"><div class="k">Deliverable</div><div class="v">Harness, fixed question set, a published accuracy number, and the six gates cleared</div><div class="v">Working narrow-path system, with the first three validation criteria</div></div>
+        <div class="r"><div class="k">Success</div><div class="v">Six criteria answered honestly, including if the answer is no</div><div class="v">A measured number no commercial product publishes</div></div>
+        <div class="r"><div class="k">Failure</div><div class="v">Four agents built with no measurement of whether any of it works</div><div class="v">A demo shipped without the accuracy figure</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="zone f">
+      <div class="lbl">The implication nobody enjoys</div>
+      <h3>The correct first month of a build project contains almost no building</h3>
+      <p>
+        A gate that lives only in a document gets skipped once the build gets interesting, which is why these six
+        belong in the project plan as dated milestones ahead of every engineering milestone.
+      </p>
+    </div>
+    <div class="zone v">
+      <div class="lbl">The branch worth planning for now</div>
+      <h3>A good outcome includes the one where G3 fails</h3>
+      <p>
+        The field has no public measurement of verification cost in either direction, so a rigorous negative
+        result is a real contribution. Deciding in advance what happens then is the difference between a pivot
+        and a scramble.
+      </p>
+    </div>
+  </div>
+
+  <div class="src">
+    <span>Source: <code>validation/stage_gate.md</code> §1 through §5</span>
+    <span>V37</span>
+  </div>
+</div>
+</body>
+</html>

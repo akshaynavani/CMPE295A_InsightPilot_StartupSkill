@@ -92,10 +92,10 @@ Every infographic in this set obeys these, so the pack reads as one system rathe
 | V32 | Competitor teardown: where each fails mechanistically | investors | research/competitors.md | html | html |
 | V33 | Capability frontier: what the field can and cannot do today | investors | research/capability_table.md | html | html |
 | V34 | Risk matrix: no residual below medium | investors | financials/risk_matrix.md | html | html |
-| V35 | Unit economics: who actually pays the compute | investors | financials/unit_economics.md | html | planned |
-| V36 | Pricing as a falsifiable threshold, not a forecast | investors | financials/pricing.md | html | planned |
-| V37 | Stage gate: Customer Discovery, not exited | investors | validation/stage_gate.md | html | planned |
-| V38 | Nine experiments with thresholds declared in advance | investors | validation/experiment_board.md | html | planned |
+| V35 | Unit economics: who actually pays the compute | investors | financials/unit_economics.md | html | html |
+| V36 | Pricing as a falsifiable threshold, not a forecast | investors | financials/pricing.md | html | html |
+| V37 | Stage gate: Customer Discovery, not exited | investors | validation/stage_gate.md | html | html |
+| V38 | Nine experiments with thresholds declared in advance | investors | validation/experiment_board.md | html | html |
 | V39 | Twelve assumptions ranked by kill-power and cost to test | investors | validation/riskiest_assumptions.md | html | planned |
 | V40 | Market type: re-segmented, and what that commits us to | investors | strategy/market_type.md | html | planned |
 | V41 | The petal: which budgets this draws from | investors | strategy/petal_diagram.md | html | planned |
