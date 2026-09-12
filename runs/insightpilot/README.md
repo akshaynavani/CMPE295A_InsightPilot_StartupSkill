@@ -32,6 +32,7 @@ Conversational BI for enterprise data analysts: a multi-agent system that turns 
 
 | Path | Holds | Files | Owning skill |
 |---|---|---|---|
+| `README.md` | This file — status, reading paths, the artifact map. It is itself a manifest row, so it counts | 1 | startup-audit |
 | [`BRIEF.md`](BRIEF.md) | Founder brief — the source of truth every artifact is written against | 1 | grill-me |
 | [`ASSUMPTIONS.md`](ASSUMPTIONS.md) | 13-entry decision ledger: what was decided without confirmation, what closed when, what would break if wrong | 1 | grill-me |
 | [`research/`](research/) | Landscape, competitor teardown, capability table, dated survey, and 71 graded sources | 5 | startup-research |
@@ -43,7 +44,7 @@ Conversational BI for enterprise data analysts: a multi-agent system that turns 
 | [`financials/`](financials/) | Pricing threshold, unit economics, risk matrix — **cost side only** | 3 | startup-financials |
 | [`visuals/`](visuals/) | Visual manifest, image prompts, and 53 self-contained HTML infographics | 2 + 53 | startup-visuals |
 | [`audit/`](audit/) | Coverage report | 1 | startup-audit |
-| | **Total** | **66 documents + 53 frames** | |
+| | **Total** | **67 documents + 53 frames** | |
 
 ## Visual index
 
@@ -78,4 +79,4 @@ Each traces to [research/sources.md](research/sources.md).
 
 **The visuals phase has since closed** all 64 manifest rows, with PNG rasters the one thing still outstanding and recorded as such. **The optional website phase is the only part of the pack's scope not started.**
 
-**What is finished is the pack, not the venture.** Twelve assumptions remain untested, nine experiments are all status `planned`, and no customer has been interviewed. Four of those assumptions can end the project and three of the four are answerable in roughly twenty-five founder-hours without writing any code — which is why [validation/stage_gate.md](validation/stage_gate.md) places this at *Customer Discovery, not exited*, and why the honest one-line summary is: **sixty-five artifacts, twelve untested assumptions, zero customers interviewed.**
+**What is finished is the pack, not the venture.** Twelve assumptions remain untested, nine experiments are all status `planned`, and no customer has been interviewed. Four of those assumptions can end the project and three of the four are answerable in roughly twenty-five founder-hours without writing any code — which is why [validation/stage_gate.md](validation/stage_gate.md) places this at *Customer Discovery, not exited*, and why the honest one-line summary is: **sixty-seven documents, twelve untested assumptions, zero customers interviewed.**

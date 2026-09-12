@@ -18,15 +18,22 @@ Working repository for the **InsightPilot** master's capstone (CMPE 295A / 295B,
 cmpe295A/
 ├── README.md          ← you are here — repo index
 ├── source/            ← the original proposal this pack was derived from
-└── runs/insightpilot/ ← the generated founder pack (65 artifacts + 53 visuals)
+├── assignments/       ← CMPE 295A coursework, kept outside the pack
+└── runs/insightpilot/ ← the generated founder pack (67 documents + 53 visual frames)
     ├── README.md      ← the pack's own front door: reading paths by audience
     ├── BRIEF.md       ← source of truth
     ├── ASSUMPTIONS.md ← decision ledger
     ├── research/  strategy/  product/  tech/
     ├── narrative/  validation/  financials/
-    ├── visuals/       ← 53 HTML infographics, one per manifest row
+    ├── visuals/       ← manifest, prompts, and 53 HTML infographics
     └── audit/         ← coverage report
 ```
+
+**Counting.** 67 documents means every `.md` in the pack, including the pack's
+own README, which is itself a manifest row. The 53 frames are the HTML
+infographics; the other 11 visuals on the manifest are Mermaid diagrams living
+inside their source artifacts, so they are counted as documents rather than
+twice.
 
 **Two READMEs, two jobs.** This file indexes *what each artifact is*. [`runs/insightpilot/README.md`](runs/insightpilot/README.md) is the pack's front door — it gives reading paths by audience (advisor, investor, engineer, operator, practitioner, skeptic) and the 60-second path. Start there if you want to *read* the pack; stay here if you want to *find* something.
 
@@ -46,6 +53,22 @@ cmpe295A/
 |---|---|
 | [`source/agentic-bi-project-writeup.pdf`](source/agentic-bi-project-writeup.pdf) | The original project proposal, as submitted for academic discussion. Everything in `runs/` derives from this plus three rounds of founder interrogation |
 | [`source/writeup.txt`](source/writeup.txt) | Plain-text extraction of the same proposal, used as the generation input |
+
+## Coursework — `assignments/`
+
+Graded CMPE 295A deliverables. **Kept outside `runs/insightpilot/` deliberately,
+so the pack's coverage audit does not count coursework as pack artifacts.**
+
+| File | What it is |
+|---|---|
+| [`CMPE295A_InsightPilot_Project_Abstract.docx`](assignments/CMPE295A_InsightPilot_Project_Abstract.docx) · [`.pdf`](assignments/CMPE295A_InsightPilot_Project_Abstract.pdf) | Assignment 1. Two pages: title page and a three-paragraph abstract. Both statistics in it trace to [`research/sources.md`](runs/insightpilot/research/sources.md) |
+| [`CMPE295A_InsightPilot_Project_Formation.pptx`](assignments/CMPE295A_InsightPilot_Project_Formation.pptx) | Assignment 2. Four slides, built from the instructor's template with the slide count unchanged. Audited line by line against the abstract, which removed two invented claims |
+| [`README.md`](assignments/README.md) | Why each document is built the way it is: rubric targeting, the deliberate choice to leave roles off slide 1 and what that costs, the document-hygiene traps, and a known cosmetic defect left in on purpose |
+
+**The relationship to the pack.** The coursework draws on the pack but does not
+inherit its scope. The abstract and the deck make a deliberately narrower set of
+claims than `runs/` contains, and `assignments/README.md` records every place
+they diverge and why.
 
 ## The pack — `runs/insightpilot/`
 
@@ -157,6 +180,9 @@ Three of six manifest rows. Revenue build, use of funds and exit comparables are
 | [`visual_manifest.md`](runs/insightpilot/visuals/visual_manifest.md) | The ranked list of 64 visuals by audience, the shared palette and type scale every frame obeys, what is deliberately not drawn and why, and the honest state of the phase. Statuses are written from `ls`, never from memory |
 | [`image_prompts.md`](runs/insightpilot/visuals/image_prompts.md) | One text-to-image prompt per manifest row, each naming its title line, the data it must embed and its composition zones — plus the eleven rows that must **never** be generated, because an approximated topology is worse than none |
 | [`infographics/`](runs/insightpilot/visuals/infographics/) | 53 self-contained HTML frames, 1280×720, no external assets. Open any one directly in a browser |
+| `docimages.json` · `docmanifest.json` · `slugmap.json` | Generated maps, not prose. `docimages.json` records which frame illustrates which artifact, and is what makes "no artifact left unillustrated" checkable instead of asserted |
+| `build_docimages.js` · `build_docmanifest.js` | The scripts that regenerate those maps. `build_docimages.js` is modified from its template and says why in a comment at the top |
+| `images/` | Empty by design. PNG rasters were never generated, and the directory carries a note saying so |
 
 **Where to start.** [`V60_one_pager.html`](runs/insightpilot/visuals/infographics/V60_one_pager.html) is the whole venture in one frame. [`V33_capability_frontier.html`](runs/insightpilot/visuals/infographics/V33_capability_frontier.html) is the measured evidence the architecture is a response to. [`V50_survey_for_against.html`](runs/insightpilot/visuals/infographics/V50_survey_for_against.html) puts the case against the project beside the case for it, and the case against is the longer column.
 
@@ -177,7 +203,7 @@ Three of six manifest rows. Revenue build, use of funds and exit comparables are
 
 ## Honest state
 
-**The pack is finished. The venture is not started.** Sixty-five artifacts, twelve untested assumptions, zero customers interviewed.
+**The pack is finished. The venture is not started.** Sixty-seven documents, twelve untested assumptions, zero customers interviewed.
 
 Four of those assumptions can end the project, and three of the four are answerable in roughly twenty-five founder-hours **without writing any code**. The cheapest single action is a timed task with five analysts and a stopwatch, testing whether an analyst can accept an answer they did not derive faster than they could derive it — the claim everything else rests on. See [`audit/COVERAGE.md`](runs/insightpilot/audit/COVERAGE.md) §8 for the full draw order.
 
