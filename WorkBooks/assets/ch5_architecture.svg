@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1155" viewBox="0 0 1440 1155">
+<title>InsightPilot — proposed layered system architecture</title>
+<desc>One diagram inspired by the reference workbook. Six tiers show components, functions and technologies; future scope uses dashed borders. External model provider is outside the customer boundary.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<text x="720.0" y="31" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#334155">InsightPilot — System Architecture (Function + Technology)</text>
+<text x="720.0" y="56" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#334155">Proposed design · Layered, agent-orchestrated architecture · CMPE 295A + 295B scope</text>
+<rect x="18" y="81" width="1147" height="965" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="36" y="102" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">CUSTOMER ENVIRONMENT — ONE ORGANISATION · SELF-HOSTED / DOCKER COMPOSE</text>
+<rect x="35" y="114" width="1113" height="122" rx="6" fill="#eff6ff" stroke="#3974bb" stroke-width="1.4"/>
+<text x="47" y="135" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#3974bb">PRESENTATION TIER</text>
+<rect x="49.0" y="147" width="352.3333333333333" height="78" rx="3" fill="#ffffff" stroke="#3974bb" stroke-width="1.4"/>
+<text x="225.16666666666666" y="166" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Investigation Workspace</text>
+<text x="225.16666666666666" y="185" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Ask questions; follow-ups inherit context</text>
+<text x="225.16666666666666" y="216" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">React · TypeScript · FastAPI</text>
+<rect x="415.3333333333333" y="147" width="352.3333333333333" height="78" rx="3" fill="#ffffff" stroke="#3974bb" stroke-width="1.4"/>
+<text x="591.5" y="166" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Plan Review &amp; Approval</text>
+<text x="591.5" y="185" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Clarify ambiguity; edit and approve plans</text>
+<text x="591.5" y="216" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">React · typed plan DAG</text>
+<rect x="781.6666666666666" y="147" width="352.3333333333333" height="78" rx="3" fill="#ffffff" stroke="#3974bb" stroke-width="1.4"/>
+<text x="957.8333333333333" y="166" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Lineage Inspector &amp; Export</text>
+<text x="957.8333333333333" y="185" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Inspect / replay hops; analyst sign-off</text>
+<text x="957.8333333333333" y="216" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">React · self-contained artifact</text>
+<line x1="270" y1="238" x2="270" y2="266" stroke="#64748b" stroke-width="1.5"/>
+<polygon points="270,266 266.5202757271102,258.79642318117857 273.4797242728898,258.79642318117857" fill="#64748b"/>
+<text x="284" y="256" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#334155">question + context / analyst-approved plan</text>
+<line x1="730" y1="266" x2="730" y2="238" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<polygon points="730,238 733.4797242728898,245.2035768188214 726.5202757271102,245.2035768188214" fill="#64748b"/>
+<text x="744" y="256" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#334155">clarification / plan / answer + evidence</text>
+<rect x="35" y="268" width="1113" height="122" rx="6" fill="#f5f3ff" stroke="#855bc0" stroke-width="1.4"/>
+<text x="47" y="289" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#855bc0">ORCHESTRATION TIER — CUSTOM PYTHON 3.12</text>
+<rect x="49.0" y="301" width="260.75" height="78" rx="3" fill="#ffffff" stroke="#855bc0" stroke-width="1.4"/>
+<text x="179.375" y="320" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Semantic Resolver</text>
+<text x="179.375" y="339" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Bind terms to columns / grain</text>
+<text x="179.375" y="354" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Halt and ask when ambiguous</text>
+<text x="179.375" y="370" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">BM25 · embeddings · rank fusion</text>
+<rect x="323.75" y="301" width="260.75" height="78" rx="3" fill="#ffffff" stroke="#855bc0" stroke-width="1.4"/>
+<text x="454.125" y="320" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Plan Synthesiser</text>
+<text x="454.125" y="339" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Generate typed DAG; validate</text>
+<text x="454.125" y="354" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">sources, inputs and cycles</text>
+<text x="454.125" y="370" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">Python · constrained generation</text>
+<rect x="598.5" y="301" width="260.75" height="78" rx="3" fill="#ffffff" stroke="#855bc0" stroke-width="1.4"/>
+<text x="728.875" y="320" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Orchestrator &amp; Replanner</text>
+<text x="728.875" y="339" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Route all handoffs; own state</text>
+<text x="728.875" y="354" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Budget / retry caps; replan [295B]</text>
+<text x="728.875" y="370" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">Custom Python · DAG execution</text>
+<rect x="873.25" y="301" width="260.75" height="78" rx="3" fill="#ffffff" stroke="#855bc0" stroke-width="1.4"/>
+<text x="1003.625" y="320" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Model Client</text>
+<text x="1003.625" y="339" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Plan / SQL / prose model calls</text>
+<text x="1003.625" y="354" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Schema-only or filtered samples</text>
+<text x="1003.625" y="370" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">Provider-agnostic HTTPS API</text>
+<line x1="270" y1="392" x2="270" y2="420" stroke="#64748b" stroke-width="1.5"/>
+<polygon points="270,420 266.5202757271102,412.79642318117857 273.4797242728898,412.79642318117857" fill="#64748b"/>
+<text x="284" y="410" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#334155">typed tasks + input references + budget</text>
+<line x1="730" y1="420" x2="730" y2="392" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<polygon points="730,392 733.4797242728898,399.20357681882143 726.5202757271102,399.20357681882143" fill="#64748b"/>
+<text x="744" y="410" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#334155">results + declared grain + lineage</text>
+<rect x="35" y="422" width="1113" height="122" rx="6" fill="#f0fdf4" stroke="#319763" stroke-width="1.4"/>
+<text x="47" y="443" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#319763">SPECIALIST AGENT TIER — ALL TASKS AND RESULTS ROUTED THROUGH ORCHESTRATOR</text>
+<rect x="49.0" y="455" width="260.75" height="78" rx="3" fill="#ffffff" stroke="#319763" stroke-width="1.4"/>
+<text x="179.375" y="474" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Fetch / Integration Agent</text>
+<text x="179.375" y="493" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Generate / repair queries</text>
+<text x="179.375" y="508" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Retrieve and prepare data</text>
+<text x="179.375" y="524" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">Python · SQLAlchemy · psycopg</text>
+<rect x="323.75" y="455" width="260.75" height="78" rx="3" fill="#ffffff" stroke="#319763" stroke-width="1.4"/>
+<text x="454.125" y="474" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Analytics Agent</text>
+<text x="454.125" y="493" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Joins, KPIs, comparisons</text>
+<text x="454.125" y="508" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Trends and aggregation</text>
+<text x="454.125" y="524" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">SQL · pandas</text>
+<rect x="598.5" y="455" width="260.75" height="78" rx="3" fill="#ffffff" stroke="#319763" stroke-width="1.4" stroke-dasharray="6 4"/>
+<text x="728.875" y="474" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Visualization Agent [295B]</text>
+<text x="728.875" y="493" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Choose charts; return chart</text>
+<text x="728.875" y="508" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">specification and rationale</text>
+<text x="728.875" y="524" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">Python · chart rendering</text>
+<rect x="873.25" y="455" width="260.75" height="78" rx="3" fill="#ffffff" stroke="#319763" stroke-width="1.4" stroke-dasharray="6 4"/>
+<text x="1003.625" y="474" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">ML Agent [295B]</text>
+<text x="1003.625" y="493" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Time-boxed baseline models</text>
+<text x="1003.625" y="508" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Model card + uncertainty</text>
+<text x="1003.625" y="524" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">scikit-learn · LightGBM</text>
+<line x1="270" y1="546" x2="270" y2="574" stroke="#64748b" stroke-width="1.5"/>
+<polygon points="270,574 266.5202757271102,566.7964231811786 273.4797242728898,566.7964231811786" fill="#64748b"/>
+<text x="284" y="564" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#334155">per-hop outputs / verification evidence</text>
+<line x1="730" y1="574" x2="730" y2="546" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<polygon points="730,546 733.4797242728898,553.2035768188214 726.5202757271102,553.2035768188214" fill="#64748b"/>
+<text x="744" y="564" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#334155">pass / warning / failure to orchestrator</text>
+<rect x="35" y="576" width="1113" height="122" rx="6" fill="#fff7ed" stroke="#c47c20" stroke-width="1.4"/>
+<text x="47" y="597" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#c47c20">VERIFICATION &amp; LINEAGE TIER — CHECKS USE SQL / COMPUTE, NEVER LLM SELF-CRITIQUE</text>
+<rect x="49.0" y="609" width="352.3333333333333" height="78" rx="3" fill="#ffffff" stroke="#c47c20" stroke-width="1.4"/>
+<text x="225.16666666666666" y="628" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Hop Verifier</text>
+<text x="225.16666666666666" y="647" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Counts, grain, coverage, nulls</text>
+<text x="225.16666666666666" y="662" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Totals and type / range checks</text>
+<text x="225.16666666666666" y="678" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">Independent SQL · local compute</text>
+<rect x="415.3333333333333" y="609" width="352.3333333333333" height="78" rx="3" fill="#ffffff" stroke="#c47c20" stroke-width="1.4"/>
+<text x="591.5" y="628" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Cross-source Reconciler</text>
+<text x="591.5" y="647" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Profile join keys and overlap</text>
+<text x="591.5" y="662" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Propose mappings for approval</text>
+<text x="591.5" y="678" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">DuckDB SQL · pandas</text>
+<rect x="781.6666666666666" y="609" width="352.3333333333333" height="78" rx="3" fill="#ffffff" stroke="#c47c20" stroke-width="1.4"/>
+<text x="957.8333333333333" y="628" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Lineage Recorder &amp; Replayer</text>
+<text x="957.8333333333333" y="647" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Record query, grain, checks and skips</text>
+<text x="957.8333333333333" y="662" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Replay one hop; report differences</text>
+<text x="957.8333333333333" y="678" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">Python · PostgreSQL · local files</text>
+<line x1="270" y1="700" x2="270" y2="728" stroke="#64748b" stroke-width="1.5"/>
+<polygon points="270,728 266.5202757271102,720.7964231811786 273.4797242728898,720.7964231811786" fill="#64748b"/>
+<text x="284" y="718" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#334155">independent SQL / profiles over sources</text>
+<line x1="730" y1="728" x2="730" y2="700" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<polygon points="730,700 733.4797242728898,707.2035768188214 726.5202757271102,707.2035768188214" fill="#64748b"/>
+<text x="744" y="718" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#334155">schema / row counts / coverage / grain</text>
+<rect x="35" y="730" width="1113" height="122" rx="6" fill="#fff1f2" stroke="#c94e67" stroke-width="1.4"/>
+<text x="47" y="751" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#c94e67">INTEGRATION TIER — READ-ONLY SOURCES; SEMANTIC DEFINITIONS HAVE SEPARATE PRECEDENCE</text>
+<rect x="49.0" y="763" width="260.75" height="78" rx="3" fill="#ffffff" stroke="#c94e67" stroke-width="1.4"/>
+<text x="179.375" y="782" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">PostgreSQL Connector</text>
+<text x="179.375" y="801" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Describe, sample, execute, profile</text>
+<text x="179.375" y="816" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Inherit source read permissions</text>
+<text x="179.375" y="832" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">SQLAlchemy · psycopg</text>
+<rect x="323.75" y="763" width="260.75" height="78" rx="3" fill="#ffffff" stroke="#c94e67" stroke-width="1.4"/>
+<text x="454.125" y="782" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">CSV / Excel Connector</text>
+<text x="454.125" y="801" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Query uploaded files</text>
+<text x="454.125" y="816" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Infer schema; profile without ETL</text>
+<text x="454.125" y="832" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">DuckDB · Python</text>
+<rect x="598.5" y="763" width="260.75" height="78" rx="3" fill="#ffffff" stroke="#c94e67" stroke-width="1.4" stroke-dasharray="6 4"/>
+<text x="728.875" y="782" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">REST JSON Connector [295B]</text>
+<text x="728.875" y="801" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Third source type</text>
+<text x="728.875" y="816" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Read-only API access</text>
+<text x="728.875" y="832" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">Python · HTTP / JSON</text>
+<rect x="873.25" y="763" width="260.75" height="78" rx="3" fill="#ffffff" stroke="#c94e67" stroke-width="1.4" stroke-dasharray="6 4"/>
+<text x="1003.625" y="782" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Semantic Suppliers [295B/later]</text>
+<text x="1003.625" y="801" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Definitions override inference</text>
+<text x="1003.625" y="816" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">dbt [295B] · Cube [later]</text>
+<text x="1003.625" y="832" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">Separate semantic interface</text>
+<line x1="270" y1="854" x2="270" y2="882" stroke="#64748b" stroke-width="1.5"/>
+<polygon points="270,882 266.5202757271102,874.7964231811786 273.4797242728898,874.7964231811786" fill="#64748b"/>
+<text x="284" y="872" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#334155">durable bindings, state, lineage and audit</text>
+<line x1="730" y1="882" x2="730" y2="854" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<polygon points="730,854 733.4797242728898,861.2035768188214 726.5202757271102,861.2035768188214" fill="#64748b"/>
+<text x="744" y="872" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#334155">replay metadata / evaluation outcomes</text>
+<rect x="35" y="884" width="1113" height="122" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.4"/>
+<text x="47" y="905" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#64748b">DATA, AUDIT &amp; EVALUATION TIER</text>
+<rect x="49.0" y="917" width="260.75" height="78" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="1.4"/>
+<text x="179.375" y="936" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Application Store</text>
+<text x="179.375" y="955" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Org bindings, plans, investigations</text>
+<text x="179.375" y="970" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Hop lineage, overrides, sign-off</text>
+<text x="179.375" y="986" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">PostgreSQL 16</text>
+<rect x="323.75" y="917" width="260.75" height="78" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="1.4"/>
+<text x="454.125" y="936" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Artifact Store</text>
+<text x="454.125" y="955" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Local step outputs and exports</text>
+<text x="454.125" y="970" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Recorded statements / parameters</text>
+<text x="454.125" y="986" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">Local filesystem</text>
+<rect x="598.5" y="917" width="260.75" height="78" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="1.4"/>
+<text x="728.875" y="936" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Append-only Audit Log</text>
+<text x="728.875" y="955" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Actor, source, statement, timestamp</text>
+<text x="728.875" y="970" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Readable without application</text>
+<text x="728.875" y="986" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">JSONL · local filesystem</text>
+<rect x="873.25" y="917" width="260.75" height="78" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="1.4"/>
+<text x="1003.625" y="936" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#334155">Offline Evaluation Harness</text>
+<text x="1003.625" y="955" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Ground truth + seeded errors</text>
+<text x="1003.625" y="970" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Accuracy and verifier coverage</text>
+<text x="1003.625" y="986" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#475569">pytest · question-set fixtures</text>
+<rect x="1191" y="291" width="231" height="136" rx="6" fill="#fff7ed" stroke="#855bc0" stroke-width="1.4"/>
+<text x="1306" y="315" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#334155">EXTERNAL MODEL PROVIDER</text>
+<text x="1306" y="339" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="400" fill="#334155">Frontier: planning / SQL</text>
+<text x="1306" y="355" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="400" fill="#334155">Small model: prose / chart choice</text>
+<text x="1306" y="371" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="400" fill="#334155">Customer’s own API key</text>
+<text x="1306" y="387" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="400" fill="#334155">Question + schema; optional samples</text>
+<text x="1306" y="403" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="400" fill="#334155">PII-filtered / schema-only mode</text>
+<text x="1306" y="452" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="700" fill="#334155">Outside customer environment</text>
+<line x1="1148" y1="319" x2="1191" y2="319" stroke="#64748b" stroke-width="1.5"/>
+<polygon points="1191,319 1183.7964231811786,322.4797242728898 1183.7964231811786,315.5202757271102" fill="#64748b"/>
+<text x="1170" y="309" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#334155">HTTPS</text>
+<line x1="1191" y1="400" x2="1148" y2="400" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<polygon points="1148,400 1155.2035768188214,396.5202757271102 1155.2035768188214,403.4797242728898" fill="#64748b"/>
+<text x="1306" y="481" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#334155">Returned plan / SQL / prose</text>
+<text x="1306" y="503" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#334155">Data-source access stays local</text>
+<text x="35" y="1072" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#334155">KEY: Solid box = 295A scope; dashed box + [295B/later] = future scope. Solid arrow = requests/data; dashed arrow = control/response.</text>
+<text x="35" y="1096" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#334155">AGENT CONTROL: No direct agent-to-agent calls. Failed checks halt downstream work; 295B adds capped replanning / partial-result exit.</text>
+<text x="35" y="1120" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="400" fill="#334155">READING: Arrows summarise tier interactions, not execution order. Analyst sign-off precedes export. DAG = directed acyclic graph; PII = personal information.</text>
+<text x="35" y="1142" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#334155">Reference layout: AI Agent Marketplace workbook, Chapter 5, page 18. Technologies and scope: InsightPilot workbook Chapter 5 / architecture D01–D10.</text>
+</svg>
