@@ -16,7 +16,7 @@ Conventions understood in the Markdown:
     ```...```                fixed-width block
 Run:  python3 tools/build_docx_v2.py
 """
-import os, re, shutil, zipfile
+import datetime, os, re, shutil, zipfile
 from xml.sax.saxutils import escape
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -347,6 +347,10 @@ def main():
         image_rel[fig] = f'rId90{n}'
         media[fig] = (f'figure{n}.png', path)
     doc = build(blocks, image_rel, image_px)
+    title = next(v for k, v in blocks if k == 'h1')
+    front = blocks[:next(n for n, (k, _) in enumerate(blocks) if k == 'pagebreak')]
+    authors = [v for k, v in front if k == 'p' and v != 'By' and not v.startswith('Advisor:')
+               and not re.search(r'\b(19|20)\d\d\b', v)]
 
     src = zipfile.ZipFile(TEMPLATE)
     if os.path.exists(OUTPUT):
@@ -363,6 +367,27 @@ def main():
                     f'officeDocument/2006/relationships/image" Target="media/{media[f][0]}"/>'
                     for f in figs)
                 data = x.replace('</Relationships>', rels + '</Relationships>').encode('utf-8')
+            elif item == 'docProps/core.xml':
+                # The template's properties name its placeholder title and its author;
+                # Word uses dc:title as the PDF title, so set ours.
+                now = datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+                data = ('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+                        '<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" '
+                        'xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" '
+                        'xmlns:dcmitype="http://purl.org/dc/dcmitype/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">'
+                        f'<dc:title>{escape(title)}</dc:title><dc:subject>CMPE 295A Project Workbook</dc:subject>'
+                        f'<dc:creator>{escape("; ".join(authors))}</dc:creator>'
+                        f'<cp:lastModifiedBy>{escape(authors[0])}</cp:lastModifiedBy><cp:revision>1</cp:revision>'
+                        f'<dcterms:created xsi:type="dcterms:W3CDTF">{now}</dcterms:created>'
+                        f'<dcterms:modified xsi:type="dcterms:W3CDTF">{now}</dcterms:modified>'
+                        '</cp:coreProperties>').encode('utf-8')
+            elif item == 'docProps/app.xml':
+                x = data.decode('utf-8')
+                x = re.sub(r'(<TitlesOfParts>.*?<vt:lpstr>)[^<]*(</vt:lpstr>)',
+                           lambda m: m.group(1) + escape(title) + m.group(2), x, flags=re.S)
+                x = re.sub(r'<Template>[^<]*</Template>', '<Template>Normal.dotm</Template>', x)
+                x = re.sub(r'<Company>[^<]*</Company>', '<Company></Company>', x)
+                data = x.encode('utf-8')
             elif item == '[Content_Types].xml':
                 x = data.decode('utf-8')
                 if 'Extension="png"' not in x:
