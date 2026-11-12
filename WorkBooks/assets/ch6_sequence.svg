@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1640" height="1042" viewBox="0 0 1640 1042">
+<title>InsightPilot - UML sequence diagram</title>
+<rect width="100%" height="100%" fill="white"/>
+<text x="820.0" y="38.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23.520000000000003" font-weight="700" fill="#1f2937">UML sequence diagram - answering one question (main path)</text>
+<rect x="100.0" y="70" width="140" height="48" rx="5" fill="#e4edf8" stroke="#3974bb" stroke-width="2"/>
+<text x="170.0" y="91.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Analyst /</text>
+<text x="170.0" y="108.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Workspace</text>
+<polyline points="170.0,118.0 170.0,932.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="270.0" y="70" width="140" height="48" rx="5" fill="#eee8f7" stroke="#855bc0" stroke-width="2"/>
+<text x="340.0" y="99.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Orchestrator</text>
+<polyline points="340.0,118.0 340.0,932.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="440.0" y="70" width="140" height="48" rx="5" fill="#eee8f7" stroke="#855bc0" stroke-width="2"/>
+<text x="510.0" y="91.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Semantic</text>
+<text x="510.0" y="108.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Resolver</text>
+<polyline points="510.0,118.0 510.0,932.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="610.0" y="70" width="140" height="48" rx="5" fill="#eee8f7" stroke="#855bc0" stroke-width="2"/>
+<text x="680.0" y="91.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Plan</text>
+<text x="680.0" y="108.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Synthesiser</text>
+<polyline points="680.0,118.0 680.0,932.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="780.0" y="70" width="140" height="48" rx="5" fill="#e3f2e9" stroke="#319763" stroke-width="2"/>
+<text x="850.0" y="91.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Specialist</text>
+<text x="850.0" y="108.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Agent</text>
+<polyline points="850.0,118.0 850.0,932.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="950.0" y="70" width="140" height="48" rx="5" fill="#eee8f7" stroke="#855bc0" stroke-width="2"/>
+<text x="1020.0" y="91.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">ModelClient</text>
+<text x="1020.0" y="108.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">(to LLM)</text>
+<polyline points="1020.0,118.0 1020.0,932.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="1120.0" y="70" width="140" height="48" rx="5" fill="#f7e3e7" stroke="#c94e67" stroke-width="2"/>
+<text x="1190.0" y="91.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Source</text>
+<text x="1190.0" y="108.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Connector</text>
+<polyline points="1190.0,118.0 1190.0,932.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="1290.0" y="70" width="140" height="48" rx="5" fill="#f8ecdc" stroke="#c47c20" stroke-width="2"/>
+<text x="1360.0" y="91.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Hop</text>
+<text x="1360.0" y="108.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Verifier</text>
+<polyline points="1360.0,118.0 1360.0,932.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="1460.0" y="70" width="140" height="48" rx="5" fill="#f8ecdc" stroke="#c47c20" stroke-width="2"/>
+<text x="1530.0" y="91.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Lineage</text>
+<text x="1530.0" y="108.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Recorder</text>
+<polyline points="1530.0,118.0 1530.0,932.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="258" y1="474" x2="1612" y2="474" stroke="#4f6db8" stroke-width="1.6" stroke-dasharray="6 4"/>
+<line x1="1612" y1="474" x2="1612" y2="778" stroke="#4f6db8" stroke-width="1.6" stroke-dasharray="6 4"/>
+<line x1="1612" y1="778" x2="258" y2="778" stroke="#4f6db8" stroke-width="1.6" stroke-dasharray="6 4"/>
+<line x1="258" y1="778" x2="258" y2="474" stroke="#4f6db8" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="265.0" y="490.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="14.000000000000002" font-weight="700" fill="#4f6db8">loop [for each PlanStep in DAG order]</text>
+<polyline points="170.0,162.0 336.0,162.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="340.0,162.0 330.8,165.9 330.8,158.1" fill="#4b5563"/>
+<rect x="204.19392" y="144" width="101.61216" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="207.2" y="155.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">1  ask(question)</text>
+<polyline points="340.0,202.0 506.0,202.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="510.0,202.0 500.8,205.9 500.8,198.1" fill="#4b5563"/>
+<rect x="362.99168" y="184" width="124.01664000000002" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="366.0" y="195.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">2  resolve(question)</text>
+<polyline points="510.0,242.0 344.0,242.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="349.2,238.1 340.0,242.0 349.2,245.9" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<rect x="272.60767999999996" y="224" width="304.78464" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="275.6" y="235.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">3  bindings  (analyst asked if a term is ambiguous)</text>
+<polyline points="340.0,282.0 676.0,282.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="680.0,282.0 670.8,285.9 670.8,278.1" fill="#4b5563"/>
+<rect x="409.14336" y="264" width="201.71328000000003" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="412.1" y="275.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">4  synthesise(question, bindings)</text>
+<polyline points="680.0,322.0 1016.0,322.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="1020.0,322.0 1010.8,325.9 1010.8,318.1" fill="#4b5563"/>
+<rect x="773.05312" y="304" width="153.89376000000001" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="776.1" y="315.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">5  plan(prompt)  [frontier]</text>
+<polyline points="680.0,362.0 344.0,362.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="349.2,358.1 340.0,362.0 349.2,365.9" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<rect x="411.01152" y="344" width="197.97696000000002" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="414.0" y="355.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">6  validated Plan (DAG of steps)</text>
+<polyline points="340.0,402.0 174.0,402.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="179.2,398.1 170.0,402.0 179.2,405.9" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<rect x="176.92415999999997" y="384" width="156.15168000000003" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="179.9" y="395.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">7  show plan for approval</text>
+<polyline points="170.0,442.0 336.0,442.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="340.0,442.0 330.8,445.9 330.8,438.1" fill="#4b5563"/>
+<rect x="215.77248" y="424" width="78.45504000000001" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="218.8" y="435.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">8  approve()</text>
+<polyline points="340.0,512.0 846.0,512.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="850.0,512.0 840.8,515.9 840.8,508.1" fill="#4b5563"/>
+<rect x="542.32576" y="494" width="105.34848000000001" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="545.3" y="505.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">9  dispatch(step)</text>
+<polyline points="850.0,552.0 1016.0,552.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="1020.0,552.0 1010.8,555.9 1010.8,548.1" fill="#4b5563"/>
+<rect x="858.42944" y="534" width="153.14112000000003" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="861.4" y="545.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">10  sql(prompt)  [frontier]</text>
+<polyline points="850.0,592.0 1186.0,592.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="1190.0,592.0 1180.8,595.9 1180.8,588.1" fill="#4b5563"/>
+<rect x="937.44864" y="574" width="165.10272000000003" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="940.4" y="585.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">11  execute(sql)  read-only</text>
+<polyline points="850.0,632.0 344.0,632.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="349.2,628.1 340.0,632.0 349.2,635.9" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<rect x="547.92352" y="614" width="94.15296000000001" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="550.9" y="625.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">12  StepResult</text>
+<polyline points="340.0,672.0 1356.0,672.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="1360.0,672.0 1350.8,675.9 1350.8,668.1" fill="#4b5563"/>
+<rect x="727.49152" y="654" width="245.01696" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="730.5" y="665.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">13  verify(result)  SQL checks, no model</text>
+<polyline points="1360.0,712.0 344.0,712.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="349.2,708.1 340.0,712.0 349.2,715.9" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<rect x="705.44992" y="694" width="289.10016" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="708.4" y="705.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">14  HopVerdict: PASS | WARN | FAIL | ERROR</text>
+<polyline points="340.0,752.0 1526.0,752.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="1530.0,752.0 1520.8,755.9 1520.8,748.1" fill="#4b5563"/>
+<rect x="815.66336" y="734" width="238.67328000000003" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="818.7" y="745.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">15  record(step, result, checks)  -&gt; Hop</text>
+<polyline points="340.0,802.0 1016.0,802.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="1020.0,802.0 1010.8,805.9 1010.8,798.1" fill="#4b5563"/>
+<rect x="583.63904" y="784" width="192.72192000000004" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="586.6" y="795.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">16  prose(verified facts)  [small]</text>
+<polyline points="340.0,842.0 174.0,842.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="179.2,838.1 170.0,842.0 179.2,845.9" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<rect x="145.55519999999999" y="824" width="218.88960000000003" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="148.6" y="835.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">17  Answer  (each fact cites its hop)</text>
+<polyline points="170.0,882.0 336.0,882.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="340.0,882.0 330.8,885.9 330.8,878.1" fill="#4b5563"/>
+<rect x="182.34048" y="864" width="145.31904" height="15" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0.1"/>
+<text x="185.3" y="875.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#1f2937">18  sign off  -&gt;  export()</text>
+<text x="820.0" y="962.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#64748b">Steps 9-15 repeat for every PlanStep. Every StepResult returns to the Orchestrator; verification (13) never calls a model. Plan (5) and SQL (10) use the frontier model, prose (16) the small one.</text>
+<text x="820.0" y="984.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#64748b">Not drawn, described in the text: clarifying an ambiguous term, SQL repair on error, cross-source reconciliation, and halting on a RED hop.</text>
+<text x="820.0" y="1006.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">Solid arrow = call; dashed arrow = return or reply.</text>
+</svg>

@@ -1,0 +1,255 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1828" height="1188" viewBox="0 0 1828 1188">
+<title>InsightPilot - UML class diagram of the services</title>
+<rect width="100%" height="100%" fill="white"/>
+<text x="914.0" y="38.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24.64" font-weight="700" fill="#1f2937">UML class diagram - services: who resolves, plans, executes, verifies and composes</text>
+<polyline points="129.0,352.0 129.0,280.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="133.5,290.0 129.0,280.0 124.5,290.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="138.0" y="320.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«creates»</text>
+<polyline points="129.0,179.0 129.0,225.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="124.5,215.0 129.0,225.0 133.5,215.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="138.0" y="206.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«supplies» [295B]</text>
+<polyline points="443.0,352.0 443.0,280.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="447.5,290.0 443.0,280.0 438.5,290.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="452.0" y="320.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«creates»</text>
+<polyline points="757.0,352.0 757.0,280.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="761.5,290.0 757.0,280.0 752.5,290.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="766.0" y="320.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«HTTPS»</text>
+<polyline points="1071.0,352.0 1071.0,280.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="1075.5,290.0 1071.0,280.0 1066.5,290.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1080.0" y="320.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«returns»</text>
+<polyline points="1385.0,352.0 1385.0,280.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1373.0" y="342.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="1373.0" y="298.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="1394.0" y="320.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">accesses</text>
+<polyline points="552.0,412.0 648.0,412.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="638.0,416.5 648.0,412.0 638.0,407.5" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="600.0" y="405.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«uses»</text>
+<polyline points="962.0,412.0 866.0,412.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="876.0,407.5 866.0,412.0 876.0,416.5" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="914.0" y="405.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«reasons via»</text>
+<polyline points="1180.0,412.0 1276.0,412.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="1266.0,416.5 1276.0,412.0 1266.0,407.5" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1228.0" y="405.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«acts via»</text>
+<polyline points="1494.0,412.0 1590.0,378.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="1582.0,385.6 1590.0,378.0 1579.0,377.1" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1542.0" y="388.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«writes»</text>
+<polyline points="129.0,605.0 129.0,515.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="133.5,525.0 129.0,515.0 124.5,525.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="138.0" y="564.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«invokes»</text>
+<polyline points="443.0,605.0 443.0,497.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="447.5,507.0 443.0,497.0 438.5,507.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="452.0" y="555.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«invokes»</text>
+<polyline points="757.0,605.0 757.0,515.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="761.5,525.0 757.0,515.0 752.5,525.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="766.0" y="564.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«reasons via» prose</text>
+<polyline points="1071.0,605.0 1071.0,533.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1059.0" y="595.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="1059.0" y="551.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1..*</text>
+<text x="1080.0" y="573.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">dispatches</text>
+<polyline points="129.0,714.0 129.0,786.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="124.5,776.0 129.0,786.0 133.5,776.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="138.0" y="754.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«invokes»</text>
+<polyline points="443.0,714.0 443.0,786.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="438.5,776.0 443.0,786.0 447.5,776.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="452.0" y="754.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«invokes» per hop</text>
+<polyline points="757.0,714.0 757.0,786.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="752.5,776.0 757.0,786.0 761.5,776.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="766.0" y="754.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«invokes» per hop</text>
+<polyline points="1071.0,714.0 1071.0,786.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="1066.5,776.0 1071.0,786.0 1075.5,776.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1080.0" y="754.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«creates»</text>
+<polyline points="1385.0,714.0 1385.0,786.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="1380.5,776.0 1385.0,786.0 1389.5,776.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1394.0" y="754.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«awaits»</text>
+<polyline points="129.0,931.0 129.0,1021.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="124.5,1011.0 129.0,1021.0 133.5,1011.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="138.0" y="980.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«creates»</text>
+<polyline points="443.0,949.0 443.0,1021.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="438.5,1011.0 443.0,1021.0 447.5,1011.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="452.0" y="989.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«produces»</text>
+<polyline points="757.0,931.0 757.0,1021.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="752.5,1011.0 757.0,1021.0 761.5,1011.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="766.0" y="980.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«records»</text>
+<polyline points="1210.0,605.0 1210.0,231.6 1180.0,231.6" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="1190.0,226.6 1180.0,231.6 1190.0,236.6" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1217.0" y="591.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">«receives»</text>
+<rect x="20" y="70" width="218" height="109" rx="2" fill="#ffffff" stroke="#c94e67" stroke-width="2.0" stroke-dasharray="6 4"/>
+<rect x="21" y="71" width="216" height="30" rx="1" fill="#f7e3e7" stroke="#f7e3e7" stroke-width="0.1"/>
+<text x="129.0" y="91.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.370000000000001" font-weight="700" fill="#1f2937">«interface» SemanticSupplier</text>
+<line x1="20" y1="101" x2="238" y2="101" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="28.0" y="123.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">«impl» DbtSemanticLayer [295B]</text>
+<text x="28.0" y="141.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">precedence over inferred</text>
+<line x1="20" y1="151" x2="238" y2="151" stroke="#cbd5e1" stroke-width="1"/>
+<text x="28.0" y="167.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ definitions(): Binding[]</text>
+<rect x="962" y="107" width="218" height="173" rx="2" fill="#ffffff" stroke="#319763" stroke-width="2.0"/>
+<rect x="963" y="108" width="216" height="30" rx="1" fill="#e3f2e9" stroke="#e3f2e9" stroke-width="0.1"/>
+<text x="1071.0" y="128.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">«value» StepResult</text>
+<line x1="962" y1="138" x2="1180" y2="138" stroke="#319763" stroke-width="1.2"/>
+<text x="970.0" y="160.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">title: str</text>
+<text x="970.0" y="178.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">sql_executed: SQL</text>
+<text x="970.0" y="196.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">attempts: int</text>
+<text x="970.0" y="214.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">rows_in / rows_out: int</text>
+<text x="970.0" y="232.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">grain: str</text>
+<text x="970.0" y="250.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">output_ref: hash</text>
+<text x="970.0" y="268.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">sample_rows</text>
+<rect x="20" y="352" width="218" height="163" rx="2" fill="#ffffff" stroke="#855bc0" stroke-width="2.0"/>
+<rect x="21" y="353" width="216" height="30" rx="1" fill="#eee8f7" stroke="#eee8f7" stroke-width="0.1"/>
+<text x="129.0" y="373.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">SemanticResolver</text>
+<line x1="20" y1="383" x2="238" y2="383" stroke="#855bc0" stroke-width="1.2"/>
+<text x="28.0" y="405.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">margin_threshold: float</text>
+<text x="28.0" y="423.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">retrieval: BM25 + embeddings</text>
+<text x="28.0" y="441.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">model: ModelClient</text>
+<line x1="20" y1="451" x2="238" y2="451" stroke="#855bc0" stroke-width="1"/>
+<text x="28.0" y="467.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ resolve(question): Binding[]</text>
+<text x="28.0" y="485.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ ask(term, candidates)</text>
+<text x="28.0" y="503.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ confirm(term, choice)</text>
+<rect x="334" y="352" width="218" height="145" rx="2" fill="#ffffff" stroke="#855bc0" stroke-width="2.0"/>
+<rect x="335" y="353" width="216" height="30" rx="1" fill="#eee8f7" stroke="#eee8f7" stroke-width="0.1"/>
+<text x="443.0" y="373.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">PlanSynthesiser</text>
+<line x1="334" y1="383" x2="552" y2="383" stroke="#855bc0" stroke-width="1.2"/>
+<text x="342.0" y="405.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">hop_ceiling: int</text>
+<text x="342.0" y="423.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">plan_cache: signature → Plan</text>
+<line x1="334" y1="433" x2="552" y2="433" stroke="#855bc0" stroke-width="1"/>
+<text x="342.0" y="449.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ synthesise(q, bindings): Plan</text>
+<text x="342.0" y="467.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ validate(plan): Errors</text>
+<text x="342.0" y="485.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ revise(plan, failure) [295B]</text>
+<rect x="648" y="352" width="218" height="163" rx="2" fill="#ffffff" stroke="#855bc0" stroke-width="2.0"/>
+<rect x="649" y="353" width="216" height="30" rx="1" fill="#eee8f7" stroke="#eee8f7" stroke-width="0.1"/>
+<text x="757.0" y="373.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">ModelClient</text>
+<line x1="648" y1="383" x2="866" y2="383" stroke="#855bc0" stroke-width="1.2"/>
+<text x="656.0" y="405.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">provider: organisation&#x27;s own key</text>
+<text x="656.0" y="423.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">mode: FULL | SCHEMA_ONLY</text>
+<text x="656.0" y="441.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">        | FILTERED_SAMPLES</text>
+<line x1="648" y1="451" x2="866" y2="451" stroke="#855bc0" stroke-width="1"/>
+<text x="656.0" y="467.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ plan(prompt)   frontier</text>
+<text x="656.0" y="485.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ sql(prompt)   frontier</text>
+<text x="656.0" y="503.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ prose(prompt)   small</text>
+<rect x="962" y="352" width="218" height="181" rx="2" fill="#ffffff" stroke="#319763" stroke-width="2.0"/>
+<rect x="963" y="353" width="216" height="30" rx="1" fill="#e3f2e9" stroke="#e3f2e9" stroke-width="0.1"/>
+<text x="1071.0" y="373.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">«abstract» SpecialistAgent</text>
+<line x1="962" y1="383" x2="1180" y2="383" stroke="#319763" stroke-width="1.2"/>
+<text x="970.0" y="405.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">«impl» FetchAgent</text>
+<text x="970.0" y="423.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">«impl» AnalyticsAgent</text>
+<text x="970.0" y="441.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">«impl» VisualizationAgent [295B]</text>
+<text x="970.0" y="459.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">«impl» MLAgent [295B]</text>
+<text x="970.0" y="477.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">loop: reason → act → observe</text>
+<line x1="962" y1="487" x2="1180" y2="487" stroke="#319763" stroke-width="1"/>
+<text x="970.0" y="503.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ run(step): StepResult</text>
+<text x="970.0" y="521.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ repair(sql, error)</text>
+<rect x="1276" y="352" width="218" height="181" rx="2" fill="#ffffff" stroke="#c94e67" stroke-width="2.0"/>
+<rect x="1277" y="353" width="216" height="30" rx="1" fill="#f7e3e7" stroke="#f7e3e7" stroke-width="0.1"/>
+<text x="1385.0" y="373.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.370000000000001" font-weight="700" fill="#1f2937">«interface» SourceConnector</text>
+<line x1="1276" y1="383" x2="1494" y2="383" stroke="#c94e67" stroke-width="1.2"/>
+<text x="1284.0" y="405.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">«impl» PostgresConnector</text>
+<text x="1284.0" y="423.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">«impl» FileConnector  (DuckDB)</text>
+<text x="1284.0" y="441.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">«impl» RestJsonConnector [295B]</text>
+<line x1="1276" y1="451" x2="1494" y2="451" stroke="#c94e67" stroke-width="1"/>
+<text x="1284.0" y="467.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ describe()</text>
+<text x="1284.0" y="485.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ sample(n)</text>
+<text x="1284.0" y="503.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ execute(sql)</text>
+<text x="1284.0" y="521.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ profile(cols)</text>
+<rect x="20" y="786" width="218" height="145" rx="2" fill="#ffffff" stroke="#c47c20" stroke-width="2.0"/>
+<rect x="21" y="787" width="216" height="30" rx="1" fill="#f8ecdc" stroke="#f8ecdc" stroke-width="0.1"/>
+<text x="129.0" y="807.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">CrossSourceReconciler</text>
+<line x1="20" y1="817" x2="238" y2="817" stroke="#c47c20" stroke-width="1.2"/>
+<text x="28.0" y="839.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">sql via: SourceConnector</text>
+<text x="28.0" y="857.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">match: Jaccard + edit distance</text>
+<line x1="20" y1="867" x2="238" y2="867" stroke="#c47c20" stroke-width="1"/>
+<text x="28.0" y="883.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ profile_keys(a, b)</text>
+<text x="28.0" y="901.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ propose(a, b): MappingProposal</text>
+<text x="28.0" y="919.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ coverage(a, b)</text>
+<rect x="334" y="786" width="218" height="163" rx="2" fill="#ffffff" stroke="#c47c20" stroke-width="2.0"/>
+<rect x="335" y="787" width="216" height="30" rx="1" fill="#f8ecdc" stroke="#f8ecdc" stroke-width="0.1"/>
+<text x="443.0" y="807.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">HopVerifier</text>
+<line x1="334" y1="817" x2="552" y2="817" stroke="#c47c20" stroke-width="1.2"/>
+<text x="342.0" y="839.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">planner · renderer · guard · runner</text>
+<text x="342.0" y="857.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">sql via: SourceConnector</text>
+<text x="342.0" y="875.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">no model calls; 5 s timeout</text>
+<line x1="334" y1="885" x2="552" y2="885" stroke="#c47c20" stroke-width="1"/>
+<text x="342.0" y="901.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ verify_hop(ctx): HopVerdict</text>
+<text x="342.0" y="919.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ rerun_checks(hop): HopVerdict</text>
+<text x="342.0" y="937.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ doubt_signals(inv)</text>
+<rect x="648" y="786" width="218" height="145" rx="2" fill="#ffffff" stroke="#c47c20" stroke-width="2.0"/>
+<rect x="649" y="787" width="216" height="30" rx="1" fill="#f8ecdc" stroke="#f8ecdc" stroke-width="0.1"/>
+<text x="757.0" y="807.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">LineageRecorder</text>
+<line x1="648" y1="817" x2="866" y2="817" stroke="#c47c20" stroke-width="1.2"/>
+<text x="656.0" y="839.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">store: Application + Artifact</text>
+<text x="656.0" y="857.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">content-addressed outputs</text>
+<line x1="648" y1="867" x2="866" y2="867" stroke="#c47c20" stroke-width="1"/>
+<text x="656.0" y="883.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ record(step, result, checks): Hop</text>
+<text x="656.0" y="901.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ replay(hop): Hop</text>
+<text x="656.0" y="919.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ export(investigation)</text>
+<rect x="20" y="225" width="218" height="55" rx="2" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<rect x="21" y="226" width="216" height="30" rx="1" fill="#f1f5f9" stroke="#f1f5f9" stroke-width="0.1"/>
+<text x="129.0" y="246.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#475569">Binding</text>
+<line x1="20" y1="256" x2="238" y2="256" stroke="#94a3b8" stroke-width="1"/>
+<text x="129.0" y="273.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" font-style="italic" fill="#64748b">see Figure 3</text>
+<rect x="334" y="225" width="218" height="55" rx="2" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<rect x="335" y="226" width="216" height="30" rx="1" fill="#f1f5f9" stroke="#f1f5f9" stroke-width="0.1"/>
+<text x="443.0" y="246.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#475569">Plan</text>
+<line x1="334" y1="256" x2="552" y2="256" stroke="#94a3b8" stroke-width="1"/>
+<text x="443.0" y="273.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" font-style="italic" fill="#64748b">see Figure 3</text>
+<rect x="648" y="225" width="218" height="55" rx="2" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<rect x="649" y="226" width="216" height="30" rx="1" fill="#f1f5f9" stroke="#f1f5f9" stroke-width="0.1"/>
+<text x="757.0" y="246.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#475569">External model provider</text>
+<line x1="648" y1="256" x2="866" y2="256" stroke="#94a3b8" stroke-width="1"/>
+<text x="757.0" y="273.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" font-style="italic" fill="#64748b">frontier: plan, SQL · small: prose</text>
+<rect x="1276" y="225" width="218" height="55" rx="2" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<rect x="1277" y="226" width="216" height="30" rx="1" fill="#f1f5f9" stroke="#f1f5f9" stroke-width="0.1"/>
+<text x="1385.0" y="246.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#475569">Source</text>
+<line x1="1276" y1="256" x2="1494" y2="256" stroke="#94a3b8" stroke-width="1"/>
+<text x="1385.0" y="273.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" font-style="italic" fill="#64748b">see Figure 3</text>
+<rect x="1590" y="352" width="218" height="55" rx="2" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<rect x="1591" y="353" width="216" height="30" rx="1" fill="#f1f5f9" stroke="#f1f5f9" stroke-width="0.1"/>
+<text x="1699.0" y="373.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#475569">AuditEvent</text>
+<line x1="1590" y1="383" x2="1808" y2="383" stroke="#94a3b8" stroke-width="1"/>
+<text x="1699.0" y="400.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" font-style="italic" fill="#64748b">see Figure 3</text>
+<rect x="962" y="786" width="218" height="55" rx="2" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<rect x="963" y="787" width="216" height="30" rx="1" fill="#f1f5f9" stroke="#f1f5f9" stroke-width="0.1"/>
+<text x="1071.0" y="807.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#475569">Answer</text>
+<line x1="962" y1="817" x2="1180" y2="817" stroke="#94a3b8" stroke-width="1"/>
+<text x="1071.0" y="834.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" font-style="italic" fill="#64748b">see Figures 3, 5</text>
+<rect x="1276" y="786" width="218" height="55" rx="2" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<rect x="1277" y="787" width="216" height="30" rx="1" fill="#f1f5f9" stroke="#f1f5f9" stroke-width="0.1"/>
+<text x="1385.0" y="807.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#475569">PlanApproval</text>
+<line x1="1276" y1="817" x2="1494" y2="817" stroke="#94a3b8" stroke-width="1"/>
+<text x="1385.0" y="834.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" font-style="italic" fill="#64748b">see Figure 3</text>
+<rect x="20" y="1021" width="218" height="55" rx="2" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<rect x="21" y="1022" width="216" height="30" rx="1" fill="#f1f5f9" stroke="#f1f5f9" stroke-width="0.1"/>
+<text x="129.0" y="1042.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#475569">MappingProposal</text>
+<line x1="20" y1="1052" x2="238" y2="1052" stroke="#94a3b8" stroke-width="1"/>
+<text x="129.0" y="1069.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" font-style="italic" fill="#64748b">see Figure 3</text>
+<rect x="334" y="1021" width="218" height="55" rx="2" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<rect x="335" y="1022" width="216" height="30" rx="1" fill="#f1f5f9" stroke="#f1f5f9" stroke-width="0.1"/>
+<text x="443.0" y="1042.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#475569">HopVerdict + CheckResults</text>
+<line x1="334" y1="1052" x2="552" y2="1052" stroke="#94a3b8" stroke-width="1"/>
+<text x="443.0" y="1069.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" font-style="italic" fill="#64748b">see Figure 3</text>
+<rect x="648" y="1021" width="218" height="55" rx="2" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<rect x="649" y="1022" width="216" height="30" rx="1" fill="#f1f5f9" stroke="#f1f5f9" stroke-width="0.1"/>
+<text x="757.0" y="1042.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#475569">Hop</text>
+<line x1="648" y1="1052" x2="866" y2="1052" stroke="#94a3b8" stroke-width="1"/>
+<text x="757.0" y="1069.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" font-style="italic" fill="#64748b">see Figure 3</text>
+<rect x="20" y="605" width="1788" height="109" rx="2" fill="#ffffff" stroke="#855bc0" stroke-width="2.0"/>
+<rect x="21" y="606" width="1786" height="30" rx="1" fill="#eee8f7" stroke="#eee8f7" stroke-width="0.1"/>
+<text x="914.0" y="626.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">Orchestrator</text>
+<line x1="20" y1="636" x2="1808" y2="636" stroke="#855bc0" stroke-width="1.2"/>
+<text x="914.0" y="658.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">plan: Plan (approved)   ·   state: RunState   ·   budget / cost_spent   ·   retry_cap: int</text>
+<text x="914.0" y="676.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">every StepResult returns here; agents never call each other</text>
+<line x1="20" y1="686" x2="1808" y2="686" stroke="#855bc0" stroke-width="1"/>
+<text x="914.0" y="702.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ run(plan)   ·   + dispatch(step): StepResult   ·   + compose_answer(): Answer   ·   + halt(reason)   ·   + replan()  [295B]</text>
+<rect x="1590" y="70" width="218" height="164" rx="4" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+<text x="1602.0" y="92.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#334155">Legend</text>
+<rect x="1602" y="106" width="30" height="16" rx="2" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+<text x="1642.0" y="119.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10.07" font-weight="400" fill="#1f2937">service class (Figure 1 component)</text>
+<rect x="1602" y="132" width="30" height="16" rx="2" fill="#ffffff" stroke="#475569" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="1642.0" y="145.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" fill="#1f2937">CMPE 295B scope</text>
+<rect x="1602" y="158" width="30" height="16" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="1642.0" y="171.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" fill="#1f2937">domain class from Figure 3</text>
+<polyline points="1602.0,192.0 1634.0,192.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="1626.0,187.0 1634.0,192.0 1626.0,197.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1642.0" y="197.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="8.57" font-weight="400" fill="#1f2937">dependency «invokes» «creates» «uses»</text>
+<polyline points="1602.0,218.0 1634.0,218.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1642.0" y="223.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" fill="#1f2937">association</text>
+<text x="914.0" y="1136.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#64748b">Flow: resolve terms → synthesise plan → analyst approval → dispatch steps → StepResult → verify (SQL) → record Hop → compose_answer (small model via ModelClient) → Answer.</text>
+<text x="914.0" y="1158.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">Checks never use a model: HopVerifier and CrossSourceReconciler issue independent SQL through SourceConnector. Answer text is written only from verified hops, each sentence citing its hop.</text>
+</svg>

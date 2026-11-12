@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>InsightPilot – Investigation Workspace (mockup)</title>
+<!--
+  UI mockup for Workbook 2, Chapter 6 (UI Design). Sample data only.
+  Layout follows the Genie chat pattern (left context rail; question, collapsible analysis, executed
+  queries, answer) and maps every element to the InsightPilot design: Question, PlanApproval, Hop,
+  HopVerdict/CheckResult, Answer with Text/Table/Chart/Doubt blocks, Citation, SignOff, Binding, Source.
+  Render: Chrome headless, 1700 x 1265 CSS px at 2x (see render.sh).
+-->
+<style>
+  :root{
+    --ink:#11171c; --ink2:#445461; --ink3:#5f7281; --line:#e3e8ed; --line2:#d1d9e1;
+    --rail:#f6f7f9; --blue:#2272b4; --blue-bg:#eaf2fa; --blue-ink:#0e538b;
+    --green:#277c43; --green-bg:#e9f5ed; --amber:#9a6400; --amber-bg:#fff6dc; --amber-line:#f2d48a;
+    --red:#c82d4c; --code:#f7f8fa; --lav:#eceefa;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;width:1700px;height:1265px;overflow:hidden;background:#fff;color:var(--ink);
+    font:13px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .app{display:grid;grid-template-columns:288px 1fr;height:100%}
+  /* ---------- left rail ---------- */
+  .rail{background:var(--rail);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:14px 14px 12px}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:600;font-size:15px;margin:2px 4px 14px}
+  .mark{width:22px;height:22px;border-radius:5px;background:var(--blue);display:grid;place-items:center}
+  .btn-new{display:flex;align-items:center;gap:8px;justify-content:center;border:1px solid var(--line2);background:#fff;
+    border-radius:4px;padding:7px 10px;font-weight:600;color:var(--ink);margin-bottom:16px}
+  .sect{font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--ink3);text-transform:uppercase;margin:6px 6px 6px;display:flex;justify-content:space-between}
+  .thread{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:4px;color:var(--ink2);white-space:nowrap;overflow:hidden}
+  .thread span.t{overflow:hidden;text-overflow:ellipsis;flex:1}
+  .thread.on{background:#e6ebf0;color:var(--ink);font-weight:500}
+  .dot{width:7px;height:7px;border-radius:50%;flex:none}
+  .dot.rev{background:#d99a00}.dot.ok{background:var(--green)}
+  .tabs{display:flex;gap:16px;border-bottom:1px solid var(--line2);margin:16px 4px 10px;font-weight:500;color:var(--ink3)}
+  .tabs div{padding:0 0 7px}.tabs .on{color:var(--ink);border-bottom:2px solid var(--blue)}
+  .src{background:#fff;border:1px solid var(--line);border-radius:4px;padding:8px 10px;margin:0 2px 8px}
+  .src .n{font-weight:600;display:flex;align-items:center;gap:6px}
+  .src .m{color:var(--ink3);font-size:12px;margin-top:2px}
+  .tbls{margin-top:6px;font-size:12px;color:var(--ink2);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .bind{display:grid;grid-template-columns:1fr auto;gap:2px 8px;padding:7px 8px;border-bottom:1px solid var(--line);font-size:12px}
+  .bind:last-child{border-bottom:0}
+  .bind .k{font-weight:600;color:var(--ink)} .bind .v{grid-column:1/3;color:var(--ink2);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
+  .tag{font-size:10.5px;font-weight:600;border-radius:3px;padding:1px 6px;white-space:nowrap}
+  .tag.conf{background:var(--green-bg);color:var(--green)} .tag.inf{background:#eef0f3;color:var(--ink3)}
+  .tag.join{background:var(--blue-bg);color:var(--blue-ink)} .tag.new{background:var(--amber-bg);color:var(--amber)}
+  .railfoot{margin-top:auto;border-top:1px solid var(--line2);padding-top:10px;display:grid;gap:4px}
+  .railfoot div{display:flex;justify-content:space-between;padding:4px 6px;color:var(--ink2)}
+  .count{background:#d99a00;color:#fff;border-radius:9px;padding:0 7px;font-size:11px;font-weight:600}
+  /* ---------- top bar ---------- */
+  .main{display:flex;flex-direction:column;min-width:0}
+  .top{height:50px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 22px;gap:12px}
+  .crumb{color:var(--ink3)} .crumb b{color:var(--ink);font-weight:600}
+  .chip{border:1px solid var(--line2);border-radius:12px;padding:2px 9px;font-size:12px;color:var(--ink2);background:#fff;white-space:nowrap}
+  .sp{flex:1}
+  .btn{border:1px solid var(--line2);border-radius:4px;padding:5px 12px;font-weight:500;background:#fff;color:var(--ink);white-space:nowrap}
+  .btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+  .btn.dis{color:#a7b3bd;border-color:var(--line)}
+  /* ---------- conversation ---------- */
+  .conv{flex:1;overflow:hidden;padding:16px 34px 0 34px}
+  .q{display:flex;justify-content:flex-end;margin-bottom:10px}
+  .q div{background:var(--lav);border-radius:14px;padding:8px 14px;max-width:640px;font-size:13.5px}
+  .bot{display:grid;grid-template-columns:24px 1fr;gap:12px}
+  .avatar{width:24px;height:24px;border-radius:6px;background:var(--blue);display:grid;place-items:center;margin-top:2px}
+  .row{display:flex;align-items:center;gap:8px;color:var(--ink2);margin:0 0 7px}
+  .row .chev{color:var(--ink3);font-size:11px}
+  .row b{color:var(--ink);font-weight:600}
+  .muted{color:var(--ink3)}
+  .steps{border:1px solid var(--line);border-radius:6px;margin:4px 0 12px;overflow:hidden}
+  .steps .hd{background:#fafbfc;border-bottom:1px solid var(--line);padding:7px 12px;display:flex;gap:10px;align-items:center;font-weight:600}
+  .step{display:grid;grid-template-columns:74px 1fr auto;align-items:center;gap:10px;padding:7px 12px;border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:0}
+  .st{font-size:11px;font-weight:700;border-radius:3px;padding:2px 0;text-align:center;letter-spacing:.02em}
+  .st.pass{background:var(--green-bg);color:var(--green)} .st.warn{background:var(--amber-bg);color:var(--amber)}
+  .step .t{font-weight:600}.step .meta{color:var(--ink3);font-size:12px}
+  .detail{display:grid;grid-template-columns:1.15fr 1.25fr .95fr;gap:12px;padding:10px 12px 12px;background:#fff;border-bottom:1px solid var(--line)}
+  .lbl{font-size:11px;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;display:flex;justify-content:space-between}
+  .lbl a{color:var(--blue);text-transform:none;letter-spacing:0;font-weight:500}
+  pre{margin:0;background:var(--code);border:1px solid var(--line);border-radius:4px;padding:8px 10px;font:11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:#1f2d3a;white-space:pre}
+  .kw{color:#0e538b;font-weight:600}.fn{color:#7a3e9d}.num{color:#9a5b00}
+  table{border-collapse:collapse;width:100%;font-size:12px}
+  th{background:#f3f5f7;color:var(--ink2);font-weight:600;text-align:left;padding:5px 8px;border-bottom:1px solid var(--line2);white-space:nowrap}
+  td{padding:5px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+  td.r,th.r{text-align:right} td.i{color:var(--ink3);width:20px}
+  .grid{border:1px solid var(--line);border-radius:4px;overflow:hidden}
+  .chk{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .chk:last-child{border-bottom:0}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
+  .ok{color:var(--green);font-weight:600}.wn{color:var(--amber);font-weight:600}.sk{color:var(--ink3);font-weight:600}
+  .acts{display:flex;gap:8px;margin-top:8px}
+  .lnk{color:var(--blue);font-weight:500}
+  /* answer */
+  .banner{display:flex;align-items:center;gap:10px;background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:5px;padding:7px 12px;margin-bottom:10px;color:#6b4700}
+  h2{font-size:16px;margin:0 0 5px;font-weight:650}
+  p.sum{margin:0 0 10px;font-size:13.5px;max-width:1150px;color:#1d2a35}
+  sup.c{display:inline-block;background:var(--blue-bg);color:var(--blue-ink);border-radius:8px;font-size:10px;font-weight:700;padding:0 5px;line-height:15px;margin-left:2px;vertical-align:2px}
+  .two{display:grid;grid-template-columns:1fr 1.05fr;gap:14px;margin-bottom:10px}
+  .card{border:1px solid var(--line);border-radius:6px;padding:9px 12px}
+  .card .hd2{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;font-weight:600}
+  .icons{display:flex;gap:10px;color:var(--ink3)}
+  .legend{display:flex;gap:12px;font-size:11.5px;color:var(--ink2);margin-bottom:6px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+  .ins{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;margin:0 0 10px;padding:0;list-style:none;font-size:13px}
+  .ins li{padding-left:12px;position:relative}.ins li:before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--ink3)}
+  .doubt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--amber-line);border-left:4px solid #d99a00;border-radius:5px;padding:8px 12px;background:#fffbf0;margin-bottom:10px}
+  .fu{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 0}
+  .fu div{border:1px solid var(--line2);border-radius:14px;padding:4px 11px;color:var(--ink2);background:#fff}
+  .composer{margin:10px 34px 14px 70px;border:1px solid var(--line2);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 2px rgba(17,23,28,.06)}
+  .composer .ph{flex:1;color:#8a99a6}
+  .send{width:28px;height:28px;border-radius:5px;background:var(--blue);display:grid;place-items:center}
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- ======================= LEFT RAIL ======================= -->
+  <aside class="rail">
+    <div class="brand"><div class="mark"><svg width="13" height="13" viewBox="0 0 16 16"><path d="M2 12 6 7l3 3 5-7" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>InsightPilot</div>
+    <div class="btn-new"><span style="font-size:16px;line-height:1">+</span> New investigation</div>
+
+    <div class="sect"><span>Investigations</span></div>
+    <div class="thread on"><span class="dot rev"></span><span class="t">Top customers by transaction value</span></div>
+    <div class="thread"><span class="dot ok"></span><span class="t">Q3 on-time delivery by region</span></div>
+    <div class="thread"><span class="dot rev"></span><span class="t">Churned accounts in the Northeast</span></div>
+    <div class="thread"><span class="dot ok"></span><span class="t">Refund rate by product line</span></div>
+    <div class="thread"><span class="dot ok"></span><span class="t">Carrier cost vs plan, October</span></div>
+
+    <div class="tabs"><div class="on">Sources</div><div>Bindings</div><div>About</div></div>
+    <div class="src">
+      <div class="n"><svg width="13" height="13" viewBox="0 0 16 16"><ellipse cx="8" cy="3.5" rx="6" ry="2.5" fill="none" stroke="#445461" stroke-width="1.4"/><path d="M2 3.5v9c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-9" fill="none" stroke="#445461" stroke-width="1.4"/></svg>Warehouse <span class="muted" style="font-weight:400">· PostgreSQL 16</span></div>
+      <div class="m">40 tables · read-only · schema v12</div>
+      <div class="tbls">customer_360 · transactions<br>orders · shipments · regions …</div>
+    </div>
+    <div class="src">
+      <div class="n"><svg width="12" height="13" viewBox="0 0 14 16"><path d="M2 1h7l3 3v11H2z" fill="none" stroke="#445461" stroke-width="1.4"/></svg>regions_targets.csv <span class="muted" style="font-weight:400">· uploaded</span></div>
+      <div class="m">214 rows · queried in DuckDB · Oct 18</div>
+    </div>
+
+    <div class="sect" style="margin-top:12px"><span>Bindings in scope</span><span style="text-transform:none;letter-spacing:0;color:var(--blue);font-weight:500">Manage</span></div>
+    <div class="src" style="padding:0 2px">
+      <div class="bind"><span class="k">transaction value</span><span class="tag new">Confirmed today</span><span class="v">total_debits + total_credits</span></div>
+      <div class="bind"><span class="k">region</span><span class="tag conf">Analyst-confirmed</span><span class="v">orders.ship_region</span></div>
+      <div class="bind"><span class="k">revenue</span><span class="tag inf">Inferred</span><span class="v">SUM(qty × unit_price)</span></div>
+      <div class="bind"><span class="k">region code</span><span class="tag join">Join map</span><span class="v">SW ↔ SOUTHWEST (+6)</span></div>
+    </div>
+
+    <div class="railfoot">
+      <div><span>Review queue</span><span class="count">2</span></div>
+      <div><span>Audit log</span><span class="muted">JSONL</span></div>
+      <div><span>Settings</span><span class="muted">schema-only · $2.00 cap</span></div>
+    </div>
+  </aside>
+
+  <!-- ======================= MAIN ======================= -->
+  <main class="main">
+    <div class="top">
+      <span class="crumb">Investigations / <b>Top customers by transaction value</b></span>
+      <span class="chip">Warehouse</span><span class="chip">regions_targets.csv</span>
+      <span class="sp"></span>
+      <span class="btn">Share</span><span class="btn dis" title="Available after sign-off">Export</span>
+    </div>
+
+    <div class="conv">
+      <div class="q"><div>Which customers generated the highest transaction value?</div></div>
+
+      <div class="bot">
+        <div class="avatar"><svg width="12" height="12" viewBox="0 0 16 16"><path d="M2 12 6 7l3 3 5-7" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div>
+          <div class="row"><span style="color:var(--green)">✓</span> Clarified <b>transaction value</b> = total debits + total credits <span class="muted">· chosen by Priya · saved as a binding</span></div>
+          <div class="row"><span class="chev">▸</span><b>Plan</b><span class="muted">· 3 steps</span>
+            <span class="chip">S1 FETCH customer_360</span><span class="muted">→</span><span class="chip">S2 AGGREGATE per customer</span><span class="muted">→</span><span class="chip">S3 DERIVE top 20</span>
+            <span class="muted">· approved by Priya at 10:41</span></div>
+          <div class="row"><span class="chev">▸</span><b>Thinking</b><span class="muted">· resolved 1 term, planned 3 steps, ran and verified 3 steps · 14.2 s</span></div>
+
+          <!-- executed steps (hops) -->
+          <div class="steps">
+            <div class="hd"><span class="chev" style="font-size:11px;color:var(--ink3)">▾</span>Executed steps<span class="muted" style="font-weight:400">· each step checked by independent SQL, never by the model</span></div>
+            <div class="step"><span class="st pass">PASS</span>
+              <div><span class="t">S1 · Fetch customer totals</span> <span class="meta">· Used: customer_360 (Warehouse) · 48,210 rows · grain customer_id · 1 attempt</span></div><span class="lnk">▸</span></div>
+            <div class="step"><span class="st warn">WARN</span>
+              <div><span class="t">S2 · Debits + credits per customer</span> <span class="meta">· 48,210 → 46,764 rows · grain customer_id · 2 attempts (SQL repaired once)</span></div><span class="lnk">▸</span></div>
+            <div class="step" style="background:#fbfcfd"><span class="st pass">PASS</span>
+              <div><span class="t">S3 · Top 20 customers by total transaction value</span> <span class="meta">· 46,764 → 20 rows · grain customer_id · 1 attempt</span></div><span class="lnk">▾</span></div>
+            <div class="detail">
+              <div>
+                <div class="lbl"><span>Generated SQL</span><a>Copy</a></div>
+<pre><span class="kw">SELECT</span> customer_id, first_name, last_name,
+       customer_segment, city,
+       total_debits + total_credits <span class="kw">AS</span> total_value
+<span class="kw">FROM</span>   s2_customer_totals
+<span class="kw">WHERE</span>  customer_id <span class="kw">IS NOT NULL</span>
+<span class="kw">ORDER BY</span> total_value <span class="kw">DESC</span>
+<span class="kw">LIMIT</span>  <span class="num">20</span>;</pre>
+              </div>
+              <div>
+                <div class="lbl"><span>Result preview · 20 rows</span><a>Download CSV</a></div>
+                <div class="grid"><table>
+                  <tr><th></th><th>customer_id</th><th>name</th><th>segment</th><th class="r">total_value</th></tr>
+                  <tr><td class="i">1</td><td class="mono">C000277</td><td>Vivek More</td><td>Mass</td><td class="r">2,521,940</td></tr>
+                  <tr><td class="i">2</td><td class="mono">C000406</td><td>Sanjay More</td><td>Mass</td><td class="r">2,281,305</td></tr>
+                  <tr><td class="i">3</td><td class="mono">C000347</td><td>Bhavna Mehta</td><td>Mass Affluent</td><td class="r">2,154,870</td></tr>
+                  <tr><td class="i">4</td><td class="mono">C000339</td><td>Deepak Gupta</td><td>Mass</td><td class="r">2,149,512</td></tr>
+                </table></div>
+              </div>
+              <div>
+                <div class="lbl"><span>Verification · attempt 1</span><a>Show check SQL</a></div>
+                <div class="chk"><span class="mono">ROW_COUNT</span><span>20 = 20 <span class="ok">PASS</span></span></div>
+                <div class="chk"><span class="mono">GRAIN_UNIQUE</span><span>0 dup groups <span class="ok">PASS</span></span></div>
+                <div class="chk"><span class="mono">VALUE_RANGE</span><span>within profile <span class="ok">PASS</span></span></div>
+                <div class="chk"><span class="mono">NULL_RATE</span><span>+0.0 pp <span class="ok">PASS</span></span></div>
+                <div class="chk"><span class="mono">BOUNDARY_TOTAL</span><span>not applicable <span class="sk">SKIP</span></span></div>
+                <div class="acts"><span class="btn">Replay step</span><span class="btn">Open lineage</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- answer -->
+          <div class="banner"><svg width="15" height="15" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="none" stroke="#9a6400" stroke-width="1.5"/><path d="M8 4.5v4.2M8 11v.3" stroke="#9a6400" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <span><b>Not yet reviewed by an analyst.</b> Export is available after sign-off.</span><span class="sp"></span><span class="btn primary">Sign off</span></div>
+
+          <h2>Top customers by transaction value</h2>
+          <p class="sum"><b>Vivek More</b> (C000277) generated the highest total transaction value at <b>₹2.52M</b>, followed by <b>Sanjay More</b> at <b>₹2.28M</b> and <b>Bhavna Mehta</b> at <b>₹2.15M</b><sup class="c">S3</sup>. The top 20 customers account for <b>₹38.6M</b>, or 4.1% of all transaction value<sup class="c">S2</sup>.</p>
+
+          <div class="two">
+            <div class="card">
+              <div class="hd2"><span>Top 20 customers <span class="muted" style="font-weight:400">· showing 5</span></span><span class="icons"><span>⤓</span><span>⧉</span></span></div>
+              <table>
+                <tr><th></th><th>name</th><th>segment</th><th>city</th><th class="r">total_value (₹)</th></tr>
+                <tr><td class="i">1</td><td>Vivek More</td><td>Mass</td><td>Chennai</td><td class="r">2,521,940</td></tr>
+                <tr><td class="i">2</td><td>Sanjay More</td><td>Mass</td><td>Delhi</td><td class="r">2,281,305</td></tr>
+                <tr><td class="i">3</td><td>Bhavna Mehta</td><td>Mass Affluent</td><td>Jaipur</td><td class="r">2,154,870</td></tr>
+                <tr><td class="i">4</td><td>Deepak Gupta</td><td>Mass</td><td>Ahmedabad</td><td class="r">2,149,512</td></tr>
+                <tr><td class="i">5</td><td>Aman Chavan</td><td>Mass</td><td>Indore</td><td class="r">2,140,066</td></tr>
+              </table>
+              <div style="margin-top:6px;font-size:12px" class="lnk">Show all 20 rows<sup class="c">S3</sup></div>
+            </div>
+            <div class="card">
+              <div class="hd2"><span>Top 10 by total transaction value <span class="tag inf" style="margin-left:6px">Chart · CMPE 295B</span></span><span class="icons"><span>⤓</span><span>✎</span></span></div>
+              <div class="legend"><span><i style="background:#077a9d"></i>Mass</span><span><i style="background:#ffab00"></i>Mass Affluent</span><span><i style="background:#c82d4c"></i>Private</span></div>
+              <svg width="100%" height="150" viewBox="0 0 560 150" font-family="-apple-system,Helvetica Neue,Arial" font-size="11" fill="#445461">
+                <g transform="translate(92,0)">
+                  <g>
+                    <text x="-6" y="11" text-anchor="end">Vivek More</text><rect x="0" y="2" width="420" height="11" fill="#077a9d"/>
+                    <text x="-6" y="25" text-anchor="end">Sanjay More</text><rect x="0" y="16" width="380" height="11" fill="#077a9d"/>
+                    <text x="-6" y="39" text-anchor="end">Bhavna Mehta</text><rect x="0" y="30" width="359" height="11" fill="#ffab00"/>
+                    <text x="-6" y="53" text-anchor="end">Deepak Gupta</text><rect x="0" y="44" width="358" height="11" fill="#077a9d"/>
+                    <text x="-6" y="67" text-anchor="end">Aman Chavan</text><rect x="0" y="58" width="357" height="11" fill="#077a9d"/>
+                    <text x="-6" y="81" text-anchor="end">Sanjay Jadhav</text><rect x="0" y="72" width="345" height="11" fill="#077a9d"/>
+                    <text x="-6" y="95" text-anchor="end">Kavya Singh</text><rect x="0" y="86" width="338" height="11" fill="#c82d4c"/>
+                    <text x="-6" y="109" text-anchor="end">Arjun Chavan</text><rect x="0" y="100" width="288" height="11" fill="#ffab00"/>
+                    <text x="-6" y="123" text-anchor="end">Shreya Reddy</text><rect x="0" y="114" width="283" height="11" fill="#ffab00"/>
+                    <text x="-6" y="137" text-anchor="end">Rohan Gupta</text><rect x="0" y="128" width="277" height="11" fill="#c82d4c"/>
+                  </g>
+                  <line x1="0" y1="0" x2="0" y2="142" stroke="#d1d9e1"/>
+                  <text x="0" y="150" font-size="10" fill="#5f7281">₹0</text><text x="200" y="150" font-size="10" fill="#5f7281">₹1.2M</text><text x="400" y="150" font-size="10" fill="#5f7281">₹2.4M</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <div class="lbl" style="font-size:11.5px">Key insights</div>
+          <ul class="ins">
+            <li>7 of the top 15 customers are in the <b>Mass</b> segment, so value is not driven by segment alone<sup class="c">S3</sup></li>
+            <li><b>Indore</b> appears 4 times in the top 15, the most of any city<sup class="c">S3</sup></li>
+            <li>The gap between #1 and #2 is <b>₹240K</b>; ranks 3 to 5 are within ₹15K of each other<sup class="c">S3</sup></li>
+            <li>Totals use debits + credits as confirmed for this investigation<sup class="c">S2</sup></li>
+          </ul>
+
+          <div class="doubt"><svg width="16" height="16" viewBox="0 0 16 16" style="flex:none;margin-top:2px"><path d="M8 1.5 15 14H1z" fill="none" stroke="#b07300" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6v3.5M8 11.6v.3" stroke="#b07300" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <div><b>Least certain: S2 · Debits + credits per customer.</b> NULL_RATE warning: 3.1% of transactions have no customer_id and are excluded from every total. The SQL for this step was repaired once before it ran.
+              <span class="lnk" style="margin-left:6px">Inspect S2</span></div></div>
+
+          <div style="display:flex;align-items:center;gap:8px">
+            <span class="btn">Inspect lineage</span><span class="btn">Correct a step</span><span class="btn dis">Export</span>
+            <span class="sp" style="flex:1"></span><span class="muted">Was this right?</span><span class="btn">Yes</span><span class="btn">Fix it</span>
+          </div>
+          <div class="fu">
+            <div>How did Vivek More's transactions change by month?</div>
+            <div>Which segment has the highest average transaction value?</div>
+            <div>Show the 3.1% of transactions without a customer_id</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="composer"><span class="ph">Ask a follow-up about this investigation…</span>
+      <span class="chip">2 sources</span><span class="chip">Schema-only</span>
+      <span class="send"><svg width="13" height="13" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  </main>
+</div>
+</body>
+</html>

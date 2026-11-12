@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1514" height="1088" viewBox="0 0 1514 1088">
+<title>InsightPilot - UML class diagram of the answer presentation</title>
+<rect width="100%" height="100%" fill="white"/>
+<text x="757.0" y="38.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24.64" font-weight="700" fill="#1f2937">UML class diagram - answer presentation (what the analyst sees)</text>
+<polyline points="238.0,110.0 334.0,110.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="252.0" y="127.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="320.0" y="127.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">0..1</text>
+<text x="286.0" y="103.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">answered by</text>
+<polyline points="552.0,110.0 648.0,110.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="566.0" y="127.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="634.0" y="127.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">0..1</text>
+<text x="600.0" y="103.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">reviewed by</text>
+<polyline points="443.0,267.0 443.0,329.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="443.0,251.0 438.0,259.0 443.0,267.0 448.0,259.0" fill="#4b5563"/>
+<text x="431.0" y="281.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="431.0" y="319.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1..*</text>
+<text x="452.0" y="294.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">ordered by position</text>
+<polyline points="568.0,379.0 1276.0,379.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="552.0,379.0 560.0,384.0 568.0,379.0 560.0,374.0" fill="#4b5563"/>
+<text x="578.0" y="396.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="1262.0" y="396.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">0..*</text>
+<text x="914.0" y="372.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">cites</text>
+<polyline points="1385.0,456.0 1385.0,566.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1373.0" y="474.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">0..*</text>
+<text x="1373.0" y="556.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="1394.0" y="515.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">points to</text>
+<polyline points="1180.0,592.0 1276.0,592.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1194.0" y="609.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">0..*</text>
+<text x="1262.0" y="609.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="1228.0" y="585.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">about</text>
+<polyline points="757.0,745.0 757.0,807.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="757.0,729.0 752.0,737.0 757.0,745.0 762.0,737.0" fill="#4b5563"/>
+<text x="745.0" y="759.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="745.0" y="797.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="766.0" y="772.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">drawn from</text>
+<polyline points="443.0,452.0 443.0,476.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polyline points="129.0,566.0 129.0,476.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polyline points="443.0,566.0 443.0,476.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polyline points="757.0,566.0 757.0,476.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polyline points="1071.0,566.0 1071.0,476.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polyline points="129.0,476.0 1071.0,476.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="443.0,438.0 434.0,452.0 452.0,452.0" fill="#ffffff"/>
+<polyline points="443.0,438.0 434.0,452.0 452.0,452.0 443.0,438.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="459.0" y="456.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">is a</text>
+<rect x="334" y="70" width="218" height="181" rx="2" fill="#ffffff" stroke="#3974bb" stroke-width="2.0"/>
+<rect x="335" y="71" width="216" height="30" rx="1" fill="#e4edf8" stroke="#e4edf8" stroke-width="0.1"/>
+<text x="443.0" y="91.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">Answer</text>
+<line x1="334" y1="101" x2="552" y2="101" stroke="#3974bb" stroke-width="1.2"/>
+<text x="342.0" y="123.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">heading: str</text>
+<text x="342.0" y="141.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">review_state: ReviewState</text>
+<text x="342.0" y="159.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">least_certain_hop: Hop</text>
+<text x="342.0" y="177.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">created_at: UTC</text>
+<line x1="334" y1="187" x2="552" y2="187" stroke="#3974bb" stroke-width="1"/>
+<text x="342.0" y="203.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ add_block(block)</text>
+<text x="342.0" y="221.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ request_review()</text>
+<text x="342.0" y="239.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ export()</text>
+<rect x="334" y="329" width="218" height="109" rx="2" fill="#ffffff" stroke="#3974bb" stroke-width="2.0"/>
+<rect x="335" y="330" width="216" height="30" rx="1" fill="#e4edf8" stroke="#e4edf8" stroke-width="0.1"/>
+<text x="443.0" y="350.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">«abstract» AnswerBlock</text>
+<line x1="334" y1="360" x2="552" y2="360" stroke="#3974bb" stroke-width="1.2"/>
+<text x="342.0" y="382.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">position: int</text>
+<text x="342.0" y="400.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11.63" font-weight="400" fill="#1f2937">kind: TEXT | TABLE | CHART | DOUBT</text>
+<line x1="334" y1="410" x2="552" y2="410" stroke="#3974bb" stroke-width="1"/>
+<text x="342.0" y="426.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ render(): View</text>
+<rect x="1276" y="329" width="218" height="127" rx="2" fill="#ffffff" stroke="#c47c20" stroke-width="2.0"/>
+<rect x="1277" y="330" width="216" height="30" rx="1" fill="#f8ecdc" stroke="#f8ecdc" stroke-width="0.1"/>
+<text x="1385.0" y="350.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">Citation</text>
+<line x1="1276" y1="360" x2="1494" y2="360" stroke="#c47c20" stroke-width="1.2"/>
+<text x="1284.0" y="382.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">marker: int  (¹ ² ³)</text>
+<text x="1284.0" y="400.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">span: text range</text>
+<text x="1284.0" y="418.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">hop: Hop</text>
+<line x1="1276" y1="428" x2="1494" y2="428" stroke="#c47c20" stroke-width="1"/>
+<text x="1284.0" y="444.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ open_hop()</text>
+<rect x="20" y="566" width="218" height="145" rx="2" fill="#ffffff" stroke="#3974bb" stroke-width="2.0"/>
+<rect x="21" y="567" width="216" height="30" rx="1" fill="#e4edf8" stroke="#e4edf8" stroke-width="0.1"/>
+<text x="129.0" y="587.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">TextBlock</text>
+<line x1="20" y1="597" x2="238" y2="597" stroke="#3974bb" stroke-width="1.2"/>
+<text x="28.0" y="619.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">markdown: str</text>
+<text x="28.0" y="637.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">role: SUMMARY | INSIGHTS</text>
+<text x="28.0" y="655.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">written by: small model</text>
+<text x="28.0" y="673.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">only numbers from verified hops</text>
+<line x1="20" y1="683" x2="238" y2="683" stroke="#3974bb" stroke-width="1"/>
+<text x="28.0" y="699.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ citations(): Citation[]</text>
+<rect x="334" y="566" width="218" height="163" rx="2" fill="#ffffff" stroke="#3974bb" stroke-width="2.0"/>
+<rect x="335" y="567" width="216" height="30" rx="1" fill="#e4edf8" stroke="#e4edf8" stroke-width="0.1"/>
+<text x="443.0" y="587.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">TableBlock</text>
+<line x1="334" y1="597" x2="552" y2="597" stroke="#3974bb" stroke-width="1.2"/>
+<text x="342.0" y="619.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">columns: Column[]</text>
+<text x="342.0" y="637.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">rows_ref: Hop.output_ref</text>
+<text x="342.0" y="655.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">row_count: int</text>
+<text x="342.0" y="673.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">page_size: int</text>
+<line x1="334" y1="683" x2="552" y2="683" stroke="#3974bb" stroke-width="1"/>
+<text x="342.0" y="699.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ page(n)</text>
+<text x="342.0" y="717.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ download()</text>
+<rect x="648" y="566" width="218" height="163" rx="2" fill="#ffffff" stroke="#319763" stroke-width="2.0" stroke-dasharray="6 4"/>
+<rect x="649" y="567" width="216" height="30" rx="1" fill="#e3f2e9" stroke="#e3f2e9" stroke-width="0.1"/>
+<text x="757.0" y="587.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">«planned» ChartBlock</text>
+<line x1="648" y1="597" x2="866" y2="597" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="656.0" y="619.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">spec: ChartSpec</text>
+<text x="656.0" y="637.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">source_hop: Hop</text>
+<text x="656.0" y="655.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">made by: VisualizationAgent</text>
+<line x1="648" y1="665" x2="866" y2="665" stroke="#cbd5e1" stroke-width="1"/>
+<text x="656.0" y="681.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ as_table()</text>
+<text x="656.0" y="699.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ download()</text>
+<text x="656.0" y="717.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ edit_spec()</text>
+<rect x="962" y="566" width="218" height="145" rx="2" fill="#ffffff" stroke="#c47c20" stroke-width="2.0"/>
+<rect x="963" y="567" width="216" height="30" rx="1" fill="#f8ecdc" stroke="#f8ecdc" stroke-width="0.1"/>
+<text x="1071.0" y="587.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">DoubtBlock</text>
+<line x1="962" y1="597" x2="1180" y2="597" stroke="#c47c20" stroke-width="1.2"/>
+<text x="970.0" y="619.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">severity: Severity</text>
+<text x="970.0" y="637.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">hop: Hop</text>
+<text x="970.0" y="655.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">check: CheckKind</text>
+<text x="970.0" y="673.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">reason: str</text>
+<line x1="962" y1="683" x2="1180" y2="683" stroke="#c47c20" stroke-width="1"/>
+<text x="970.0" y="699.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#1f2937">+ inspect()</text>
+<rect x="648" y="807" width="218" height="137" rx="2" fill="#ffffff" stroke="#319763" stroke-width="2.0" stroke-dasharray="6 4"/>
+<rect x="649" y="808" width="216" height="30" rx="1" fill="#e3f2e9" stroke="#e3f2e9" stroke-width="0.1"/>
+<text x="757.0" y="828.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">«planned» ChartSpec</text>
+<line x1="648" y1="838" x2="866" y2="838" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="656.0" y="860.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">chart_type: ChartType</text>
+<text x="656.0" y="878.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">x / y: column</text>
+<text x="656.0" y="896.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">color_by: column</text>
+<text x="656.0" y="914.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">title: str</text>
+<text x="656.0" y="932.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">rationale: str</text>
+<rect x="20" y="70" width="218" height="55" rx="2" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<rect x="21" y="71" width="216" height="30" rx="1" fill="#f1f5f9" stroke="#f1f5f9" stroke-width="0.1"/>
+<text x="129.0" y="91.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#475569">Question</text>
+<line x1="20" y1="101" x2="238" y2="101" stroke="#94a3b8" stroke-width="1"/>
+<text x="129.0" y="118.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" font-style="italic" fill="#64748b">see Figure 3</text>
+<rect x="648" y="70" width="218" height="55" rx="2" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<rect x="649" y="71" width="216" height="30" rx="1" fill="#f1f5f9" stroke="#f1f5f9" stroke-width="0.1"/>
+<text x="757.0" y="91.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#475569">SignOff</text>
+<line x1="648" y1="101" x2="866" y2="101" stroke="#94a3b8" stroke-width="1"/>
+<text x="757.0" y="118.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" font-style="italic" fill="#64748b">see Figure 3</text>
+<rect x="1276" y="566" width="218" height="55" rx="2" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<rect x="1277" y="567" width="216" height="30" rx="1" fill="#f1f5f9" stroke="#f1f5f9" stroke-width="0.1"/>
+<text x="1385.0" y="587.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#475569">Hop</text>
+<line x1="1276" y1="597" x2="1494" y2="597" stroke="#94a3b8" stroke-width="1"/>
+<text x="1385.0" y="614.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" font-style="italic" fill="#64748b">see Figure 3</text>
+<rect x="1276" y="70" width="218" height="164" rx="4" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+<text x="1288.0" y="92.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#334155">Legend</text>
+<rect x="1288" y="106" width="30" height="16" rx="2" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+<text x="1328.0" y="119.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" fill="#1f2937">CMPE 295A scope</text>
+<rect x="1288" y="132" width="30" height="16" rx="2" fill="#ffffff" stroke="#475569" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="1328.0" y="145.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" fill="#1f2937">CMPE 295B scope</text>
+<rect x="1288" y="158" width="30" height="16" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="1328.0" y="171.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" fill="#1f2937">domain class from Figure 3</text>
+<polygon points="1288.0,192.0 1296.0,187.0 1304.0,192.0 1296.0,197.0" fill="#4b5563"/>
+<polyline points="1304.0,192.0 1320.0,192.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1328.0" y="197.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" fill="#1f2937">composition (whole ◆ part)</text>
+<polyline points="1288.0,218.0 1320.0,218.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1328.0" y="223.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" fill="#1f2937">association</text>
+<polyline points="1288.0,256.0 1312.0,256.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="1320.0,256.0 1311.0,250.0 1311.0,262.0" fill="#ffffff"/>
+<polyline points="1320.0,256.0 1311.0,250.0 1311.0,262.0 1320.0,256.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1328.0" y="260.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10.32" font-weight="400" fill="#1f2937">generalization (subclass to parent)</text>
+<text x="757.0" y="1010.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="400" fill="#64748b">Severity = WARN | FAIL     ChartType = BAR | LINE | SCATTER | AREA | PIE     ReviewState = UNREVIEWED | REVIEWED</text>
+<text x="757.0" y="1032.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">Built by Orchestrator.compose_answer() (Figure 4): TextBlock sentences by the small model from verified hops only; TableBlock and DoubtBlock copied from Hop output and CheckResults.</text>
+<text x="757.0" y="1050.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">Every ¹ marker is a Citation to the Hop that produced the number; opening it shows that hop’s SQL, row counts and checks. ChartBlock is produced by the VisualizationAgent [295B].</text>
+</svg>

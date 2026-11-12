@@ -1,0 +1,285 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1672" height="1255" viewBox="0 0 1672 1255">
+<title>InsightPilot - database ER diagram</title>
+<rect width="100%" height="100%" fill="white"/>
+<text x="836.0" y="38.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23.520000000000003" font-weight="700" fill="#1f2937">Database ER diagram - Application Store, PostgreSQL 16 (one database per deployment)</text>
+<polyline points="126.0,307.0 126.0,243.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="114.0" y="297.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="114.0" y="261.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">N</text>
+<polyline points="126.0,390.0 126.0,508.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="114.0" y="408.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="114.0" y="498.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">N</text>
+<polyline points="232.0,331.9 304.0,179.6" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="220.0" y="323.2" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="292.0" y="196.3" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">N</text>
+<polyline points="516.0,120.0 588.0,120.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="530.0" y="137.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="574.0" y="137.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">N</text>
+<polyline points="800.0,120.0 872.0,120.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="814.0" y="137.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="858.0" y="137.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<polyline points="1084.0,120.0 1156.0,120.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1098.0" y="137.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="1142.0" y="137.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">N</text>
+<polyline points="694.0,207.0 694.0,307.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="682.0" y="225.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="682.0" y="297.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<polyline points="588.0,357.0 516.0,357.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="574.0" y="374.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="530.0" y="374.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<polyline points="694.0,444.0 694.0,508.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="682.0" y="462.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="682.0" y="498.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">N</text>
+<polyline points="978.0,207.0 978.0,307.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="966.0" y="225.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="966.0" y="297.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<polyline points="1262.0,207.0 1262.0,307.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1250.0" y="225.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="1250.0" y="297.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">N</text>
+<polyline points="1219.6,408.0 1041.6,508.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1206.3" y="433.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">N</text>
+<text x="1054.9" y="490.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<polyline points="800.0,558.0 872.0,558.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="814.0" y="575.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="858.0" y="575.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<polyline points="1084.0,558.0 1156.0,558.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1098.0" y="575.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="1142.0" y="575.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">N</text>
+<polyline points="1368.0,558.0 1440.0,558.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1382.0" y="575.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="1426.0" y="575.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">N</text>
+<polyline points="304.0,1032.0 232.0,1032.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="290.0" y="1049.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="246.0" y="1049.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">N</text>
+<polyline points="516.0,1032.0 588.0,1032.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="530.0" y="1049.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="574.0" y="1049.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">N</text>
+<polyline points="978.0,699.0 978.0,763.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="966.0" y="717.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="966.0" y="753.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">N</text>
+<polyline points="1084.0,679.9 1156.0,809.5" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1105.2" y="697.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="1134.8" y="800.1" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<polyline points="304.0,558.0 232.0,558.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="290.0" y="575.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">N</text>
+<text x="246.0" y="575.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">2</text>
+<polyline points="126.0,627.0 126.0,763.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="114.0" y="645.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="114.0" y="753.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">N</text>
+<polyline points="872.0,679.9 800.0,785.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="849.7" y="695.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<text x="822.3" y="777.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="700" fill="#b83a3a">1</text>
+<rect x="20" y="70" width="212" height="173" rx="2" fill="#ffffff" stroke="#64748b" stroke-width="2.0"/>
+<rect x="21" y="71" width="210" height="30" rx="1" fill="#e9edf2" stroke="#e9edf2" stroke-width="0.1"/>
+<text x="126.0" y="91.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">bindings</text>
+<line x1="20" y1="101" x2="232" y2="101" stroke="#64748b" stroke-width="1.2"/>
+<text x="28.0" y="123.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="28.0" y="141.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK org_id</text>
+<text x="28.0" y="159.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">term_normalised, kind</text>
+<text x="28.0" y="177.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">expression, provenance</text>
+<text x="28.0" y="195.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">schema_version</text>
+<text x="28.0" y="213.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">use_count, override_count</text>
+<text x="28.0" y="231.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">confirmed_by, confirmed_at</text>
+<rect x="20" y="307" width="212" height="83" rx="2" fill="#ffffff" stroke="#64748b" stroke-width="2.0"/>
+<rect x="21" y="308" width="210" height="30" rx="1" fill="#e9edf2" stroke="#e9edf2" stroke-width="0.1"/>
+<text x="126.0" y="328.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">organisations</text>
+<line x1="20" y1="338" x2="232" y2="338" stroke="#64748b" stroke-width="1.2"/>
+<text x="28.0" y="360.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="28.0" y="378.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">name, created_at</text>
+<rect x="20" y="508" width="212" height="119" rx="2" fill="#ffffff" stroke="#c94e67" stroke-width="2.0"/>
+<rect x="21" y="509" width="210" height="30" rx="1" fill="#f7e3e7" stroke="#f7e3e7" stroke-width="0.1"/>
+<text x="126.0" y="529.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">sources</text>
+<line x1="20" y1="539" x2="232" y2="539" stroke="#c94e67" stroke-width="1.2"/>
+<text x="28.0" y="561.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="28.0" y="579.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK org_id</text>
+<text x="28.0" y="597.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">kind, conn_ref / file_path</text>
+<text x="28.0" y="615.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">read_only, schema_version</text>
+<rect x="304" y="70" width="212" height="137" rx="2" fill="#ffffff" stroke="#3974bb" stroke-width="2.0"/>
+<rect x="305" y="71" width="210" height="30" rx="1" fill="#e4edf8" stroke="#e4edf8" stroke-width="0.1"/>
+<text x="410.0" y="91.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">investigations</text>
+<line x1="304" y1="101" x2="516" y2="101" stroke="#3974bb" stroke-width="1.2"/>
+<text x="312.0" y="123.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="312.0" y="141.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK org_id</text>
+<text x="312.0" y="159.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">title, requester_role</text>
+<text x="312.0" y="177.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">established_facts JSON</text>
+<text x="312.0" y="195.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">source_scope JSON</text>
+<rect x="304" y="307" width="212" height="119" rx="2" fill="#ffffff" stroke="#3974bb" stroke-width="2.0"/>
+<rect x="305" y="308" width="210" height="30" rx="1" fill="#e4edf8" stroke="#e4edf8" stroke-width="0.1"/>
+<text x="410.0" y="328.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">plan_approvals</text>
+<line x1="304" y1="338" x2="516" y2="338" stroke="#3974bb" stroke-width="1.2"/>
+<text x="312.0" y="360.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="312.0" y="378.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK plan_id (unique)</text>
+<text x="312.0" y="396.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">clarifications JSON, edits JSON</text>
+<text x="312.0" y="414.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">approved_by, approved_at</text>
+<rect x="304" y="508" width="212" height="155" rx="2" fill="#ffffff" stroke="#c47c20" stroke-width="2.0"/>
+<rect x="305" y="509" width="210" height="30" rx="1" fill="#f8ecdc" stroke="#f8ecdc" stroke-width="0.1"/>
+<text x="410.0" y="529.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">mapping_proposals</text>
+<line x1="304" y1="539" x2="516" y2="539" stroke="#c47c20" stroke-width="1.2"/>
+<text x="312.0" y="561.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="312.0" y="579.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK left_source_id, right_source_id</text>
+<text x="312.0" y="597.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK verdict_id, FK binding_id</text>
+<text x="312.0" y="615.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">left_key, right_key</text>
+<text x="312.0" y="633.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">overlap, coverage, unmatched_pct</text>
+<text x="312.0" y="651.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">proposed_map JSON, status</text>
+<rect x="588" y="70" width="212" height="137" rx="2" fill="#ffffff" stroke="#3974bb" stroke-width="2.0"/>
+<rect x="589" y="71" width="210" height="30" rx="1" fill="#e4edf8" stroke="#e4edf8" stroke-width="0.1"/>
+<text x="694.0" y="91.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">questions</text>
+<line x1="588" y1="101" x2="800" y2="101" stroke="#3974bb" stroke-width="1.2"/>
+<text x="596.0" y="123.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="596.0" y="141.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK investigation_id</text>
+<text x="596.0" y="159.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">seq (unique per investigation)</text>
+<text x="596.0" y="177.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">text, asked_by, asked_at</text>
+<text x="596.0" y="195.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">status</text>
+<rect x="588" y="307" width="212" height="137" rx="2" fill="#ffffff" stroke="#855bc0" stroke-width="2.0"/>
+<rect x="589" y="308" width="210" height="30" rx="1" fill="#eee8f7" stroke="#eee8f7" stroke-width="0.1"/>
+<text x="694.0" y="328.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">plans</text>
+<line x1="588" y1="338" x2="800" y2="338" stroke="#855bc0" stroke-width="1.2"/>
+<text x="596.0" y="360.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="596.0" y="378.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK question_id (unique)</text>
+<text x="596.0" y="396.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">status, semantic_signature</text>
+<text x="596.0" y="414.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">hop_count</text>
+<text x="596.0" y="432.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">diff_from_prior JSON</text>
+<rect x="588" y="508" width="212" height="155" rx="2" fill="#ffffff" stroke="#855bc0" stroke-width="2.0"/>
+<rect x="589" y="509" width="210" height="30" rx="1" fill="#eee8f7" stroke="#eee8f7" stroke-width="0.1"/>
+<text x="694.0" y="529.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">plan_steps</text>
+<line x1="588" y1="539" x2="800" y2="539" stroke="#855bc0" stroke-width="1.2"/>
+<text x="596.0" y="561.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="596.0" y="579.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK plan_id, FK source_id</text>
+<text x="596.0" y="597.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">step_key (unique per plan)</text>
+<text x="596.0" y="615.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">step_type, declared_grain</text>
+<text x="596.0" y="633.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">depends_on uuid[]</text>
+<text x="596.0" y="651.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">binding_ids uuid[]</text>
+<rect x="872" y="70" width="212" height="137" rx="2" fill="#ffffff" stroke="#3974bb" stroke-width="2.0"/>
+<rect x="873" y="71" width="210" height="30" rx="1" fill="#e4edf8" stroke="#e4edf8" stroke-width="0.1"/>
+<text x="978.0" y="91.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">answers</text>
+<line x1="872" y1="101" x2="1084" y2="101" stroke="#3974bb" stroke-width="1.2"/>
+<text x="880.0" y="123.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="880.0" y="141.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK question_id (unique)</text>
+<text x="880.0" y="159.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK least_certain_hop_id</text>
+<text x="880.0" y="177.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">heading, review_state</text>
+<text x="880.0" y="195.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">created_at</text>
+<rect x="872" y="307" width="212" height="119" rx="2" fill="#ffffff" stroke="#64748b" stroke-width="2.0"/>
+<rect x="873" y="308" width="210" height="30" rx="1" fill="#e9edf2" stroke="#e9edf2" stroke-width="0.1"/>
+<text x="978.0" y="328.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">sign_offs</text>
+<line x1="872" y1="338" x2="1084" y2="338" stroke="#64748b" stroke-width="1.2"/>
+<text x="880.0" y="360.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="880.0" y="378.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK answer_id (unique)</text>
+<text x="880.0" y="396.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">reviewed_by, reviewed_at</text>
+<text x="880.0" y="414.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">note</text>
+<rect x="872" y="508" width="212" height="191" rx="2" fill="#ffffff" stroke="#c47c20" stroke-width="2.0"/>
+<rect x="873" y="509" width="210" height="30" rx="1" fill="#f8ecdc" stroke="#f8ecdc" stroke-width="0.1"/>
+<text x="978.0" y="529.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">hops</text>
+<line x1="872" y1="539" x2="1084" y2="539" stroke="#c47c20" stroke-width="1.2"/>
+<text x="880.0" y="561.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="880.0" y="579.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK step_id (unique)</text>
+<text x="880.0" y="597.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK replay_of (self)</text>
+<text x="880.0" y="615.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">title, statement_issued</text>
+<text x="880.0" y="633.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">rows_in, rows_out</text>
+<text x="880.0" y="651.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">grain_declared, grain_actual</text>
+<text x="880.0" y="669.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">attempts (SQL repairs)</text>
+<text x="880.0" y="687.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">output_ref, sample_rows JSON</text>
+<rect x="1156" y="70" width="212" height="137" rx="2" fill="#ffffff" stroke="#3974bb" stroke-width="2.0"/>
+<rect x="1157" y="71" width="210" height="30" rx="1" fill="#e4edf8" stroke="#e4edf8" stroke-width="0.1"/>
+<text x="1262.0" y="91.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">answer_blocks</text>
+<line x1="1156" y1="101" x2="1368" y2="101" stroke="#3974bb" stroke-width="1.2"/>
+<text x="1164.0" y="123.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="1164.0" y="141.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK answer_id</text>
+<text x="1164.0" y="159.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">position (unique per answer)</text>
+<text x="1164.0" y="177.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">kind</text>
+<text x="1164.0" y="195.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">content JSON</text>
+<rect x="1156" y="307" width="212" height="101" rx="2" fill="#ffffff" stroke="#c47c20" stroke-width="2.0"/>
+<rect x="1157" y="308" width="210" height="30" rx="1" fill="#f8ecdc" stroke="#f8ecdc" stroke-width="0.1"/>
+<text x="1262.0" y="328.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">citations</text>
+<line x1="1156" y1="338" x2="1368" y2="338" stroke="#c47c20" stroke-width="1.2"/>
+<text x="1164.0" y="360.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="1164.0" y="378.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK block_id, FK hop_id</text>
+<text x="1164.0" y="396.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">marker, span</text>
+<rect x="1156" y="508" width="212" height="155" rx="2" fill="#ffffff" stroke="#c47c20" stroke-width="2.0"/>
+<rect x="1157" y="509" width="210" height="30" rx="1" fill="#f8ecdc" stroke="#f8ecdc" stroke-width="0.1"/>
+<text x="1262.0" y="529.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">hop_verdicts</text>
+<line x1="1156" y1="539" x2="1368" y2="539" stroke="#c47c20" stroke-width="1.2"/>
+<text x="1164.0" y="561.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="1164.0" y="579.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK hop_id</text>
+<text x="1164.0" y="597.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">attempt (unique per hop)</text>
+<text x="1164.0" y="615.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">status, doubt_reasons JSON</text>
+<text x="1164.0" y="633.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">verifier_version</text>
+<text x="1164.0" y="651.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">started_at, finished_at</text>
+<rect x="1440" y="508" width="212" height="155" rx="2" fill="#ffffff" stroke="#c47c20" stroke-width="2.0"/>
+<rect x="1441" y="509" width="210" height="30" rx="1" fill="#f8ecdc" stroke="#f8ecdc" stroke-width="0.1"/>
+<text x="1546.0" y="529.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">check_results</text>
+<line x1="1440" y1="539" x2="1652" y2="539" stroke="#c47c20" stroke-width="1.2"/>
+<text x="1448.0" y="561.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="1448.0" y="579.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK verdict_id</text>
+<text x="1448.0" y="597.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">kind, status</text>
+<text x="1448.0" y="615.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">expected, observed, tolerance</text>
+<text x="1448.0" y="633.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">sql_text, sql_hash, params</text>
+<text x="1448.0" y="651.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">elapsed_ms, reason</text>
+<rect x="20" y="982" width="212" height="137" rx="2" fill="#ffffff" stroke="#c47c20" stroke-width="2.0"/>
+<rect x="21" y="983" width="210" height="30" rx="1" fill="#f8ecdc" stroke="#f8ecdc" stroke-width="0.1"/>
+<text x="126.0" y="1003.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">eval_item_results</text>
+<line x1="20" y1="1013" x2="232" y2="1013" stroke="#c47c20" stroke-width="1.2"/>
+<text x="28.0" y="1035.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="28.0" y="1053.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK run_id</text>
+<text x="28.0" y="1071.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">question_id, trial (unique per run)</text>
+<text x="28.0" y="1089.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">correct, any_fail, asked</text>
+<text x="28.0" y="1107.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">retries, tokens, cost_usd</text>
+<rect x="304" y="982" width="212" height="137" rx="2" fill="#ffffff" stroke="#c47c20" stroke-width="2.0"/>
+<rect x="305" y="983" width="210" height="30" rx="1" fill="#f8ecdc" stroke="#f8ecdc" stroke-width="0.1"/>
+<text x="410.0" y="1003.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">eval_runs</text>
+<line x1="304" y1="1013" x2="516" y2="1013" stroke="#c47c20" stroke-width="1.2"/>
+<text x="312.0" y="1035.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="312.0" y="1053.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">suite, mode (replay | live | study)</text>
+<text x="312.0" y="1071.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">trials_k, git_sha, model_id</text>
+<text x="312.0" y="1089.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">dataset_version</text>
+<text x="312.0" y="1107.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">started_at, metrics JSON</text>
+<rect x="588" y="982" width="212" height="137" rx="2" fill="#ffffff" stroke="#c47c20" stroke-width="2.0"/>
+<rect x="589" y="983" width="210" height="30" rx="1" fill="#f8ecdc" stroke="#f8ecdc" stroke-width="0.1"/>
+<text x="694.0" y="1003.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">seeded_defect_results</text>
+<line x1="588" y1="1013" x2="800" y2="1013" stroke="#c47c20" stroke-width="1.2"/>
+<text x="596.0" y="1035.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="596.0" y="1053.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK run_id</text>
+<text x="596.0" y="1071.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">defect_id, defect_class</text>
+<text x="596.0" y="1089.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">caught_by text[]</text>
+<text x="596.0" y="1107.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">escaped (generated)</text>
+<rect x="872" y="763" width="212" height="137" rx="2" fill="#ffffff" stroke="#64748b" stroke-width="2.0"/>
+<rect x="873" y="764" width="210" height="30" rx="1" fill="#e9edf2" stroke="#e9edf2" stroke-width="0.1"/>
+<text x="978.0" y="784.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">overrides</text>
+<line x1="872" y1="794" x2="1084" y2="794" stroke="#64748b" stroke-width="1.2"/>
+<text x="880.0" y="816.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="880.0" y="834.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK hop_id</text>
+<text x="880.0" y="852.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">overridden_by, annotation_type</text>
+<text x="880.0" y="870.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">rationale</text>
+<text x="880.0" y="888.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">persisted_to_bindings</text>
+<rect x="1156" y="763" width="212" height="155" rx="2" fill="#ffffff" stroke="#319763" stroke-width="2.0" stroke-dasharray="6 4"/>
+<rect x="1157" y="764" width="210" height="30" rx="1" fill="#e3f2e9" stroke="#e3f2e9" stroke-width="0.1"/>
+<text x="1262.0" y="784.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.120000000000001" font-weight="700" fill="#1f2937">model_cards</text>
+<line x1="1156" y1="794" x2="1368" y2="794" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="1164.0" y="816.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">«planned»</text>
+<text x="1164.0" y="834.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">PK id</text>
+<text x="1164.0" y="852.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">FK hop_id (unique)</text>
+<text x="1164.0" y="870.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">target, features JSON</text>
+<text x="1164.0" y="888.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">not_attempted JSON</text>
+<text x="1164.0" y="906.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#1f2937">metric_with_uncertainty</text>
+<rect x="20" y="763" width="212" height="55" rx="2" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<rect x="21" y="764" width="210" height="30" rx="1" fill="#f1f5f9" stroke="#f1f5f9" stroke-width="0.1"/>
+<text x="126.0" y="784.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#475569">audit_log.jsonl</text>
+<line x1="20" y1="794" x2="232" y2="794" stroke="#94a3b8" stroke-width="1"/>
+<text x="126.0" y="811.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" font-style="italic" fill="#64748b">file, not a table: append-only</text>
+<rect x="588" y="763" width="212" height="55" rx="2" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<rect x="589" y="764" width="210" height="30" rx="1" fill="#f1f5f9" stroke="#f1f5f9" stroke-width="0.1"/>
+<text x="694.0" y="784.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#475569">Artifact Store</text>
+<line x1="588" y1="794" x2="800" y2="794" stroke="#94a3b8" stroke-width="1"/>
+<text x="694.0" y="811.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" font-style="italic" fill="#64748b">files keyed by hops.output_ref</text>
+<rect x="1440" y="70" width="212" height="138" rx="4" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+<text x="1452.0" y="92.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#334155">Legend</text>
+<rect x="1452" y="106" width="30" height="16" rx="2" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+<text x="1492.0" y="119.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" fill="#1f2937">table (CMPE 295A)</text>
+<rect x="1452" y="132" width="30" height="16" rx="2" fill="#ffffff" stroke="#475569" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="1492.0" y="145.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.07" font-weight="400" fill="#1f2937">planned table (CMPE 295B)</text>
+<rect x="1452" y="158" width="30" height="16" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="1492.0" y="171.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" fill="#1f2937">file-based store, not a table</text>
+<polyline points="1452.0,192.0 1484.0,192.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1492.0" y="197.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11.57" font-weight="400" fill="#1f2937">foreign key, 1 / N at each end</text>
+<text x="836.0" y="1173.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#64748b">All tables are scoped to the single organisation of the deployment. plan_steps.depends_on holds the DAG edges and plan_steps.binding_ids the bindings a step uses (uuid arrays).</text>
+<text x="836.0" y="1193.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#64748b">Unique: bindings (org_id, term_normalised, kind); questions (investigation_id, seq); plan_steps (plan_id, step_key); answer_blocks (answer_id, position); hop_verdicts (hop_id, attempt); eval_item_results (run_id, question_id, trial).</text>
+<text x="836.0" y="1213.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" font-style="italic" fill="#64748b">Verdicts are never updated: a re-run inserts a new attempt. Full result sets are not stored: hops keep counts, grain and a sample; outputs live in the Artifact Store. Evaluation tables are written by the harness.</text>
+</svg>

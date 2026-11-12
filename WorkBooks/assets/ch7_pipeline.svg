@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+<title>InsightPilot - evaluation and CI pipeline</title>
+<rect width="100%" height="100%" fill="white"/>
+<text x="720.0" y="34.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24.64" font-weight="700" fill="#334155">InsightPilot: Evaluation and CI Pipeline</text>
+<text x="720.0" y="58.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="400" fill="#334155">Test levels on every pull request · evaluation harness · release · periodic human evaluation</text>
+<rect x="20" y="80" width="1400" height="150" rx="6" fill="#eff6ff" stroke="#3974bb" stroke-width="1.4"/>
+<text x="32.0" y="101.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="700" fill="#3974bb">EVERY PULL REQUEST: GITHUB ACTIONS (ALL JOBS MUST PASS TO MERGE)</text>
+<rect x="34.0" y="114" width="210.33333333333334" height="100" rx="3" fill="#ffffff" stroke="#3974bb" stroke-width="1.4"/>
+<text x="139.2" y="135.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Static analysis</text>
+<text x="139.2" y="158.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Lint, format, strict types</text>
+<text x="139.2" y="175.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Python and TypeScript</text>
+<text x="139.2" y="200.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">ruff · mypy · tsc · eslint</text>
+<polyline points="247.3,164.0 263.3,164.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="265.3,164.0 258.3,160.0 258.3,168.0" fill="#64748b"/>
+<rect x="266.33333333333337" y="114" width="210.33333333333334" height="100" rx="3" fill="#ffffff" stroke="#3974bb" stroke-width="1.4"/>
+<text x="371.5" y="135.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Unit and contract</text>
+<text x="371.5" y="158.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Plan schema and validation</text>
+<text x="371.5" y="175.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">StepResult, connector contract</text>
+<text x="371.5" y="200.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">pytest</text>
+<polyline points="479.7,164.0 495.7,164.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="497.7,164.0 490.7,160.0 490.7,168.0" fill="#64748b"/>
+<rect x="498.6666666666667" y="114" width="210.33333333333334" height="100" rx="3" fill="#ffffff" stroke="#3974bb" stroke-width="1.4"/>
+<text x="603.8" y="135.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Integration</text>
+<text x="603.8" y="158.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Real PostgreSQL 16 and DuckDB</text>
+<text x="603.8" y="175.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Read-only enforced; audit written</text>
+<text x="603.8" y="200.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">pytest · Docker Compose</text>
+<polyline points="712.0,164.0 728.0,164.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="730.0,164.0 723.0,160.0 723.0,168.0" fill="#64748b"/>
+<rect x="731.0" y="114" width="210.33333333333334" height="100" rx="3" fill="#ffffff" stroke="#3974bb" stroke-width="1.4"/>
+<text x="836.2" y="135.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Agent end-to-end</text>
+<text x="836.2" y="158.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Plan → agents → verify → hop</text>
+<text x="836.2" y="175.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Recorded model responses</text>
+<text x="836.2" y="200.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">pytest · model fixtures</text>
+<polyline points="944.3,164.0 960.3,164.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="962.3,164.0 955.3,160.0 955.3,168.0" fill="#64748b"/>
+<rect x="963.3333333333334" y="114" width="210.33333333333334" height="100" rx="3" fill="#ffffff" stroke="#3974bb" stroke-width="1.4"/>
+<text x="1068.5" y="135.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">UI end-to-end</text>
+<text x="1068.5" y="158.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Ask, approve, inspect, sign off</text>
+<text x="1068.5" y="175.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Accessibility checks</text>
+<text x="1068.5" y="200.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">Playwright · axe-core</text>
+<polyline points="1176.7,164.0 1192.7,164.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="1194.7,164.0 1187.7,160.0 1187.7,168.0" fill="#64748b"/>
+<rect x="1195.6666666666667" y="114" width="210.33333333333334" height="100" rx="3" fill="#ffffff" stroke="#3974bb" stroke-width="1.4"/>
+<text x="1300.8" y="135.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Security</text>
+<text x="1300.8" y="158.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Secrets, dependencies, images</text>
+<text x="1300.8" y="175.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Every write attempt must fail</text>
+<text x="1300.8" y="200.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">gitleaks · scanners</text>
+<polyline points="270.0,233.0 270.0,272.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="270.0,274.0 265.0,266.0 275.0,266.0" fill="#64748b"/>
+<text x="284.0" y="257.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" fill="#334155">harness job runs on the same pull request</text>
+<polyline points="760.0,272.0 760.0,234.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polygon points="760.0,232.0 755.0,240.0 765.0,240.0" fill="#64748b"/>
+<text x="774.0" y="257.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" fill="#334155">failing test or regression blocks the merge</text>
+<rect x="20" y="276" width="1400" height="150" rx="6" fill="#fff7ed" stroke="#c47c20" stroke-width="1.4"/>
+<text x="32.0" y="297.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="700" fill="#c47c20">EVALUATION HARNESS: ON EVERY PULL REQUEST AND NIGHTLY</text>
+<rect x="34.0" y="310" width="256.8" height="100" rx="3" fill="#ffffff" stroke="#c47c20" stroke-width="1.4"/>
+<text x="162.4" y="331.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Question and defect sets</text>
+<text x="162.4" y="354.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">30–50 questions, ground truth</text>
+<text x="162.4" y="371.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">8 seeded-defect classes (D1–D8)</text>
+<text x="162.4" y="396.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">YAML + Parquet fixtures</text>
+<polyline points="293.8,360.0 309.8,360.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="311.8,360.0 304.8,356.0 304.8,364.0" fill="#64748b"/>
+<rect x="312.8" y="310" width="256.8" height="100" rx="3" fill="#ffffff" stroke="#c47c20" stroke-width="1.4"/>
+<text x="441.2" y="331.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Harness runner</text>
+<text x="441.2" y="354.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Replay on PRs (recorded responses)</text>
+<text x="441.2" y="371.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Live nightly: 5 trials per question</text>
+<text x="441.2" y="396.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">pytest · Docker Compose</text>
+<polyline points="572.6,360.0 588.6,360.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="590.6,360.0 583.6,356.0 583.6,364.0" fill="#64748b"/>
+<rect x="591.6" y="310" width="256.8" height="100" rx="3" fill="#ffffff" stroke="#c47c20" stroke-width="1.4"/>
+<text x="720.0" y="331.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">System under test</text>
+<text x="720.0" y="354.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Full pipeline, frontier model</text>
+<text x="720.0" y="371.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Verifier on and off (B1)</text>
+<text x="720.0" y="396.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">InsightPilot</text>
+<polyline points="851.4,360.0 867.4,360.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="869.4,360.0 862.4,356.0 862.4,364.0" fill="#64748b"/>
+<rect x="870.4000000000001" y="310" width="256.8" height="100" rx="3" fill="#ffffff" stroke="#c47c20" stroke-width="1.4"/>
+<text x="998.8" y="331.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Scoring</text>
+<text x="998.8" y="354.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Accuracy · silent errors · coverage</text>
+<text x="998.8" y="371.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">False alarms · pass^k (k = 1–5) · cost</text>
+<text x="998.8" y="396.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">Python · bootstrap CIs</text>
+<polyline points="1130.2,360.0 1146.2,360.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="1148.2,360.0 1141.2,356.0 1141.2,364.0" fill="#64748b"/>
+<rect x="1149.2" y="310" width="256.8" height="100" rx="3" fill="#ffffff" stroke="#c47c20" stroke-width="1.4"/>
+<text x="1277.6" y="331.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Gate and report</text>
+<text x="1277.6" y="354.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Fails if accuracy, coverage</text>
+<text x="1277.6" y="371.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">or false-alarm rate regress</text>
+<text x="1277.6" y="396.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">GitHub Actions</text>
+<polyline points="270.0,429.0 270.0,468.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="270.0,470.0 265.0,462.0 275.0,462.0" fill="#64748b"/>
+<text x="284.0" y="453.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" fill="#334155">all jobs green: merge and release</text>
+<polyline points="760.0,468.0 760.0,430.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polygon points="760.0,428.0 755.0,436.0 765.0,436.0" fill="#64748b"/>
+<text x="774.0" y="453.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" fill="#334155">release candidate under test</text>
+<rect x="20" y="472" width="1400" height="150" rx="6" fill="#f0fdf4" stroke="#319763" stroke-width="1.4"/>
+<text x="32.0" y="493.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="700" fill="#319763">RELEASE AND DEPLOYMENT: SINGLE-TENANT, SELF-HOSTED</text>
+<rect x="34.0" y="506" width="326.5" height="100" rx="3" fill="#ffffff" stroke="#319763" stroke-width="1.4"/>
+<text x="197.2" y="527.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Merge to main</text>
+<text x="197.2" y="550.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Reviewed pull request</text>
+<text x="197.2" y="567.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">All jobs and harness green</text>
+<text x="197.2" y="592.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">GitHub</text>
+<polyline points="363.5,556.0 379.5,556.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="381.5,556.0 374.5,552.0 374.5,560.0" fill="#64748b"/>
+<rect x="382.5" y="506" width="326.5" height="100" rx="3" fill="#ffffff" stroke="#319763" stroke-width="1.4"/>
+<text x="545.8" y="527.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Build and tag images</text>
+<text x="545.8" y="550.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Versioned, pinned images</text>
+<text x="545.8" y="567.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Backup before migrations</text>
+<text x="545.8" y="592.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">Docker</text>
+<polyline points="712.0,556.0 728.0,556.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="730.0,556.0 723.0,552.0 723.0,560.0" fill="#64748b"/>
+<rect x="731.0" y="506" width="326.5" height="100" rx="3" fill="#ffffff" stroke="#319763" stroke-width="1.4"/>
+<text x="894.2" y="527.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">One-command quickstart</text>
+<text x="894.2" y="550.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">docker compose up + demo data</text>
+<text x="894.2" y="567.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Clone to first answer &lt; 30 min</text>
+<text x="894.2" y="592.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">Docker Compose</text>
+<polyline points="1060.5,556.0 1076.5,556.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="1078.5,556.0 1071.5,552.0 1071.5,560.0" fill="#64748b"/>
+<rect x="1079.5" y="506" width="326.5" height="100" rx="3" fill="#ffffff" stroke="#319763" stroke-width="1.4"/>
+<text x="1242.8" y="527.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Expo demo deployment</text>
+<text x="1242.8" y="550.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">One organisation per stack</text>
+<text x="1242.8" y="567.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Seeded demo schema</text>
+<text x="1242.8" y="592.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">Docker Compose</text>
+<polyline points="270.0,625.0 270.0,664.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="270.0,666.0 265.0,658.0 275.0,658.0" fill="#64748b"/>
+<text x="284.0" y="649.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" fill="#334155">release used for studies (Dec 7–11)</text>
+<polyline points="760.0,664.0 760.0,626.0" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polygon points="760.0,624.0 755.0,632.0 765.0,632.0" fill="#64748b"/>
+<text x="774.0" y="649.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" fill="#334155">findings become backlog items</text>
+<rect x="20" y="668" width="1400" height="150" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.4"/>
+<text x="32.0" y="689.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13.440000000000001" font-weight="700" fill="#64748b">PERIODIC HUMAN EVALUATION: NOT IN CI</text>
+<rect x="34.0" y="702" width="442.6666666666667" height="100" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="1.4"/>
+<text x="255.3" y="723.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Verification-cost study</text>
+<text x="255.3" y="746.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Five analysts, timed sessions</text>
+<text x="255.3" y="763.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Check vs derive (NFR-10)</text>
+<text x="255.3" y="788.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">moderated sessions</text>
+<polyline points="479.7,752.0 495.7,752.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="497.7,752.0 490.7,748.0 490.7,756.0" fill="#64748b"/>
+<rect x="498.6666666666667" y="702" width="442.6666666666667" height="100" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="1.4"/>
+<text x="720.0" y="723.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Seeded-defect review</text>
+<text x="720.0" y="746.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Reject planted defects</text>
+<text x="720.0" y="763.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">With and without trace (NFR-09)</text>
+<text x="720.0" y="788.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">moderated sessions</text>
+<polyline points="944.3,752.0 960.3,752.0" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+<polygon points="962.3,752.0 955.3,748.0 955.3,756.0" fill="#64748b"/>
+<rect x="963.3333333333334" y="702" width="442.6666666666667" height="100" rx="3" fill="#ffffff" stroke="#64748b" stroke-width="1.4"/>
+<text x="1184.7" y="723.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.560000000000002" font-weight="700" fill="#1f2937">Usability walkthrough</text>
+<text x="1184.7" y="746.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Ask, approve, inspect, sign off</text>
+<text x="1184.7" y="763.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#334155">Findings fed into the backlog</text>
+<text x="1184.7" y="788.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11.760000000000002" font-weight="400" fill="#64748b">think-aloud sessions</text>
+<text x="20.0" y="872.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.88" font-weight="400" fill="#475569">KEY: Solid arrow = the run proceeds; dashed arrow = feedback. Cards run left to right within a lane. B1 = verifier-off baseline (Table 12).</text>
+<text x="20.0" y="894.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12.32" font-weight="400" font-style="italic" fill="#64748b">Requirements: FR-01, FR-02 and NFR-14 (harness in CI on every pull request); NFR-13 and FR-27 (quickstart); NFR-09 and NFR-10 (human studies).</text>
+</svg>
